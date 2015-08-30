@@ -25,8 +25,8 @@ QList<Node *> PathFinder::calculatePath(Monster *startMonster, Monster *goalMons
     m_closedList.clear();
 
     // set the start and end node
-    m_goalNode = m_board->nodeAt(goalMonster->position().x(), goalMonster->position().y());
-    m_startNode = m_board->nodeAt(startMonster->position().x(), startMonster->position().y());
+    //m_goalNode = m_board->nodeAt(goalMonster->position().x(), goalMonster->position().y());
+    //m_startNode = m_board->nodeAt(startMonster->position().x(), startMonster->position().y());
     //initialize the start node
     m_startNode->setG(0);
     m_startNode->setH(calculateDistance(m_startNode, m_goalNode));

@@ -14,6 +14,7 @@ Level::~Level()
 void Level::setName(const QString &name)
 {
     m_name = name;
+    emit nameChanged();
 }
 
 QString Level::name() const
@@ -24,6 +25,7 @@ QString Level::name() const
 void Level::setLevelId(const int &levelId)
 {
     m_levelId = levelId;
+    emit levelIdChanged();
 }
 
 int Level::levelId() const
@@ -31,42 +33,23 @@ int Level::levelId() const
     return m_levelId;
 }
 
-void Level::addMonster(Monster *monster)
+void Level::setMonstersVariants(const QVariantList &monstersVariant)
 {
-    m_monsteres.append(monster);
+    m_monstersVariant = monstersVariant;
 }
 
-QList<Monster *> Level::monsteres() const
+QVariantList Level::monstersVariant() const
 {
-    return m_monsteres;
+    return m_monstersVariant;
 }
 
-Monster *Level::monster(int id) const
+void Level::setPlayersVariants(const QVariantList &playersVariant)
 {
-    foreach (Monster *monster, m_monsteres) {
-        if(monster->id() == id){
-            return monster;
-        }
-    }
-    return NULL;
+    m_playersVariant = playersVariant;
 }
 
-void Level::addPlayer(Player *player)
+QVariantList Level::playersVariant() const
 {
-    m_players.append(player);
+    return m_playersVariant;
 }
 
-QList<Player *> Level::players() const
-{
-    return m_players;
-}
-
-Player *Level::player(int id) const
-{
-    foreach (Player *player, m_players) {
-        if(player->id() == id){
-            return player;
-        }
-    }
-    return NULL;
-}

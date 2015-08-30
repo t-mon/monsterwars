@@ -10,7 +10,7 @@ class Player : public QObject
     Q_OBJECT
     Q_PROPERTY(int pointCount READ pointCount NOTIFY pointCountChanged)
     Q_PROPERTY(double percentage READ percentage NOTIFY percentageChanged)
-    Q_PROPERTY(QColor color READ color() CONSTANT)
+    Q_PROPERTY(QString colorString READ colorString() CONSTANT)
 
 public:
     enum PlayerType {
@@ -22,8 +22,8 @@ public:
     explicit Player(int playerId, QObject *parent = 0);
     int id() const;
 
-    void setColor(const QColor &color);
-    QColor color() const;
+    void setColorString(const QString &colorString);
+    QString colorString() const;
 
     void setPlayerType(const PlayerType &playerType);
     void setPlayerType(const QString &playerTypeString);
@@ -53,7 +53,7 @@ private:
     int m_id;
     int m_pointCount;
     double m_percentage;
-    QColor m_color;
+    QString m_colorString;
     PlayerType m_playerType;
     QString m_playerTypeString;
     int m_strength;

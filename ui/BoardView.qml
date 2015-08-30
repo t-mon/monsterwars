@@ -1,30 +1,33 @@
 import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import MonsterWars 1.0
+import Ubuntu.Components 1.1
 
 Item {
     id: root
     property var board
     property real nodeDistance: background.width / board.columns
-    property bool nodeView: false
 
     PointView {
         id: pointView
         width: root.width
-        height: root.height / 15
+        height: root.height / 25
         anchors.top: root.top
-        anchors.verticalCenter: root.verticalCenter
+        anchors.horizontalCenter: root.horizontalCenter
         players: board.players
     }
 
     Rectangle {
         id: background
-        anchors.fill: parent
+        width: root.width
+        height: root.height - pointView.height
+        anchors.top: pointView.bottom
+        anchors.horizontalCenter: root.horizontalCenter
         color: "black"
 
         Repeater {
             id: monsterRepeater
-            model: board.monsteres
+            model: board.monsters
             delegate: MonsterItem {
                 monster: model
                 nodeDistance: root.nodeDistance
@@ -35,10 +38,7 @@ Item {
         MouseArea {
             id: boardArea
             anchors.fill: parent
-            onPressed: {
-                board.resetSelections()
-            }
-
+            onPressed: board.resetSelections()
             onReleased: {
                 for (var i = 0; i < board.monsterCount; i ++){
                     var monsterItem = monsterRepeater.itemAt(i)
@@ -68,7 +68,27 @@ Item {
                     }
                 }
             }
+        }
 
+        Rectangle {
+            id: pauseButton
+            anchors.left: parent.left
+            anchors.leftMargin: units.gu(2)
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(2)
+            width: units.gu(5)
+            height: units.gu(5)
+            color: pauseButtonMouseArea.pressed ? "steelblue" : "white"
+            radius: units.gu(1)
+
+            MouseArea {
+                id: pauseButtonMouseArea
+                anchors.fill: pauseButton
+                onClicked: {
+                    pauseMenu.visible = true
+                    gameEngine.pauseGame()
+                }
+            }
         }
 
         SelectorItem {
@@ -81,15 +101,16 @@ Item {
 
             Repeater {
                 id: selectorLineRepeater
-                model: board.monsteres
+                model: board.monsters
                 delegate: Canvas {
 
                 }
             }
-
         }
 
-
+        PauseMenu {
+            id: pauseMenu
+            anchors.fill: parent
+        }
     }
 }
-

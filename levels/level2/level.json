@@ -21,7 +21,7 @@
             "reproduction": 0
         }
     ],
-    "monsteres": [
+    "monsters": [
         {
             "id": 1,
             "monsterType": "MonsterTypeReproduction",

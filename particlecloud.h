@@ -18,7 +18,7 @@ public:
 
     Player *player() const;
     int count() const;
-    QColor color() const;
+    QString colorString() const;
     int strength() const;
     int speed() const;
     int x();

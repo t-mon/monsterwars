@@ -1,13 +1,3 @@
-# This is the basic qmake template for the Ubuntu-SDK
-# it handles creation and installation of the manifest
-# file and takes care of subprojects
-TEMPLATE = subdirs
-
-#load Ubuntu specific features
-load(ubuntu-click)
-
-SUBDIRS += MonsterWars
-
 # specify the manifest file, this file is required for click
 # packaging and for the IDE to create runconfigurations
 UBUNTU_MANIFEST_FILE=manifest.json.in
@@ -21,12 +11,60 @@ UBUNTU_TRANSLATION_DOMAIN="monsterwars.t-mon"
 # template is created in po/template.pot, to create a
 # translation copy the template to e.g. de.po and edit the sources
 UBUNTU_TRANSLATION_SOURCES+= \
-    $$files(app/*.qml,true) \
-    $$files(app/*.js,true)
+    $$files(ui/*.qml,true)
 
 # specifies all translations files and makes sure they are
 # compiled and installed into the right place in the click package
 UBUNTU_PO_FILES+=$$files(po/*.po)
 
+TEMPLATE = app
+TARGET = MonsterWars
 
+load(ubuntu-click)
+
+QT += qml quick
+
+HEADERS +=  attack.h \
+            backend.h \
+            board.h \
+            gameengine.h \
+            level.h \
+            particlecloud.h \
+            player.h \
+            monster.h \
+            #pathfinder.h \
+            #node.h \
+
+SOURCES +=  main.cpp \
+            attack.cpp \
+            backend.cpp \
+            board.cpp \
+            gameengine.cpp \
+            level.cpp \
+            particlecloud.cpp \
+            player.cpp \
+            monster.cpp \
+            #pathfinder.cpp \
+            #node.cpp \
+
+
+RESOURCES += ui.qrc \
+             monsters.qrc
+
+OTHER_FILES += MonsterWars.apparmor \
+               MonsterWars.desktop \
+               MonsterWars.png
+
+
+# specify where the config files are installed to
+config_files.path = /MonsterWars
+config_files.files += $${OTHER_FILES}
+
+# install level files
+levels.path = /
+levels.files = levels/
+
+# Default rules for deployment.
+target.path = $${UBUNTU_CLICK_BINARY_PATH}
+INSTALLS += target config_files levels
 

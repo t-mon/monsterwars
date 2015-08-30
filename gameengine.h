@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QDir>
+#include <QQmlListProperty>
 
 class Level;
 class Player;
@@ -20,6 +21,8 @@ class GameEngine : public QObject
     Q_PROPERTY(READ levels)
     Q_PROPERTY(QUrl dataDir READ dataDir WRITE setDataDir NOTIFY dataDirChanged)
     Q_PROPERTY(Board *board READ board NOTIFY boardChanged)
+    Q_PROPERTY(bool running READ running NOTIFY runningChanged)
+    Q_PROPERTY(QQmlListProperty<Level> levels READ levels NOTIFY levelsChanged)
     Q_PROPERTY(int ticksPerSecond READ ticksPerSecond CONSTANT)
 
 public:
@@ -29,6 +32,8 @@ public:
     QVariantMap levelDescription(int levelId) const;
     Board* board() const;
 
+    QQmlListProperty<Level> levels();
+
     QUrl dataDir() const;
     void setDataDir(const QUrl &dataDir);
 
@@ -37,6 +42,8 @@ public:
 
     int rows() const;
     int columns() const;
+
+    bool running() const;
 
     void startAttack(Attack *attack);
 
@@ -48,15 +55,25 @@ public:
     double defenseStepWidth() const;
     double speedStepWidth() const;
 
+    Q_INVOKABLE void startGame(const int &levelId);
+    Q_INVOKABLE void stopGame();
+    Q_INVOKABLE void pauseGame();
+    Q_INVOKABLE void continueGame();
+
+
 private:
     QTimer *m_timer;
     QUrl m_dataDir;
     QHash<int, QVariantMap> m_levelDescriptions;
+    QList<Level *> m_levels;
+    QHash<int, Level *> m_levelHash;
+
     Board *m_board;
     int m_ticksPerSecond;
     int m_tickInterval;
     int m_rows;
     int m_columns;
+    bool m_running;
 
     double m_strengthStepWidth;
     double m_reproductionStepWidth;
@@ -70,6 +87,8 @@ signals:
     void tick();
     void dataDirChanged();
     void boardChanged();
+    void levelsChanged();
+    void runningChanged();
     void gameFinished(const int &winnerId);
 
 private slots:

@@ -55,7 +55,7 @@ Item {
                 goalSprite: "still"
                 Sprite{
                     name: "still"
-                    source: "qrc:///monsters/monster-still-" + monster.colorString + ".png"
+                    source: "qrc:///monsters/monster-still-"+ monster.colorString +".png"
                     frameCount: 6
                     frameWidth: 200
                     frameHeight: 200
@@ -71,7 +71,7 @@ Item {
                 text: monster.value
                 font.bold: true
                 font.pixelSize: nodeDistance * 2
-                color: monster.color
+                color: monster.colorString
             }
 
             Rectangle {
@@ -108,7 +108,6 @@ Item {
                 }
                 onExited: descriptionRectangle.visible = false
             }
-
         }
     }
 }

@@ -10,6 +10,9 @@ class Player;
 class Level: public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(int levelId READ levelId NOTIFY levelIdChanged)
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+
 public:
     explicit Level(QObject *parent = 0);
     ~Level();
@@ -20,19 +23,21 @@ public:
     void setLevelId(const int &levelId);
     int levelId() const;
 
-    void addMonster(Monster *monster);
-    QList<Monster *> monsteres() const;
-    Monster* monster(int id) const;
+    void setMonstersVariants(const QVariantList &monstersVariant);
+    QVariantList monstersVariant() const;
 
-    void addPlayer(Player *player);
-    QList<Player *> players() const;
-    Player *player(int id) const;
+    void setPlayersVariants(const QVariantList &playersVariant);
+    QVariantList playersVariant() const;
 
 private:
-    QList<Monster *> m_monsteres;
-    QList<Player *> m_players;
+    QVariantList m_monstersVariant;
+    QVariantList m_playersVariant;
     QString m_name;
     int m_levelId;
+
+signals:
+    void levelIdChanged();
+    void nameChanged();
 
 };
 #endif // LEVEL_H

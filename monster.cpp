@@ -5,15 +5,15 @@
 #include "level.h"
 #include "node.h"
 
-Monster::Monster(GameEngine *engine, Monster::MonsterType monsterType, int id, int startValue, QPoint position, QColor color, QObject *parent):
+Monster::Monster(GameEngine *engine, Monster::MonsterType monsterType, int id, int startValue, QPoint position, QString colorString, QObject *parent):
     QObject(parent),
     m_engine(engine),
     m_monsterType(monsterType),
     m_id(id),
     m_value(startValue),
     m_position(position),
-    m_player(0),
-    m_color(color)
+    m_colorString(colorString),
+    m_player(0)
 {
     m_tickCounter = 0;
     select(false);
@@ -27,8 +27,7 @@ Monster::Monster(GameEngine *engine = 0, int startValue = 0):
     m_id(-1),
     m_value(startValue),
     m_position(QPoint()),
-    m_player(0),
-    m_color(QColor(255, 255, 255))
+    m_player(0)
 {
     m_tickCounter = 0;
     select(false);
@@ -74,9 +73,9 @@ QString Monster::monsterTypeString() const
 void Monster::setPlayer(Player *player)
 {
     m_player = player;
-    m_color = m_player->color();
+    m_colorString = m_player->colorString();
     emit playerChanged();
-    emit colorChanged();
+    emit colorStringChanged();
 }
 
 Player *Monster::player() const
@@ -120,19 +119,15 @@ QPoint Monster::position() const
     return m_position;
 }
 
-void Monster::setColor(const QColor &color)
-{
-    m_color = color;
-}
-
-QColor Monster::color() const
-{
-    return m_color;
-}
-
 void Monster::setColorString(const QString &colorString)
 {
+    m_colorString = colorString;
+    emit colorStringChanged();
+}
 
+QString Monster::colorString() const
+{
+    return m_colorString;
 }
 
 void Monster::select(const bool &selected)
@@ -160,7 +155,7 @@ void Monster::impact(ParticleCloud *particleCloud)
         setPlayer(particleCloud->player());
         m_value += particleCloud->count();
         emit playerChanged();
-    } else if (particleCloud->color() == m_color) {
+    } else if (particleCloud->colorString() == m_colorString) {
         m_value += particleCloud->count();
     } else {
         // Seems to be a confrontation!
@@ -191,7 +186,7 @@ void Monster::impact(ParticleCloud *particleCloud)
         }
         // if value is 0 this board has no longer a player -> neutral
         if (m_value == 0) {
-            setPlayer(m_engine->board()->level()->player(0));
+            setPlayer(m_engine->board()->player(0));
         }
     }
     particleCloud->deleteLater();
@@ -219,6 +214,7 @@ QString Monster::monsterTypeToString(Monster::MonsterType monsterType)
         break;
     default:
         qWarning() << "ERROR: unknown MonsterType!";
+        return "Normal";
         break;
     }
 }

@@ -32,13 +32,13 @@ int Node::number() const
 
 void Node::setMonster(Monster *monster)
 {
-    if (monster == 0) {
-        m_color = QColor(255, 255, 255, 100);
-    } else {
-        m_color = monster->color();
-    }
-    emit colorChanged();
-    m_monster = monster;
+//    if (monster == 0) {
+//        m_color = QColor(255, 255, 255, 100);
+//    } else {
+//        m_color = monster->color();
+//    }
+//    emit colorChanged();
+//    m_monster = monster;
 }
 
 Monster *Node::monster() const

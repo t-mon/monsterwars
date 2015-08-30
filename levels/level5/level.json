@@ -1,19 +1,19 @@
 {
-    "name": "Level 1",
-    "id": 1,
+    "name": "Level 5",
+    "id": 5,
     "players": [
         {
             "id": 1,
-            "color": "blue",
+            "color": "#0000FF",
             "playerType": "PlayerTypeHuman",
-            "strength": 1,
-            "speed": 1,
-            "defence": 1,
-            "reproduction": 1
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 8
         },
         {
             "id": 2,
-            "color": "green",
+            "color": "#00FF00",
             "playerType": "PlayerTypeAi",
             "strength": 0,
             "speed": 0,
@@ -24,9 +24,9 @@
     "monsters": [
         {
             "id": 1,
-            "monsterType": "MonsterTypeDefense",
-            "x": 5,
-            "y": 5,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 30,
+            "y": 30,
             "size": 5,
             "startValue": 40,
             "player": 1
@@ -34,20 +34,11 @@
         {
             "id": 2,
             "monsterType": "MonsterTypeStrength",
-            "x": 65,
-            "y": 5,
-            "size": 5,
+            "x": 60,
+            "y": 30,
+            "size": 6,
             "startValue": 40,
             "player": 2
-        },
-        {
-            "id": 3,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 35,
-            "y": 30,
-            "size": 5,
-            "startValue": 0,
-            "player": 0
         }
     ]
 }

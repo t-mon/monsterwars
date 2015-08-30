@@ -10,7 +10,7 @@
 
 void BackendPlugin::registerTypes(const char *uri)
 {
-
+    Q_UNUSED(uri)
 }
 
 void BackendPlugin::initializeEngine(QQmlEngine *engine, const char *uri)

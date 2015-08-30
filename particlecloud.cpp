@@ -22,9 +22,9 @@ int ParticleCloud::count() const
     return m_count;
 }
 
-QColor ParticleCloud::color() const
+QString ParticleCloud::colorString() const
 {
-    return m_player->color();
+    return m_player->colorString();
 }
 
 int ParticleCloud::strength() const

@@ -13,11 +13,12 @@ GameEngine::GameEngine(QObject *parent):
     QObject(parent),
     m_timer(new QTimer(this)),
     m_board(new Board(this)),
-    m_ticksPerSecond(25)
+    m_ticksPerSecond(25),
+    m_running(false)
 {    
     // Initialize boardsize
-    m_rows = 75;
-    m_columns = 100;
+    m_rows = 40;
+    m_columns = 70;
 
     // Initialize propertys
     m_strengthStepWidth = 0.05;
@@ -44,6 +45,11 @@ Board *GameEngine::board() const
     return m_board;
 }
 
+QQmlListProperty<Level> GameEngine::levels()
+{
+    return QQmlListProperty<Level>(this, m_levels);
+}
+
 QUrl GameEngine::dataDir() const
 {
     return m_dataDir;
@@ -59,7 +65,6 @@ void GameEngine::setDataDir(const QUrl &dataDir)
 void GameEngine::start()
 {
     m_timer->start();
-    calculateScores();
 }
 
 void GameEngine::stop()
@@ -77,11 +82,16 @@ int GameEngine::columns() const
     return m_columns;
 }
 
+bool GameEngine::running() const
+{
+    return m_running;
+}
+
 void GameEngine::startAttack(Attack *attack)
 {
     foreach (int monsterId, attack->sourceIds()) {
-        Monster* sourceMonster = board()->level()->monster(monsterId);
-        Monster* destinationMonster = board()->level()->monster(attack->destinationId());
+        Monster* sourceMonster = board()->monster(monsterId);
+        Monster* destinationMonster = board()->monster(attack->destinationId());
 
         // check attack strength
         int attackStrength = 0;
@@ -138,6 +148,34 @@ double GameEngine::speedStepWidth() const
     return m_speedStepWidth;
 }
 
+void GameEngine::stopGame()
+{
+    stop();
+    qDebug() << "Game: stop";
+    m_board->resetBoard();
+}
+
+void GameEngine::pauseGame()
+{
+    qDebug() << "Game: pause";
+    stop();
+}
+
+void GameEngine::continueGame()
+{
+    qDebug() << "Game: continue";
+    start();
+}
+
+void GameEngine::startGame(const int &levelId)
+{
+    Level *level = m_levelHash.value(levelId);
+    m_board->setLevel(level);
+    qDebug() << "Game: start Level" << levelId;
+    start();
+    calculateScores();
+}
+
 void GameEngine::loadLevels()
 {
     QDir dir(QDir::currentPath() + m_dataDir.path());
@@ -168,36 +206,40 @@ void GameEngine::loadLevels()
 
         QVariantMap levelData = jsonDoc.toVariant().toMap();
         qDebug() << "   -> loading level" << levelData.value("id").toInt() << "...";
-        m_levelDescriptions.insert(levelData.value("id").toInt(), levelData);
+        Level *level = new Level(this);
+        level->setName(levelData.value("name").toString());
+        level->setLevelId(levelData.value("id").toInt());
+        level->setPlayersVariants(levelData.value("players").toList());
+        level->setMonstersVariants(levelData.value("monsters").toList());
+        m_levels.append(level);
+        m_levelHash.insert(level->levelId(), level);
+        emit levelsChanged();
     }
 }
 
 void GameEngine::calculateScores()
 {
     int total = 0;
-    Level* level = board()->level();
-    foreach (Player* player, level->players()) {
+    foreach (Player *player, m_board->playersList()) {
         player->setPointCount(0);
-        foreach (Monster *monster, level->monsteres()) {
+        foreach (Monster *monster, m_board->monstersList()) {
             if (monster->player()->id() == player->id()){
                 player->addPoints(monster->value());
                 total += monster->value();
             }
         }
     }
-    foreach (Player* player, level->players()) {
+    foreach (Player *player, m_board->playersList()) {
         if (player->pointCount() == 0) {
             player->setPercentage(0);
         }
         double percentage = (double)player->pointCount() / total;
+        player->setPercentage((double)((int)(percentage * 100 + 0.5) / 100.0));
         if (percentage == 1) {
             emit gameFinished(player->id());
         }
-
-        player->setPercentage((double)((int)(percentage * 100 + 0.5) / 100.0));
     }
 }
-
 
 void GameEngine::initGameEngine()
 {
@@ -209,11 +251,7 @@ void GameEngine::initGameEngine()
     connect(m_timer, &QTimer::timeout, this, &GameEngine::slotTick);
     connect(m_timer, &QTimer::timeout, this, &GameEngine::tick);
 
-    m_board->createBoard();
-    m_board->setLevel(m_levelDescriptions.value(1));
     connect(m_board, &Board::startAttack, this, &GameEngine::startAttack);
-
-    start();
 }
 
 void GameEngine::slotTick()
@@ -228,5 +266,5 @@ void GameEngine::onGameFinished(const int &winnerId)
     } else {
         qDebug() << "GAME OVER!! You have LOST the game!!!";
     }
-    m_timer->stop();
+    stop();
 }

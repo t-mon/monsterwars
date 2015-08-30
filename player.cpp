@@ -4,7 +4,7 @@
 Player::Player(int playerId, QObject *parent):
     m_id(playerId), QObject(parent)
 {
-    m_color = QColor(255, 255, 255);
+    m_colorString = "white";
     m_playerType = PlayerTypeNone;
     m_playerTypeString = "None";
     m_strength = 0;
@@ -20,14 +20,14 @@ int Player::id() const
     return m_id;
 }
 
-void Player::setColor(const QColor &color)
+void Player::setColorString(const QString &colorString)
 {
-    m_color = color;
+    m_colorString = colorString;
 }
 
-QColor Player::color() const
+QString Player::colorString() const
 {
-    return m_color;
+    return m_colorString;
 }
 
 void Player::setPlayerType(const Player::PlayerType &playerType)

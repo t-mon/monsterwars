@@ -18,12 +18,11 @@ class Monster : public QObject
     Q_OBJECT
     Q_ENUMS(MonsterType)
     Q_PROPERTY(int id READ id CONSTANT)
-    Q_PROPERTY(int colorString READ colorString NOTIFY colorChanged)
+    Q_PROPERTY(QString colorString READ colorString NOTIFY colorStringChanged)
     Q_PROPERTY(QString monsterTypeString READ monsterTypeString CONSTANT)
     Q_PROPERTY(int size READ size NOTIFY sizeChanged)
     Q_PROPERTY(int value READ value NOTIFY valueChanged)
     Q_PROPERTY(QPoint position READ position WRITE setPosition NOTIFY positionChanged)
-    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
     Q_PROPERTY(bool selected READ selected NOTIFY selectedChanged)
 
 public:
@@ -40,7 +39,7 @@ public:
                    int id = -1,
                    int startValue = 0,
                    QPoint position = QPoint(),
-                   QColor color = QColor(),
+                   QString colorString = "white",
                    QObject *parent = 0);
 
     Monster(GameEngine* engine, int startValue);
@@ -65,9 +64,6 @@ public:
     void setPosition(const QPoint &position);
     QPoint position() const;
 
-    void setColor(const QColor &color);
-    QColor color() const;
-
     void setColorString(const QString &colorString);
     QString colorString() const;
 
@@ -87,7 +83,7 @@ private:
     int m_size;
     int m_maxValue;
     QPoint m_position;
-    QColor m_color;
+    QString m_colorString;
     bool m_selected;
     int m_tickCounter;
 
@@ -97,7 +93,7 @@ signals:
     void valueChanged();
     void sizeChanged();
     void positionChanged();
-    void colorChanged();
+    void colorStringChanged();
     void selectedChanged();
     void playerChanged();
     void impact();
