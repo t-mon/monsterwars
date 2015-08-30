@@ -1,0 +1,44 @@
+{
+    "name": "Level 2",
+    "id": 2,
+    "players": [
+        {
+            "id": 1,
+            "color": "#0000FF",
+            "playerType": "PlayerTypeHuman",
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 8
+        },
+        {
+            "id": 2,
+            "color": "#00FF00",
+            "playerType": "PlayerTypeAi",
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 0
+        }
+    ],
+    "monsteres": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 30,
+            "y": 30,
+            "size": 5,
+            "startValue": 40,
+            "player": 1
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeStrength",
+            "x": 60,
+            "y": 30,
+            "size": 6,
+            "startValue": 40,
+            "player": 2
+        }
+    ]
+}

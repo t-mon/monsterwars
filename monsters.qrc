@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="">
+        <file>monsters/monster-still-white.png</file>
+        <file>monsters/monster-still-blue.png</file>
+        <file>monsters/monster-still-green.png</file>
+        <file>monsters/monster-blink-white.png</file>
+    </qresource>
+</RCC>
+

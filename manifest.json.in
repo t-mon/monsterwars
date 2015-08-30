@@ -1,0 +1,15 @@
+{
+    "name": "monsterwars.t-mon",
+    "description": "description of monsterwars",
+    "architecture": "@CLICK_ARCH@",
+    "title": "monsterwars",
+    "hooks": {
+        "MonsterWars": {
+            "apparmor": "MonsterWars/MonsterWars.apparmor",
+            "desktop": "MonsterWars/MonsterWars.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Simon Stürz <stuerz.simon@gmail.com>",
+    "framework": "ubuntu-sdk-15.04"
+}

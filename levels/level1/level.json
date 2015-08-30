@@ -1,0 +1,71 @@
+{
+    "name": "Level 1",
+    "id": 1,
+    "players": [
+        {
+            "id": 1,
+            "color": "#0000FF",
+            "playerType": "PlayerTypeHuman",
+            "strength": 1,
+            "speed": 1,
+            "defence": 1,
+            "reproduction": 1
+        },
+        {
+            "id": 2,
+            "color": "#00FF00",
+            "playerType": "PlayerTypeAi",
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 0
+        }
+    ],
+    "monsteres": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeDefense",
+            "x": 12,
+            "y": 12,
+            "size": 5,
+            "startValue": 40,
+            "player": 1
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeStrength",
+            "x": 24,
+            "y": 10,
+            "size": 6,
+            "startValue": 40,
+            "player": 1
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 12,
+            "y": 24,
+            "size": 5,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeDefense",
+            "x": 24,
+            "y": 24,
+            "size": 5,
+            "startValue": 40,
+            "player": 2
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 70,
+            "y": 40,
+            "size": 7,
+            "startValue": 0,
+            "player": 0
+        }
+    ]
+}
