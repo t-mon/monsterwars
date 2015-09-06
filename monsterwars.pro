@@ -25,11 +25,11 @@ load(ubuntu-click)
 QT += qml quick
 
 HEADERS +=  attack.h \
+            attackpillow.h \
             backend.h \
             board.h \
             gameengine.h \
             level.h \
-            particlecloud.h \
             player.h \
             monster.h \
             #pathfinder.h \
@@ -37,11 +37,11 @@ HEADERS +=  attack.h \
 
 SOURCES +=  main.cpp \
             attack.cpp \
+            attackpillow.cpp \
             backend.cpp \
             board.cpp \
             gameengine.cpp \
             level.cpp \
-            particlecloud.cpp \
             player.cpp \
             monster.cpp \
             #pathfinder.cpp \

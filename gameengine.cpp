@@ -18,7 +18,7 @@ GameEngine::GameEngine(QObject *parent):
 {    
     // Initialize boardsize
     m_rows = 40;
-    m_columns = 70;
+    m_columns = 67;
 
     // Initialize propertys
     m_strengthStepWidth = 0.05;
@@ -28,6 +28,7 @@ GameEngine::GameEngine(QObject *parent):
 
     m_tickInterval = 1000 / m_ticksPerSecond;
     connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameFinished);
+    connect(m_board, &Board::boardChanged, this, &GameEngine::boardChanged);
 }
 
 QHash<int, QVariantMap> GameEngine::levelDescriptions() const
@@ -48,6 +49,11 @@ Board *GameEngine::board() const
 QQmlListProperty<Level> GameEngine::levels()
 {
     return QQmlListProperty<Level>(this, m_levels);
+}
+
+QQmlListProperty<AttackPillow> GameEngine::pillows()
+{
+    return QQmlListProperty<AttackPillow>(this, m_pillows);
 }
 
 QUrl GameEngine::dataDir() const
@@ -107,14 +113,18 @@ void GameEngine::startAttack(Attack *attack)
         }
         attackSpeed += sourceMonster->player()->speed();
 
-        ParticleCloud *particleCloud = new ParticleCloud(sourceMonster->player(),
-                                                         sourceMonster->split(),
-                                                         attackStrength,
-                                                         attackSpeed,
-                                                         sourceMonster->position().x(),
-                                                         sourceMonster->position().y(),
-                                                         this);
-        destinationMonster->impact(particleCloud);
+        AttackPillow *pillow = new AttackPillow(sourceMonster->player(),
+                                                sourceMonster,
+                                                destinationMonster,
+                                                sourceMonster->split(),
+                                                attackStrength,
+                                                attackSpeed,
+                                                this);
+
+        qDebug() << "created pillow" << sourceMonster->id() << " -> " << destinationMonster->id();
+        m_pillows.append(pillow);
+        m_pillowList.insert(pillow->id(), pillow);
+        emit pillowsChanged();
     }
 }
 
@@ -148,6 +158,19 @@ double GameEngine::speedStepWidth() const
     return m_speedStepWidth;
 }
 
+void GameEngine::attackFinished(QUuid pillowId)
+{
+    AttackPillow *pillow = m_pillowList.take(pillowId);
+    qDebug() << "Attack" << pillow->sourceMonster()->id() << "  ->  " << pillow->destinationMonster()->id() << "finished";
+
+    pillow->destinationMonster()->impact(pillow);
+
+    m_pillows.removeAll(pillow);
+    emit pillowsChanged();
+
+    pillow->deleteLater();
+}
+
 void GameEngine::stopGame()
 {
     stop();
@@ -157,8 +180,8 @@ void GameEngine::stopGame()
 
 void GameEngine::pauseGame()
 {
-    qDebug() << "Game: pause";
     stop();
+    qDebug() << "Game: pause";
 }
 
 void GameEngine::continueGame()
@@ -187,16 +210,19 @@ void GameEngine::loadLevels()
         if (!levelDir.startsWith("level")) {
             continue;
         }
+
         QFileInfo fi(dir.absolutePath() + "/" + levelDir + "/level.json");
         if (!fi.exists()) {
             qDebug() << "Level directory" << levelDir << "does not contain a level.json file.";
             continue;
         }
+
         QFile levelFile(fi.absoluteFilePath());
         if (!levelFile.open(QFile::ReadOnly)) {
             qDebug() << "Cannot open level file for reading:" << fi.absoluteFilePath();
             continue;
         }
+
         QJsonParseError error;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(levelFile.readAll(), &error);
         if (error.error != QJsonParseError::NoError) {
@@ -226,6 +252,12 @@ void GameEngine::calculateScores()
             if (monster->player()->id() == player->id()){
                 player->addPoints(monster->value());
                 total += monster->value();
+            }
+        }
+        foreach (AttackPillow *pillow, m_pillows) {
+            if (pillow->player()->id() == player->id()){
+                player->addPoints(pillow->count());
+                total += pillow->count();
             }
         }
     }

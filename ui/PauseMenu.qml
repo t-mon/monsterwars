@@ -14,6 +14,7 @@ Rectangle {
         color: "black"
         anchors.fill: parent
         anchors.margins: units.gu(5)
+        radius: units.gu(2)
 
         Rectangle {
             id: closeRectangle

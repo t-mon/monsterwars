@@ -5,16 +5,15 @@ import Ubuntu.Components 1.1
 
 Item {
     id: root
-    property var board
-    property real nodeDistance: background.width / board.columns
+    property real nodeDistance: (background.width - units.gu(3)) / gameEngine.board.columns
 
     PointView {
         id: pointView
         width: root.width
-        height: root.height / 25
+        height: units.gu(3)
         anchors.top: root.top
         anchors.horizontalCenter: root.horizontalCenter
-        players: board.players
+        players: gameEngine.board.players
     }
 
     Rectangle {
@@ -27,7 +26,7 @@ Item {
 
         Repeater {
             id: monsterRepeater
-            model: board.monsters
+            model: gameEngine.board.monsters
             delegate: MonsterItem {
                 monster: model
                 nodeDistance: root.nodeDistance
@@ -38,33 +37,33 @@ Item {
         MouseArea {
             id: boardArea
             anchors.fill: parent
-            onPressed: board.resetSelections()
+            onPressed: gameEngine.board.resetSelections()
             onReleased: {
-                for (var i = 0; i < board.monsterCount; i ++){
+                for (var i = 0; i < gameEngine.board.monsterCount; i ++){
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
                     var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
                     if (l < nodeDistance) {
-                        board.evaluateReleased(monsterItem.monster.id)
+                        gameEngine.board.evaluateReleased(monsterItem.monster.id)
                     }
                 }
-                board.resetSelections()
+                gameEngine.board.resetSelections()
             }
 
             onMouseXChanged: updateMouseLogic()
             onMouseYChanged: updateMouseLogic()
 
             function updateMouseLogic() {
-                for (var i = 0; i < board.monsterCount; i ++){
+                for (var i = 0; i < gameEngine.board.monsterCount; i ++){
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
                     var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
                     if (l < nodeDistance) {
-                        board.evaluateHovered(true, monsterItem.monster.id);
+                        gameEngine.board.evaluateHovered(true, monsterItem.monster.id);
                     } else {
-                        board.evaluateHovered(false, monsterItem.monster.id);
+                        gameEngine.board.evaluateHovered(false, monsterItem.monster.id);
                     }
                 }
             }
@@ -101,10 +100,19 @@ Item {
 
             Repeater {
                 id: selectorLineRepeater
-                model: board.monsters
+                model: gameEngine.board.monsters
                 delegate: Canvas {
 
                 }
+            }
+        }
+
+        Repeater {
+            id: attackPillows
+            model: gameEngine.pillows
+            delegate: AttackPillowItem {
+                pillow: model
+                nodeDistance: root.nodeDistance
             }
         }
 

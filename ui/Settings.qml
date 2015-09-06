@@ -18,7 +18,6 @@ Item {
             anchors.top: parent.top
             height: units.gu(8)
 
-
             Text {
                 id: title
                 anchors.left: titleBar.left

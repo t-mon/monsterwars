@@ -6,7 +6,7 @@
 #include <QPoint>
 #include <QColor>
 
-#include "particlecloud.h"
+#include "attackpillow.h"
 
 
 class GameEngine;
@@ -71,7 +71,7 @@ public:
     bool selected() const;
 
     int split();
-    void impact(ParticleCloud *particleCloud);
+    void impact(AttackPillow *attackPillow);
 
 private:
     GameEngine *m_engine;

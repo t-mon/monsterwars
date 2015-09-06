@@ -16,7 +16,6 @@ MainView {
         id: gameEngine
         dataDir: "../../../levels"
         Component.onCompleted: pageStack.push(mainPage)
-
     }
 
     PageStack {
@@ -36,7 +35,7 @@ MainView {
                 Column {
                     id: mainMenu
                     anchors.fill: parent
-                    anchors.topMargin: units.gu(5)
+                    anchors.topMargin: units.gu(3)
                     spacing: units.gu(5)
 
                     MainMenuItem {
@@ -71,10 +70,9 @@ MainView {
             id: boardPage
             visible: false
             BoardView {
-                board: gameEngine.board
+                id: boardView
                 anchors.fill: parent
             }
-
         }
 
         Page {
@@ -85,7 +83,6 @@ MainView {
                 anchors.fill: parent
             }
         }
-
     }
 }
 

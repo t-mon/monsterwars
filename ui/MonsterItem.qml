@@ -20,12 +20,10 @@ Item {
         Rectangle {
             id: monsterItem
             anchors.fill: parent
-            anchors.margins: nodeDistance / 2
             border.color: monster.selected ? "steelblue" : "transparent"
             border.width: nodeDistance / 3
             color: "transparent"
             radius: width / 2
-
 
             SequentialAnimation {
                 ScaleAnimator {

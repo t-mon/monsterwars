@@ -16,7 +16,7 @@
             "color": "green",
             "playerType": "PlayerTypeAi",
             "strength": 0,
-            "speed": 0,
+            "speed": 1,
             "defence": 0,
             "reproduction": 0
         }

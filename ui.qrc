@@ -10,6 +10,7 @@
         <file>ui/Settings.qml</file>
         <file>ui/LevelSelectorItem.qml</file>
         <file>ui/PauseMenu.qml</file>
+        <file>ui/AttackPillowItem.qml</file>
     </qresource>
 </RCC>
 

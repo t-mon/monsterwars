@@ -30,7 +30,7 @@ void Board::setLevel(Level *level)
         m_players.append(createPlayer(playerJson.toMap()));
     }
 
-    //    // add the dummy player from type PlayerTypeNone (id 0)
+    // add the dummy player from type PlayerTypeNone (id 0)
     Player *player = new Player(0, m_level);
     m_players.append(player);
 
@@ -38,9 +38,10 @@ void Board::setLevel(Level *level)
         m_monsters.append(createMonster(monsterJson.toMap()));
     }
 
-    resetSelections();
+    emit playersChanged();
+    emit monstersChanged();
 
-    emit boardChanged();
+    resetSelections();
 }
 
 Level *Board::level() const
@@ -152,23 +153,21 @@ void Board::resetBoard()
 {
     qDebug() << "Clean up board.";
 
-    // delete players
-    foreach (Player *player, m_players) {
-        qDebug() << "  -> Delete Player" << player->id();
-        delete player;
-    }
-
     // delete monsters
     foreach (Monster *monster, m_monsters) {
         qDebug() << "  -> Delete Monster" << monster->id();
         delete monster;
     }
 
+    // delete players
+    foreach (Player *player, m_players) {
+        qDebug() << "  -> Delete Player" << player->id();
+        delete player;
+    }
+
     m_level = 0;
     m_players.clear();
     m_monsters.clear();
-
-    resetSelections();
 }
 
 Monster *Board::createMonster(QVariantMap monsterJson)
@@ -194,7 +193,7 @@ Monster *Board::createMonster(QVariantMap monsterJson)
         }
     }
 
-    connect(monster, &Monster::playerChanged, this, &Board::monsterChanged);
+    connect(monster, &Monster::playerChanged, this, &Board::monstersChanged);
     return monster;
 }
 
@@ -221,17 +220,12 @@ Player *Board::createPlayer(QVariantMap playerJson)
     return player;
 }
 
-void Board::monsterChanged()
-{
-
-}
-
 void Board::attackFinished()
 {
     if (m_attack->sourceIds().isEmpty()) {
         return;
     }
-    qDebug() << "perform attack -> " << m_attack->sourceIds() << "        --->     " << m_attack->destinationId();
+    qDebug() << "Attack -> " << m_attack->sourceIds() << " -> " << m_attack->destinationId();
 
     emit startAttack(m_attack);
     m_attack->reset();

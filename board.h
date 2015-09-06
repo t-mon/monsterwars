@@ -18,11 +18,11 @@ class PathFinder;
 class Board : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(int columns READ columns NOTIFY boardChanged)
+    Q_PROPERTY(int columns READ columns CONSTANT)
     Q_PROPERTY(int rows READ rows CONSTANT)
-    Q_PROPERTY(int monsterCount READ monsterCount NOTIFY boardChanged)
-    Q_PROPERTY(QQmlListProperty<Monster> monsters READ monsters NOTIFY boardChanged)
-    Q_PROPERTY(QQmlListProperty<Player> players READ players NOTIFY boardChanged)
+    Q_PROPERTY(int monsterCount READ monsterCount NOTIFY monstersChanged)
+    Q_PROPERTY(QQmlListProperty<Monster> monsters READ monsters NOTIFY monstersChanged)
+    Q_PROPERTY(QQmlListProperty<Player> players READ players NOTIFY playersChanged)
 
 public:
     explicit Board(GameEngine *engine);
@@ -40,11 +40,9 @@ public:
     QList<Player *> playersList();
     QList<Monster *> monstersList();
 
-
     int monsterCount() const;
     Q_INVOKABLE Monster *monster(int id) const;
     Q_INVOKABLE Player *player(int id) const;
-
 
     Q_INVOKABLE void evaluateReleased(const int &monsterId);
     Q_INVOKABLE void evaluateHovered(const bool &hovering, const int &monsterId);
@@ -54,6 +52,8 @@ public:
 
 signals:
     void boardChanged();
+    void monstersChanged();
+    void playersChanged();
     void startAttack(Attack *attack);
 
 private:
@@ -68,8 +68,6 @@ private:
 
     Monster *createMonster(QVariantMap monsterJson);
     Player *createPlayer(QVariantMap playerJson);
-
-    void monsterChanged();
 
 private slots:
     void attackFinished();

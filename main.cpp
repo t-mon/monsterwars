@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from Engine.");
     qmlRegisterUncreatableType<Monster>("MonsterWars", 1, 0, "Monster", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<Level>("MonsterWars", 1, 0, "Level", "Can't create this in QML. Get it from Board.");
+    qmlRegisterUncreatableType<AttackPillow>("MonsterWars", 1, 0, "AttackPillow", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
 
     QQuickView view;

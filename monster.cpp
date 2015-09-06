@@ -148,18 +148,18 @@ int Monster::split()
     return m_value;
 }
 
-void Monster::impact(ParticleCloud *particleCloud)
+void Monster::impact(AttackPillow *attackPillow)
 {
     // if its a free monster
     if (player()->id() == 0) {
-        setPlayer(particleCloud->player());
-        m_value += particleCloud->count();
+        setPlayer(attackPillow->player());
+        m_value += attackPillow->count();
         emit playerChanged();
-    } else if (particleCloud->colorString() == m_colorString) {
-        m_value += particleCloud->count();
+    } else if (attackPillow->colorString() == m_colorString) {
+        m_value += attackPillow->count();
     } else {
         // Seems to be a confrontation!
-        double strengthMultiplicator = 1 + (particleCloud->strength() * m_engine->strengthStepWidth());
+        double strengthMultiplicator = 1 + (attackPillow->strength() * m_engine->strengthStepWidth());
         double defenseMultiplicator = 1;
 
         // check if this is a defense monster
@@ -169,18 +169,18 @@ void Monster::impact(ParticleCloud *particleCloud)
         defenseMultiplicator -= (player()->defense() * m_engine->defenseStepWidth());
 
         // take care of attack bonus
-        int attackValue = particleCloud->count() * strengthMultiplicator;
-        int attackDifference = attackValue - particleCloud->count();
+        int attackValue = attackPillow->count() * strengthMultiplicator;
+        int attackDifference = attackValue - attackPillow->count();
 
         // take care of defense bonus
-        int defenseValue = particleCloud->count() * defenseMultiplicator;
-        int defenseDifference = defenseValue - particleCloud->count();
+        int defenseValue = attackPillow->count() * defenseMultiplicator;
+        int defenseDifference = defenseValue - attackPillow->count();
 
-        int finalAttackValue = particleCloud->count() - (abs(attackDifference + defenseDifference));
+        int finalAttackValue = attackPillow->count() - (abs(attackDifference + defenseDifference));
 
         m_value -= finalAttackValue;
         if(m_value < 0) {
-            setPlayer(particleCloud->player());
+            setPlayer(attackPillow->player());
             emit playerChanged();
             m_value = abs(m_value);
         }
@@ -189,7 +189,7 @@ void Monster::impact(ParticleCloud *particleCloud)
             setPlayer(m_engine->board()->player(0));
         }
     }
-    particleCloud->deleteLater();
+    attackPillow->deleteLater();
     emit impact();
     emit valueChanged();
 }
