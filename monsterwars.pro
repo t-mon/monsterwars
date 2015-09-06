@@ -34,6 +34,7 @@ HEADERS +=  attack.h \
             monster.h \
             #pathfinder.h \
             #node.h \
+    attackpillowmodel.h
 
 SOURCES +=  main.cpp \
             attack.cpp \
@@ -46,6 +47,7 @@ SOURCES +=  main.cpp \
             monster.cpp \
             #pathfinder.cpp \
             #node.cpp \
+    attackpillowmodel.cpp
 
 
 RESOURCES += ui.qrc \

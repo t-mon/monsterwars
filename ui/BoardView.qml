@@ -111,8 +111,15 @@ Item {
             id: attackPillows
             model: gameEngine.pillows
             delegate: AttackPillowItem {
-                pillow: model
                 nodeDistance: root.nodeDistance
+                speed: model.speed
+                value: model.value
+                pillowId: model.id
+                colorString: model.colorString
+                sourceX: model.sourceX
+                sourceY: model.sourceY
+                destinationX: model.destinationX
+                destinationY: model.destinationY
             }
         }
 

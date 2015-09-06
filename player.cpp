@@ -2,7 +2,8 @@
 
 
 Player::Player(int playerId, QObject *parent):
-    m_id(playerId), QObject(parent)
+     QObject(parent),
+     m_id(playerId)
 {
     m_colorString = "white";
     m_playerType = PlayerTypeNone;
@@ -137,6 +138,6 @@ QString Player::playerTypeToString(Player::PlayerType playerType)
         break;
     default:
         qWarning() << "ERROR: unknown PlayerType!";
-        break;
+        return QString();
     }
 }

@@ -57,8 +57,8 @@ signals:
     void startAttack(Attack *attack);
 
 private:
-    GameEngine *m_engine;
     Level *m_level;
+    GameEngine *m_engine;
 
     QList<Monster *> m_monsters;
     QList<Player *> m_players;

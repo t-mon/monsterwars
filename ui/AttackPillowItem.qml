@@ -3,12 +3,17 @@ import MonsterWars 1.0
 
 Item {
     id: root
-    property QtObject pillow
     property real nodeDistance
+    property real speed
+    property real value
+    property string pillowId
+    property string colorString
+    property real sourceX
+    property real sourceY
+    property real destinationX
+    property real destinationY
 
-    property real dx: pillow.sourceMonster.position.x - pillow.destinationMonster.position.x
-    property real dy: pillow.sourceMonster.position.y - pillow.destinationMonster.position.y
-    property real distance: Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+    property real distance: Math.sqrt(Math.pow(sourceX - destinationX, 2) + Math.pow(sourceY - destinationY, 2))
 
     Rectangle {
         id: pillowRectangle
@@ -20,10 +25,10 @@ Item {
         Text {
             id: valueLabel
             anchors.centerIn: parent
-            text: pillow.count
+            text: value
             font.bold: true
             font.pixelSize: nodeDistance * 2
-            color: pillow.colorString
+            color: colorString
         }
 
         ParallelAnimation {
@@ -32,23 +37,23 @@ Item {
             NumberAnimation {
                 target: root
                 property: "x"
-                from: root.nodeDistance * pillow.sourceMonster.position.x - pillowRectangle.width / 2
-                to: root.nodeDistance * pillow.destinationMonster.position.x - pillowRectangle.width / 2
-                duration: (distance * 100000) / ((pillow.speed * 200) + 1000)
+                from: root.nodeDistance * sourceX - pillowRectangle.width / 2
+                to: root.nodeDistance * destinationX - pillowRectangle.width / 2
+                duration: (distance * 100000) / ((speed * 200) + 1000)
             }
             NumberAnimation {
                 target: root
                 property: "y"
-                from: root.nodeDistance * pillow.sourceMonster.position.y - pillowRectangle.height / 2
-                to: root.nodeDistance * pillow.destinationMonster.position.y - pillowRectangle.width / 2
-                duration: (distance * 100000) / ((pillow.speed * 200) + 1000)
+                from: root.nodeDistance * sourceY - pillowRectangle.height / 2
+                to: root.nodeDistance * destinationY - pillowRectangle.width / 2
+                duration: (distance * 100000) / ((speed * 200) + 1000)
             }
             onStarted: {
-                var duration = (distance * 100000) / ((pillow.speed * 200) + 1000)
-                console.log("distance = " + distance, "speed = " + pillow.speed + " -> " + duration)
+                var duration = (distance * 100000) / ((speed * 200) + 1000)
+                console.log("uuid = " + pillowId + " distance = " + distance, "speed = " + speed + " -> " + duration)
             }
             onStopped: {
-                gameEngine.attackFinished(model.id)
+                gameEngine.attackFinished(pillowId)
             }
 
         }

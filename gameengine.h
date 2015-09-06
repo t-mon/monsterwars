@@ -9,6 +9,8 @@
 #include <QQmlListProperty>
 #include <QUuid>
 
+#include "attackpillowmodel.h"
+
 class Level;
 class Player;
 class Monster;
@@ -20,12 +22,12 @@ class GameEngine : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(NOTIFY tick)
-    Q_PROPERTY(READ levels)
+    Q_PROPERTY(READ levels NOTIFY levelsChanged)
     Q_PROPERTY(QUrl dataDir READ dataDir WRITE setDataDir NOTIFY dataDirChanged)
     Q_PROPERTY(Board *board READ board NOTIFY boardChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
     Q_PROPERTY(QQmlListProperty<Level> levels READ levels NOTIFY levelsChanged)
-    Q_PROPERTY(QQmlListProperty<AttackPillow> pillows READ pillows NOTIFY pillowsChanged)
+    Q_PROPERTY(AttackPillowModel *pillows READ pillows NOTIFY pillowsChanged)
     Q_PROPERTY(int ticksPerSecond READ ticksPerSecond CONSTANT)
 
 public:
@@ -36,7 +38,7 @@ public:
     Board* board() const;
 
     QQmlListProperty<Level> levels();
-    QQmlListProperty<AttackPillow> pillows();
+    AttackPillowModel *pillows();
 
     QUrl dataDir() const;
     void setDataDir(const QUrl &dataDir);
@@ -64,15 +66,15 @@ public:
     Q_INVOKABLE void pauseGame();
     Q_INVOKABLE void continueGame();
 
-    Q_INVOKABLE void attackFinished(QUuid pillowId);
+    Q_INVOKABLE void attackFinished(QString pillowId);
 
 private:
     QTimer *m_timer;
     QUrl m_dataDir;
     QHash<int, QVariantMap> m_levelDescriptions;
     QList<Level *> m_levels;
-    QList<AttackPillow *> m_pillows;
-    QHash<QUuid, AttackPillow *> m_pillowList;
+    AttackPillowModel *m_pillowsModel;
+    QHash<QString, AttackPillow *> m_pillowList;
 
     QHash<int, Level *> m_levelHash;
 

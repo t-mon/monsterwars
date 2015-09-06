@@ -12,7 +12,7 @@ class Monster;
 class AttackPillow : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QUuid id READ id CONSTANT)
+    Q_PROPERTY(QString id READ id CONSTANT)
     Q_PROPERTY(int count READ count CONSTANT)
     Q_PROPERTY(int speed READ speed CONSTANT)
     Q_PROPERTY(QString colorString READ colorString CONSTANT)
@@ -23,7 +23,7 @@ class AttackPillow : public QObject
 public:
     explicit AttackPillow(Player* player, Monster *sourceMonster, Monster *destinationMonster, int count, int strength, int speed, QObject *parent = 0);
 
-    QUuid id() const;
+    QString id() const;
 
     Player *player() const;
     Monster *sourceMonster() const;
@@ -35,7 +35,7 @@ public:
     int speed() const;
 
 private:
-    QUuid m_id;
+    QString m_id;
     Player *m_player;
     Monster *m_sourceMonster;
     Monster *m_destinationMonster;

@@ -18,13 +18,15 @@ GameEngine::GameEngine(QObject *parent):
 {    
     // Initialize boardsize
     m_rows = 40;
-    m_columns = 67;
+    m_columns = 70;
 
     // Initialize propertys
     m_strengthStepWidth = 0.05;
     m_reproductionStepWidth = 50;
     m_defenseStepWidth = 0.05;
     m_speedStepWidth = 0.08;
+
+    m_pillowsModel = new AttackPillowModel(this);
 
     m_tickInterval = 1000 / m_ticksPerSecond;
     connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameFinished);
@@ -51,9 +53,9 @@ QQmlListProperty<Level> GameEngine::levels()
     return QQmlListProperty<Level>(this, m_levels);
 }
 
-QQmlListProperty<AttackPillow> GameEngine::pillows()
+AttackPillowModel *GameEngine::pillows()
 {
-    return QQmlListProperty<AttackPillow>(this, m_pillows);
+    return m_pillowsModel;
 }
 
 QUrl GameEngine::dataDir() const
@@ -121,10 +123,9 @@ void GameEngine::startAttack(Attack *attack)
                                                 attackSpeed,
                                                 this);
 
-        qDebug() << "created pillow" << sourceMonster->id() << " -> " << destinationMonster->id();
-        m_pillows.append(pillow);
+        qDebug() << "created pillow" << pillow->id() << sourceMonster->id() << " -> " << destinationMonster->id();
         m_pillowList.insert(pillow->id(), pillow);
-        emit pillowsChanged();
+        m_pillowsModel->addPillow(pillow);
     }
 }
 
@@ -158,15 +159,13 @@ double GameEngine::speedStepWidth() const
     return m_speedStepWidth;
 }
 
-void GameEngine::attackFinished(QUuid pillowId)
+void GameEngine::attackFinished(QString pillowId)
 {
     AttackPillow *pillow = m_pillowList.take(pillowId);
     qDebug() << "Attack" << pillow->sourceMonster()->id() << "  ->  " << pillow->destinationMonster()->id() << "finished";
 
     pillow->destinationMonster()->impact(pillow);
-
-    m_pillows.removeAll(pillow);
-    emit pillowsChanged();
+    m_pillowsModel->removePillow(pillow);
 
     pillow->deleteLater();
 }
@@ -254,7 +253,7 @@ void GameEngine::calculateScores()
                 total += monster->value();
             }
         }
-        foreach (AttackPillow *pillow, m_pillows) {
+        foreach (AttackPillow *pillow, m_pillowsModel->pillows()) {
             if (pillow->player()->id() == player->id()){
                 player->addPoints(pillow->count());
                 total += pillow->count();

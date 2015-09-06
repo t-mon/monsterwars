@@ -156,18 +156,20 @@ void Board::resetBoard()
     // delete monsters
     foreach (Monster *monster, m_monsters) {
         qDebug() << "  -> Delete Monster" << monster->id();
-        delete monster;
+        monster->deleteLater();
     }
 
     // delete players
     foreach (Player *player, m_players) {
         qDebug() << "  -> Delete Player" << player->id();
-        delete player;
+        player->deleteLater();
     }
 
     m_level = 0;
     m_players.clear();
+    emit playersChanged();
     m_monsters.clear();
+    emit monstersChanged();
 }
 
 Monster *Board::createMonster(QVariantMap monsterJson)
@@ -181,7 +183,7 @@ Monster *Board::createMonster(QVariantMap monsterJson)
 
     qDebug() << "    -> Create Monster" << id << monsterTypeString ;
 
-    Monster *monster = new Monster(m_engine, startValue);
+    Monster *monster = new Monster(m_engine, Monster::MonsterTypeNormal, -1, startValue, QPoint(), "white", this);
     monster->setId(id);
     monster->setMonsterType(monsterTypeString);
     monster->setPosition(position);
@@ -222,9 +224,9 @@ Player *Board::createPlayer(QVariantMap playerJson)
 
 void Board::attackFinished()
 {
-    if (m_attack->sourceIds().isEmpty()) {
+    if (m_attack->sourceIds().isEmpty())
         return;
-    }
+
     qDebug() << "Attack -> " << m_attack->sourceIds() << " -> " << m_attack->destinationId();
 
     emit startAttack(m_attack);

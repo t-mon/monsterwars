@@ -75,7 +75,6 @@ public:
 
 private:
     GameEngine *m_engine;
-    Player *m_player;
     MonsterType m_monsterType;
     QString m_monsterTypeString;
     int m_id;
@@ -84,6 +83,7 @@ private:
     int m_maxValue;
     QPoint m_position;
     QString m_colorString;
+    Player *m_player;
     bool m_selected;
     int m_tickCounter;
 

@@ -8,7 +8,6 @@ Attack::Attack(QObject *parent):
 
 void Attack::beginnAttack(int id)
 {
-    qDebug() << "begin attack";
     m_sourceIds.append(id);
 }
 

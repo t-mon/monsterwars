@@ -16,10 +16,11 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "GameEngine");
-    qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from Engine.");
+    qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from the GameEngine.");
     qmlRegisterUncreatableType<Monster>("MonsterWars", 1, 0, "Monster", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<Level>("MonsterWars", 1, 0, "Level", "Can't create this in QML. Get it from Board.");
-    qmlRegisterUncreatableType<AttackPillow>("MonsterWars", 1, 0, "AttackPillow", "Can't create this in QML. Get it from Board.");
+    qmlRegisterUncreatableType<AttackPillow>("MonsterWars", 1, 0, "AttackPillow", "Can't create this in QML. Get it from the GameEngine.");
+    qmlRegisterUncreatableType<AttackPillowModel>("MonsterWars", 1, 0, "AttackPillowModel", "Can't create this in QML. Get it from the GameEngine.");
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
 
     QQuickView view;

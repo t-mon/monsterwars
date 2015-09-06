@@ -4,7 +4,7 @@
 
 AttackPillow::AttackPillow(Player *player, Monster *sourceMonster, Monster *destinationMonster, int count, int strength, int speed, QObject *parent):
     QObject(parent),
-    m_id(QUuid::createUuid()),
+    m_id(QUuid::createUuid().toString()),
     m_player(player),
     m_sourceMonster(sourceMonster),
     m_destinationMonster(destinationMonster),
@@ -14,7 +14,7 @@ AttackPillow::AttackPillow(Player *player, Monster *sourceMonster, Monster *dest
 {
 }
 
-QUuid AttackPillow::id() const
+QString AttackPillow::id() const
 {
     return m_id;
 }
