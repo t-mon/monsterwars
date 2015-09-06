@@ -166,6 +166,7 @@ void GameEngine::attackFinished(QString pillowId)
 
     pillow->destinationMonster()->impact(pillow);
     m_pillowsModel->removePillow(pillow);
+    emit pillowsChanged();
 
     pillow->deleteLater();
 }

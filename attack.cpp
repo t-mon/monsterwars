@@ -8,6 +8,8 @@ Attack::Attack(QObject *parent):
 
 void Attack::beginnAttack(int id)
 {
+    qDebug() << "Start attack";
+    qDebug() << "   -> add" << id;
     m_sourceIds.append(id);
 }
 
@@ -35,10 +37,10 @@ int Attack::destinationId()
 
 void Attack::addMonsterId(int id)
 {
-    if(m_sourceIds.contains(id)) {
+    if(m_sourceIds.contains(id))
         return;
-    }
-    qDebug() << "attack add " << id;
+
+    qDebug() << "   -> add" << id;
     m_sourceIds.append(id);
 }
 

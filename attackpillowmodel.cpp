@@ -41,24 +41,25 @@ QVariant AttackPillowModel::data(const QModelIndex &index, int role) const
     } else if (role == DestinationYRole) {
         return pillow->destinationMonster()->position().y();
     }
-
     return QVariant();
 }
 
 void AttackPillowModel::addPillow(AttackPillow *pillow)
 {
-    beginInsertRows(index(m_pillows.count()), m_pillows.count(), 1);
-    qDebug() << "Add pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "to attack pillow monster";
+    beginInsertRows(index(m_pillows.count()), m_pillows.count(), 0);
+    qDebug() << "Add pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "to attack pillow model";
     m_pillows.append(pillow);
+    emit pillowListChanged();
     endInsertRows();
 }
 
 void AttackPillowModel::removePillow(AttackPillow *pillow)
 {
-    beginInsertRows(index(indexOf(pillow)), indexOf(pillow), 1);
-    qDebug() << "Remove pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "from attack pillow monster";
-    m_pillows.append(pillow);
-    endInsertRows();
+    beginRemoveRows(index(indexOf(pillow)), indexOf(pillow), 0);
+    qDebug() << "Remove pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "from attack pillow model";
+    m_pillows.removeAll(pillow);
+    emit pillowListChanged();
+    endRemoveRows();
 }
 
 void AttackPillowModel::clearModel()

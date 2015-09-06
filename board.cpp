@@ -33,14 +33,12 @@ void Board::setLevel(Level *level)
     // add the dummy player from type PlayerTypeNone (id 0)
     Player *player = new Player(0, m_level);
     m_players.append(player);
+    emit playersChanged();
 
     foreach (const QVariant &monsterJson, m_level->monstersVariant()) {
         m_monsters.append(createMonster(monsterJson.toMap()));
     }
-
-    emit playersChanged();
     emit monstersChanged();
-
     resetSelections();
 }
 
@@ -155,13 +153,11 @@ void Board::resetBoard()
 
     // delete monsters
     foreach (Monster *monster, m_monsters) {
-        qDebug() << "  -> Delete Monster" << monster->id();
         monster->deleteLater();
     }
 
     // delete players
     foreach (Player *player, m_players) {
-        qDebug() << "  -> Delete Player" << player->id();
         player->deleteLater();
     }
 
@@ -181,7 +177,7 @@ Monster *Board::createMonster(QVariantMap monsterJson)
     int size = monsterJson.value("size").toInt();
     int playerId = monsterJson.value("player").toInt();
 
-    qDebug() << "    -> Create Monster" << id << monsterTypeString ;
+    qDebug() << "    -> Create Monster" << id << monsterTypeString;
 
     Monster *monster = new Monster(m_engine, Monster::MonsterTypeNormal, -1, startValue, QPoint(), "white", this);
     monster->setId(id);
