@@ -39,14 +39,14 @@ Item {
                 property: "x"
                 from: root.nodeDistance * sourceX - pillowRectangle.width / 2
                 to: root.nodeDistance * destinationX - pillowRectangle.width / 2
-                duration: 1000 //(distance * 100000) / ((speed * 200) + 1000)
+                duration: (distance * 100000) / ((speed * 200) + 1000)
             }
             NumberAnimation {
                 target: root
                 property: "y"
                 from: root.nodeDistance * sourceY - pillowRectangle.height / 2
                 to: root.nodeDistance * destinationY - pillowRectangle.width / 2
-                duration: 1000 //(distance * 100000) / ((speed * 200) + 1000)
+                duration: (distance * 100000) / ((speed * 200) + 1000)
             }
             onStarted: {
                 var duration = (distance * 100000) / ((speed * 200) + 1000)

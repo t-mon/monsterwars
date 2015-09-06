@@ -1,6 +1,6 @@
 import QtQuick 2.2
-import QtQuick.Layouts 1.1
 import MonsterWars 1.0
+import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 
 Item {

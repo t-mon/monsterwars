@@ -46,7 +46,7 @@ QVariant AttackPillowModel::data(const QModelIndex &index, int role) const
 
 void AttackPillowModel::addPillow(AttackPillow *pillow)
 {
-    beginInsertRows(index(m_pillows.count()), m_pillows.count(), 0);
+    beginInsertRows(QModelIndex(), m_pillows.count(), m_pillows.count());
     qDebug() << "Add pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "to attack pillow model";
     m_pillows.append(pillow);
     emit pillowListChanged();
@@ -55,7 +55,7 @@ void AttackPillowModel::addPillow(AttackPillow *pillow)
 
 void AttackPillowModel::removePillow(AttackPillow *pillow)
 {
-    beginRemoveRows(index(indexOf(pillow)), indexOf(pillow), 0);
+    beginRemoveRows(QModelIndex(), indexOf(pillow), indexOf(pillow));
     qDebug() << "Remove pillow" << pillow->sourceMonster()->id() << " -> " << pillow->destinationMonster()->id() << "from attack pillow model";
     m_pillows.removeAll(pillow);
     emit pillowListChanged();
