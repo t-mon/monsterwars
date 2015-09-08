@@ -1,8 +1,8 @@
 {
-    "name": "monsterwars.t-mon",
-    "description": "description of monsterwars",
+    "name": "monsterwars.simonstuerz",
+    "description": "\nStrategy game consisting of a pillow fight between monsters.",
     "architecture": "@CLICK_ARCH@",
-    "title": "monsterwars",
+    "title": "MonsterWars",
     "hooks": {
         "MonsterWars": {
             "apparmor": "MonsterWars/MonsterWars.apparmor",

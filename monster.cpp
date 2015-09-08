@@ -3,7 +3,6 @@
 #include "gameengine.h"
 #include "board.h"
 #include "level.h"
-#include "node.h"
 
 Monster::Monster(GameEngine *engine, Monster::MonsterType monsterType, int id, int startValue, QPoint position, QString colorString, QObject *parent):
     QObject(parent),

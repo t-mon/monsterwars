@@ -3,26 +3,34 @@ import QtQuick.Layouts 1.1
 import MonsterWars 1.0
 
 Rectangle {
-    id: pauseMenu
+    id: root
     visible: false
-    anchors.fill: parent
-    color: "#99FFFFFF"
 
     Rectangle {
         id: menuRectangle
         color: "black"
         anchors.fill: parent
-        anchors.margins: units.gu(5)
-        radius: units.gu(2)
 
-        Text {
+        Column {
             anchors.centerIn: parent
-            color: "white"
-            text: gameEngine.gameTime
-            font.bold: true
-            font.pixelSize: units.gu(4)
-        }
+            spacing: units.gu(4)
 
+            Text {
+                id: winnerText
+                color: "white"
+                text: gameEngine.winnerId == 1 ? "You are the winner!" : "You lost the game. \nPlayer " + gameEngine.winnerId + " won the game."
+                font.bold: true
+                font.pixelSize: units.gu(4)
+            }
+
+            Text {
+                id: timeText
+                color: "white"
+                text: gameEngine.gameTime
+                font.bold: true
+                font.pixelSize: units.gu(4)
+            }
+        }
         Rectangle {
             id: closeRectangle
             anchors.right: menuRectangle.right
@@ -38,8 +46,9 @@ Rectangle {
                 id: closePauseRectangle
                 anchors.fill: closeRectangle
                 onClicked: {
-                    pauseMenu.visible = false
-                    gameEngine.continueGame()
+                    gameEngine.stopGame()
+                    pageStack.pop()
+                    root.visible = false
                 }
             }
         }

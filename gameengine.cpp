@@ -113,6 +113,11 @@ bool GameEngine::running() const
     return m_running;
 }
 
+int GameEngine::winnerId() const
+{
+    return m_winnerId;
+}
+
 void GameEngine::startAttack(Attack *attack)
 {
     qDebug() << "Start attack -> " << attack->sourceIds() << "->" << attack->destinationId();
@@ -213,16 +218,27 @@ void GameEngine::startGame(const int &levelId)
         brain->start();
     }
 
+    m_gameOver = false;
     m_totalGameTimeMs = 0;
     m_gameTimer.restart();
+    emit displayGameTimeChanged();
 
     calculateScores();
+}
+
+void GameEngine::restartGame()
+{
+    qDebug() << "Game: restart";
+    int levelId = m_board->level()->levelId();
+    stopGame();
+    startGame(levelId);
 }
 
 void GameEngine::stopGame()
 {
     qDebug() << "Game: stop";
     stop();
+    m_gameOver = true;
 
     // clean up brains
     foreach (AiBrain *brain, m_brains.values()) {
@@ -247,6 +263,9 @@ void GameEngine::stopGame()
 
 void GameEngine::pauseGame()
 {
+    if (m_gameOver)
+        return;
+
     // stop AIs
     foreach (AiBrain *brain, m_brains.values()) {
         brain->stop();
@@ -264,6 +283,10 @@ void GameEngine::pauseGame()
 
 void GameEngine::continueGame()
 {
+    // if game over...ignore it
+    if (m_gameOver)
+        return;
+
     // start AIs
     foreach (AiBrain *brain, m_brains.values()) {
         brain->start();
@@ -325,6 +348,9 @@ void GameEngine::loadLevels()
 
 void GameEngine::calculateScores()
 {
+    if (!m_running)
+        return;
+
     int total = 0;
     foreach (Player *player, m_board->playersList()) {
         player->setPointCount(0);
@@ -365,7 +391,7 @@ void GameEngine::initGameEngine()
 
     m_totalGameTimeMs = 0;
     emit displayGameTimeChanged();
-    m_displayTimer->setInterval(500);
+    m_displayTimer->setInterval(200);
     connect(m_displayTimer, &QTimer::timeout, this, &GameEngine::onDisplayTimerTimeout);
 
     connect(m_board, &Board::startAttack, this, &GameEngine::startAttack);
@@ -385,6 +411,9 @@ void GameEngine::onDisplayTimerTimeout()
 
 void GameEngine::onGameOver(const int &winnerId)
 {
+    if (m_gameOver)
+        return;
+
     if( winnerId == 1) {
         qDebug() << "Game Over!! You are the winner!";
     } else {
@@ -397,7 +426,15 @@ void GameEngine::onGameOver(const int &winnerId)
 
     stop();
 
+    m_winnerId = winnerId;
+    emit winnerIdChanged();
+
+    m_gameOver = true;
+    emit gameOver();
+
     // stop game timer
     m_totalGameTimeMs += m_gameTimer.elapsed();
+    m_finalTime = m_totalGameTimeMs;
     emit gameTimeChanged();
+    emit displayGameTimeChanged();
 }

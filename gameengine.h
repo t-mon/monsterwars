@@ -28,6 +28,7 @@ class GameEngine : public QObject
     Q_PROPERTY(Board *board READ board NOTIFY boardChanged)
     Q_PROPERTY(QString displayGameTime READ displayGameTime NOTIFY displayGameTimeChanged)
     Q_PROPERTY(QString gameTime READ gameTime NOTIFY gameTimeChanged)
+    Q_PROPERTY(int winnerId READ winnerId NOTIFY winnerIdChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
     Q_PROPERTY(QQmlListProperty<Level> levels READ levels NOTIFY levelsChanged)
     Q_PROPERTY(AttackPillowModel *pillows READ pillows NOTIFY pillowsChanged)
@@ -56,6 +57,8 @@ public:
 
     bool running() const;
 
+    int winnerId() const;
+
     void startAttack(Attack *attack);
 
     int ticksPerSecond() const;
@@ -67,6 +70,7 @@ public:
     double speedStepWidth() const;
 
     Q_INVOKABLE void startGame(const int &levelId);
+    Q_INVOKABLE void restartGame();
     Q_INVOKABLE void stopGame();
     Q_INVOKABLE void pauseGame();
     Q_INVOKABLE void continueGame();
@@ -79,6 +83,8 @@ private:
     QElapsedTimer m_gameTimer;
 
     qint32 m_totalGameTimeMs;
+    qint32 m_finalTime;
+    bool m_gameOver;
 
     QUrl m_dataDir;
     QHash<int, QVariantMap> m_levelDescriptions;
@@ -94,6 +100,7 @@ private:
     int m_tickInterval;
     int m_rows;
     int m_columns;
+    int m_winnerId;
     bool m_running;
 
     double m_strengthStepWidth;
@@ -114,7 +121,9 @@ signals:
     void runningChanged();
     void gameTimeChanged();
     void displayGameTimeChanged();
+    void gameOver();
     void gameFinished(const int &winnerId);
+    void winnerIdChanged();
 
 private slots:
     void initGameEngine();

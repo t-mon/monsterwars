@@ -7,7 +7,6 @@
 #include "gameengine.h"
 #include "player.h"
 #include "monster.h"
-#include "node.h"
 #include "level.h"
 #include "board.h"
 

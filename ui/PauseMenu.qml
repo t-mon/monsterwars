@@ -9,6 +9,14 @@ Rectangle {
     anchors.fill: parent
     color: "#99FFFFFF"
 
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            pauseMenu.visible = false
+            gameEngine.continueGame()
+        }
+    }
+
     Rectangle {
         id: menuRectangle
         color: "black"
@@ -72,18 +80,17 @@ Rectangle {
                 color: "black"
                 Text {
                     anchors.centerIn: parent
-                    text: "Select Level"
+                    text: "Restart"
                     font.bold: true
                     font.pixelSize: units.gu(4)
-                    color: selectLevelMouseArea.pressed ? "steelblue" : "white"
+                    color: settingsLevelMouseArea.pressed ? "steelblue" : "white"
                 }
                 MouseArea {
-                    id: selectLevelMouseArea
+                    id: settingsLevelMouseArea
                     anchors.fill: parent
                     onClicked: {
-                        gameEngine.stopGame()
                         pauseMenu.visible = false
-                        pageStack.pop()
+                        gameEngine.restartGame()
                     }
                 }
             }
@@ -96,16 +103,18 @@ Rectangle {
                 color: "black"
                 Text {
                     anchors.centerIn: parent
-                    text: "Settings"
+                    text: "Select Level"
                     font.bold: true
                     font.pixelSize: units.gu(4)
-                    color: settingsLevelMouseArea.pressed ? "steelblue" : "white"
+                    color: selectLevelMouseArea.pressed ? "steelblue" : "white"
                 }
                 MouseArea {
-                    id: settingsLevelMouseArea
+                    id: selectLevelMouseArea
                     anchors.fill: parent
                     onClicked: {
-                        pageStack.push(settingsPage)
+                        gameEngine.stopGame()
+                        pauseMenu.visible = false
+                        pageStack.pop()
                     }
                 }
             }

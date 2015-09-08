@@ -1,7 +1,6 @@
 #include "board.h"
 #include "level.h"
 #include "gameengine.h"
-#include "node.h"
 #include "monster.h"
 #include "player.h"
 #include "attack.h"

@@ -42,17 +42,26 @@ public:
     Monster *sourceMonster();
     Monster *destinationMonster();
 
-    double percentage();
+    int points();
     double distance();
 
 private:
     Monster *m_sourceMonsters;
     Monster *m_destinationMonster;
-    double m_percentage;
+
+    int m_points;
     double m_distance;
 
-    double distanceBetweenMonsters(Monster *a, Monster *b);
+    double calculateDistance(Monster *a, Monster *b);
+    int calculatePoints();
+
+
+
 
 };
+
+bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2);
+bool compareSourceValue(VirtualAttack *attack1, VirtualAttack *attack2);
+bool compareDestinationValue(VirtualAttack *attack1, VirtualAttack *attack2);
 
 #endif // AIBRAIN_H

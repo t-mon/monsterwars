@@ -30,7 +30,6 @@ Item {
 
         }
 
-
         PointView {
             id: pointView
             width: parent.width - gameTime.width
@@ -145,10 +144,21 @@ Item {
                 destinationY: model.destinationY
             }
         }
+    }
 
-        GameOverView {
-            id: pauseMenu
-            anchors.fill: parent
-        }
+    PauseMenu {
+        id: pauseMenu
+        anchors.fill: root
+    }
+
+    GameOverView {
+        id: gameOverView
+        visible: false
+        anchors.fill: parent
+    }
+
+    Connections {
+        target: gameEngine
+        onGameOver: gameOverView.visible = true
     }
 }

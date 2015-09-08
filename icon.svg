@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="500"
@@ -20,7 +21,29 @@
    inkscape:export-xdpi="46.080002"
    inkscape:export-ydpi="46.080002">
   <defs
-     id="defs4268" />
+     id="defs4268">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4154">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4156" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4158" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4154"
+       id="linearGradient4160"
+       x1="267.57141"
+       y1="1053.0763"
+       x2="262.42859"
+       y2="170.93355"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,9 +51,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-539.28571"
-     inkscape:cy="520"
+     inkscape:zoom="1.4"
+     inkscape:cx="-94.698707"
+     inkscape:cy="382.92194"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -48,7 +71,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,9 +80,16 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-552.36209)">
+    <rect
+       style="opacity:0.44900004;fill:url(#linearGradient4160);fill-opacity:1;stroke:#000099;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       id="rect4142"
+       width="500"
+       height="500"
+       x="0"
+       y="552.36206" />
     <path
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:8.30439472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 129.73898,612.26647 -73.517316,-8.174 50.481806,29.09929 -56.412335,7.4306 31.320097,20.0338 -53.656514,30.22009 35.557195,4.2194 -54.9958025,45.077 37.7191745,-2.7905 -42.0836335,52.88529 36.3247645,-4.9315 -35.3588345,65.74929 41.1177035,-9.51259 -35.999015,75.98569 51.218904,-31.9554 -27.768297,75.60199 44.222226,-42.90629 -12.79814,79.57579 40.358467,-46.444 c 0,0 3.09172,71.88888 6.42497,72.19478 4.48683,0.4117 29.36232,-46.03828 29.36232,-46.03828 l 26.73762,70.62288 27.149,-46.21 26.32628,40.1069 33.68037,-34.1678 46.12119,39.8351 32.08516,-62.33998 c 0,0 37.84403,57.54448 37.84403,55.80058 0,-1.7437 -9.04965,-77.16188 -9.04965,-77.16188 l 59.64549,48.38978 -18.92202,-84.13707 51.00717,32.69569 -27.14898,-80.21359 48.59874,34.1257 -31.32211,-79.46379 49.16394,35.71489 -47.26104,-75.99529 49.93643,10.6935 -52.66202,-71.98789 46.03269,5.1857 -59.6072,-52.7035 36.94399,-0.6521 -66.1497,-40.32659 45.08628,-5.8445 -77.95958,-27.93399 44.98459,-13.1103 -72.99082,-8.476 36.81791,-16.6054 -74.2506,5.2709 20.43626,-19.8979 c 0,0 -52.39475,14.8512 -53.15099,13.7453 -2.40147,-3.5119 -2.87745,-16.0327 -2.87745,-16.0327 l -34.79721,16.7995 -27.26591,-16.0274 c 0,0 6.74738,21.4132 5.10195,20.1053 -1.6454,-1.3078 -50.42307,-19.7357 -50.42307,-19.7357 l 22.86273,27.1468 -57.30614,-18.5682 28.92313,29.9027 -61.62365,-13.8088 39.41084,30.8106"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:7.47410536;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 141.76976,631.27603 -66.168242,-7.3566 45.435452,26.18936 -50.773142,6.68754 28.18922,18.03041 -48.292803,27.19809 32.002761,3.79745 -49.498211,40.56931 33.948622,-2.51145 -37.876793,47.59675 32.693602,-4.43835 -31.82423,59.17436 37.007421,-8.56133 -32.400416,68.38712 46.098866,-28.75986 -24.992472,68.04178 39.801603,-38.61565 -11.518789,71.61823 36.324081,-41.79963 c 0,0 2.78266,64.70004 5.78271,64.97534 4.03831,0.3705 26.42714,-41.43448 26.42714,-41.43448 l 24.06483,63.56058 24.43508,-41.58901 23.69461,36.09621 30.31356,-30.75101 41.51073,35.85161 28.8778,-56.10599 c 0,0 34.061,51.78999 34.061,50.22049 0,-1.5693 -8.14501,-69.44566 -8.14501,-69.44566 l 53.6831,43.55085 -17.03051,-75.72342 45.90831,29.42612 -24.43507,-72.19222 43.74063,30.71313 -28.19103,-71.51741 44.24932,32.1434 -42.53664,-68.39575 44.94459,9.62415 -47.39773,-64.78911 41.43109,4.66714 -53.64864,-47.43315 33.25093,-0.58689 -59.53712,-36.29393 40.57928,-5.26005 -70.16644,-25.14059 40.48775,-11.79927 -65.69437,-7.6284 33.13745,-14.94486 -66.82823,4.74381 18.39338,-17.9081 c 0,0 -47.15717,13.36608 -47.83782,12.37076 -2.16141,-3.1607 -2.5898,-14.42943 -2.5898,-14.42943 l -31.31876,15.11955 -24.54031,-14.42466 c 0,0 6.07289,19.27188 4.59195,18.09477 -1.48092,-1.17702 -45.38259,-17.76213 -45.38259,-17.76213 l 20.57728,24.43213 -51.57759,-16.71138 26.03186,26.91242 -55.46352,-12.42792 35.47118,27.72954"
        id="path4258-93"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccccccccccccccccscccccccsccccccccccccccccccccccscccscccccc"
@@ -67,48 +97,48 @@
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <ellipse
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.67319083;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.50590193;stroke-miterlimit:4;stroke-dasharray:none"
        id="path4180-94"
-       cx="299.23404"
-       cy="742.28296"
-       rx="51.96246"
-       ry="65.858429"
+       cx="294.32144"
+       cy="748.29083"
+       rx="46.768097"
+       ry="59.272579"
        inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <ellipse
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.60275614;stroke-miterlimit:4;stroke-dasharray:none"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.44250941;stroke-miterlimit:4;stroke-dasharray:none"
        id="path4180-2-4"
-       cx="185.70166"
-       cy="732.63098"
-       rx="60.562439"
-       ry="84.231316"
+       cx="192.13821"
+       cy="739.60413"
+       rx="54.508385"
+       ry="75.808182"
        inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <ellipse
        style="fill:#000000;fill-opacity:1;stroke:none"
        id="path4199-60"
-       cx="301.59518"
-       cy="757.06689"
-       rx="9.5638456"
-       ry="12.424383"
+       cx="296.44653"
+       cy="761.59644"
+       rx="8.6078072"
+       ry="11.181944"
        inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <ellipse
        style="fill:#000000;fill-opacity:1;stroke:none"
        id="path4199-6-10"
-       cx="185.05367"
-       cy="752.35876"
-       rx="10.945462"
-       ry="13.657415"
+       cx="191.55499"
+       cy="757.35907"
+       rx="9.8513126"
+       ry="12.291673"
        inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <path
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 186.74085,887.94413 -8.14428,52.09569 43.22515,7.6317 -2.66165,-53.12629 z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.50919056;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 193.07351,879.38591 -7.33015,46.88612 38.9042,6.86853 -2.39558,-47.81366 z"
        id="path4232-06"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc"
@@ -116,8 +146,8 @@
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <path
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 293.94902,890.28433 12.46343,65.06509 -50.42374,6.6507 3.48434,-66.64049 z"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.50919056;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 289.56474,881.49209 11.21754,58.55858 -45.38319,5.98563 3.13604,-59.97644 z"
        id="path4232-1-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc"
@@ -125,21 +155,11 @@
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 142.35779,867.36173 c 38.76089,30.8021 141.64094,45.1603 205.50036,-2.8104"
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.01838112;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 153.12715,860.86175 c 34.88621,27.72189 127.48197,40.64427 184.95776,-2.52936"
        id="path4228-73"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
-       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
-       inkscape:export-xdpi="89.999916"
-       inkscape:export-ydpi="89.999916" />
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
-       id="rect4262-1"
-       width="498.92783"
-       height="498.92783"
-       x="0.53605676"
-       y="552.89813"
        inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
        inkscape:export-xdpi="89.999916"
        inkscape:export-ydpi="89.999916" />

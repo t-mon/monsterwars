@@ -48,13 +48,22 @@ Item {
                 to: root.nodeDistance * destinationY - pillowRectangle.width / 2
                 duration: distance * 80 / (1 + speed * 0.25)
             }
-            onStarted: {
-                var duration = (distance) / (1000)
-            }
             onStopped: {
                 gameEngine.attackFinished(pillowId)
             }
+        }
 
+        Connections {
+            target: gameEngine
+            onRunningChanged: {
+                if (!gameEngine.running) {
+                    attackAnimation.pause()
+                    console.log("pause animation")
+                } else {
+                    attackAnimation.resume()
+                    console.log("resume animation")
+                }
+            }
         }
     }
 }

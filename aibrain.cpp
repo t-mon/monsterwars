@@ -15,36 +15,31 @@ AiBrain::AiBrain(Board *board, Player *player, QObject *parent) :
 
 void AiBrain::start()
 {
-    //qDebug() << "AI from player" << m_player->id() << "start";
     qsrand(qrand());
-    m_timer->setInterval(qrand() % ((3000 + 1) - 2000) + 2000);
-    qDebug() << "Next AI turn in" << m_timer->interval();
+    m_timer->setInterval(qrand() % ((5000 + 1) - 4000) + 4000);
     m_timer->start();
 }
 
 void AiBrain::stop()
 {
-    //qDebug() << "AI from player" << m_player->id() << "stop";
     m_timer->stop();
 }
 
 void AiBrain::calculateAttack()
 {
-    m_attack->reset();
-
     QList<Monster *> myMonsters = m_board->myMonsters(m_player);
     QList<Monster *> enemyMonsters = m_board->enemyMonsters(m_player);
     QList<Monster *> freeMonsters = m_board->freeMonsters();
 
-    QList<VirtualAttack> possibleAttacks;
+    QList<VirtualAttack *> possibleAttacks;
 
     // check all possible attacks
     foreach (Monster *myMonster, myMonsters) {
         foreach (Monster *enemyMonster, enemyMonsters) {
-            possibleAttacks.append(VirtualAttack(myMonster, enemyMonster));
+            possibleAttacks.append(new VirtualAttack(myMonster, enemyMonster));
         }
         foreach (Monster *freeMonster, freeMonsters) {
-            possibleAttacks.append(VirtualAttack(myMonster, freeMonster));
+            possibleAttacks.append(new VirtualAttack(myMonster, freeMonster));
         }
     }
     qDebug() << "AI player" << m_player->id() << "has" << possibleAttacks.count() << "attack possibilitys";
@@ -52,19 +47,40 @@ void AiBrain::calculateAttack()
     if (possibleAttacks.isEmpty())
         return;
 
-    // TODO: calculate heuristics and select best turn
-    m_attack->beginnAttack(possibleAttacks.first().sourceMonster()->id());
-    m_attack->endAttack(possibleAttacks.first().destinationMonster()->id());
+    // get the best attack of each heuristic
 
+
+
+    // get shortest distance attack
+    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDistance);
+    VirtualAttack *shortestDistanceAttack = possibleAttacks.first();
+
+    // get heighest attack
+    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareSourceValue);
+    VirtualAttack *highestSourceAttack = possibleAttacks.first();
+
+    // weakest enemy attack
+    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValue);
+    VirtualAttack *weakestTargetAttack = possibleAttacks.first();
+
+
+    // create attack
+    m_attack->reset();
+    m_attack->beginnAttack(weakestTargetAttack->sourceMonster()->id());
+    m_attack->endAttack(weakestTargetAttack->destinationMonster()->id());
+
+    // perform attack
     emit startAttack(m_attack);
+
+    qDeleteAll(possibleAttacks);
 }
 
 int AiBrain::calculateIntervall()
 {
     qsrand(qrand());
     int reactionValue = (8 - m_player->reaction()) * 500;
-    int min = 2000 + reactionValue;
-    int max = 6000 + reactionValue;
+    int min = 4000 + reactionValue;
+    int max = 10000 + reactionValue;
     return qrand() % ((max + 1) - min) + min;
 }
 
@@ -72,14 +88,14 @@ void AiBrain::timeout()
 {
     calculateAttack();
     m_timer->setInterval(calculateIntervall());
-    //qDebug() << "Next AI turn in" << m_timer->interval();
+    qDebug() << "Next AI turn in" << m_timer->interval();
 }
 
 VirtualAttack::VirtualAttack(Monster *sourceMonster, Monster *destinationMonster) :
     m_sourceMonsters(sourceMonster),
     m_destinationMonster(destinationMonster)
 {
-    m_distance = distanceBetweenMonsters(m_sourceMonsters, m_destinationMonster);
+    m_distance = calculateDistance(m_sourceMonsters, m_destinationMonster);
 }
 
 Monster *VirtualAttack::sourceMonster()
@@ -92,9 +108,9 @@ Monster *VirtualAttack::destinationMonster()
     return m_destinationMonster;
 }
 
-double VirtualAttack::percentage()
+int VirtualAttack::points()
 {
-    return 0;
+    return m_points;
 }
 
 double VirtualAttack::distance()
@@ -102,9 +118,56 @@ double VirtualAttack::distance()
     return m_distance;
 }
 
-double VirtualAttack::distanceBetweenMonsters(Monster *a, Monster *b)
+double VirtualAttack::calculateDistance(Monster *a, Monster *b)
 {
     double dx = a->position().x() - b->position().x();
     double dy = a->position().y() - b->position().y();
     return sqrt(pow(dx,2) + pow(dy,2));
+}
+
+int VirtualAttack::calculatePoints()
+{
+//    int attackPoints = qRound(m_sourceMonsters->value() / 2);
+
+//    double strengthMultiplicator = 1 + (sourceMonster()->player()->strength() * m_engine->strengthStepWidth());
+//    double defenseMultiplicator = 1;
+
+//    // check if this is a defense monster
+//    if (destinationMonster()->monsterType() == Monster::MonsterTypeDefense) {
+//        defenseMultiplicator -= 4 * m_engine->defenseStepWidth();
+//    }
+//    defenseMultiplicator -= (destinationMonster()->player()->defense() * m_engine->defenseStepWidth());
+
+//    // take care of attack bonus
+//    int attackValue = attackPoints * strengthMultiplicator;
+//    int attackDifference = attackValue - attackPoints;
+
+//    // take care of defense bonus
+//    int defenseValue = attackPoints * defenseMultiplicator;
+//    int defenseDifference = defenseValue - attackPoints;
+
+//    int finalAttackValue = attackPoints - (abs(attackDifference + defenseDifference));
+
+//    m_value -= finalAttackValue;
+//    if(m_value < 0) {
+//        setPlayer(attackPillow->player());
+//        emit playerChanged();
+//        m_value = abs(m_value);
+//    }
+
+}
+
+bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2)
+{
+    return attack1->distance() < attack2->distance();
+}
+
+bool compareSourceValue(VirtualAttack *attack1, VirtualAttack *attack2)
+{
+    return attack1->sourceMonster()->value() > attack2->sourceMonster()->value();
+}
+
+bool compareDestinationValue(VirtualAttack *attack1, VirtualAttack *attack2)
+{
+    return attack1->destinationMonster()->value() < attack2->destinationMonster()->value();
 }

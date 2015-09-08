@@ -1,9 +1,7 @@
 {
     "policy_groups": [
-        "networking"
+        "networking",
+        "audio"
     ],
     "policy_version": 1.3
 }
-
-
-

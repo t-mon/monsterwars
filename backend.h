@@ -5,8 +5,6 @@
 #include <QtQml/QQmlExtensionPlugin>
 #include <QList>
 
-#include "node.h"
-
 class BackendPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
