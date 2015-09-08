@@ -3,22 +3,14 @@
     "id": 2,
     "players": [
         {
-            "id": 1,
-            "color": "#0000FF",
-            "playerType": "PlayerTypeHuman",
-            "strength": 0,
-            "speed": 0,
-            "defence": 0,
-            "reproduction": 8
-        },
-        {
             "id": 2,
-            "color": "#00FF00",
+            "color": "green",
             "playerType": "PlayerTypeAi",
             "strength": 0,
             "speed": 0,
             "defence": 0,
-            "reproduction": 0
+            "reproduction": 0,
+            "reaction": 0
         }
     ],
     "monsters": [
@@ -37,6 +29,15 @@
             "x": 60,
             "y": 30,
             "size": 6,
+            "startValue": 40,
+            "player": 2
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 10,
+            "y": 10,
+            "size": 8,
             "startValue": 40,
             "player": 2
         }

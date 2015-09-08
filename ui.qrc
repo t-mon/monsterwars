@@ -11,6 +11,7 @@
         <file>ui/LevelSelectorItem.qml</file>
         <file>ui/PauseMenu.qml</file>
         <file>ui/AttackPillowItem.qml</file>
+        <file>ui/GameOverView.qml</file>
     </qresource>
 </RCC>
 

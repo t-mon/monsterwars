@@ -26,29 +26,30 @@ QT += qml quick
 
 HEADERS +=  attack.h \
             attackpillow.h \
+            attackpillowmodel.h \
             backend.h \
             board.h \
             gameengine.h \
             level.h \
             player.h \
             monster.h \
+            aibrain.h \
             #pathfinder.h \
-            #node.h \
-    attackpillowmodel.h
+    settings.h
 
 SOURCES +=  main.cpp \
             attack.cpp \
             attackpillow.cpp \
+            attackpillowmodel.cpp \
             backend.cpp \
             board.cpp \
             gameengine.cpp \
             level.cpp \
             player.cpp \
             monster.cpp \
+            aibrain.cpp \
             #pathfinder.cpp \
-            #node.cpp \
-    attackpillowmodel.cpp
-
+    settings.cpp
 
 RESOURCES += ui.qrc \
              monsters.qrc

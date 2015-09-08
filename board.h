@@ -34,11 +34,17 @@ public:
     int rows() const;
     int columns() const;
 
+    QTime gameTime() const;
+
     QQmlListProperty<Player> players();
     QQmlListProperty<Monster> monsters();
 
     QList<Player *> playersList();
     QList<Monster *> monstersList();
+
+    QList<Monster *> myMonsters(Player *player);
+    QList<Monster *> enemyMonsters(Player *player);
+    QList<Monster *> freeMonsters();
 
     int monsterCount() const;
     Q_INVOKABLE Monster *monster(int id) const;
@@ -54,6 +60,7 @@ signals:
     void boardChanged();
     void monstersChanged();
     void playersChanged();
+    void gameTimeChanged();
     void startAttack(Attack *attack);
 
 private:
@@ -71,6 +78,7 @@ private:
 
 private slots:
     void attackFinished();
+
 };
 
 #endif // BOARD_H

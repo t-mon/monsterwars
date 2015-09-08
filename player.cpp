@@ -89,14 +89,24 @@ int Player::defense() const
     return m_defense;
 }
 
-void Player::setReproduction(const int &reproduction)
+void Player::setReproduction(const int &reaction)
 {
-    m_reproduction = reproduction;
+    m_reproduction = reaction;
 }
 
 int Player::reproduction() const
 {
     return m_reproduction;
+}
+
+void Player::setReaction(const int &reaction)
+{
+    m_reaction = reaction;
+}
+
+int Player::reaction() const
+{
+    return m_reaction;
 }
 
 double Player::percentage() const
@@ -131,10 +141,10 @@ QString Player::playerTypeToString(Player::PlayerType playerType)
 {
     switch (playerType) {
     case PlayerTypeHuman:
-        return "Human";
+        return "PlayerTypeHuman";
         break;
     case PlayerTypeAi:
-        return "AI";
+        return "PlayerTypeAi";
         break;
     default:
         qWarning() << "ERROR: unknown PlayerType!";

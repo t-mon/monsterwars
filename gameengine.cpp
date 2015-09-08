@@ -1,6 +1,7 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 #include <QJsonDocument>
+#include <QSettings>
 
 #include "gameengine.h"
 #include "board.h"
@@ -12,6 +13,7 @@
 GameEngine::GameEngine(QObject *parent):
     QObject(parent),
     m_timer(new QTimer(this)),
+    m_displayTimer(new QTimer(this)),
     m_board(new Board(this)),
     m_ticksPerSecond(25),
     m_running(false)
@@ -29,7 +31,7 @@ GameEngine::GameEngine(QObject *parent):
     m_pillowsModel = new AttackPillowModel(this);
 
     m_tickInterval = 1000 / m_ticksPerSecond;
-    connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameFinished);
+    connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameOver);
     connect(m_board, &Board::boardChanged, this, &GameEngine::boardChanged);
 }
 
@@ -73,11 +75,17 @@ void GameEngine::setDataDir(const QUrl &dataDir)
 void GameEngine::start()
 {
     m_timer->start();
+    m_displayTimer->start();
+    m_running = true;
+    emit runningChanged();
 }
 
 void GameEngine::stop()
 {
     m_timer->stop();
+    m_displayTimer->stop();
+    m_running = false;
+    emit runningChanged();
 }
 
 int GameEngine::rows() const
@@ -90,6 +98,16 @@ int GameEngine::columns() const
     return m_columns;
 }
 
+QString GameEngine::gameTime() const
+{
+    return QTime::fromMSecsSinceStartOfDay(m_totalGameTimeMs).toString("mm:ss.zzz");
+}
+
+QString GameEngine::displayGameTime() const
+{
+    return QTime::fromMSecsSinceStartOfDay(m_totalGameTimeMs).toString("mm:ss");
+}
+
 bool GameEngine::running() const
 {
     return m_running;
@@ -97,6 +115,8 @@ bool GameEngine::running() const
 
 void GameEngine::startAttack(Attack *attack)
 {
+    qDebug() << "Start attack -> " << attack->sourceIds() << "->" << attack->destinationId();
+
     foreach (int monsterId, attack->sourceIds()) {
         Monster* sourceMonster = board()->monster(monsterId);
         Monster* destinationMonster = board()->monster(attack->destinationId());
@@ -115,6 +135,7 @@ void GameEngine::startAttack(Attack *attack)
         }
         attackSpeed += sourceMonster->player()->speed();
 
+        // create pillow
         AttackPillow *pillow = new AttackPillow(sourceMonster->player(),
                                                 sourceMonster,
                                                 destinationMonster,
@@ -123,7 +144,6 @@ void GameEngine::startAttack(Attack *attack)
                                                 attackSpeed,
                                                 this);
 
-        qDebug() << "created pillow" << pillow->id() << sourceMonster->id() << " -> " << destinationMonster->id();
         m_pillowList.insert(pillow->id(), pillow);
         m_pillowsModel->addPillow(pillow);
     }
@@ -162,7 +182,7 @@ double GameEngine::speedStepWidth() const
 void GameEngine::attackFinished(QString pillowId)
 {
     AttackPillow *pillow = m_pillowList.take(pillowId);
-    qDebug() << "Attack" << pillow->sourceMonster()->id() << "  ->  " << pillow->destinationMonster()->id() << "finished";
+    qDebug() << "Attack" << pillow->sourceMonster()->id() << "->" << pillow->destinationMonster()->id() << "finished";
 
     pillow->destinationMonster()->impact(pillow);
     m_pillowsModel->removePillow(pillow);
@@ -171,32 +191,92 @@ void GameEngine::attackFinished(QString pillowId)
     pillow->deleteLater();
 }
 
+void GameEngine::startGame(const int &levelId)
+{
+    Level *level = m_levelHash.value(levelId);
+    m_board->setLevel(level);
+
+    foreach (Player *player, m_board->playersList()) {
+        if (player->playerType() == Player::PlayerTypeAi) {
+            AiBrain *brain = new AiBrain(m_board, player, this);
+            qDebug() << "Create AI for player" << player->id();
+            m_brains.insert(player, brain);
+
+            connect(brain, &AiBrain::startAttack, this, &GameEngine::startAttack);
+        }
+    }
+
+    qDebug() << "Game: start Level" << levelId;
+    start();
+
+    foreach (AiBrain *brain, m_brains.values()) {
+        brain->start();
+    }
+
+    m_totalGameTimeMs = 0;
+    m_gameTimer.restart();
+
+    calculateScores();
+}
+
 void GameEngine::stopGame()
 {
-    stop();
     qDebug() << "Game: stop";
+    stop();
+
+    // clean up brains
+    foreach (AiBrain *brain, m_brains.values()) {
+        brain->deleteLater();
+    }
+    m_brains.clear();
+
+    // stop game timer
+    m_totalGameTimeMs += m_gameTimer.elapsed();
+    emit gameTimeChanged();
+
+    // clean up existing pillows
+    m_pillowsModel->clearModel();
+    foreach (AttackPillow *pillow, m_pillowList.values()) {
+        pillow->deleteLater();
+    }
+    m_pillowList.clear();
+
+    // reset the board
     m_board->resetBoard();
 }
 
 void GameEngine::pauseGame()
 {
+    // stop AIs
+    foreach (AiBrain *brain, m_brains.values()) {
+        brain->stop();
+    }
+
+    // stop GameEngine
     stop();
-    qDebug() << "Game: pause";
+
+    // stop game timer
+    m_totalGameTimeMs += m_gameTimer.elapsed();
+    emit gameTimeChanged();
+
+    qDebug() << "Game: pause" << m_totalGameTimeMs;
 }
 
 void GameEngine::continueGame()
 {
-    qDebug() << "Game: continue";
-    start();
-}
+    // start AIs
+    foreach (AiBrain *brain, m_brains.values()) {
+        brain->start();
+    }
 
-void GameEngine::startGame(const int &levelId)
-{
-    Level *level = m_levelHash.value(levelId);
-    m_board->setLevel(level);
-    qDebug() << "Game: start Level" << levelId;
+    // start GameEngine
     start();
-    calculateScores();
+
+    // continue game timer
+    m_gameTimer.restart();
+    emit gameTimeChanged();
+
+    qDebug() << "Game: continue";
 }
 
 void GameEngine::loadLevels()
@@ -266,7 +346,7 @@ void GameEngine::calculateScores()
             player->setPercentage(0);
         }
         double percentage = (double)player->pointCount() / total;
-        player->setPercentage((double)((int)(percentage * 100 + 0.5) / 100.0));
+        player->setPercentage((double)(qRound(percentage * 100) / 100.0));
         if (percentage == 1) {
             emit gameFinished(player->id());
         }
@@ -283,6 +363,11 @@ void GameEngine::initGameEngine()
     connect(m_timer, &QTimer::timeout, this, &GameEngine::slotTick);
     connect(m_timer, &QTimer::timeout, this, &GameEngine::tick);
 
+    m_totalGameTimeMs = 0;
+    emit displayGameTimeChanged();
+    m_displayTimer->setInterval(500);
+    connect(m_displayTimer, &QTimer::timeout, this, &GameEngine::onDisplayTimerTimeout);
+
     connect(m_board, &Board::startAttack, this, &GameEngine::startAttack);
 }
 
@@ -291,12 +376,28 @@ void GameEngine::slotTick()
     calculateScores();
 }
 
-void GameEngine::onGameFinished(const int &winnerId)
+void GameEngine::onDisplayTimerTimeout()
+{
+    m_totalGameTimeMs += m_gameTimer.elapsed();
+    m_gameTimer.restart();
+    emit displayGameTimeChanged();
+}
+
+void GameEngine::onGameOver(const int &winnerId)
 {
     if( winnerId == 1) {
-        qDebug() << "GAME OVER!! You are the WINNER!!!";
+        qDebug() << "Game Over!! You are the winner!";
     } else {
-        qDebug() << "GAME OVER!! You have LOST the game!!!";
+        qDebug() << "Game Over!! You lost the game. Player" << winnerId << "won the game.";
     }
+
+    foreach (AiBrain *brain, m_brains.values()) {
+        brain->stop();
+    }
+
     stop();
+
+    // stop game timer
+    m_totalGameTimeMs += m_gameTimer.elapsed();
+    emit gameTimeChanged();
 }

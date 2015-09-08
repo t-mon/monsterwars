@@ -30,17 +30,25 @@ public:
     PlayerType playerType() const;
     QString playerTypeString();
 
+    // [0 - 8]
     void setStrength(const int &strength);
     int strength() const;
 
+    // [0 - 8]
     void setSpeed(const int &speed);
     int speed() const;
 
+    // [0 - 8]
     void setDefence(const int &defense);
     int defense() const;
 
+    // [0 - 8]
     void setReproduction(const int &reproduction);
     int reproduction() const;
+
+    // [0 - 8]
+    void setReaction(const int &reaction);
+    int reaction() const;
 
     double percentage() const;
     void setPercentage(const double &percentage);
@@ -60,6 +68,7 @@ private:
     int m_speed;
     int m_defense;
     int m_reproduction;
+    int m_reaction;
 
     QString playerTypeToString(PlayerType playerType);
 

@@ -25,7 +25,7 @@ Item {
                 color: model.colorString
                 Text {
                     anchors.centerIn: parent
-                    text: model.pointCount + " | " + model.percentage * 100 + "%"
+                    text: model.pointCount + " | " + Math.round(model.percentage * 100) + "%"
                     font.bold: true
                     font.pixelSize: root.height / 2
                 }

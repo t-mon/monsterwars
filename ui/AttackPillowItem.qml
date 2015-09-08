@@ -17,8 +17,8 @@ Item {
 
     Rectangle {
         id: pillowRectangle
-        width: units.gu(5)
-        height: units.gu(5)
+        width: nodeDistance * 5
+        height: width
         color: "white"
         radius:  width / 2
 
@@ -39,21 +39,19 @@ Item {
                 property: "x"
                 from: root.nodeDistance * sourceX - pillowRectangle.width / 2
                 to: root.nodeDistance * destinationX - pillowRectangle.width / 2
-                duration: (distance * 100000) / ((speed * 200) + 1000)
+                duration: distance * 80 / (1 + speed * 0.25)
             }
             NumberAnimation {
                 target: root
                 property: "y"
                 from: root.nodeDistance * sourceY - pillowRectangle.height / 2
                 to: root.nodeDistance * destinationY - pillowRectangle.width / 2
-                duration: (distance * 100000) / ((speed * 200) + 1000)
+                duration: distance * 80 / (1 + speed * 0.25)
             }
             onStarted: {
-                var duration = (distance * 100000) / ((speed * 200) + 1000)
-                //console.log("uuid = " + pillowId + " distance = " + distance, "speed = " + speed + " -> " + duration)
+                var duration = (distance) / (1000)
             }
             onStopped: {
-                //console.log("uuid = " + pillowId)
                 gameEngine.attackFinished(pillowId)
             }
 

@@ -7,20 +7,43 @@ Item {
     id: root
     property real nodeDistance: (background.width - units.gu(3)) / gameEngine.board.columns
 
-    PointView {
-        id: pointView
+    Row {
+        id: topBar
         width: root.width
         height: units.gu(3)
         anchors.top: root.top
         anchors.horizontalCenter: root.horizontalCenter
-        players: gameEngine.board.players
+
+        Rectangle {
+            height: parent.height
+            width: units.gu(10)
+            color: "black"
+            Text {
+                id: gameTime
+                anchors.fill: parent
+                anchors.centerIn: parent
+                text: gameEngine.displayGameTime
+                color: "white"
+                font.bold: true
+                font.pixelSize: parent.height
+            }
+
+        }
+
+
+        PointView {
+            id: pointView
+            width: parent.width - gameTime.width
+            height: parent.height
+            players: gameEngine.board.players
+        }
     }
 
     Rectangle {
         id: background
         width: root.width
-        height: root.height - pointView.height
-        anchors.top: pointView.bottom
+        height: root.height - topBar.height
+        anchors.top: topBar.bottom
         anchors.horizontalCenter: root.horizontalCenter
         color: "black"
 
@@ -96,7 +119,7 @@ Item {
             pressed: boardArea.pressed
             x: boardArea.mouseX - root.nodeDistance * 2.5
             y: boardArea.mouseY - root.nodeDistance * 2.5
-            visible: boardArea.pressed
+            visible: boardArea.pressed && gameEngine.running
 
             Repeater {
                 id: selectorLineRepeater
@@ -123,7 +146,7 @@ Item {
             }
         }
 
-        PauseMenu {
+        GameOverView {
             id: pauseMenu
             anchors.fill: parent
         }
