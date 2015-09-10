@@ -3,13 +3,21 @@ import MonsterWars 1.0
 
 Item {
     id: root
-    property QtObject monster
     property real nodeDistance
+    property int monsterValue
+    property int monsterId
+    property string monsterType
+    property string monsterColor
+    property int monsterSize
+    property int positionX
+    property int positionY
+    property bool selected
     property bool pressed
-    width: monster.size * nodeDistance * 2
+
+    width: monsterSize * nodeDistance * 2
     height: width
-    x: monster.position.x * nodeDistance - width / 2
-    y: monster.position.y * nodeDistance - width / 2
+    x: positionX * nodeDistance - width / 2
+    y: positionY * nodeDistance - width / 2
 
     Rectangle {
         id: monsterArea
@@ -20,8 +28,8 @@ Item {
         Rectangle {
             id: monsterItem
             anchors.fill: parent
-            border.color: monster.selected ? "steelblue" : "transparent"
-            border.width: nodeDistance / 3
+            border.color: selected ? "steelblue" : "transparent"
+            border.width: nodeDistance / 2
             color: "transparent"
             radius: width / 2
 
@@ -53,7 +61,7 @@ Item {
                 goalSprite: "still"
                 Sprite{
                     name: "still"
-                    source: "qrc:///monsters/monster-still-"+ monster.colorString +".png"
+                    source: "qrc:///monsters/monster-still-"+ monsterColor +".png"
                     frameCount: 6
                     frameWidth: 200
                     frameHeight: 200
@@ -61,15 +69,14 @@ Item {
                 }
             }
 
-
             Text {
                 id: counterLabel
                 anchors.centerIn: parent
-                visible: monster.value == 0 ? false : true
-                text: monster.value
+                visible: monsterValue == 0 ? false : true
+                text: monsterValue
                 font.bold: true
                 font.pixelSize: nodeDistance * 2
-                color: monster.colorString
+                color: monsterColor
             }
 
             Rectangle {
@@ -88,7 +95,7 @@ Item {
                     id: descriptionText
                     visible: parent.visible
                     anchors.centerIn: descriptionRectangle
-                    text: "id = " + monster.id + "\n" + monster.monsterTypeString
+                    text: "id = " + monsterId + "\n" + monsterType
                     style: Text.Outline;
                     styleColor: "Black"
                     font.pixelSize: nodeDistance * 1.3

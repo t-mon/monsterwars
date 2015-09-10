@@ -7,13 +7,13 @@
 #include <QHash>
 #include <QGenericMatrix>
 
+#include "monstermodel.h"
+
 class GameEngine;
 class Level;
 class Player;
 class Monster;
-class Node;
 class Attack;
-class PathFinder;
 
 class Board : public QObject
 {
@@ -21,7 +21,7 @@ class Board : public QObject
     Q_PROPERTY(int columns READ columns CONSTANT)
     Q_PROPERTY(int rows READ rows CONSTANT)
     Q_PROPERTY(int monsterCount READ monsterCount NOTIFY monstersChanged)
-    Q_PROPERTY(QQmlListProperty<Monster> monsters READ monsters NOTIFY monstersChanged)
+    Q_PROPERTY(MonsterModel *monsters READ monsters NOTIFY monstersChanged)
     Q_PROPERTY(QQmlListProperty<Player> players READ players NOTIFY playersChanged)
 
 public:
@@ -37,7 +37,7 @@ public:
     QTime gameTime() const;
 
     QQmlListProperty<Player> players();
-    QQmlListProperty<Monster> monsters();
+    MonsterModel *monsters();
 
     QList<Player *> playersList();
     QList<Monster *> monstersList();
@@ -67,9 +67,8 @@ private:
     Level *m_level;
     GameEngine *m_engine;
 
-    QList<Monster *> m_monsters;
+    MonsterModel *m_monsters;
     QList<Player *> m_players;
-    QList<Node *> m_nodes;
 
     Attack *m_attack;
 

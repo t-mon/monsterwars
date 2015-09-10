@@ -16,14 +16,6 @@ class Node;
 class Monster : public QObject
 {
     Q_OBJECT
-    Q_ENUMS(MonsterType)
-    Q_PROPERTY(int id READ id CONSTANT)
-    Q_PROPERTY(QString colorString READ colorString NOTIFY colorStringChanged)
-    Q_PROPERTY(QString monsterTypeString READ monsterTypeString CONSTANT)
-    Q_PROPERTY(int size READ size NOTIFY sizeChanged)
-    Q_PROPERTY(int value READ value NOTIFY valueChanged)
-    Q_PROPERTY(QPoint position READ position WRITE setPosition NOTIFY positionChanged)
-    Q_PROPERTY(bool selected READ selected NOTIFY selectedChanged)
 
 public:
     enum MonsterType{

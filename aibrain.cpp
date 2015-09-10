@@ -49,8 +49,6 @@ void AiBrain::calculateAttack()
 
     // get the best attack of each heuristic
 
-
-
     // get shortest distance attack
     qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDistance);
     VirtualAttack *shortestDistanceAttack = possibleAttacks.first();
@@ -62,7 +60,6 @@ void AiBrain::calculateAttack()
     // weakest enemy attack
     qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValue);
     VirtualAttack *weakestTargetAttack = possibleAttacks.first();
-
 
     // create attack
     m_attack->reset();

@@ -19,7 +19,7 @@
             "monsterType": "MonsterTypeDefense",
             "x": 10,
             "y": 10,
-            "size": 5,
+            "size": 4,
             "startValue": 40,
             "player": 1
         },

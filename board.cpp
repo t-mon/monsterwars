@@ -15,6 +15,8 @@ Board::Board(GameEngine *engine):
     m_level(0),
     m_engine(engine)
 {
+    m_monsters = new MonsterModel(this);
+
     m_attack = new Attack(this);
     connect(m_attack, &Attack::attackFinished, this, &Board::attackFinished);
 }
@@ -50,7 +52,7 @@ void Board::setLevel(Level *level)
     emit playersChanged();
 
     foreach (const QVariant &monsterJson, m_level->monstersVariant()) {
-        m_monsters.append(createMonster(monsterJson.toMap()));
+        m_monsters->addMonster(createMonster(monsterJson.toMap()));
     }
     emit monstersChanged();
 
@@ -62,11 +64,6 @@ Level *Board::level() const
     return m_level;
 }
 
-QQmlListProperty<Monster> Board::monsters()
-{
-    return QQmlListProperty<Monster>(this, m_monsters);
-}
-
 QList<Player *> Board::playersList()
 {
     return m_players;
@@ -74,13 +71,13 @@ QList<Player *> Board::playersList()
 
 QList<Monster *> Board::monstersList()
 {
-    return m_monsters;
+    return m_monsters->monsters();
 }
 
 QList<Monster *> Board::freeMonsters()
 {
     QList<Monster *> freeMonsters;
-    foreach (Monster *monster, m_monsters) {
+    foreach (Monster *monster, m_monsters->monsters()) {
         if (monster->player()->id() == 0) {
             freeMonsters.append(monster);
         }
@@ -91,7 +88,7 @@ QList<Monster *> Board::freeMonsters()
 QList<Monster *> Board::myMonsters(Player *player)
 {
     QList<Monster *> myMonsters;
-    foreach (Monster *monster, m_monsters) {
+    foreach (Monster *monster, m_monsters->monsters()) {
         if (monster->player()->id() == player->id()) {
             myMonsters.append(monster);
         }
@@ -102,7 +99,7 @@ QList<Monster *> Board::myMonsters(Player *player)
 QList<Monster *> Board::enemyMonsters(Player *player)
 {
     QList<Monster *> enemyMonsters;
-    foreach (Monster *monster, m_monsters) {
+    foreach (Monster *monster, m_monsters->monsters()) {
         if (monster->player()->id() != player->id() && monster->player()->id() !=0 ) {
             enemyMonsters.append(monster);
         }
@@ -115,6 +112,11 @@ QQmlListProperty<Player> Board::players()
     return QQmlListProperty<Player>(this, m_players);
 }
 
+MonsterModel *Board::monsters()
+{
+    return m_monsters;
+}
+
 int Board::rows() const
 {
     return m_engine->rows();
@@ -125,24 +127,15 @@ int Board::columns() const
     return m_engine->columns();
 }
 
-QList<Node *> Board::nodes()
-{
-    return  m_nodes;
-}
 
 int Board::monsterCount() const
 {
-    return m_monsters.count();
+    return m_monsters->monsters().count();
 }
 
 Monster *Board::monster(int id) const
 {
-    foreach (Monster *monster, m_monsters) {
-        if(monster->id() == id){
-            return monster;
-        }
-    }
-    return NULL;
+    return m_monsters->monsterWithId(id);
 }
 
 Player *Board::player(int id) const
@@ -192,7 +185,7 @@ void Board::evaluateHovered(const bool &hovering, const int &monsterId)
 
 void Board::resetSelections()
 {
-    foreach (Monster* monster, m_monsters) {
+    foreach (Monster* monster, m_monsters->monsters()) {
         monster->select(false);
     }
     m_attack->reset();
@@ -203,7 +196,7 @@ void Board::resetBoard()
     qDebug() << "Clean up board.";
 
     // delete monsters
-    foreach (Monster *monster, m_monsters) {
+    foreach (Monster *monster, m_monsters->monsters()) {
         monster->deleteLater();
     }
 
@@ -215,7 +208,7 @@ void Board::resetBoard()
     m_level = 0;
     m_players.clear();
     emit playersChanged();
-    m_monsters.clear();
+    m_monsters->clearModel();
     emit monstersChanged();
 }
 
@@ -241,8 +234,6 @@ Monster *Board::createMonster(QVariantMap monsterJson)
             monster->setPlayer(player);
         }
     }
-
-    connect(monster, &Monster::playerChanged, this, &Board::monstersChanged);
     return monster;
 }
 

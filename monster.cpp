@@ -72,9 +72,8 @@ QString Monster::monsterTypeString() const
 void Monster::setPlayer(Player *player)
 {
     m_player = player;
-    m_colorString = m_player->colorString();
     emit playerChanged();
-    emit colorStringChanged();
+    setColorString(m_player->colorString());
 }
 
 Player *Monster::player() const
@@ -153,8 +152,7 @@ void Monster::impact(AttackPillow *attackPillow)
     if (player()->id() == 0) {
         setPlayer(attackPillow->player());
         m_value += attackPillow->count();
-        emit playerChanged();
-    } else if (attackPillow->colorString() == m_colorString) {
+    } else if (attackPillow->player()->id() == player()->id()) {
         m_value += attackPillow->count();
     } else {
         // Seems to be a confrontation!
@@ -180,7 +178,6 @@ void Monster::impact(AttackPillow *attackPillow)
         m_value -= finalAttackValue;
         if(m_value < 0) {
             setPlayer(attackPillow->player());
-            emit playerChanged();
             m_value = abs(m_value);
         }
         // if value is 0 this board has no longer a player -> neutral
@@ -188,7 +185,6 @@ void Monster::impact(AttackPillow *attackPillow)
             setPlayer(m_engine->board()->player(0));
         }
     }
-    attackPillow->deleteLater();
     emit impact();
     emit valueChanged();
 }

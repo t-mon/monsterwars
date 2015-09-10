@@ -50,8 +50,15 @@ Item {
             id: monsterRepeater
             model: gameEngine.board.monsters
             delegate: MonsterItem {
-                monster: model
                 nodeDistance: root.nodeDistance
+                monsterValue: model.monsterValue
+                monsterId: model.monsterId
+                monsterColor: model.monsterColor
+                monsterSize: model.monsterSize
+                monsterType: model.monsterType
+                positionX: model.positionX
+                positionY: model.positionY
+                selected: model.selected
                 pressed: boardArea.pressed
             }
         }
@@ -67,7 +74,7 @@ Item {
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
                     var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
                     if (l < nodeDistance) {
-                        gameEngine.board.evaluateReleased(monsterItem.monster.id)
+                        gameEngine.board.evaluateReleased(monsterItem.monsterId)
                     }
                 }
                 gameEngine.board.resetSelections()
@@ -83,9 +90,9 @@ Item {
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
                     var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
                     if (l < nodeDistance) {
-                        gameEngine.board.evaluateHovered(true, monsterItem.monster.id);
+                        gameEngine.board.evaluateHovered(true, monsterItem.monsterId);
                     } else {
-                        gameEngine.board.evaluateHovered(false, monsterItem.monster.id);
+                        gameEngine.board.evaluateHovered(false, monsterItem.monsterId);
                     }
                 }
             }
@@ -120,13 +127,13 @@ Item {
             y: boardArea.mouseY - root.nodeDistance * 2.5
             visible: boardArea.pressed && gameEngine.running
 
-            Repeater {
-                id: selectorLineRepeater
-                model: gameEngine.board.monsters
-                delegate: Canvas {
+//            Repeater {
+//                id: selectorLineRepeater
+//                model: gameEngine.board.monsters
+//                delegate: Canvas {
 
-                }
-            }
+//                }
+//            }
         }
 
         Repeater {
