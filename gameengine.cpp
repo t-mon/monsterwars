@@ -203,7 +203,7 @@ void GameEngine::startGame(const int &levelId)
 
     foreach (Player *player, m_board->playersList()) {
         if (player->playerType() == Player::PlayerTypeAi) {
-            AiBrain *brain = new AiBrain(m_board, player, this);
+            AiBrain *brain = new AiBrain(m_board, player, m_strengthStepWidth, m_defenseStepWidth, this);
             qDebug() << "Create AI for player" << player->id();
             m_brains.insert(player, brain);
 

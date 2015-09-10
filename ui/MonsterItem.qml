@@ -57,7 +57,7 @@ Item {
                 id: image
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
-                interpolate: false
+                interpolate: true
                 goalSprite: "still"
                 Sprite{
                     name: "still"

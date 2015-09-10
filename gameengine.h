@@ -64,10 +64,10 @@ public:
     int ticksPerSecond() const;
     int tickInterval() const;
 
-    double strengthStepWidth() const;
-    double reproductionStepWidth() const;
-    double defenseStepWidth() const;
-    double speedStepWidth() const;
+    Q_INVOKABLE double strengthStepWidth() const;
+    Q_INVOKABLE double reproductionStepWidth() const;
+    Q_INVOKABLE double defenseStepWidth() const;
+    Q_INVOKABLE double speedStepWidth() const;
 
     Q_INVOKABLE void startGame(const int &levelId);
     Q_INVOKABLE void restartGame();

@@ -16,28 +16,37 @@
     "monsters": [
         {
             "id": 1,
-            "monsterType": "MonsterTypeReproduction",
-            "x": 30,
-            "y": 30,
+            "monsterType": "MonsterTypeDefense",
+            "x": 20,
+            "y": 10,
             "size": 5,
             "startValue": 40,
             "player": 1
         },
         {
             "id": 2,
-            "monsterType": "MonsterTypeStrength",
-            "x": 60,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 20,
             "y": 30,
-            "size": 6,
+            "size": 5,
+            "startValue": 40,
+            "player": 1
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeStrength",
+            "x": 40,
+            "y": 10,
+            "size": 5,
             "startValue": 40,
             "player": 2
         },
         {
-            "id": 3,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 10,
-            "y": 10,
-            "size": 8,
+            "id": 4,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 40,
+            "y": 30,
+            "size": 5,
             "startValue": 40,
             "player": 2
         }

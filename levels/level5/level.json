@@ -3,42 +3,62 @@
     "id": 5,
     "players": [
         {
-            "id": 1,
-            "color": "#0000FF",
-            "playerType": "PlayerTypeHuman",
-            "strength": 0,
-            "speed": 0,
-            "defence": 0,
-            "reproduction": 8
-        },
-        {
             "id": 2,
-            "color": "#00FF00",
+            "color": "green",
             "playerType": "PlayerTypeAi",
             "strength": 0,
             "speed": 0,
             "defence": 0,
-            "reproduction": 0
+            "reproduction": 0,
+            "reaction": 0
+        },
+        {
+            "id": 3,
+            "color": "blue",
+            "playerType": "PlayerTypeAi",
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 0,
+            "reaction": 0
         }
     ],
     "monsters": [
         {
             "id": 1,
-            "monsterType": "MonsterTypeReproduction",
-            "x": 30,
-            "y": 30,
+            "monsterType": "MonsterTypeDefense",
+            "x": 20,
+            "y": 10,
             "size": 5,
             "startValue": 40,
-            "player": 1
+            "player": 2
         },
         {
             "id": 2,
-            "monsterType": "MonsterTypeStrength",
-            "x": 60,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 20,
             "y": 30,
-            "size": 6,
+            "size": 5,
             "startValue": 40,
             "player": 2
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeStrength",
+            "x": 40,
+            "y": 10,
+            "size": 5,
+            "startValue": 40,
+            "player": 3
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 40,
+            "y": 30,
+            "size": 5,
+            "startValue": 40,
+            "player": 3
         }
     ]
 }

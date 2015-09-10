@@ -2,7 +2,7 @@ import QtQuick 2.2
 import QtQuick.Layouts 1.1
 import MonsterWars 1.0
 
-Rectangle {
+Item {
     id: root
     visible: false
 
