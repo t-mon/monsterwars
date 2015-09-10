@@ -60,6 +60,7 @@ Item {
                 positionY: model.positionY
                 selected: model.selected
                 pressed: boardArea.pressed
+                lineWidth: selectorItem.lineWidth
             }
         }
 
@@ -80,8 +81,14 @@ Item {
                 gameEngine.board.resetSelections()
             }
 
-            onMouseXChanged: updateMouseLogic()
-            onMouseYChanged: updateMouseLogic()
+            onMouseXChanged: {
+                updateMouseLogic()
+                selectorLines.requestPaint()
+            }
+            onMouseYChanged: {
+                updateMouseLogic()
+                selectorLines.requestPaint()
+            }
 
             function updateMouseLogic() {
                 for (var i = 0; i < gameEngine.board.monsterCount; i ++){
@@ -123,18 +130,55 @@ Item {
             id: selectorItem
             nodeDistance: root.nodeDistance
             pressed: boardArea.pressed
-            x: boardArea.mouseX - root.nodeDistance * 2.5
-            y: boardArea.mouseY - root.nodeDistance * 2.5
+            size: nodeDistance * 6
+            lineWidth: nodeDistance / 2
+            x: boardArea.mouseX - size / 2
+            y: boardArea.mouseY - size / 2
             visible: boardArea.pressed && gameEngine.running
-
-//            Repeater {
-//                id: selectorLineRepeater
-//                model: gameEngine.board.monsters
-//                delegate: Canvas {
-
-//                }
-//            }
         }
+
+        Canvas {
+            id: selectorLines
+            anchors.fill: parent
+            //smooth: true
+            visible: selectorItem.visible
+
+            onPaint: {
+                var ctx = selectorLines.getContext('2d')
+                var offset = 0;
+                ctx.save();
+                ctx.reset();
+                for (var i = 0; i < gameEngine.board.monsterCount; i ++) {
+                    var monsterItem = monsterRepeater.itemAt(i)
+                    if (monsterItem.selected) {
+                        var xMonster = monsterItem.positionX * root.nodeDistance
+                        var yMonster = monsterItem.positionY * root.nodeDistance
+
+                        var xSelector = selectorItem.x + selectorItem.size / 2
+                        var ySelector = selectorItem.y + selectorItem.size / 2
+
+                        var dx = xSelector - xMonster
+                        var dy = ySelector - yMonster
+                        var alpha = Math.atan2(dy,dx)
+
+                        var xMonsterNew = xMonster + monsterItem.width / 2 * Math.cos(alpha)
+                        var yMonsterNew = yMonster + monsterItem.width / 2 * Math.sin(alpha)
+
+                        var xSelectorNew = xSelector + selectorItem.width / 2 * Math.cos(alpha)
+                        var ySelectorNew = ySelector + selectorItem.width / 2 * Math.sin(alpha)
+
+                        ctx.moveTo(xMonsterNew, yMonsterNew)
+                        ctx.lineTo(xSelectorNew, ySelectorNew)
+                        ctx.lineWidth = selectorItem.lineWidth
+                        ctx.lineCap = "round"
+                        ctx.strokeStyle = "steelblue"
+                        ctx.stroke()
+                    }
+                }
+                ctx.restore();
+            }
+        }
+
 
         Repeater {
             id: attackPillows

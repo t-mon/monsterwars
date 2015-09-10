@@ -13,6 +13,7 @@ Item {
     property int positionY
     property bool selected
     property bool pressed
+    property real lineWidth
 
     width: monsterSize * nodeDistance * 2
     height: width
@@ -28,8 +29,6 @@ Item {
         Rectangle {
             id: monsterItem
             anchors.fill: parent
-            border.color: selected ? "steelblue" : "transparent"
-            border.width: nodeDistance / 2
             color: "transparent"
             radius: width / 2
 
@@ -113,6 +112,14 @@ Item {
                 }
                 onExited: descriptionRectangle.visible = false
             }
+        }
+        Rectangle {
+            id: monsterSelectionCircle
+            anchors.fill: parent
+            border.color: selected ? "steelblue" : "transparent"
+            border.width: lineWidth
+            color: "transparent"
+            radius: width / 2
         }
     }
 }

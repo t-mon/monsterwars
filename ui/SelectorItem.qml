@@ -4,14 +4,16 @@ import MonsterWars 1.0
 Item{
     id: root
     property real nodeDistance
+    property real lineWidth
+    property real size
     property bool pressed
     Rectangle {
         id: selector
-        width: nodeDistance * 5
+        width: size
         height: width
-        color: "transparent"
+        color: "steelblue"
         border.color: "steelblue"
-        border.width: nodeDistance / 3
+        border.width: lineWidth
         radius: width / 2
     }
 }
