@@ -39,7 +39,6 @@ Item {
             anchors.topMargin: units.gu(2)
             width: units.gu(5)
             height: units.gu(5)
-            color: closePauseRectangle.pressed ? "steelblue" : "white"
             radius: units.gu(1)
 
             MouseArea {

@@ -10,15 +10,14 @@ Item {
         id: menuButton
         anchors.fill: parent
         color: "black"
-        border.color: buttonMouseArea.pressed ? "steelblue" : "white"
-        border.width:  units.gu(1)
-        radius: units.gu(5)
+        radius: height / 2
 
         Text {
             anchors.centerIn: menuButton
             text: name
             font.bold: true
-            font.pixelSize: units.gu(6)
+            font.pixelSize: units.gu(4)
+            font.family: "Comic Sans MS"
             color: buttonMouseArea.pressed ? "steelblue" : "white"
         }
 

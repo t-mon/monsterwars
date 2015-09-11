@@ -7,6 +7,11 @@ Item {
     id: root
     property real nodeDistance: (background.width - units.gu(3)) / gameEngine.board.columns
 
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
+
     Row {
         id: topBar
         width: root.width
@@ -16,16 +21,20 @@ Item {
 
         Rectangle {
             height: parent.height
-            width: units.gu(10)
+            width: units.gu(8)
             color: "black"
             Text {
                 id: gameTime
                 anchors.fill: parent
                 anchors.centerIn: parent
+                anchors.left: parent.left
+                anchors.leftMargin: units.gu(1)
                 text: gameEngine.displayGameTime
                 color: "white"
+                style: Text.Outline
+                styleColor: "steelblue"
                 font.bold: true
-                font.pixelSize: parent.height
+                font.pixelSize: parent.height * 4 / 5
             }
 
         }
@@ -45,6 +54,12 @@ Item {
         anchors.top: topBar.bottom
         anchors.horizontalCenter: root.horizontalCenter
         color: "black"
+
+        Image {
+            id: backgroundImage
+            anchors.fill: parent
+            source: "qrc:///backgrounds/background2.jpg"
+        }
 
         Repeater {
             id: monsterRepeater
@@ -113,8 +128,14 @@ Item {
             anchors.bottomMargin: units.gu(2)
             width: units.gu(5)
             height: units.gu(5)
-            color: pauseButtonMouseArea.pressed ? "steelblue" : "white"
+            color: "transparent"
             radius: units.gu(1)
+
+            Image {
+                id: pauseIcon
+                anchors.fill: parent
+                source: "qrc:///images/pause.png"
+            }
 
             MouseArea {
                 id: pauseButtonMouseArea

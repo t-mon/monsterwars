@@ -27,33 +27,9 @@ MainView {
             id: mainPage
             anchors.fill: parent
             visible: false
-
-            Rectangle {
+            MainMenu {
+                id: mainMenu
                 anchors.fill: parent
-                color: "black"
-
-                Column {
-                    id: mainMenu
-                    anchors.fill: parent
-                    anchors.topMargin: units.gu(3)
-                    spacing: units.gu(5)
-
-                    MainMenuItem {
-                        name: "Play"
-                        height: units.gu(10)
-                        width: parent.width - units.gu(20)
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        onClicked: pageStack.push(levelSelectorPage)
-                    }
-
-                    MainMenuItem {
-                        name: "Settings"
-                        height: units.gu(10)
-                        width: parent.width - units.gu(20)
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        onClicked: pageStack.push(settingsPage)
-                    }
-                }
             }
         }
 
@@ -80,6 +56,15 @@ MainView {
             visible: false
             Settings {
                 id: settings
+                anchors.fill: parent
+            }
+        }
+
+        Page {
+            id: infoPage
+            visible: false
+            Info {
+                id: info
                 anchors.fill: parent
             }
         }

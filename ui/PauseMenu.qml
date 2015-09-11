@@ -32,8 +32,14 @@ Rectangle {
             anchors.topMargin: units.gu(2)
             width: units.gu(5)
             height: units.gu(5)
-            color: closePauseRectangle.pressed ? "steelblue" : "white"
+            color: "transparent"
             radius: units.gu(1)
+
+            Image {
+                id: closeIcon
+                anchors.fill: parent
+                source: "qrc:///images/close-white.png"
+            }
 
             MouseArea {
                 id: closePauseRectangle

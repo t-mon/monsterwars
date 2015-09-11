@@ -11,9 +11,9 @@ Item {
         id: menuButton
         anchors.fill: parent
         color: "black"
-        border.color: buttonMouseArea.pressed ? "steelblue" : "white"
-        border.width:  units.gu(0.5)
-        radius: units.gu(1)
+        //border.color: buttonMouseArea.pressed ? "steelblue" : "white"
+        //border.width:  units.gu(0.5)
+        radius: units.gu(2)
 
         Text {
             anchors.verticalCenter: parent.verticalCenter
@@ -22,6 +22,7 @@ Item {
             text: name
             font.bold: true
             font.pixelSize: units.gu(4)
+            font.family: "Comic Sans MS"
             color: buttonMouseArea.pressed ? "steelblue" : "white"
         }
 

@@ -204,7 +204,7 @@ int VirtualAttack::calculateDestinationPointsAfterAttack()
 
     int valueAfterImpact = destinationMonster()->value() - finalAttackValue;
     if(valueAfterImpact < 0) {
-        qDebug() << "This attack ("  << sourceMonster()->id() << "->" << destinationMonster()->id() << ") would conquer the monster.";
+        //qDebug() << "This attack ("  << sourceMonster()->id() << "->" << destinationMonster()->id() << ") would conquer the monster.";
         m_canConquer = 100;
     } else {
         m_canConquer = 0;
@@ -233,6 +233,7 @@ int VirtualAttack::calculatePercentageAfterAttack()
 
     myPoints -= m_attackPoints;
 
+    // if conquer...
     if (m_attackPoints < 0) {
         myPoints += abs(m_valueAfterImpact);
         enemyPoints -= destinationMonster()->value();

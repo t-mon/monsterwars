@@ -10,6 +10,12 @@ Item {
         anchors.fill: parent
         color: "black"
 
+        Image {
+            id: backgroundImage
+            anchors.fill: parent
+            source: "qrc:///backgrounds/background1.jpg"
+        }
+
         Rectangle {
             id: titleBar
             color: "black"
@@ -24,8 +30,9 @@ Item {
                 anchors.leftMargin: units.gu(3)
                 anchors.top: titleBar.top
                 anchors.topMargin: units.gu(1)
-                text: "Settings:"
+                text: "Tune your monster:"
                 color: "white"
+                font.family: "Comic Sans MS"
                 font.bold: true
                 font.pixelSize: units.gu(5)
             }
@@ -38,8 +45,14 @@ Item {
                 anchors.topMargin: units.gu(2)
                 width: units.gu(5)
                 height: units.gu(5)
-                color: "white"
+                color: "transparent"
                 radius: units.gu(1)
+
+                Image {
+                    id: closeIcon
+                    anchors.fill: parent
+                    source: "qrc:///images/close-white.png"
+                }
 
                 MouseArea {
                     anchors.fill: exitRectangle

@@ -29,7 +29,6 @@ CONFIG += c++11
 HEADERS +=  attack.h \
             attackpillow.h \
             attackpillowmodel.h \
-            backend.h \
             board.h \
             gameengine.h \
             level.h \
@@ -43,7 +42,6 @@ SOURCES +=  main.cpp \
             attack.cpp \
             attackpillow.cpp \
             attackpillowmodel.cpp \
-            backend.cpp \
             board.cpp \
             gameengine.cpp \
             level.cpp \
@@ -54,7 +52,9 @@ SOURCES +=  main.cpp \
             monstermodel.cpp \
 
 RESOURCES += ui.qrc \
-             monsters.qrc
+             monsters.qrc \
+             backgrounds.qrc \
+             images.qrc
 
 # config files for click package
 OTHER_FILES += MonsterWars.apparmor \

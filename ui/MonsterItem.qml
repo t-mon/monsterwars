@@ -36,13 +36,13 @@ Item {
                 ScaleAnimator {
                     target: image
                     from: 0.98
-                    to: 1.02
+                    to: 1.03
                     easing.type: Easing.Linear;
                     duration: 500
                 }
                 ScaleAnimator {
                     target: image
-                    from: 1.02
+                    from: 1.03
                     to: 0.98
                     easing.type: Easing.Linear;
                     duration: 800
@@ -73,7 +73,9 @@ Item {
                 anchors.centerIn: parent
                 visible: monsterValue == 0 ? false : true
                 text: monsterValue
-                font.bold: true
+                font.weight: Font.DemiBold
+                style: Text.Outline
+                styleColor: "gray"
                 font.pixelSize: nodeDistance * 2
                 color: monsterColor
             }
@@ -95,8 +97,8 @@ Item {
                     visible: parent.visible
                     anchors.centerIn: descriptionRectangle
                     text: "id = " + monsterId + "\n" + monsterType
-                    style: Text.Outline;
-                    styleColor: "Black"
+                    style: Text.Outline
+                    styleColor: "white"
                     font.pixelSize: nodeDistance * 1.3
                     color: "white"
                 }
