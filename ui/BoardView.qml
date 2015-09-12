@@ -1,7 +1,25 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                         *
+ *  Copyright (C) 2015 Simon Stuerz <stuerz.simon@gmail.com>               *
+ *                                                                         *
+ *  This file is part of Monster Wars.                                     *
+ *                                                                         *
+ *  Monster Wars is free software: you can redistribute it and/or modify   *
+ *  it under the terms of the GNU General Public License as published by   *
+ *  the Free Software Foundation, version 3 of the License.                *
+ *                                                                         *
+ *  Monster Wars is distributed in the hope that it will be useful,        *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the           *
+ *  GNU General Public License for more details.                           *
+ *                                                                         *
+ *  You should have received a copy of the GNU General Public License      *
+ *  along with Monster Wars. If not, see <http://www.gnu.org/licenses/>.   *
+ *                                                                         *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 import QtQuick 2.2
 import MonsterWars 1.0
-import QtQuick.Layouts 1.1
-import Ubuntu.Components 1.1
 
 Item {
     id: root
@@ -174,22 +192,16 @@ Item {
                     if (monsterItem.selected) {
                         var xMonster = monsterItem.positionX * root.nodeDistance
                         var yMonster = monsterItem.positionY * root.nodeDistance
-
                         var xSelector = selectorItem.x + selectorItem.size / 2
                         var ySelector = selectorItem.y + selectorItem.size / 2
 
-                        var dx = xSelector - xMonster
-                        var dy = ySelector - yMonster
-                        var alpha = Math.atan2(dy,dx)
+                        var alpha = Math.atan2(ySelector - yMonster, xSelector - xMonster)
 
                         var xMonsterNew = xMonster + monsterItem.width / 2 * Math.cos(alpha)
                         var yMonsterNew = yMonster + monsterItem.width / 2 * Math.sin(alpha)
 
-                        var xSelectorNew = xSelector + selectorItem.width / 2 * Math.cos(alpha)
-                        var ySelectorNew = ySelector + selectorItem.width / 2 * Math.sin(alpha)
-
                         ctx.moveTo(xMonsterNew, yMonsterNew)
-                        ctx.lineTo(xSelectorNew, ySelectorNew)
+                        ctx.lineTo(xSelector, ySelector)
                         ctx.lineWidth = selectorItem.lineWidth
                         ctx.lineCap = "round"
                         ctx.strokeStyle = "steelblue"
