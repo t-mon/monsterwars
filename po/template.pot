@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 21:27+0200\n"
+"POT-Creation-Date: 2015-09-13 23:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,15 +73,11 @@ msgstr ""
 msgid "Backgrounds"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:177
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:186
 msgid "Play"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:185
-msgid "Settings"
-msgstr ""
-
-#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:207
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:231
 msgid "i"
 msgstr ""
 

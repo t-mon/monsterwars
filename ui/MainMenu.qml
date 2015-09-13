@@ -167,27 +167,51 @@ Item {
             }
         }
 
-        Column {
-            id: mainMenu
-            anchors.fill: parent
-            anchors.topMargin: units.gu(3)
-            spacing: units.gu(5)
 
-            MainMenuItem {
-                name: i18n.tr("Play")
-                height: units.gu(8)
-                width: parent.width - units.gu(30   )
-                anchors.horizontalCenter: parent.horizontalCenter
+        Rectangle {
+            id: playButton
+            anchors.centerIn: parent
+            height: units.gu(15)
+            width: units.gu(40)
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            color: "transparent"
+            Image {
+                id: playButtonMonster
+                anchors.fill: parent
+                source: "qrc:///images/play-button.png"
+            }
+            Text {
+                anchors.centerIn: parent
+                text: i18n.tr("Play")
+                font.bold: true
+                font.pixelSize: units.gu(4)
+                color: playButtonMouseArea.pressed ? "steelblue" : "white"
+            }
+
+            MouseArea {
+                id: playButtonMouseArea
+                anchors.fill: parent
                 onClicked: pageStack.push(levelSelectorPage)
             }
-
-            MainMenuItem {
-                name: i18n.tr("Settings")
-                height: units.gu(8)
-                width: parent.width - units.gu(30)
-                anchors.horizontalCenter: parent.horizontalCenter
-                onClicked: pageStack.push(settingsPage)
+        }
+        SequentialAnimation {
+            ScaleAnimator {
+                target: playButton
+                from: 0.99
+                to: 1.01
+                easing.type: Easing.Linear;
+                duration: 1000
             }
+            ScaleAnimator {
+                target: playButton
+                from: 1.01
+                to: 0.99
+                easing.type: Easing.Linear;
+                duration: 800
+            }
+            running: true
+            loops: Animation.Infinite
         }
     }
 
