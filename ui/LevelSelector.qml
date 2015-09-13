@@ -35,9 +35,9 @@ Item {
         GridView {
             id: levelGrid
             anchors.fill: parent
-            anchors.margins: units.gu(3)
+            anchors.margins: units.gu(1)
             cellWidth: units.gu(30)
-            cellHeight: units.gu(25)
+            cellHeight: units.gu(20)
             model: gameEngine.levels
 
             delegate: LevelSelectorItem {
@@ -56,27 +56,28 @@ Item {
     }
 
     Rectangle {
-        id: exitRectangle
+        id: closeButton
+        width: units.gu(8)
+        height: width
         anchors.right: parent.right
-        anchors.rightMargin: units.gu(2)
+        anchors.rightMargin: units.gu(1)
         anchors.top: parent.top
-        anchors.topMargin: units.gu(2)
-        width: units.gu(5)
-        height: units.gu(5)
-        color: "transparent"
-        radius: units.gu(1)
+        anchors.topMargin: units.gu(1)
+        color: "black"
+        radius: width / 2
 
-        Image {
-            id: closeIcon
-            anchors.fill: parent
-            source: "qrc:///images/close-black.png"
+        Text {
+            anchors.centerIn: parent
+            text: "X"
+            color: "white"
+            font.bold: true
+            font.pixelSize: units.gu(6)
         }
 
         MouseArea {
-            anchors.fill: exitRectangle
+            anchors.fill: parent
             onClicked: pageStack.pop()
         }
     }
-
 }
 

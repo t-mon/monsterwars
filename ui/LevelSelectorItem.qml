@@ -32,33 +32,55 @@ Item {
     Rectangle {
         id: levelItem
         anchors.fill: parent
-        anchors.margins: units.gu(3)
+        anchors.margins: units.gu(2)
         color: "black"
-        radius: units.gu(2)
-        border.color: levelMouseArea.pressed ? "steelblue" : "white"
+        radius: units.gu(1.5)
+        border.color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
+
+        Text {
+            visible: unlocked
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: bestTime
+            font.bold: true
+            font.pixelSize: units.gu(2)
+            color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
+        }
+
+        Rectangle {
+            anchors.margins: units.gu(2)
+            visible: !unlocked
+            anchors.fill: parent
+            radius: units.gu(1.5)
+            opacity: 0.4
+            color: "black"
+
+            Image {
+                opacity: 1
+                anchors.centerIn: parent
+                width: parent.height
+                height: width
+                source: "qrc:///images/lock.png"
+            }
+        }
 
         Text {
             anchors.centerIn: parent
             text: levelId
             font.bold: true
             font.pixelSize: units.gu(4)
-            color: levelMouseArea.pressed ? "steelblue" : "white"
-        }
-
-        Text {
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: units.gu(1)
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: bestTime
-            font.bold: true
-            font.pixelSize: units.gu(3)
-            color: levelMouseArea.pressed ? "steelblue" : "white"
+            color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
         }
 
         MouseArea {
             id: levelMouseArea
             anchors.fill: parent
-            onClicked: root.selected()
+            onClicked: {
+                if (unlocked) {
+                    root.selected()
+                }
+            }
         }
     }
 }

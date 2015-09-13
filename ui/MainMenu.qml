@@ -193,7 +193,7 @@ Item {
 
     Rectangle {
         id: infoButton
-        width: units.gu(6)
+        width: units.gu(8)
         height: width
         anchors.left: parent.left
         anchors.leftMargin: units.gu(3)
@@ -207,7 +207,7 @@ Item {
             text: i18n.tr("i")
             color: "white"
             font.bold: true
-            font.pixelSize: units.gu(4)
+            font.pixelSize: units.gu(6)
         }
 
         MouseArea {
@@ -219,7 +219,7 @@ Item {
 
     Rectangle {
         id: helpButton
-        width: units.gu(6)
+        width: units.gu(8)
         height: width
         anchors.right: parent.right
         anchors.rightMargin: units.gu(3)
@@ -233,7 +233,7 @@ Item {
             text: "?"
             color: "white"
             font.bold: true
-            font.pixelSize: units.gu(4)
+            font.pixelSize: units.gu(6)
         }
 
         MouseArea {

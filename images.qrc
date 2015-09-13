@@ -4,6 +4,7 @@
         <file>images/close-black.png</file>
         <file>images/pause.png</file>
         <file>images/info.png</file>
+        <file>images/lock.png</file>
     </qresource>
 </RCC>
 

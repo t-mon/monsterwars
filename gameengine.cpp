@@ -36,7 +36,8 @@ GameEngine::GameEngine(QObject *parent):
     m_displayTimer(new QTimer(this)),
     m_board(new Board(this)),
     m_ticksPerSecond(25),
-    m_running(false)
+    m_running(false),
+    m_newHighScore(false)
 {    
     // Initialize boardsize
     m_rows = 40;
@@ -132,6 +133,11 @@ QString GameEngine::displayGameTime() const
 bool GameEngine::running() const
 {
     return m_running;
+}
+
+bool GameEngine::newHighScore() const
+{
+    return m_newHighScore;
 }
 
 int GameEngine::winnerId() const
@@ -236,6 +242,7 @@ void GameEngine::startGame(const int &levelId)
     }
 
     m_gameOver = false;
+    m_newHighScore = false;
     m_totalGameTimeMs = 0;
     m_gameTimer.restart();
     emit displayGameTimeChanged();
@@ -360,8 +367,13 @@ void GameEngine::loadLevels()
 
         QSettings settings;
         settings.beginGroup(level->name());
-        level->setBestTime(settings.value("bestTime", "--:--.---").toString());
+        level->setTimeStamp(settings.value("timeStamp", 0).toInt());
         level->setUnlocked(settings.value("unlocked", false).toBool());
+        settings.endGroup();
+
+        if (level->levelId() == 1) {
+            level->setUnlocked(true);
+        }
 
         m_levels->addLevel(level);
         m_levelHash.insert(level->levelId(), level);
@@ -448,6 +460,38 @@ void GameEngine::onGameOver(const int &winnerId)
     }
 
     stop();
+    // stop game timer
+    m_totalGameTimeMs += m_gameTimer.elapsed();
+    m_finalTime = m_totalGameTimeMs;
+    emit gameTimeChanged();
+    emit displayGameTimeChanged();
+
+    if (m_board->level()->timeStamp() > m_finalTime || m_board->level()->timeStamp() == 0) {
+        m_newHighScore = true;
+        qDebug() << "New highscore!";
+        m_board->level()->setTimeStamp(m_finalTime);
+        QSettings settings;
+        settings.beginGroup(m_board->level()->name());
+        settings.setValue("timeStamp", m_finalTime);
+        settings.setValue("unlocked", true);
+        settings.endGroup();
+
+        Level *nextLevel = 0;
+        nextLevel = m_levelHash.value(m_board->level()->levelId() + 1);
+
+        if (nextLevel) {
+            settings.beginGroup(nextLevel->name());
+            settings.setValue("unlocked", true);
+            settings.endGroup();
+            qDebug() << "Unlock next level" << nextLevel->levelId();
+            nextLevel->setUnlocked(true);
+        }
+
+        emit newHighScoreChanged();
+    } else {
+        m_newHighScore = false;
+        emit newHighScoreChanged();
+    }
 
     m_winnerId = winnerId;
     emit winnerIdChanged();
@@ -455,9 +499,4 @@ void GameEngine::onGameOver(const int &winnerId)
     m_gameOver = true;
     emit gameOver();
 
-    // stop game timer
-    m_totalGameTimeMs += m_gameTimer.elapsed();
-    m_finalTime = m_totalGameTimeMs;
-    emit gameTimeChanged();
-    emit displayGameTimeChanged();
 }

@@ -51,6 +51,7 @@ class GameEngine : public QObject
     Q_PROPERTY(QString gameTime READ gameTime NOTIFY gameTimeChanged)
     Q_PROPERTY(int winnerId READ winnerId NOTIFY winnerIdChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
+    Q_PROPERTY(bool newHighScore READ newHighScore NOTIFY newHighScoreChanged)
     Q_PROPERTY(LevelModel *levels READ levels NOTIFY levelsChanged)
     Q_PROPERTY(AttackPillowModel *pillows READ pillows NOTIFY pillowsChanged)
 
@@ -77,6 +78,7 @@ public:
     QString displayGameTime() const;
 
     bool running() const;
+    bool newHighScore() const;
 
     int winnerId() const;
 
@@ -123,6 +125,7 @@ private:
     int m_columns;
     int m_winnerId;
     bool m_running;
+    bool m_newHighScore;
 
     double m_strengthStepWidth;
     double m_reproductionStepWidth;
@@ -145,6 +148,7 @@ signals:
     void gameOver();
     void gameFinished(const int &winnerId);
     void winnerIdChanged();
+    void newHighScoreChanged();
 
 private slots:
     void initGameEngine();

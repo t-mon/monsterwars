@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-13 15:46+0200\n"
+"POT-Creation-Date: 2015-09-13 17:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:83
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:92
 msgid "Retry"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:114
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:123
 msgid "Ok"
 msgstr ""
 
@@ -81,15 +81,15 @@ msgstr ""
 msgid "i"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:89
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:62
 msgid "Continue"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:112
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:85
 msgid "Restart"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:135
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:108
 msgid "Select Level"
 msgstr ""
 

@@ -48,6 +48,15 @@ Item {
             spacing: units.gu(4)
 
             Text {
+                id: newHighscoreText
+                color: "white"
+                visible: gameEngine.newHighScore
+                text: "New highscore!"
+                font.bold: true
+                font.pixelSize: units.gu(4)
+            }
+
+            Text {
                 id: winnerText
                 color: "white"
                 text: gameEngine.winnerId == 1 ? "You won!" : "You lost."

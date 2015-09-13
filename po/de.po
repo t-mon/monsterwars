@@ -1,29 +1,73 @@
-# Translation for monsterwars.
-# Copyright (C) 2015 Simon Stürz
-# This file is distributed under the same license as the Monster Wars package.
-# Simon Stürz <stuerz.simon@gmail.com>, 2015.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: monsterwars\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-12 23:58+0200\n"
-"PO-Revision-Date: 2015-09-12 23:59+0200\n"
-"Last-Translator: Simon Stürz <stuerz.simon@gmail.com>\n"
-"Language-Team: German <LL@li.org>\n"
-"Language: German\n"
+"POT-Creation-Date: 2015-09-13 16:50+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:83
 msgid "Retry"
-msgstr "Neuer Versuch"
+msgstr "Nochmal"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:114
 msgid "Ok"
 msgstr "Ok"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:93
+msgid "Defense"
+msgstr "Verteidigung"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:146
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:199
+msgid "Strength"
+msgstr "Stärke"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:252
+msgid "Reproduction"
+msgstr "Reproduktion"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:308
+msgid "Pillow"
+msgstr "Kissen"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:62
+msgid "Version:"
+msgstr "Version:"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:71
+msgid "Author"
+msgstr "Autor"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:90
+msgid "Design"
+msgstr "Design"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:109
+msgid "Source code"
+msgstr "Quellcode"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:134
+msgid "License"
+msgstr "Lizenz"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:159
+msgid "Backgrounds"
+msgstr "Hintergrund Bilder"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:177
 msgid "Play"
@@ -37,17 +81,17 @@ msgstr "Einstellungen"
 msgid "i"
 msgstr "i"
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:89
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:62
 msgid "Continue"
 msgstr "Fortsetzen"
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:112
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:85
 msgid "Restart"
 msgstr "Neustart"
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:135
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:108
 msgid "Select Level"
-msgstr "Level Auswahl"
+msgstr "Level wählen"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:50
 msgid "Settings:"

@@ -72,7 +72,11 @@ QString Level::bestTime() const
 void Level::setTimeStamp(const int &timeStamp)
 {
     m_timeStamp = timeStamp;
-    setBestTime(QTime::fromMSecsSinceStartOfDay(timeStamp).toString("mm:ss.zzz"));
+    if (m_timeStamp == 0) {
+        setBestTime("--:--.---");
+    } else {
+        setBestTime(QTime::fromMSecsSinceStartOfDay(timeStamp).toString("mm:ss.zzz"));
+    }
 }
 
 int Level::timeStamp() const

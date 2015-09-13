@@ -47,33 +47,6 @@ Item {
         anchors.margins: units.gu(5)
         radius: units.gu(2)
 
-        Rectangle {
-            id: closeRectangle
-            anchors.right: menuRectangle.right
-            anchors.rightMargin: units.gu(2)
-            anchors.top: menuRectangle.top
-            anchors.topMargin: units.gu(2)
-            width: units.gu(5)
-            height: units.gu(5)
-            color: "transparent"
-            radius: units.gu(1)
-
-            Image {
-                id: closeIcon
-                anchors.fill: parent
-                source: "qrc:///images/close-white.png"
-            }
-
-            MouseArea {
-                id: closePauseRectangle
-                anchors.fill: closeRectangle
-                onClicked: {
-                    root.visible = false
-                    gameEngine.continueGame()
-                }
-            }
-        }
-
         Column {
             id: pauseMenuColumn
             anchors.fill: parent
@@ -146,6 +119,59 @@ Item {
                         pageStack.pop()
                     }
                 }
+            }
+        }
+
+        Rectangle {
+            id: closeButton
+            width: units.gu(8)
+            height: width
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            anchors.top: parent.top
+            anchors.topMargin: units.gu(1)
+            color: "black"
+            radius: width / 2
+
+            Text {
+                anchors.centerIn: parent
+                text: "X"
+                color: "white"
+                font.bold: true
+                font.pixelSize: units.gu(6)
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    root.visible = false
+                    gameEngine.continueGame()
+                }
+            }
+        }
+
+        Rectangle {
+            id: helpButton
+            width: units.gu(8)
+            height: width
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            color: "black"
+            radius: width / 2
+
+            Text {
+                anchors.centerIn: parent
+                text: "?"
+                color: "white"
+                font.bold: true
+                font.pixelSize: units.gu(6)
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: pageStack.push(helpPage)
             }
         }
     }

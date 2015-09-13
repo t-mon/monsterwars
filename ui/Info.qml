@@ -193,24 +193,26 @@ Item {
         }
 
         Rectangle {
-            id: exitRectangle
-            anchors.right: screenRectangle.right
-            anchors.rightMargin: units.gu(2)
-            anchors.top: screenRectangle.top
-            anchors.topMargin: units.gu(2)
-            width: units.gu(5)
-            height: units.gu(5)
-            color: "transparent"
-            radius: units.gu(1)
+            id: closeButton
+            width: units.gu(8)
+            height: width
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(3)
+            anchors.top: parent.top
+            anchors.topMargin: units.gu(3)
+            color: "black"
+            radius: width / 2
 
-            Image {
-                id: closeIcon
-                anchors.fill: parent
-                source: "qrc:///images/close-black.png"
+            Text {
+                anchors.centerIn: parent
+                text: "X"
+                color: "white"
+                font.bold: true
+                font.pixelSize: units.gu(6)
             }
 
             MouseArea {
-                anchors.fill: exitRectangle
+                anchors.fill: parent
                 onClicked: pageStack.pop()
             }
         }
