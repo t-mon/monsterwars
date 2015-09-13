@@ -20,11 +20,13 @@
 
 import QtQuick 2.2
 import MonsterWars 1.0
+import QtQuick.Layouts 1.1
 
 Item {
     id: root
 
     Rectangle {
+        id: screenRectangle
         anchors.fill: parent
         color: "black"
 
@@ -34,49 +36,183 @@ Item {
             source: "qrc:///backgrounds/background1.jpg"
         }
 
+        Flickable {
+            anchors.fill: parent
+            anchors.margins: units.gu(2)
+            contentHeight: columnLayout.height
+
+            ColumnLayout {
+                id: columnLayout
+                spacing: units.gu(4)
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: "Monster Wars"
+                        font.weight: Font.DemiBold
+                        font.bold: true
+                        style: Text.Outline
+                        styleColor: "steelblue"
+                        font.pixelSize: units.gu(9)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: i18n.tr("Version:") + " " + app.version
+                        font.weight: Font.DemiBold
+                        font.pixelSize: units.gu(3)
+                    }
+                }
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: i18n.tr("Author")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "Simon Stürz"
+                        font.weight: Font.DemiBold
+                        font.pixelSize: units.gu(3)
+                    }
+                }
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: i18n.tr("Design")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "Simon Stürz"
+                        font.weight: Font.DemiBold
+                        font.pixelSize: units.gu(3)
+                    }
+                }
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: i18n.tr("Source code")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "https://github.com/t-mon/monsterwars"
+                        font.weight: Font.DemiBold
+                        font.underline: true
+                        font.pixelSize: units.gu(3)
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("https://github.com/t-mon/monsterwars")
+                        }
+                    }
+                }
+
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: i18n.tr("License")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "GPL v3"
+                        font.weight: Font.DemiBold
+                        font.underline: true
+                        font.pixelSize: units.gu(3)
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("https://www.gnu.org/licenses/gpl-3.0.html")
+                        }
+                    }
+                }
+
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        text: i18n.tr("Backgrounds")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "http://shadowhousecreations.blogspot.de"
+                        font.weight: Font.DemiBold
+                        font.underline: true
+                        font.pixelSize: units.gu(3)
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("http://shadowhousecreations.blogspot.de")
+                        }
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        text: "Terms of use"
+                        font.weight: Font.DemiBold
+                        font.underline: true
+                        font.pixelSize: units.gu(3)
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("http://shadowhousecreations.blogspot.de/p/terms-of-use.html")
+                        }
+                    }
+                }
+            }
+        }
+
         Rectangle {
-            id: titleBar
-            color: "black"
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            height: units.gu(8)
+            id: exitRectangle
+            anchors.right: screenRectangle.right
+            anchors.rightMargin: units.gu(2)
+            anchors.top: screenRectangle.top
+            anchors.topMargin: units.gu(2)
+            width: units.gu(5)
+            height: units.gu(5)
+            color: "transparent"
+            radius: units.gu(1)
 
-            Text {
-                id: title
-                anchors.left: titleBar.left
-                anchors.leftMargin: units.gu(3)
-                anchors.top: titleBar.top
-                anchors.topMargin: units.gu(1)
-                text: "About:"
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(5)
+            Image {
+                id: closeIcon
+                anchors.fill: parent
+                source: "qrc:///images/close-black.png"
             }
 
-            Rectangle {
-                id: exitRectangle
-                anchors.right: titleBar.right
-                anchors.rightMargin: units.gu(2)
-                anchors.top: titleBar.top
-                anchors.topMargin: units.gu(2)
-                width: units.gu(5)
-                height: units.gu(5)
-                color: "transparent"
-                radius: units.gu(1)
-
-                Image {
-                    id: closeIcon
-                    anchors.fill: parent
-                    source: "qrc:///images/close-white.png"
-                }
-
-                MouseArea {
-                    anchors.fill: exitRectangle
-                    onClicked: pageStack.pop()
-                }
+            MouseArea {
+                anchors.fill: exitRectangle
+                onClicked: pageStack.pop()
             }
-
         }
     }
 }

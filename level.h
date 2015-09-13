@@ -32,6 +32,8 @@ class Level: public QObject
     Q_OBJECT
     Q_PROPERTY(int levelId READ levelId NOTIFY levelIdChanged)
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString bestTime READ bestTime NOTIFY bestTimeChanged)
+    Q_PROPERTY(bool unlocked READ unlocked NOTIFY unlockedChanged)
 
 public:
     explicit Level(QObject *parent = 0);
@@ -42,6 +44,15 @@ public:
 
     void setLevelId(const int &levelId);
     int levelId() const;
+
+    void setBestTime(const QString &bestTime);
+    QString bestTime() const;
+
+    void setTimeStamp(const int &timeStamp);
+    int timeStamp() const;
+
+    void setUnlocked(const bool &unlocked);
+    bool unlocked() const;
 
     void setMonstersVariants(const QVariantList &monstersVariant);
     QVariantList monstersVariant() const;
@@ -54,10 +65,15 @@ private:
     QVariantList m_playersVariant;
     QString m_name;
     int m_levelId;
+    int m_timeStamp;
+    QString m_bestTime;
+    bool m_unlocked;
 
 signals:
     void levelIdChanged();
     void nameChanged();
+    void bestTimeChanged();
+    void unlockedChanged();
 
 };
 #endif // LEVEL_H

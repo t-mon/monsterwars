@@ -18,24 +18,44 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#ifndef LEVELMODEL_H
+#define LEVELMODEL_H
 
-#include <QObject>
+#include <QAbstractListModel>
 
-class Settings : public QObject
+#include "level.h"
+
+class LevelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit Settings(QObject *parent = 0);
+    enum PillowRole {
+        IdRole = Qt::DisplayRole,
+        UnlockedRole,
+        TimeRole,
+        NameRole
+    };
+    explicit LevelModel(QObject *parent = 0);
 
-    QString playerColor() const;
-    void setPlayerColor(const QString &colorString);
+    QList<Level *> levels();
+    Q_INVOKABLE Level *level(int levelId);
 
-signals:
+    int rowCount(const QModelIndex & parent = QModelIndex()) const;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-public slots:
+    void addLevel(Level* level);
 
+protected:
+    QHash<int, QByteArray> roleNames() const;
+
+private:
+    QList<Level *> m_levels;
+
+    int indexOf(Level *level);
+
+private slots:
+    void unlockedChanged();
+    void bestTimeChanged();
 };
 
-#endif // SETTINGS_H
+#endif // LEVELMODEL_H

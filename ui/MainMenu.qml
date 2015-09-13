@@ -174,17 +174,17 @@ Item {
             spacing: units.gu(5)
 
             MainMenuItem {
-                name: "Play"
+                name: i18n.tr("Play")
                 height: units.gu(8)
-                width: parent.width - units.gu(20)
+                width: parent.width - units.gu(30   )
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(levelSelectorPage)
             }
 
             MainMenuItem {
-                name: "Monster tuning"
+                name: i18n.tr("Settings")
                 height: units.gu(8)
-                width: parent.width - units.gu(20)
+                width: parent.width - units.gu(30)
                 anchors.horizontalCenter: parent.horizontalCenter
                 onClicked: pageStack.push(settingsPage)
             }
@@ -204,7 +204,7 @@ Item {
 
         Text {
             anchors.centerIn: parent
-            text: "i"
+            text: i18n.tr("i")
             color: "white"
             font.bold: true
             font.pixelSize: units.gu(4)
@@ -215,6 +215,31 @@ Item {
             anchors.fill: parent
             onClicked: pageStack.push(infoPage)
         }
+    }
 
+    Rectangle {
+        id: helpButton
+        width: units.gu(6)
+        height: width
+        anchors.right: parent.right
+        anchors.rightMargin: units.gu(3)
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(3)
+        color: "black"
+        radius: width / 2
+
+        Text {
+            anchors.centerIn: parent
+            text: "?"
+            color: "white"
+            font.bold: true
+            font.pixelSize: units.gu(4)
+        }
+
+        MouseArea {
+            id: helpMouseArea
+            anchors.fill: parent
+            onClicked: pageStack.push(helpPage)
+        }
     }
 }

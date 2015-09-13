@@ -4,7 +4,7 @@ UBUNTU_MANIFEST_FILE=manifest.json.in
 
 # specify translation domain, this must be equal with the
 # app name in the manifest file
-UBUNTU_TRANSLATION_DOMAIN="com.ubuntu.developer.simonstuerz.monsterwars"
+UBUNTU_TRANSLATION_DOMAIN="monsterwars.simonstuerz"
 
 # specify the source files that should be included into
 # the translation file, from those files a translation
@@ -35,8 +35,8 @@ HEADERS +=  attack.h \
             player.h \
             monster.h \
             aibrain.h \
-            settings.h \
             monstermodel.h \
+    levelmodel.h
 
 SOURCES +=  main.cpp \
             attack.cpp \
@@ -48,8 +48,8 @@ SOURCES +=  main.cpp \
             player.cpp \
             monster.cpp \
             aibrain.cpp \
-            settings.cpp \
             monstermodel.cpp \
+    levelmodel.cpp
 
 RESOURCES += ui.qrc \
              monsters.qrc \

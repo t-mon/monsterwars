@@ -43,9 +43,18 @@ Item {
         color: "transparent"
 
         Image {
-            id: backgroundImage
+            id: pillowImage
             anchors.fill: parent
             source: "qrc:///monsters/pillow.png"
+        }
+
+        RotationAnimation {
+            id: pillowRotationAnimation
+            target: pillowImage
+            running: true
+            from: 0
+            to: 360
+            duration: animationDuration
         }
 
         Text {
@@ -62,6 +71,7 @@ Item {
         ParallelAnimation {
             id: attackAnimation
             running: true
+            onStopped: gameEngine.attackFinished(pillowId)
             SequentialAnimation {
                 id: flightAnimation
                 loops: 1
@@ -91,6 +101,7 @@ Item {
                 to: root.nodeDistance * destinationX - pillowRectangle.width / 2
                 duration: animationDuration
             }
+
             NumberAnimation {
                 id: yAnimation
                 target: root
@@ -99,22 +110,20 @@ Item {
                 to: root.nodeDistance * destinationY - pillowRectangle.width / 2
                 duration: animationDuration
             }
-            onStopped: {
-                gameEngine.attackFinished(pillowId)
-            }
         }
+    }
 
-        Connections {
-            target: gameEngine
-            onRunningChanged: {
-                if (!gameEngine.running) {
-                    attackAnimation.pause()
-                    pillowRotation.pause()
-                } else {
-                    attackAnimation.resume()
-                    pillowRotation.resume()
-                }
+    Connections {
+        target: gameEngine
+        onRunningChanged: {
+            if (!gameEngine.running) {
+                attackAnimation.pause()
+                pillowRotationAnimation.pause()
+            } else {
+                attackAnimation.resume()
+                pillowRotationAnimation.resume()
             }
         }
     }
 }
+

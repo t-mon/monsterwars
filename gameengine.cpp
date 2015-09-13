@@ -49,6 +49,7 @@ GameEngine::GameEngine(QObject *parent):
     m_speedStepWidth = 0.08;
 
     m_pillowsModel = new AttackPillowModel(this);
+    m_levels = new LevelModel(this);
 
     m_tickInterval = 1000 / m_ticksPerSecond;
     connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameOver);
@@ -70,9 +71,9 @@ Board *GameEngine::board() const
     return m_board;
 }
 
-QQmlListProperty<Level> GameEngine::levels()
+LevelModel *GameEngine::levels()
 {
-    return QQmlListProperty<Level>(this, m_levels);
+    return m_levels;
 }
 
 AttackPillowModel *GameEngine::pillows()
@@ -163,13 +164,7 @@ void GameEngine::startAttack(Attack *attack)
         attackSpeed += sourceMonster->player()->speed();
 
         // create pillow
-        AttackPillow *pillow = new AttackPillow(sourceMonster->player(),
-                                                sourceMonster,
-                                                destinationMonster,
-                                                sourceMonster->split(),
-                                                attackStrength,
-                                                attackSpeed,
-                                                this);
+        AttackPillow *pillow = new AttackPillow(sourceMonster->player(), sourceMonster, destinationMonster, sourceMonster->split(), attackStrength, attackSpeed, this);
 
         m_pillowList.insert(pillow->id(), pillow);
         m_pillowsModel->addPillow(pillow);
@@ -362,10 +357,16 @@ void GameEngine::loadLevels()
         level->setLevelId(levelData.value("id").toInt());
         level->setPlayersVariants(levelData.value("players").toList());
         level->setMonstersVariants(levelData.value("monsters").toList());
-        m_levels.append(level);
+
+        QSettings settings;
+        settings.beginGroup(level->name());
+        level->setBestTime(settings.value("bestTime", "--:--.---").toString());
+        level->setUnlocked(settings.value("unlocked", false).toBool());
+
+        m_levels->addLevel(level);
         m_levelHash.insert(level->levelId(), level);
-        emit levelsChanged();
     }
+    emit levelsChanged();
 }
 
 void GameEngine::calculateScores()

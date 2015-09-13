@@ -14,6 +14,7 @@
         <file>ui/AttackPillowItem.qml</file>
         <file>ui/GameOverView.qml</file>
         <file>ui/Info.qml</file>
+        <file>ui/Help.qml</file>
     </qresource>
 </RCC>
 

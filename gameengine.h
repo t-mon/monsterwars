@@ -32,6 +32,7 @@
 #include <QUuid>
 
 #include "attackpillowmodel.h"
+#include "levelmodel.h"
 #include "aibrain.h"
 
 class Level;
@@ -50,7 +51,7 @@ class GameEngine : public QObject
     Q_PROPERTY(QString gameTime READ gameTime NOTIFY gameTimeChanged)
     Q_PROPERTY(int winnerId READ winnerId NOTIFY winnerIdChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
-    Q_PROPERTY(QQmlListProperty<Level> levels READ levels NOTIFY levelsChanged)
+    Q_PROPERTY(LevelModel *levels READ levels NOTIFY levelsChanged)
     Q_PROPERTY(AttackPillowModel *pillows READ pillows NOTIFY pillowsChanged)
 
 public:
@@ -60,7 +61,7 @@ public:
     QVariantMap levelDescription(int levelId) const;
     Board* board() const;
 
-    QQmlListProperty<Level> levels();
+    LevelModel *levels();
     AttackPillowModel *pillows();
 
     QUrl dataDir() const;
@@ -108,7 +109,7 @@ private:
 
     QUrl m_dataDir;
     QHash<int, QVariantMap> m_levelDescriptions;
-    QList<Level *> m_levels;
+    LevelModel *m_levels;
     AttackPillowModel *m_pillowsModel;
     QHash<QString, AttackPillow *> m_pillowList;
 

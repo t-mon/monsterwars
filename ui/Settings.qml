@@ -47,7 +47,7 @@ Item {
                 anchors.leftMargin: units.gu(3)
                 anchors.top: titleBar.top
                 anchors.topMargin: units.gu(1)
-                text: "Tune your monster:"
+                text: i18n.tr("Settings:")
                 color: "white"
                 font.bold: true
                 font.pixelSize: units.gu(5)

@@ -71,32 +71,69 @@ Item {
                 loops: Animation.Infinite
             }
 
-            SpriteSequence {
+            Loader {
                 id: imageSprite
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
-                interpolate: true
-                goalSprite: "still"
-                Sprite{
-                    name: "still"
-                    source: "qrc:///monsters/monster-still-"+ monsterColor +".png"
-                    frameCount: 6
-                    frameWidth: 200
-                    frameHeight: 200
-                    frameDuration: 110
+
+                property string monsterSource: "qrc:///monsters/monster-still-" + monsterColor + ".png"
+
+                Binding {
+                    target: imageSprite.item
+                    property: "source"
+                    value: imageSprite.monsterSource
+                }
+
+                onMonsterSourceChanged: {
+                    imageSprite.sourceComponent = null
+                    imageSprite.sourceComponent = spriteComponent
                 }
             }
 
-            Text {
-                id: counterLabel
-                anchors.centerIn: parent
-                visible: monsterValue == 0 ? false : true
-                text: monsterValue
-                font.weight: Font.DemiBold
-                style: Text.Outline
-                styleColor: "gray"
-                font.pixelSize: nodeDistance * 2
-                color: monsterColor
+            Component {
+                id: spriteComponent
+
+                SpriteSequence {
+                    property alias source: sprite.source
+                    interpolate: true
+                    goalSprite: "still"
+
+                    Sprite{
+                        id: sprite
+                        name: "still"
+                        frameCount: 6
+                        frameWidth: 200
+                        frameHeight: 200
+                        frameDuration: 110
+                    }
+                }
+            }
+
+            Rectangle {
+                id: valueRectangle
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: - nodeDistance / 2
+                anchors.right: parent.right
+                anchors.rightMargin: - nodeDistance / 2
+                width: nodeDistance * 4
+                height: nodeDistance * 3
+                color: "black"
+                opacity: 0.8
+                border.color: "gray"
+                radius: width / 4
+                visible: monsterValue != 0
+
+                Text {
+                    id: valueLabel
+                    anchors.centerIn: parent
+                    visible: monsterValue == 0 ? false : true
+                    text: monsterValue
+                    font.weight: Font.DemiBold
+                    style: Text.Outline
+                    styleColor: "white"
+                    font.pixelSize: nodeDistance * 2
+                    color: monsterColor
+                }
             }
 
             Rectangle {

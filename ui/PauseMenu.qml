@@ -21,17 +21,22 @@
 import QtQuick 2.2
 import MonsterWars 1.0
 
-Rectangle {
-    id: pauseMenu
+Item {
+    id: root
     visible: false
-    anchors.fill: parent
-    color: "#99FFFFFF"
 
-    MouseArea {
+    Rectangle {
+        id: backgroundRectangle
         anchors.fill: parent
-        onClicked: {
-            pauseMenu.visible = false
-            gameEngine.continueGame()
+        opacity: 0.4
+        color: "black"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                root.visible = false
+                gameEngine.continueGame()
+            }
         }
     }
 
@@ -63,7 +68,7 @@ Rectangle {
                 id: closePauseRectangle
                 anchors.fill: closeRectangle
                 onClicked: {
-                    pauseMenu.visible = false
+                    root.visible = false
                     gameEngine.continueGame()
                 }
             }
@@ -81,7 +86,7 @@ Rectangle {
                 color: "black"
                 Text {
                     anchors.centerIn: parent
-                    text: "Continue"
+                    text: i18n.tr("Continue")
                     font.bold: true
                     font.pixelSize: units.gu(4)
                     color: continueMouseArea.pressed ? "steelblue" : "white"
@@ -90,7 +95,7 @@ Rectangle {
                     id: continueMouseArea
                     anchors.fill: parent
                     onClicked: {
-                        pauseMenu.visible = false
+                        root.visible = false
                         gameEngine.continueGame()
                     }
                 }
@@ -104,7 +109,7 @@ Rectangle {
                 color: "black"
                 Text {
                     anchors.centerIn: parent
-                    text: "Restart"
+                    text: i18n.tr("Restart")
                     font.bold: true
                     font.pixelSize: units.gu(4)
                     color: settingsLevelMouseArea.pressed ? "steelblue" : "white"
@@ -113,7 +118,7 @@ Rectangle {
                     id: settingsLevelMouseArea
                     anchors.fill: parent
                     onClicked: {
-                        pauseMenu.visible = false
+                        root.visible = false
                         gameEngine.restartGame()
                     }
                 }
@@ -127,7 +132,7 @@ Rectangle {
                 color: "black"
                 Text {
                     anchors.centerIn: parent
-                    text: "Select Level"
+                    text: i18n.tr("Select Level")
                     font.bold: true
                     font.pixelSize: units.gu(4)
                     color: selectLevelMouseArea.pressed ? "steelblue" : "white"
@@ -137,7 +142,7 @@ Rectangle {
                     anchors.fill: parent
                     onClicked: {
                         gameEngine.stopGame()
-                        pauseMenu.visible = false
+                        root.visible = false
                         pageStack.pop()
                     }
                 }

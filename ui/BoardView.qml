@@ -79,23 +79,23 @@ Item {
             source: "qrc:///backgrounds/background2.jpg"
         }
 
-        Repeater {
-            id: monsterRepeater
-            model: gameEngine.board.monsters
-            delegate: MonsterItem {
-                nodeDistance: root.nodeDistance
-                monsterValue: model.monsterValue
-                monsterId: model.monsterId
-                monsterColor: model.monsterColor
-                monsterSize: model.monsterSize
-                monsterType: model.monsterType
-                positionX: model.positionX
-                positionY: model.positionY
-                selected: model.selected
-                pressed: boardArea.pressed
-                lineWidth: selectorItem.lineWidth
+            Repeater {
+                id: monsterRepeater
+                model: gameEngine.board.monsters
+                delegate: MonsterItem {
+                    nodeDistance: root.nodeDistance
+                    monsterValue: model.monsterValue
+                    monsterId: model.monsterId
+                    monsterColor: model.monsterColor
+                    monsterSize: model.monsterSize
+                    monsterType: model.monsterType
+                    positionX: model.positionX
+                    positionY: model.positionY
+                    selected: model.selected
+                    pressed: boardArea.pressed
+                    lineWidth: selectorItem.lineWidth
+                }
             }
-        }
 
         MouseArea {
             id: boardArea
@@ -179,7 +179,7 @@ Item {
         Canvas {
             id: selectorLines
             anchors.fill: parent
-            //smooth: true
+            smooth: true
             visible: selectorItem.visible
 
             onPaint: {
@@ -232,12 +232,11 @@ Item {
 
     PauseMenu {
         id: pauseMenu
-        anchors.fill: root
+        anchors.fill: parent
     }
 
     GameOverView {
         id: gameOverView
-        visible: false
         anchors.fill: parent
     }
 

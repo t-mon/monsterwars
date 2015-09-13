@@ -29,7 +29,7 @@ Item {
         id: menuButton
         anchors.fill: parent
         color: "black"
-        radius: height / 2
+        radius: height / 3
 
         Text {
             anchors.centerIn: menuButton

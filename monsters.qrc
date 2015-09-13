@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="">
+        <file>monsters/monster-template-defense.png</file>
+        <file>monsters/monster-template-strength.png</file>
+        <file>monsters/monster-template-reproduction.png</file>
+        <file>monsters/monster-template-speed.png</file>
         <file>monsters/monster-still-white.png</file>
         <file>monsters/monster-still-blue.png</file>
         <file>monsters/monster-still-green.png</file>

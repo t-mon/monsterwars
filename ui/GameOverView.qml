@@ -26,9 +26,22 @@ Item {
     visible: false
 
     Rectangle {
+        id: backgroundRectangle
+        anchors.fill: parent
+        opacity: 0.4
+        color: "black"
+
+        MouseArea {
+            anchors.fill: parent
+        }
+    }
+
+    Rectangle {
         id: menuRectangle
         color: "black"
         anchors.fill: parent
+        anchors.margins: units.gu(5)
+        radius: units.gu(2)
 
         Column {
             anchors.centerIn: parent
@@ -37,38 +50,82 @@ Item {
             Text {
                 id: winnerText
                 color: "white"
-                text: gameEngine.winnerId == 1 ? "You are the winner!" : "You lost the game. \nPlayer " + gameEngine.winnerId + " won the game."
+                text: gameEngine.winnerId == 1 ? "You won!" : "You lost."
                 font.bold: true
                 font.pixelSize: units.gu(4)
             }
 
             Text {
                 id: timeText
+                visible: gameEngine.winnerId == 1
                 color: "white"
                 text: gameEngine.gameTime
                 font.bold: true
                 font.pixelSize: units.gu(4)
             }
         }
+
         Rectangle {
-            id: closeRectangle
-            anchors.right: menuRectangle.right
-            anchors.rightMargin: units.gu(2)
-            anchors.top: menuRectangle.top
-            anchors.topMargin: units.gu(2)
-            width: units.gu(5)
-            height: units.gu(5)
-            radius: units.gu(1)
+            anchors.left: parent.left
+            anchors.leftMargin: units.gu(1)
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+
+            id: retryButton
+            color: "black"
+            border.color: "steelblue"
+            height: parent.height / 5
+            width: parent.width / 3
+            radius: units.gu(2)
+
+            Text {
+                anchors.centerIn: parent
+                text: i18n.tr("Retry")
+                color: "white"
+                font.bold: true
+                font.pixelSize: units.gu(4)
+            }
 
             MouseArea {
-                id: closePauseRectangle
-                anchors.fill: closeRectangle
+                anchors.fill: parent
                 onClicked: {
+                    root.visible = false
+                    gameEngine.restartGame()
+                }
+
+            }
+        }
+
+        Rectangle {
+            id: okButton
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+
+            color: "black"
+            border.color: "steelblue"
+            height: parent.height / 5
+            width: parent.width / 3
+            radius: units.gu(2)
+
+            Text {
+                anchors.centerIn: parent
+                text: i18n.tr("Ok")
+                color: "white"
+                font.bold: true
+                font.pixelSize: units.gu(4)
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    root.visible = false
                     gameEngine.stopGame()
                     pageStack.pop()
-                    root.visible = false
                 }
             }
         }
     }
 }
+

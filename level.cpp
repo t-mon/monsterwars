@@ -18,12 +18,17 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <QTime>
+
 #include "level.h"
 #include "player.h"
 #include "monster.h"
 
 Level::Level(QObject *parent):
-    QObject(parent)
+    QObject(parent),
+    m_timeStamp(0),
+    m_bestTime(QString("--:--.---")),
+    m_unlocked(false)
 {
 }
 
@@ -51,6 +56,39 @@ void Level::setLevelId(const int &levelId)
 int Level::levelId() const
 {
     return m_levelId;
+}
+
+void Level::setBestTime(const QString &bestTime)
+{
+    m_bestTime = bestTime;
+    emit bestTimeChanged();
+}
+
+QString Level::bestTime() const
+{
+    return m_bestTime;
+}
+
+void Level::setTimeStamp(const int &timeStamp)
+{
+    m_timeStamp = timeStamp;
+    setBestTime(QTime::fromMSecsSinceStartOfDay(timeStamp).toString("mm:ss.zzz"));
+}
+
+int Level::timeStamp() const
+{
+    return m_timeStamp;
+}
+
+void Level::setUnlocked(const bool &unlocked)
+{
+    m_unlocked = unlocked;
+    emit unlockedChanged();
+}
+
+bool Level::unlocked() const
+{
+    return m_unlocked;
 }
 
 void Level::setMonstersVariants(const QVariantList &monstersVariant)

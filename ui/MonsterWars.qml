@@ -19,14 +19,17 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.2
-import Ubuntu.Components 1.1
 import MonsterWars 1.0
+import Ubuntu.Components 1.1
 
 MainView {
     id: app
     objectName: "mainView"
+    applicationName: "monsterwars.simonstuerz"
     automaticOrientation: true
     useDeprecatedToolbar: false
+
+    property string version: "0.1"
 
     width: units.gu(70)
     height: units.gu(40)
@@ -35,7 +38,10 @@ MainView {
     GameEngine {
         id: gameEngine
         dataDir: "../../../levels"
-        Component.onCompleted: pageStack.push(mainPage)
+        Component.onCompleted: {
+            i18n.domain = "monsterwars.simonstuerz"
+            pageStack.push(mainPage)
+        }
     }
 
     PageStack {
@@ -85,6 +91,15 @@ MainView {
             visible: false
             Info {
                 id: info
+                anchors.fill: parent
+            }
+        }
+
+        Page {
+            id: helpPage
+            visible: false
+            Help {
+                id: help
                 anchors.fill: parent
             }
         }

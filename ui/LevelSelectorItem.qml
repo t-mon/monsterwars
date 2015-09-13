@@ -23,27 +23,40 @@ import QtQuick 2.2
 Item {
     id: root
     property int levelId
+    property bool unlocked
+    property string bestTime
     property string name
+
     signal selected()
 
     Rectangle {
-        id: menuButton
+        id: levelItem
         anchors.fill: parent
+        anchors.margins: units.gu(3)
         color: "black"
         radius: units.gu(2)
+        border.color: levelMouseArea.pressed ? "steelblue" : "white"
 
         Text {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: units.gu(3)
-            text: name
+            anchors.centerIn: parent
+            text: levelId
             font.bold: true
             font.pixelSize: units.gu(4)
-            color: buttonMouseArea.pressed ? "steelblue" : "white"
+            color: levelMouseArea.pressed ? "steelblue" : "white"
+        }
+
+        Text {
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: bestTime
+            font.bold: true
+            font.pixelSize: units.gu(3)
+            color: levelMouseArea.pressed ? "steelblue" : "white"
         }
 
         MouseArea {
-            id: buttonMouseArea
+            id: levelMouseArea
             anchors.fill: parent
             onClicked: root.selected()
         }
