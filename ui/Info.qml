@@ -197,9 +197,9 @@ Item {
             width: units.gu(8)
             height: width
             anchors.right: parent.right
-            anchors.rightMargin: units.gu(3)
+            anchors.rightMargin: units.gu(1)
             anchors.top: parent.top
-            anchors.topMargin: units.gu(3)
+            anchors.topMargin: units.gu(1)
             color: "black"
             radius: width / 2
 

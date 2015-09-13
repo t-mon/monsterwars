@@ -81,8 +81,7 @@ Item {
             anchors.bottomMargin: units.gu(1)
 
             id: retryButton
-            color: "black"
-            border.color: "steelblue"
+            color: "transparent"
             height: parent.height / 5
             width: parent.width / 3
             radius: units.gu(2)
@@ -112,8 +111,7 @@ Item {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: units.gu(1)
 
-            color: "black"
-            border.color: "steelblue"
+            color: "transparent"
             height: parent.height / 5
             width: parent.width / 3
             radius: units.gu(2)

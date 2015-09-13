@@ -243,6 +243,7 @@ void GameEngine::startGame(const int &levelId)
 
     m_gameOver = false;
     m_newHighScore = false;
+    emit newHighScoreChanged();
     m_totalGameTimeMs = 0;
     m_gameTimer.restart();
     emit displayGameTimeChanged();
@@ -466,31 +467,33 @@ void GameEngine::onGameOver(const int &winnerId)
     emit gameTimeChanged();
     emit displayGameTimeChanged();
 
-    if (m_board->level()->timeStamp() > m_finalTime || m_board->level()->timeStamp() == 0) {
-        m_newHighScore = true;
-        qDebug() << "New highscore!";
-        m_board->level()->setTimeStamp(m_finalTime);
-        QSettings settings;
-        settings.beginGroup(m_board->level()->name());
-        settings.setValue("timeStamp", m_finalTime);
-        settings.setValue("unlocked", true);
-        settings.endGroup();
-
-        Level *nextLevel = 0;
-        nextLevel = m_levelHash.value(m_board->level()->levelId() + 1);
-
-        if (nextLevel) {
-            settings.beginGroup(nextLevel->name());
+    if (winnerId == 1) {
+        if (m_board->level()->timeStamp() > m_finalTime || m_board->level()->timeStamp() == 0) {
+            m_newHighScore = true;
+            qDebug() << "New highscore!";
+            m_board->level()->setTimeStamp(m_finalTime);
+            QSettings settings;
+            settings.beginGroup(m_board->level()->name());
+            settings.setValue("timeStamp", m_finalTime);
             settings.setValue("unlocked", true);
             settings.endGroup();
-            qDebug() << "Unlock next level" << nextLevel->levelId();
-            nextLevel->setUnlocked(true);
-        }
 
-        emit newHighScoreChanged();
-    } else {
-        m_newHighScore = false;
-        emit newHighScoreChanged();
+            Level *nextLevel = 0;
+            nextLevel = m_levelHash.value(m_board->level()->levelId() + 1);
+
+            if (nextLevel) {
+                settings.beginGroup(nextLevel->name());
+                settings.setValue("unlocked", true);
+                settings.endGroup();
+                qDebug() << "Unlock next level" << nextLevel->levelId();
+                nextLevel->setUnlocked(true);
+            }
+
+            emit newHighScoreChanged();
+        } else {
+            m_newHighScore = false;
+            emit newHighScoreChanged();
+        }
     }
 
     m_winnerId = winnerId;
