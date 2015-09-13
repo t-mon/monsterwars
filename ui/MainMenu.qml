@@ -118,7 +118,7 @@ Item {
                 goalSprite: "still"
                 Sprite{
                     name: "still"
-                    source: "qrc:///monsters/monster-still-white.png"
+                    source: "qrc:///monsters/monster-defense-white.png"
                     frameCount: 6
                     frameWidth: 200
                     frameHeight: 200

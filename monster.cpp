@@ -214,23 +214,23 @@ QString Monster::monsterTypeToString(Monster::MonsterType monsterType)
 {
     switch (monsterType) {
     case Monster::MonsterTypeNormal:
-        return "Normal";
+        return "normal";
         break;
     case Monster::MonsterTypeDefense:
-        return "Defense";
+        return "defense";
         break;
     case Monster::MonsterTypeReproduction:
-        return "Reproduction";
+        return "reproduction";
         break;
     case Monster::MonsterTypeSpeed:
-        return "Speed";
+        return "speed";
         break;
     case Monster::MonsterTypeStrength:
-        return "Strength";
+        return "strength";
         break;
     default:
         qWarning() << "ERROR: unknown MonsterType!";
-        return "Normal";
+        return "normal";
         break;
     }
 }

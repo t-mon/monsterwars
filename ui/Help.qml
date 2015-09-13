@@ -48,6 +48,59 @@ Item {
                 Row {
                     spacing: units.gu(5)
                     Rectangle {
+                        id: normalRectangle
+                        color: "transparent"
+                        width: units.gu(15)
+                        height: width
+
+                        SpriteSequence {
+                            id: normalSprite
+                            anchors.fill: parent
+                            interpolate: false
+                            goalSprite: "still"
+                            Sprite{
+                                name: "still"
+                                source: "qrc:///monsters/monster-normal-white.png"
+                                frameCount: 6
+                                frameWidth: 200
+                                frameHeight: 200
+                                frameDuration: 110
+                            }
+                        }
+
+                        SequentialAnimation {
+                            ScaleAnimator {
+                                target: normalSprite
+                                from: 0.98
+                                to: 1.03
+                                easing.type: Easing.Linear;
+                                duration: 500
+                            }
+                            ScaleAnimator {
+                                target: normalSprite
+                                from: 1.03
+                                to: 0.98
+                                easing.type: Easing.Linear;
+                                duration: 800
+                            }
+                            running: true
+                            loops: Animation.Infinite
+                        }
+                    }
+
+                    Text {
+                        anchors.verticalCenter: normalRectangle.verticalCenter
+                        text: i18n.tr("Normal")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+                }
+
+                Row {
+                    spacing: units.gu(5)
+                    Rectangle {
                         id: defenseRectangle
                         color: "transparent"
                         width: units.gu(15)
@@ -60,7 +113,7 @@ Item {
                             goalSprite: "still"
                             Sprite{
                                 name: "still"
-                                source: "qrc:///monsters/monster-template-defense.png"
+                                source: "qrc:///monsters/monster-defense-white.png"
                                 frameCount: 6
                                 frameWidth: 200
                                 frameHeight: 200
@@ -113,7 +166,7 @@ Item {
                             goalSprite: "still"
                             Sprite{
                                 name: "still"
-                                source: "qrc:///monsters/monster-template-speed.png"
+                                source: "qrc:///monsters/monster-speed-white.png"
                                 frameCount: 6
                                 frameWidth: 200
                                 frameHeight: 200
@@ -166,7 +219,7 @@ Item {
                             goalSprite: "still"
                             Sprite{
                                 name: "still"
-                                source: "qrc:///monsters/monster-template-strength.png"
+                                source: "qrc:///monsters/monster-strength-white.png"
                                 frameCount: 6
                                 frameWidth: 200
                                 frameHeight: 200
@@ -219,7 +272,7 @@ Item {
                             goalSprite: "still"
                             Sprite{
                                 name: "still"
-                                source: "qrc:///monsters/monster-template-reproduction.png"
+                                source: "qrc:///monsters/monster-reproduction-white.png"
                                 frameCount: 6
                                 frameWidth: 200
                                 frameHeight: 200

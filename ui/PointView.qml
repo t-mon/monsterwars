@@ -41,7 +41,7 @@ Item {
                 anchors.bottomMargin: root.height / 10
                 width: root.width * model.percentage
                 visible: model.pointCount == 0 ? false : true
-                color: model.colorString
+                color: model.colorString == "green" ? app.green : model.colorString == "red" ? app.red : model.colorString == "blue" ? app.blue : "white"
                 Text {
                     anchors.centerIn: parent
                     text: model.pointCount + " | " + Math.round(model.percentage * 100) + "%"
@@ -58,5 +58,6 @@ Item {
             }
         }
     }
+
 }
 

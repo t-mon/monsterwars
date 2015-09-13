@@ -76,7 +76,7 @@ Item {
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
 
-                property string monsterSource: "qrc:///monsters/monster-still-" + monsterColor + ".png"
+                property string monsterSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + ".png"
 
                 Binding {
                     target: imageSprite.item
@@ -132,7 +132,7 @@ Item {
                     style: Text.Outline
                     styleColor: "white"
                     font.pixelSize: nodeDistance * 2
-                    color: monsterColor
+                    color: monsterColor == "green" ? app.green : monsterColor == "red" ? app.red : monsterColor == "blue" ? app.blue : "white"
                 }
             }
 

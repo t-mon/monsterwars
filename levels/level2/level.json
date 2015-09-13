@@ -4,7 +4,7 @@
     "players": [
         {
             "id": 2,
-            "color": "green",
+            "color": "red",
             "playerType": "PlayerTypeAi",
             "strength": 0,
             "speed": 0,

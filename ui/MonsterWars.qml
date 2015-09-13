@@ -30,6 +30,9 @@ MainView {
     useDeprecatedToolbar: false
 
     property string version: "0.1"
+    property string green: "#00c500"
+    property string blue: "#0083c7"
+    property string red: "#c12600"
 
     width: units.gu(70)
     height: units.gu(40)
