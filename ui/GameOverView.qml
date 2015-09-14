@@ -45,13 +45,14 @@ Item {
 
         Column {
             anchors.centerIn: parent
-            spacing: units.gu(4)
+            spacing: units.gu(1)
 
             Text {
                 id: newHighscoreText
                 color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
                 visible: gameEngine.newHighScore
-                text: "New highscore!"
+                text: i18n.tr("New highscore!")
                 font.bold: true
                 font.pixelSize: units.gu(4)
             }
@@ -59,15 +60,17 @@ Item {
             Text {
                 id: winnerText
                 color: "white"
-                text: gameEngine.winnerId == 1 ? "You won!" : "You lost."
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: gameEngine.winnerId == 1 ? i18n.tr("You won!") : i18n.tr("You lost.")
                 font.bold: true
                 font.pixelSize: units.gu(4)
             }
 
             Text {
                 id: timeText
-                visible: gameEngine.winnerId == 1
                 color: "white"
+                anchors.horizontalCenter: parent.horizontalCenter
+                visible: gameEngine.winnerId == 1
                 text: gameEngine.gameTime
                 font.bold: true
                 font.pixelSize: units.gu(4)

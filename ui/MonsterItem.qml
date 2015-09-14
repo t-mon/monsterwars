@@ -171,6 +171,21 @@ Item {
                 onExited: descriptionRectangle.visible = false
             }
         }
+
+//        Rectangle {
+//            id: sleepingRectangle
+//            width: units.gu(2)
+//            height: width
+//            color: "transparent"
+//            visible: monsterColor == "white"
+
+//            Image {
+//                id: sleepingImage
+//                anchors.fill: parent
+//                source: "qrc:///images/sleeping-zzz.png"
+//            }
+//        }
+
         Rectangle {
             id: monsterSelectionCircle
             anchors.fill: parent

@@ -21,50 +21,52 @@
 import QtQuick 2.2
 import MonsterWars 1.0
 
-Item {
+Item{
     id: root
+    property string menuTitle
 
-    Image {
+    Rectangle {
+        id: toolBar
         anchors.fill: parent
-        source: "qrc:///backgrounds/background1.jpg"
-    }
+        color: "black"
 
-    GridView {
-        id: levelGrid
-        cellWidth: parent.width / 2
-        cellHeight: units.gu(23)
-        model: gameEngine.levels
-        anchors {
-            top: menuBar.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+        Text {
+            text: menuTitle
+            color: "white"
+            font.bold: true
+            font.pixelSize: units.gu(3)
+            anchors {
+                left: parent.left
+                leftMargin: units.gu(2)
+                horizontalCenter: parent.horizontalCenter
+            }
         }
 
-        delegate: LevelSelectorItem {
-            width: levelGrid.cellWidth
-            height: levelGrid.cellHeight
-            name: model.levelName
-            levelId: model.levelId
-            bestTime: model.bestTime
-            unlocked: model.unlocked
-            onSelected: {
-                pageStack.push(boardPage)
-                gameEngine.startGame(model.levelId)
+        Rectangle {
+            id: exitRectangle
+            anchors {
+                right: toolBar.right
+                rightMargin: units.gu(2)
+                verticalCenter: toolBar.verticalCenter
+            }
+
+            height: toolBar.height
+            width: height
+
+            color: "transparent"
+            radius: units.gu(1)
+
+            Image {
+                id: closeIcon
+                anchors.fill: parent
+                anchors.margins: units.gu(0.5)
+                source: "qrc:///images/close-white.png"
+            }
+
+            MouseArea {
+                anchors.fill: exitRectangle
+                onClicked: pageStack.pop()
             }
         }
     }
-
-    MenuBar {
-        id: menuBar
-        height: units.gu(4)
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-        }
-        menuTitle: i18n.tr("Level selection")
-    }
 }
-
-

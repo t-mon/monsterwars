@@ -31,142 +31,9 @@ Item {
             source: "qrc:///backgrounds/background1.jpg"
         }
 
-        Rectangle {
-            id: randomPillow
-            color: "transparent"
-            width: units.gu(4)
-            height: width
-            x: Math.floor(Math.random() * (1 + root.width))
-            y: Math.floor(Math.random() * (1 + root.height))
-
-            Image {
-                id: randomPillowImage
-                anchors.fill: parent
-                source: "qrc:///monsters/pillow.png"
-            }
-
-            Behavior on x {
-                NumberAnimation {
-                    target: randomPillow
-                    properties: "x"
-                    duration:4000
-                    easing.type: Easing.OutCubic
-                }
-            }
-            Behavior on y {
-                NumberAnimation {
-                    target: randomPillow
-                    properties: "y"
-                    duration: 4000
-                    easing.type: Easing.OutCubic
-                }
-            }
-            Timer {
-                interval: 4000
-                running: true
-                repeat: true
-                onTriggered: {
-                    randomPillow.x = Math.floor(Math.random() * (1 + root.width))
-                    randomPillow.y = Math.floor(Math.random() * (1 + root.height))
-                }
-            }
+        BackgroundMonsters {
+            anchors.fill: parent
         }
-
-        RotationAnimation {
-            target: randomPillowImage
-            running: true
-            from: 0
-            to: 360
-            duration: 2000
-            loops: Animation.Infinite
-        }
-
-        Rectangle {
-            id: randomMonster
-            color: "transparent"
-            width: units.gu(8)
-            height: width
-            x: Math.floor(Math.random() * (1 + root.width))
-            y: Math.floor(Math.random() * (1 + root.height))
-
-            SequentialAnimation {
-                ScaleAnimator {
-                    target: image
-                    from: 0.98
-                    to: 1.02
-                    easing.type: Easing.Linear;
-                    duration: 500
-                }
-                ScaleAnimator {
-                    target: image
-                    from: 1.02
-                    to: 0.98
-                    easing.type: Easing.Linear;
-                    duration: 800
-                }
-                running: true
-                loops: Animation.Infinite
-            }
-
-            SpriteSequence {
-                id: image
-                width: parent.width
-                height: width
-                opacity: 0.8
-                anchors.centerIn: parent
-                interpolate: false
-                goalSprite: "still"
-                Sprite{
-                    name: "still"
-                    source: "qrc:///monsters/monster-defense-white.png"
-                    frameCount: 6
-                    frameWidth: 200
-                    frameHeight: 200
-                    frameDuration: 110
-                }
-                Sprite{
-                    name: "blink"
-                    source: "qrc:///monsters/monster-blink-white.png"
-                    frameCount: 6
-                    frameWidth: 200
-                    frameHeight: 200
-                    frameDuration: 110
-                    to: {"still":1}
-                }
-            }
-
-            Behavior on x {
-                NumberAnimation {
-                    target: randomMonster
-                    properties: "x"
-                    duration: 6000
-                    easing.type: Easing.OutCubic
-                }
-            }
-            Behavior on y {
-                NumberAnimation {
-                    target: randomMonster
-                    properties: "y"
-                    duration: 6000
-                    easing.type: Easing.OutCubic
-                }
-            }
-            Timer {
-                interval: 6000
-                running: true
-                repeat: true
-                onTriggered: {
-                    randomMonster.x = Math.floor(Math.random() * (1 + root.width))
-                    randomMonster.y = Math.floor(Math.random() * (1 + root.height))
-                }
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: image.jumpTo("blink")
-            }
-        }
-
 
         Rectangle {
             id: playButton
@@ -199,13 +66,13 @@ Item {
             ScaleAnimator {
                 target: playButton
                 from: 0.99
-                to: 1.01
+                to: 1.03
                 easing.type: Easing.Linear;
                 duration: 1000
             }
             ScaleAnimator {
                 target: playButton
-                from: 1.01
+                from: 1.03
                 to: 0.99
                 easing.type: Easing.Linear;
                 duration: 800
@@ -217,7 +84,7 @@ Item {
 
     Rectangle {
         id: infoButton
-        width: units.gu(8)
+        width: units.gu(6)
         height: width
         anchors.left: parent.left
         anchors.leftMargin: units.gu(3)
@@ -231,7 +98,7 @@ Item {
             text: i18n.tr("i")
             color: "white"
             font.bold: true
-            font.pixelSize: units.gu(6)
+            font.pixelSize: units.gu(4)
         }
 
         MouseArea {
@@ -243,7 +110,7 @@ Item {
 
     Rectangle {
         id: helpButton
-        width: units.gu(8)
+        width: units.gu(6)
         height: width
         anchors.right: parent.right
         anchors.rightMargin: units.gu(3)
@@ -257,7 +124,7 @@ Item {
             text: "?"
             color: "white"
             font.bold: true
-            font.pixelSize: units.gu(6)
+            font.pixelSize: units.gu(4)
         }
 
         MouseArea {

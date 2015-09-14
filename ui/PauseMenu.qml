@@ -56,9 +56,13 @@ Item {
                 width: menuRectangle.width - units.gu(20)
                 anchors.left: parent.left
                 anchors.leftMargin: units.gu(2)
-                color: "black"
+                color: "transparent"
                 Text {
-                    anchors.centerIn: parent
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(2)
+                        verticalCenter: parent.verticalCenter
+                    }
                     text: i18n.tr("Continue")
                     font.bold: true
                     font.pixelSize: units.gu(4)
@@ -79,9 +83,13 @@ Item {
                 width: menuRectangle.width - units.gu(20)
                 anchors.left: parent.left
                 anchors.leftMargin: units.gu(2)
-                color: "black"
+                color: "transparent"
                 Text {
-                    anchors.centerIn: parent
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(2)
+                        verticalCenter: parent.verticalCenter
+                    }
                     text: i18n.tr("Restart")
                     font.bold: true
                     font.pixelSize: units.gu(4)
@@ -100,12 +108,18 @@ Item {
             Rectangle {
                 height: menuRectangle.height / 3
                 width: menuRectangle.width - units.gu(20)
-                anchors.left: parent.left
-                anchors.leftMargin: units.gu(2)
-                color: "black"
+                anchors {
+                    left: parent.left
+                    leftMargin: units.gu(2)
+                }
+                color: "transparent"
                 Text {
-                    anchors.centerIn: parent
-                    text: i18n.tr("Select Level")
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(2)
+                        verticalCenter: parent.verticalCenter
+                    }
+                    text: i18n.tr("Level selection")
                     font.bold: true
                     font.pixelSize: units.gu(4)
                     color: selectLevelMouseArea.pressed ? "steelblue" : "white"
@@ -133,13 +147,13 @@ Item {
             color: "black"
             radius: width / 2
 
-            Text {
-                anchors.centerIn: parent
-                text: "X"
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(6)
+            Image {
+                id: closeIcon
+                anchors.fill: parent
+                anchors.margins: units.gu(2)
+                source: "qrc:///images/close-white.png"
             }
+
 
             MouseArea {
                 anchors.fill: parent

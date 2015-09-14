@@ -94,6 +94,7 @@ private:
 bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2);
 bool compareSourceValue(VirtualAttack *attack1, VirtualAttack *attack2);
 bool compareDestinationValue(VirtualAttack *attack1, VirtualAttack *attack2);
+bool compareDestinationSize(VirtualAttack *attack1, VirtualAttack *attack2);
 bool compareDestinationValueAfterImpact(VirtualAttack *attack1, VirtualAttack *attack2);
 bool comparePercentageAfterImpact(VirtualAttack *attack1, VirtualAttack *attack2);
 bool compareConquere(VirtualAttack *attack1, VirtualAttack *attack2);

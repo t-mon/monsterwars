@@ -96,6 +96,11 @@ void AiBrain::calculateAttack()
     VirtualAttack *highestPercentageValueAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(highestPercentageValueAttack);
 
+    // size of target monster
+    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationSize);
+    VirtualAttack *biggestTargetAttack = possibleAttacks.first();
+    bestOfEachHeuristic.append(biggestTargetAttack);
+
     // can conquer
     qSort(possibleAttacks.begin(), possibleAttacks.end(), compareConquere);
     VirtualAttack *canConquerAttack = possibleAttacks.first();
@@ -301,4 +306,9 @@ bool comparePercentageAfterImpact(VirtualAttack *attack1, VirtualAttack *attack2
 bool compareConquere(VirtualAttack *attack1, VirtualAttack *attack2)
 {
     return attack1->canConquer() > attack2->canConquer();
+}
+
+bool compareDestinationSize(VirtualAttack *attack1, VirtualAttack *attack2)
+{
+    return attack1->destinationMonster()->size() > attack2->destinationMonster()->size();
 }

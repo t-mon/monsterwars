@@ -36,7 +36,7 @@ HEADERS +=  attack.h \
             monster.h \
             aibrain.h \
             monstermodel.h \
-    levelmodel.h
+            levelmodel.h
 
 SOURCES +=  main.cpp \
             attack.cpp \
@@ -49,12 +49,13 @@ SOURCES +=  main.cpp \
             monster.cpp \
             aibrain.cpp \
             monstermodel.cpp \
-    levelmodel.cpp
+            levelmodel.cpp
 
 RESOURCES += ui.qrc \
              monsters.qrc \
              backgrounds.qrc \
-             images.qrc
+             images.qrc \
+             previews.qrc
 
 # config files for click package
 OTHER_FILES += MonsterWars.apparmor \

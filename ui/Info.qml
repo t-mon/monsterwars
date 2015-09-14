@@ -36,9 +36,16 @@ Item {
             source: "qrc:///backgrounds/background1.jpg"
         }
 
-        Flickable {
+        BackgroundMonsters {
             anchors.fill: parent
+        }
+
+        Flickable {
             anchors.margins: units.gu(2)
+            anchors.top: menuBar.bottom
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
             contentHeight: columnLayout.height
 
             ColumnLayout {
@@ -179,7 +186,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(2)
-                        text: "Terms of use"
+                        text: i18n.tr("Terms of use")
                         font.weight: Font.DemiBold
                         font.underline: true
                         font.pixelSize: units.gu(3)
@@ -192,29 +199,15 @@ Item {
             }
         }
 
-        Rectangle {
-            id: closeButton
-            width: units.gu(8)
-            height: width
-            anchors.right: parent.right
-            anchors.rightMargin: units.gu(1)
-            anchors.top: parent.top
-            anchors.topMargin: units.gu(1)
-            color: "black"
-            radius: width / 2
-
-            Text {
-                anchors.centerIn: parent
-                text: "X"
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(6)
+        MenuBar {
+            id: menuBar
+            height: units.gu(4)
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: pageStack.pop()
-            }
+            menuTitle: i18n.tr("About")
         }
     }
 }

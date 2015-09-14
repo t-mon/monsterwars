@@ -6,6 +6,7 @@
         <file>images/info.png</file>
         <file>images/lock.png</file>
         <file>images/play-button.png</file>
+        <file>images/sleeping-zzz.png</file>
     </qresource>
 </RCC>
 

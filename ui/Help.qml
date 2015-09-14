@@ -37,7 +37,10 @@ Item {
         }
 
         Flickable {
-            anchors.fill: parent
+            anchors.top: menuBar.bottom
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.margins: units.gu(2)
             contentHeight: columnLayout.height
 
@@ -368,29 +371,15 @@ Item {
             }
         }
 
-        Rectangle {
-            id: closeButton
-            width: units.gu(8)
-            height: width
-            anchors.right: parent.right
-            anchors.rightMargin: units.gu(1)
-            anchors.top: parent.top
-            anchors.topMargin: units.gu(1)
-            color: "black"
-            radius: width / 2
-
-            Text {
-                anchors.centerIn: parent
-                text: "X"
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(6)
+        MenuBar {
+            id: menuBar
+            height: units.gu(4)
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked: pageStack.pop()
-            }
+            menuTitle: i18n.tr("Help")
         }
     }
 }

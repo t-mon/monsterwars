@@ -33,48 +33,15 @@ Item {
             source: "qrc:///backgrounds/background1.jpg"
         }
 
-        Rectangle {
-            id: titleBar
-            color: "black"
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            height: units.gu(8)
-
-            Text {
-                id: title
-                anchors.left: titleBar.left
-                anchors.leftMargin: units.gu(3)
-                anchors.top: titleBar.top
-                anchors.topMargin: units.gu(1)
-                text: i18n.tr("Settings:")
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(5)
+        MenuBar {
+            id: menuBar
+            height: units.gu(4)
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
             }
-
-            Rectangle {
-                id: exitRectangle
-                anchors.right: titleBar.right
-                anchors.rightMargin: units.gu(2)
-                anchors.top: titleBar.top
-                anchors.topMargin: units.gu(2)
-                width: units.gu(5)
-                height: units.gu(5)
-                color: "transparent"
-                radius: units.gu(1)
-
-                Image {
-                    id: closeIcon
-                    anchors.fill: parent
-                    source: "qrc:///images/close-white.png"
-                }
-
-                MouseArea {
-                    anchors.fill: exitRectangle
-                    onClicked: pageStack.pop()
-                }
-            }
+            menuTitle: "Settings:"
         }
     }
 }
