@@ -44,7 +44,7 @@ public:
     explicit MonsterModel(QObject *parent = 0);
 
     QList<Monster *> monsters();
-    Monster *monsterWithId(int id);
+    Q_INVOKABLE Monster *monsterWithId(int id);
 
     void impact(Monster *monster, AttackPillow *pillow);
 

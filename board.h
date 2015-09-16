@@ -41,6 +41,7 @@ class Board : public QObject
     Q_PROPERTY(int columns READ columns CONSTANT)
     Q_PROPERTY(int rows READ rows CONSTANT)
     Q_PROPERTY(int monsterCount READ monsterCount NOTIFY monstersChanged)
+    Q_PROPERTY(int levelId READ levelId NOTIFY levelIdChanged)
     Q_PROPERTY(MonsterModel *monsters READ monsters NOTIFY monstersChanged)
     Q_PROPERTY(QQmlListProperty<Player> players READ players NOTIFY playersChanged)
 
@@ -49,6 +50,7 @@ public:
 
     void setLevel(Level *level);
     Level *level() const;
+    int levelId() const;
     QList<Node *> nodes();
 
     int rows() const;
@@ -81,6 +83,7 @@ signals:
     void monstersChanged();
     void playersChanged();
     void gameTimeChanged();
+    void levelIdChanged();
     void startAttack(Attack *attack);
 
 private:
@@ -94,6 +97,8 @@ private:
 
     Monster *createMonster(QVariantMap monsterJson);
     Player *createPlayer(QVariantMap playerJson);
+
+    int m_levelId;
 
 private slots:
     void attackFinished();

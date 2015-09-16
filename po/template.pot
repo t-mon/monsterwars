@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-16 12:45+0200\n"
+"POT-Creation-Date: 2015-09-16 20:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "New highscore!"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:96
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:99
 msgid "You won!"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:96
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:99
 msgid "You lost."
 msgstr ""
 
@@ -34,22 +34,22 @@ msgid "Normal"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:149
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:164
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:167
 msgid "Defense"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:202
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:281
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:284
 msgid "Speed"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:255
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:106
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:109
 msgid "Strength"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:308
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:221
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:224
 msgid "Reproduction"
 msgstr ""
 
@@ -114,6 +114,10 @@ msgstr ""
 msgid "Restart"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:51
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:54
 msgid "Available points"
+msgstr ""
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:303
+msgid "Settings:"
 msgstr ""

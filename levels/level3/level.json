@@ -10,91 +10,81 @@
             "speed": 0,
             "defence": 0,
             "reproduction": 1,
-            "reaction": 1
+            "reaction": 0
         }
     ],
     "monsters": [
         {
             "id": 1,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 30,
-            "y": 10,
-            "size": 5,
-            "startValue": 100,
+            "monsterType": "MonsterTypeNormal",
+            "x": 8,
+            "y": 6,
+            "size": 4,
+            "startValue": 40,
             "player": 1
         },
         {
             "id": 2,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 55,
-            "y": 10,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 7,
             "size": 5,
-            "startValue": 50,
+            "startValue": 40,
             "player": 2
         },
         {
             "id": 3,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 10,
-            "y": 10,
-            "size": 5,
-            "startValue": 50,
-            "player": 2
+            "monsterType": "MonsterTypeNormal",
+            "x": 64,
+            "y": 30,
+            "size": 6,
+            "startValue": 0,
+            "player": 0
         },
         {
             "id": 4,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 55,
-            "y": 28,
-            "size": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 24,
+            "y": 30,
+            "size": 4,
             "startValue": 0,
             "player": 0
         },
         {
             "id": 5,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 40,
-            "y": 29,
+            "monsterType": "MonsterTypeNormal",
+            "x": 20,
+            "y": 10,
             "size": 3,
             "startValue": 0,
             "player": 0
         },
         {
             "id": 6,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 27,
-            "y": 27,
-            "size": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 40,
+            "y": 33,
+            "size": 4,
             "startValue": 0,
             "player": 0
         },
         {
             "id": 7,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 15,
-            "y": 32,
+            "monsterType": "MonsterTypeNormal",
+            "x": 43,
+            "y": 7,
             "size": 3,
             "startValue": 0,
             "player": 0
         },
         {
             "id": 8,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 10,
-            "y": 20,
-            "size": 3,
-            "startValue": 0,
-            "player": 0
-        },
-        {
-            "id": 9,
-            "monsterType": "MonsterTypeSpeed",
-            "x": 65,
-            "y": 23,
-            "size": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 48,
+            "y": 18,
+            "size": 7,
             "startValue": 0,
             "player": 0
         }
-
     ]
 }

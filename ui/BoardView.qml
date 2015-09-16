@@ -76,26 +76,26 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            source: "qrc:///backgrounds/background2.jpg"
+            source: "qrc:///backgrounds/background-" + gameEngine.board.levelId + ".jpg"
         }
 
-            Repeater {
-                id: monsterRepeater
-                model: gameEngine.board.monsters
-                delegate: MonsterItem {
-                    nodeDistance: root.nodeDistance
-                    monsterValue: model.monsterValue
-                    monsterId: model.monsterId
-                    monsterColor: model.monsterColor
-                    monsterSize: model.monsterSize
-                    monsterType: model.monsterType
-                    positionX: model.positionX
-                    positionY: model.positionY
-                    selected: model.selected
-                    pressed: boardArea.pressed
-                    lineWidth: selectorItem.lineWidth
-                }
+        Repeater {
+            id: monsterRepeater
+            model: gameEngine.board.monsters
+            delegate: MonsterItem {
+                nodeDistance: root.nodeDistance
+                monsterValue: model.monsterValue
+                monsterId: model.monsterId
+                monsterColor: model.monsterColor
+                monsterSize: model.monsterSize
+                monsterType: model.monsterType
+                positionX: model.positionX
+                positionY: model.positionY
+                selected: model.selected
+                pressed: boardArea.pressed
+                lineWidth: selectorItem.lineWidth
             }
+        }
 
         MouseArea {
             id: boardArea
@@ -147,6 +147,7 @@ Item {
             width: units.gu(5)
             height: units.gu(5)
             color: "transparent"
+            opacity: 0.6
             radius: units.gu(1)
 
             Image {

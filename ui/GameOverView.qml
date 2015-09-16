@@ -54,6 +54,9 @@ Item {
             }
             visible: gameEngine.newHighScore
             text: i18n.tr("New highscore!")
+            style: Text.Outline
+            styleColor: "steelblue"
+            font.weight: Font.DemiBold
             font.bold: true
             font.pixelSize: units.gu(5)
         }
@@ -68,7 +71,7 @@ Item {
                 from: 0.95
                 to: 1
                 easing.type: Easing.OutQuad
-                duration: 00
+                duration: 1100
             }
             PropertyAnimation {
                 target: newHighscoreText
@@ -164,6 +167,28 @@ Item {
             }
         }
 
+        SequentialAnimation {
+            loops: Animation.Infinite
+            running: gameEngine.tunePointEarned
+            PropertyAnimation {
+                target: settingsButton
+                properties: "scale"
+                from: 0.9
+                to: 1
+                easing.type: Easing.OutQuad
+                duration: 700
+            }
+            PropertyAnimation {
+                target: settingsButton
+                properties: "scale"
+                from: 1
+                to: 0.9
+                easing.type: Easing.InQuad
+                duration: 1100
+            }
+        }
+
+
         Text {
             id: plusOneText
             anchors.verticalCenter: settingsButton.verticalCenter
@@ -185,17 +210,17 @@ Item {
                 target: plusOneText
                 properties: "scale"
                 from: 0.8
-                to: 1
+                to: 1.1
                 easing.type: Easing.OutQuad
-                duration: 800
+                duration: 700
             }
             PropertyAnimation {
                 target: plusOneText
                 properties: "scale"
-                from: 1
+                from: 1.1
                 to: 0.8
                 easing.type: Easing.InQuad
-                duration: 1000
+                duration: 1100
             }
         }
 

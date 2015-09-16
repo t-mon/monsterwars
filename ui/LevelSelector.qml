@@ -26,7 +26,7 @@ Item {
 
     Image {
         anchors.fill: parent
-        source: "qrc:///backgrounds/background1.jpg"
+        source: "qrc:///backgrounds/menu-background.jpg"
     }
 
     GridView {

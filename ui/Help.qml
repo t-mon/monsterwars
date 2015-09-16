@@ -33,7 +33,7 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            source: "qrc:///backgrounds/background1.jpg"
+            source: "qrc:///backgrounds/menu-background.jpg"
         }
 
         Flickable {

@@ -1,12 +1,9 @@
 <RCC>
     <qresource prefix="">
         <file>images/close-white.png</file>
-        <file>images/close-black.png</file>
         <file>images/pause.png</file>
-        <file>images/info.png</file>
         <file>images/lock.png</file>
         <file>images/play-button.png</file>
-        <file>images/sleeping-zzz.png</file>
         <file>images/settings.png</file>
         <file>images/plus.png</file>
         <file>images/restart.png</file>

@@ -41,23 +41,16 @@ Item {
         Image {
             id: levelPreview
             anchors.fill: parent
+            opacity: unlocked ? 0.8 : 0.3
             anchors.margins: units.gu(1.5)
             source: "qrc:///previews/preview-level-" + levelId + ".png"
-        }
-
-        Rectangle {
-            anchors.fill: parent
-            anchors.margins: units.gu(0.5)
-            opacity: 0.4
-            color: "black"
-            radius: units.gu(1.5)
         }
 
         Text {
             id: levelTimeText
             visible: unlocked
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: units.gu(2)
+            anchors.bottomMargin: units.gu(4)
             anchors.horizontalCenter: parent.horizontalCenter
             text: bestTime
             font.bold: true
@@ -67,22 +60,12 @@ Item {
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
         }
 
-        Rectangle {
-            anchors.margins: units.gu(0.5)
+        Image {
             visible: !unlocked
-            anchors.fill: parent
-            radius: units.gu(1.5)
-            opacity: 0.6
-            color: "black"
-
-            Image {
-                opacity: 1
-                anchors.centerIn: parent
-                anchors.margins: units.gu(4)
-                width: parent.height
-                height: width
-                source: "qrc:///images/lock.png"
-            }
+            anchors.centerIn: parent
+            height: parent.height * 2 / 3
+            width: height
+            source: "qrc:///images/lock.png"
         }
 
         Text {
@@ -92,7 +75,7 @@ Item {
             font.bold: true
             font.pixelSize: units.gu(5)
             style: Text.Outline
-            styleColor: "black"
+            styleColor: "steelblue"
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
         }
 

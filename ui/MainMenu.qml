@@ -28,7 +28,7 @@ Item {
         color: "black"
         Image {
             anchors.fill: parent
-            source: "qrc:///backgrounds/background1.jpg"
+            source: "qrc:///backgrounds/menu-background.jpg"
         }
 
         BackgroundMonsters {
@@ -136,7 +136,7 @@ Item {
 
     Rectangle {
         id: settingsButton
-        width: units.gu(6)
+        width: units.gu(7)
         height: width
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.bottom: parent.bottom

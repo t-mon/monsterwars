@@ -23,6 +23,9 @@ import QtQuick 2.2
 Item {
     id: root
 
+    property string backgroundColor: "transparent"
+    //color: "#646464"
+
     Rectangle {
         anchors.fill: parent
         color: "black"
@@ -30,7 +33,7 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            source: "qrc:///backgrounds/background1.jpg"
+            source: "qrc:///backgrounds/menu-background.jpg"
         }
 
         Flickable {
@@ -81,7 +84,7 @@ Item {
                         height: units.gu(5)
                         width: units.gu(50)
                         radius: units.gu(2)
-                        color: "#646464"
+                        color: backgroundColor
                         border.color: "black"
                         border.width: units.gu(0.25)
 
@@ -139,7 +142,7 @@ Item {
                         height: units.gu(5)
                         width: units.gu(50)
                         radius: units.gu(2)
-                        color: "#646464"
+                        color: backgroundColor
                         border.color: "black"
                         border.width: units.gu(0.25)
 
@@ -196,7 +199,7 @@ Item {
                         height: units.gu(5)
                         width: units.gu(50)
                         radius: units.gu(2)
-                        color: "#646464"
+                        color: backgroundColor
                         border.color: "black"
                         border.width: units.gu(0.25)
 
@@ -256,7 +259,7 @@ Item {
                         height: units.gu(5)
                         width: units.gu(50)
                         radius: units.gu(2)
-                        color: "#646464"
+                        color: backgroundColor
                         border.color: "black"
                         border.width: units.gu(0.25)
 
@@ -297,7 +300,7 @@ Item {
                 right: parent.right
                 top: parent.top
             }
-            menuTitle: "Settings:"
+            menuTitle: i18n.tr("Settings:")
         }
     }
 }

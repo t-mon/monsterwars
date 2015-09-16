@@ -118,11 +118,9 @@ Item {
         onRunningChanged: {
             if (!gameEngine.running) {
                 attackAnimation.pause()
-                pillowRotationAnimation.pause()
             } else {
                 attackAnimation.resume()
-                pillowRotationAnimation.resume()
-            }
+           }
         }
     }
 }

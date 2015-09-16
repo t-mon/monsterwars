@@ -43,7 +43,7 @@ Item{
             NumberAnimation {
                 target: randomPillow
                 properties: "x"
-                duration:4000
+                duration: pillowTimer.interval
                 easing.type: Easing.OutCubic
             }
         }
@@ -51,11 +51,12 @@ Item{
             NumberAnimation {
                 target: randomPillow
                 properties: "y"
-                duration: 4000
+                duration: pillowTimer.interval
                 easing.type: Easing.OutCubic
             }
         }
         Timer {
+            id: pillowTimer
             interval: 4000
             running: true
             repeat: true
@@ -71,7 +72,8 @@ Item{
         running: true
         from: 0
         to: 360
-        duration: 2000
+        duration: pillowTimer.interval
+        easing.type: Easing.OutCubic;
         loops: Animation.Infinite
     }
 
@@ -133,7 +135,7 @@ Item{
             NumberAnimation {
                 target: randomMonster
                 properties: "x"
-                duration: 6000
+                duration: monsterTimer.interval
                 easing.type: Easing.OutCubic
             }
         }
@@ -142,12 +144,13 @@ Item{
             NumberAnimation {
                 target: randomMonster
                 properties: "y"
-                duration: 6000
+                duration: monsterTimer.interval
                 easing.type: Easing.OutCubic
             }
         }
 
         Timer {
+            id: monsterTimer
             interval: 6000
             running: true
             repeat: true

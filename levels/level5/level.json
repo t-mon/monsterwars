@@ -6,31 +6,95 @@
             "id": 2,
             "color": "green",
             "playerType": "PlayerTypeAi",
-            "strength": 0,
-            "speed": 0,
-            "defence": 0,
-            "reproduction": 0,
-            "reaction": 0
+            "strength": 1,
+            "speed": 1,
+            "defence": 1,
+            "reproduction": 2,
+            "reaction": 1
         }
     ],
     "monsters": [
         {
             "id": 1,
-            "monsterType": "MonsterTypeDefense",
-            "x": 20,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 30,
             "y": 10,
             "size": 5,
-            "startValue": 40,
+            "startValue": 100,
             "player": 1
         },
         {
             "id": 2,
             "monsterType": "MonsterTypeSpeed",
-            "x": 40,
+            "x": 55,
             "y": 10,
             "size": 5,
-            "startValue": 40,
+            "startValue": 50,
             "player": 2
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 10,
+            "y": 10,
+            "size": 5,
+            "startValue": 50,
+            "player": 2
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 55,
+            "y": 28,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 40,
+            "y": 29,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 27,
+            "y": 27,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 7,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 15,
+            "y": 32,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 8,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 10,
+            "y": 20,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 9,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 65,
+            "y": 23,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
         }
+
     ]
 }

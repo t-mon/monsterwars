@@ -26,7 +26,7 @@ MainView {
     id: app
     objectName: "mainView"
     applicationName: "monsterwars.simonstuerz"
-    automaticOrientation: true
+    automaticOrientation: false
     useDeprecatedToolbar: false
 
     property string version: "0.1"

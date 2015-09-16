@@ -33,7 +33,8 @@
 Board::Board(GameEngine *engine):
     QObject(engine),
     m_level(0),
-    m_engine(engine)
+    m_engine(engine),
+    m_levelId(1)
 {
     m_monsters = new MonsterModel(this);
 
@@ -44,7 +45,10 @@ Board::Board(GameEngine *engine):
 void Board::setLevel(Level *level)
 {
     resetBoard();
+
     m_level = level;
+    m_levelId = level->levelId();
+    emit levelIdChanged();
 
     qDebug() << "loaded " << m_level->name() << "on board...";
 
@@ -79,6 +83,11 @@ void Board::setLevel(Level *level)
 Level *Board::level() const
 {
     return m_level;
+}
+
+int Board::levelId() const
+{
+    return m_levelId;
 }
 
 QList<Player *> Board::playersList()
@@ -143,7 +152,6 @@ int Board::columns() const
 {
     return m_engine->columns();
 }
-
 
 int Board::monsterCount() const
 {
