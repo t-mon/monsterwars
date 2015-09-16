@@ -49,16 +49,13 @@ void Board::setLevel(Level *level)
     qDebug() << "loaded " << m_level->name() << "on board...";
 
     // add player 1 (the human player)
-    QSettings settings;
-    settings.beginGroup("player");
     Player *player = new Player(1, this);
-    player->setColorString(settings.value("color", "blue").toString());
+    player->setColorString("blue");
     player->setPlayerType(Player::PlayerTypeHuman);
-    player->setReproduction(settings.value("reproduction", 0).toInt());
-    player->setDefence(settings.value("defense", 0).toInt());
-    player->setStrength(settings.value("strength", 0).toInt());
-    player->setSpeed(settings.value("speed", 0).toInt());
-    settings.endGroup();
+    player->setReproduction(m_engine->playerSettings()->reproductionPoints());
+    player->setDefence(m_engine->playerSettings()->defensePoints());
+    player->setStrength(m_engine->playerSettings()->strengthPoints());
+    player->setSpeed(m_engine->playerSettings()->speedPoints());
     m_players.append(player);
     qDebug() << "    -> Create Player" << player->id() << player->playerTypeString();
 

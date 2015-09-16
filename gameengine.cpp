@@ -37,7 +37,8 @@ GameEngine::GameEngine(QObject *parent):
     m_board(new Board(this)),
     m_ticksPerSecond(25),
     m_running(false),
-    m_newHighScore(false)
+    m_newHighScore(false),
+    m_tunePointEarned(false)
 {    
     // Initialize boardsize
     m_rows = 40;
@@ -51,6 +52,8 @@ GameEngine::GameEngine(QObject *parent):
 
     m_pillowsModel = new AttackPillowModel(this);
     m_levels = new LevelModel(this);
+
+    m_playerSettings = new PlayerSettings(this);
 
     m_tickInterval = 1000 / m_ticksPerSecond;
     connect(this, &GameEngine::gameFinished, this, &GameEngine::onGameOver);
@@ -140,6 +143,11 @@ bool GameEngine::newHighScore() const
     return m_newHighScore;
 }
 
+bool GameEngine::tunePointEarned() const
+{
+    return m_tunePointEarned;
+}
+
 int GameEngine::winnerId() const
 {
     return m_winnerId;
@@ -185,6 +193,11 @@ int GameEngine::ticksPerSecond() const
 int GameEngine::tickInterval() const
 {
     return m_tickInterval;
+}
+
+PlayerSettings *GameEngine::playerSettings()
+{
+    return m_playerSettings;
 }
 
 double GameEngine::strengthStepWidth() const
@@ -241,10 +254,17 @@ void GameEngine::startGame(const int &levelId)
         brain->start();
     }
 
+    // reset engine properties
     m_gameOver = false;
+
     m_newHighScore = false;
     emit newHighScoreChanged();
+
+    m_tunePointEarned = false;
+    emit tunePointEarnedChanged();
+
     m_totalGameTimeMs = 0;
+
     m_gameTimer.restart();
     emit displayGameTimeChanged();
 
@@ -469,7 +489,16 @@ void GameEngine::onGameOver(const int &winnerId)
 
     if (winnerId == 1) {
         if (m_board->level()->timeStamp() > m_finalTime || m_board->level()->timeStamp() == 0) {
+
+            // check if we earned a tune point
+            if (m_board->level()->timeStamp() == 0) {
+                m_playerSettings->increaseTunePoints();
+                qDebug() << "Tune points +1";
+                m_tunePointEarned = true;
+                emit tunePointEarnedChanged();
+            }
             m_newHighScore = true;
+            emit newHighScoreChanged();
             qDebug() << "New highscore!";
             m_board->level()->setTimeStamp(m_finalTime);
             QSettings settings;
@@ -488,8 +517,6 @@ void GameEngine::onGameOver(const int &winnerId)
                 qDebug() << "Unlock next level" << nextLevel->levelId();
                 nextLevel->setUnlocked(true);
             }
-
-            emit newHighScoreChanged();
         } else {
             m_newHighScore = false;
             emit newHighScoreChanged();

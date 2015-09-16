@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="500"
+   height="500"
+   viewBox="0 0 500.00001 500.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="restart.svg"
+   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/images/restart.png"
+   inkscape:export-xdpi="46.080002"
+   inkscape:export-ydpi="46.080002">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-114.68281"
+     inkscape:cy="158.51195"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2880"
+     inkscape:window-height="1749"
+     inkscape:window-x="0"
+     inkscape:window-y="51"
+     inkscape:window-maximized="1"
+     showguides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-552.36216)">
+    <path
+       inkscape:connector-curvature="0"
+       id="refresh-icon"
+       d="m 48.97119,804.30461 -46.97119,0 87.471142,87.1083 86.569018,-87.1083 -44.46466,0 c -0.11611,-68.19475 54.92292,-123.96731 123.18242,-124.36367 68.4337,-0.3997 124.23306,54.75209 124.63053,123.18466 0.64757,110.49338 -132.92724,165.81268 -210.89807,88.96949 l -57.97879,58.82506 C 240.19764,1078.7405 463.07242,987.1115 461.99612,802.64439 461.32845,688.58935 368.32951,596.67007 254.27559,597.33551 140.39587,597.99983 48.585998,690.48853 48.97119,804.30461 Z"
+       style="fill:#ffffff;fill-opacity:1" />
+  </g>
+</svg>

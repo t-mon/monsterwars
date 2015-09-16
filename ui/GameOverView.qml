@@ -24,6 +24,7 @@ import MonsterWars 1.0
 Item {
     id: root
     visible: false
+    property real buttonSize: units.gu(7)
 
     Rectangle {
         id: backgroundRectangle
@@ -43,19 +44,50 @@ Item {
         anchors.margins: units.gu(5)
         radius: units.gu(2)
 
-        Column {
-            anchors.centerIn: parent
-            spacing: units.gu(1)
-
-            Text {
-                id: newHighscoreText
-                color: "white"
-                anchors.horizontalCenter: parent.horizontalCenter
-                visible: gameEngine.newHighScore
-                text: i18n.tr("New highscore!")
-                font.bold: true
-                font.pixelSize: units.gu(4)
+        Text {
+            id: newHighscoreText
+            color: "white"
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: parent.top
+                topMargin: units.gu(1)
             }
+            visible: gameEngine.newHighScore
+            text: i18n.tr("New highscore!")
+            font.bold: true
+            font.pixelSize: units.gu(5)
+        }
+
+        SequentialAnimation {
+            loops: Animation.Infinite
+            running: gameEngine.newHighScore
+
+            PropertyAnimation {
+                target: newHighscoreText
+                properties: "scale"
+                from: 0.95
+                to: 1
+                easing.type: Easing.OutQuad
+                duration: 00
+            }
+            PropertyAnimation {
+                target: newHighscoreText
+                properties: "scale"
+                from: 1
+                to: 0.95
+                easing.type: Easing.InQuad
+                duration: 1000
+            }
+        }
+
+
+        Column {
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                top: newHighscoreText.bottom
+                topMargin: units.gu(1)
+            }
+            spacing: units.gu(1)
 
             Text {
                 id: winnerText
@@ -78,23 +110,23 @@ Item {
         }
 
         Rectangle {
+            id: retryButton
+            width: buttonSize
+            height: buttonSize
             anchors.left: parent.left
             anchors.leftMargin: units.gu(1)
             anchors.bottom: parent.bottom
             anchors.bottomMargin: units.gu(1)
+            color: "black"
+            radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
 
-            id: retryButton
-            color: "transparent"
-            height: parent.height / 5
-            width: parent.width / 3
-            radius: units.gu(2)
-
-            Text {
-                anchors.centerIn: parent
-                text: i18n.tr("Retry")
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(4)
+            Image {
+                id: restartImage
+                anchors.fill: parent
+                anchors.margins: units.gu(1)
+                source: "qrc:///images/restart.png"
             }
 
             MouseArea {
@@ -103,28 +135,89 @@ Item {
                     root.visible = false
                     gameEngine.restartGame()
                 }
-
             }
         }
 
         Rectangle {
+            id: settingsButton
+            width: buttonSize
+            height: buttonSize
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: units.gu(1)
+            color: "black"
+            radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
+
+            Image {
+                id: settingsImage
+                anchors.fill: parent
+                anchors.margins: units.gu(1)
+                source: "qrc:///images/settings.png"
+            }
+
+            MouseArea {
+                id: settingsMouseArea
+                anchors.fill: parent
+                onClicked: pageStack.push(settingsPage)
+            }
+        }
+
+        Text {
+            id: plusOneText
+            anchors.verticalCenter: settingsButton.verticalCenter
+            anchors.left: settingsButton.right
+            anchors.leftMargin: units.gu(2)
+            color: "white"
+            text: "+1"
+            style: Text.Outline
+            styleColor: "steelblue"
+            font.bold: true
+            font.pixelSize: units.gu(4)
+            visible: gameEngine.tunePointEarned
+        }
+
+        SequentialAnimation {
+            loops: Animation.Infinite
+            running: gameEngine.tunePointEarned
+            PropertyAnimation {
+                target: plusOneText
+                properties: "scale"
+                from: 0.8
+                to: 1
+                easing.type: Easing.OutQuad
+                duration: 800
+            }
+            PropertyAnimation {
+                target: plusOneText
+                properties: "scale"
+                from: 1
+                to: 0.8
+                easing.type: Easing.InQuad
+                duration: 1000
+            }
+        }
+
+
+        Rectangle {
             id: okButton
+            width: buttonSize
+            height: buttonSize
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
             anchors.bottom: parent.bottom
             anchors.bottomMargin: units.gu(1)
+            color: "black"
+            radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
 
-            color: "transparent"
-            height: parent.height / 5
-            width: parent.width / 3
-            radius: units.gu(2)
-
-            Text {
-                anchors.centerIn: parent
-                text: i18n.tr("Ok")
-                color: "white"
-                font.bold: true
-                font.pixelSize: units.gu(4)
+            Image {
+                id: okImage
+                anchors.fill: parent
+                anchors.margins: units.gu(1)
+                source: "qrc:///images/ok.png"
             }
 
             MouseArea {

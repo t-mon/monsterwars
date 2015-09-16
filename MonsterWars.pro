@@ -36,7 +36,8 @@ HEADERS +=  attack.h \
             monster.h \
             aibrain.h \
             monstermodel.h \
-            levelmodel.h
+            levelmodel.h \
+    playersettings.h
 
 SOURCES +=  main.cpp \
             attack.cpp \
@@ -49,7 +50,8 @@ SOURCES +=  main.cpp \
             monster.cpp \
             aibrain.cpp \
             monstermodel.cpp \
-            levelmodel.cpp
+            levelmodel.cpp \
+    playersettings.cpp
 
 RESOURCES += ui.qrc \
              monsters.qrc \

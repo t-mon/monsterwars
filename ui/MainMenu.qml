@@ -133,4 +133,28 @@ Item {
             onClicked: pageStack.push(helpPage)
         }
     }
+
+    Rectangle {
+        id: settingsButton
+        width: units.gu(6)
+        height: width
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: units.gu(3)
+        color: "black"
+        radius: width / 2
+
+        Image {
+            id: settingsImage
+            anchors.fill: parent
+            anchors.margins: units.gu(1)
+            source: "qrc:///images/settings.png"
+        }
+
+        MouseArea {
+            id: settingsMouseArea
+            anchors.fill: parent
+            onClicked: pageStack.push(settingsPage)
+        }
+    }
 }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 22:13+0200\n"
+"POT-Creation-Date: 2015-09-16 12:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:55
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:56
 msgid "New highscore!"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:64
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:96
 msgid "You won!"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:64
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:96
 msgid "You lost."
-msgstr ""
-
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:94
-msgid "Retry"
-msgstr ""
-
-#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:124
-msgid "Ok"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:96
@@ -42,18 +34,22 @@ msgid "Normal"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:149
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:164
 msgid "Defense"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:202
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:281
 msgid "Speed"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:255
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:106
 msgid "Strength"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:308
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:221
 msgid "Reproduction"
 msgstr ""
 
@@ -98,7 +94,7 @@ msgid "About"
 msgstr ""
 
 #: /home/timon/development/monsterwars/monsterwars/ui/LevelSelector.qml:66
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:122
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:123
 msgid "Level selection"
 msgstr ""
 
@@ -110,10 +106,14 @@ msgstr ""
 msgid "i"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:66
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:67
 msgid "Continue"
 msgstr ""
 
-#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:93
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:94
 msgid "Restart"
+msgstr ""
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:51
+msgid "Available points"
 msgstr ""

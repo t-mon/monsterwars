@@ -34,7 +34,7 @@ Item {
     property real destinationY
 
     property real distance: Math.sqrt(Math.pow(sourceX - destinationX, 2) + Math.pow(sourceY - destinationY, 2))
-    property real animationDuration: distance * 120 / (1 + speed * 0.25)
+    property real animationDuration: distance * 160 / (1 + speed * 0.25)
 
     Rectangle {
         id: pillowRectangle
@@ -48,7 +48,7 @@ Item {
             source: "qrc:///monsters/pillow.png"
         }
 
-        RotationAnimation {
+        RotationAnimator {
             id: pillowRotationAnimation
             target: pillowImage
             running: true

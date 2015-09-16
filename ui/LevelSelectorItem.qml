@@ -90,7 +90,7 @@ Item {
             anchors.centerIn: parent
             text: levelId
             font.bold: true
-            font.pixelSize: units.gu(4)
+            font.pixelSize: units.gu(5)
             style: Text.Outline
             styleColor: "black"
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"

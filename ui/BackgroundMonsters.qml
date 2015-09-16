@@ -34,6 +34,7 @@ Item{
 
         Image {
             id: randomPillowImage
+            opacity: 0.7
             anchors.fill: parent
             source: "qrc:///monsters/pillow.png"
         }
@@ -65,7 +66,7 @@ Item{
         }
     }
 
-    RotationAnimation {
+    RotationAnimator {
         target: randomPillowImage
         running: true
         from: 0
@@ -105,7 +106,7 @@ Item{
             id: image
             width: parent.width
             height: width
-            opacity: 0.8
+            opacity: 0.6
             anchors.centerIn: parent
             interpolate: false
             goalSprite: "still"

@@ -33,6 +33,262 @@ Item {
             source: "qrc:///backgrounds/background1.jpg"
         }
 
+        Flickable {
+            anchors.top: menuBar.bottom
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.margins: units.gu(2)
+            contentHeight: column.height
+
+
+            Column {
+                id: column
+                spacing: units.gu(1)
+
+                Text {
+                    id: pointText
+                    text: i18n.tr("Available points") + ": " + gameEngine.playerSettings.tunePoints
+                    font.weight: Font.DemiBold
+                    style: Text.Outline
+                    styleColor: "white"
+                    font.pixelSize: units.gu(4)
+                }
+
+                Row {
+                    spacing: units.gu(0.5)
+                    Rectangle {
+                        id: strengthPlusRectangle
+                        height: units.gu(5)
+                        width: height
+                        radius: units.gu(1)
+                        color: "black"
+
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: units.gu(1)
+                            source: "qrc:///images/plus.png"
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed: gameEngine.playerSettings.increaseStrengthPoints()
+                        }
+                    }
+
+                    Rectangle {
+                        id: strengthBackground
+                        height: units.gu(5)
+                        width: units.gu(50)
+                        radius: units.gu(2)
+                        color: "#646464"
+                        border.color: "black"
+                        border.width: units.gu(0.25)
+
+                        Rectangle {
+                            id: strengthBar
+                            height: parent.height
+                            anchors.left: parent.left
+                            width: parent.width * gameEngine.playerSettings.strengthPoints / 8
+                            radius: parent.radius
+                            color: "black"
+
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: 300
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: i18n.tr("Strength")
+                            color: "white"
+                            font.weight: Font.DemiBold
+                            style: Text.Outline
+                            styleColor: "black"
+                            font.pixelSize: units.gu(3)
+                        }
+                    }
+                }
+
+                Row {
+                    spacing: units.gu(0.5)
+                    Rectangle {
+                        id: defensePlusRectangle
+                        height: units.gu(5)
+                        width: height
+                        radius: units.gu(1)
+                        color: "black"
+
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: units.gu(1)
+                            source: "qrc:///images/plus.png"
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed: gameEngine.playerSettings.increaseDefensePoints()
+                        }
+                    }
+
+                    Rectangle {
+                        id: defenseBackground
+                        height: units.gu(5)
+                        width: units.gu(50)
+                        radius: units.gu(2)
+                        color: "#646464"
+                        border.color: "black"
+                        border.width: units.gu(0.25)
+
+                        Rectangle {
+                            id: defenseBar
+                            height: parent.height
+                            anchors.left: parent.left
+                            width: parent.width * gameEngine.playerSettings.defensePoints / 8
+                            radius: parent.radius
+                            color: "black"
+
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: 300
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: i18n.tr("Defense")
+                            color: "white"
+                            font.weight: Font.DemiBold
+                            style: Text.Outline
+                            styleColor: "black"
+                            font.pixelSize: units.gu(3)
+                        }
+                    }
+                }
+                Row {
+                    spacing: units.gu(0.5)
+                    Rectangle {
+                        id: reproductionPlusRectangle
+                        height: units.gu(5)
+                        width: height
+                        radius: units.gu(1)
+                        color: "black"
+
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: units.gu(1)
+                            source: "qrc:///images/plus.png"
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed: gameEngine.playerSettings.increaseReproductionPoints()
+                        }
+                    }
+
+                    Rectangle {
+                        id: reproductionBackground
+                        height: units.gu(5)
+                        width: units.gu(50)
+                        radius: units.gu(2)
+                        color: "#646464"
+                        border.color: "black"
+                        border.width: units.gu(0.25)
+
+                        Rectangle {
+                            id: reproductionBar
+                            height: parent.height
+                            anchors.left: parent.left
+                            width: parent.width * gameEngine.playerSettings.reproductionPoints / 8
+                            radius: parent.radius
+                            color: "black"
+
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: 300
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: i18n.tr("Reproduction")
+                            color: "white"
+                            font.weight: Font.DemiBold
+                            style: Text.Outline
+                            styleColor: "black"
+                            font.pixelSize: units.gu(3)
+                        }
+                    }
+                }
+
+                Row {
+                    spacing: units.gu(0.5)
+                    Rectangle {
+                        id: speedPlusRectangle
+                        height: units.gu(5)
+                        width: height
+                        radius: units.gu(1)
+                        color: "black"
+                        border.color: "black"
+                        border.width: units.gu(0.25)
+
+                        Image {
+                            anchors.fill: parent
+                            anchors.margins: units.gu(1)
+                            source: "qrc:///images/plus.png"
+                        }
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onPressed: gameEngine.playerSettings.increaseSpeedPoints()
+                        }
+                    }
+
+                    Rectangle {
+                        id: speedBackground
+                        height: units.gu(5)
+                        width: units.gu(50)
+                        radius: units.gu(2)
+                        color: "#646464"
+                        border.color: "black"
+                        border.width: units.gu(0.25)
+
+                        Rectangle {
+                            id: speedBar
+                            height: parent.height
+                            anchors.left: parent.left
+                            width: parent.width * gameEngine.playerSettings.speedPoints / 8
+                            radius: parent.radius
+                            color: "black"
+
+                            Behavior on width {
+                                NumberAnimation {
+                                    duration: 300
+                                    easing.type: Easing.OutQuad
+                                }
+                            }
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            text: i18n.tr("Speed")
+                            color: "white"
+                            font.weight: Font.DemiBold
+                            style: Text.Outline
+                            styleColor: "black"
+                            font.pixelSize: units.gu(3)
+                        }
+                    }
+                }
+            }
+        }
         MenuBar {
             id: menuBar
             height: units.gu(4)

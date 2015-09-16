@@ -31,9 +31,10 @@
 #include <QQmlListProperty>
 #include <QUuid>
 
-#include "attackpillowmodel.h"
-#include "levelmodel.h"
 #include "aibrain.h"
+#include "levelmodel.h"
+#include "playersettings.h"
+#include "attackpillowmodel.h"
 
 class Level;
 class Player;
@@ -52,8 +53,10 @@ class GameEngine : public QObject
     Q_PROPERTY(int winnerId READ winnerId NOTIFY winnerIdChanged)
     Q_PROPERTY(bool running READ running NOTIFY runningChanged)
     Q_PROPERTY(bool newHighScore READ newHighScore NOTIFY newHighScoreChanged)
+    Q_PROPERTY(bool tunePointEarned READ tunePointEarned NOTIFY tunePointEarnedChanged)
     Q_PROPERTY(LevelModel *levels READ levels NOTIFY levelsChanged)
     Q_PROPERTY(AttackPillowModel *pillows READ pillows NOTIFY pillowsChanged)
+    Q_PROPERTY(PlayerSettings *playerSettings READ playerSettings NOTIFY playerSettingsChanged)
 
 public:
     explicit GameEngine(QObject *parent = 0);
@@ -79,6 +82,7 @@ public:
 
     bool running() const;
     bool newHighScore() const;
+    bool tunePointEarned() const;
 
     int winnerId() const;
 
@@ -86,6 +90,8 @@ public:
 
     int ticksPerSecond() const;
     int tickInterval() const;
+
+    PlayerSettings *playerSettings();
 
     Q_INVOKABLE double strengthStepWidth() const;
     Q_INVOKABLE double reproductionStepWidth() const;
@@ -118,6 +124,8 @@ private:
     QHash<Player *, AiBrain *> m_brains;
     QHash<int, Level *> m_levelHash;
 
+    PlayerSettings *m_playerSettings;
+
     Board *m_board;
     int m_ticksPerSecond;
     int m_tickInterval;
@@ -126,6 +134,7 @@ private:
     int m_winnerId;
     bool m_running;
     bool m_newHighScore;
+    bool m_tunePointEarned;
 
     double m_strengthStepWidth;
     double m_reproductionStepWidth;
@@ -149,6 +158,8 @@ signals:
     void gameFinished(const int &winnerId);
     void winnerIdChanged();
     void newHighScoreChanged();
+    void tunePointEarnedChanged();
+    void playerSettingsChanged();
 
 private slots:
     void initGameEngine();

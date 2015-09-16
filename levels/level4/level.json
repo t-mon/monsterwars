@@ -29,7 +29,7 @@
             "x": 55,
             "y": 10,
             "size": 3,
-            "startValue": 20,
+            "startValue": 50,
             "player": 2
         },
         {
@@ -38,7 +38,25 @@
             "x": 10,
             "y": 10,
             "size": 4,
-            "startValue": 50,
+            "startValue": 20,
+            "player": 2
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeNormal",
+            "x": 10,
+            "y": 30,
+            "size": 4,
+            "startValue": 25,
+            "player": 1
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeNormal",
+            "x": 12,
+            "y": 18,
+            "size": 4,
+            "startValue": 35,
             "player": 2
         }
     ]

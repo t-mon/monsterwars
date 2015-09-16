@@ -329,7 +329,7 @@ Item {
                         }
 
 
-                        RotationAnimation {
+                        RotationAnimator {
                             target: pillowImage
                             running: true
                             from: 0

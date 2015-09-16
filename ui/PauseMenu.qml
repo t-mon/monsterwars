@@ -24,6 +24,7 @@ import MonsterWars 1.0
 Item {
     id: root
     visible: false
+    property real buttonSize: units.gu(7)
 
     Rectangle {
         id: backgroundRectangle
@@ -138,7 +139,7 @@ Item {
 
         Rectangle {
             id: closeButton
-            width: units.gu(8)
+            width: buttonSize
             height: width
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
@@ -146,6 +147,8 @@ Item {
             anchors.topMargin: units.gu(1)
             color: "black"
             radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
 
             Image {
                 id: closeIcon
@@ -166,7 +169,7 @@ Item {
 
         Rectangle {
             id: helpButton
-            width: units.gu(8)
+            width: buttonSize
             height: width
             anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
@@ -174,6 +177,8 @@ Item {
             anchors.bottomMargin: units.gu(1)
             color: "black"
             radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
 
             Text {
                 anchors.centerIn: parent
