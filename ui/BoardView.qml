@@ -22,8 +22,8 @@ import QtQuick 2.2
 import MonsterWars 1.0
 
 Item {
-    id: root
-    property real nodeDistance: (background.width - units.gu(3)) / gameEngine.board.columns
+    id: boardView
+    property real cellSize: Math.min(boardView.width / 70, boardView.height / 43)
 
     Rectangle {
         anchors.fill: parent
@@ -32,10 +32,10 @@ Item {
 
     Row {
         id: topBar
-        width: root.width
+        width: boardView.width
         height: units.gu(3)
-        anchors.top: root.top
-        anchors.horizontalCenter: root.horizontalCenter
+        anchors.top: boardView.top
+        anchors.horizontalCenter: boardView.horizontalCenter
 
         Rectangle {
             height: parent.height
@@ -67,10 +67,10 @@ Item {
 
     Rectangle {
         id: background
-        width: root.width
-        height: root.height - topBar.height
+        width: boardView.width
+        height: boardView.height - topBar.height
         anchors.top: topBar.bottom
-        anchors.horizontalCenter: root.horizontalCenter
+        anchors.horizontalCenter: boardView.horizontalCenter
         color: "black"
 
         Image {
@@ -83,7 +83,6 @@ Item {
             id: monsterRepeater
             model: gameEngine.board.monsters
             delegate: MonsterItem {
-                nodeDistance: root.nodeDistance
                 monsterValue: model.monsterValue
                 monsterId: model.monsterId
                 monsterColor: model.monsterColor
@@ -106,8 +105,8 @@ Item {
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
-                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
-                    if (l < nodeDistance) {
+                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - boardView.cellSize
+                    if (l < boardView.cellSize) {
                         gameEngine.board.evaluateReleased(monsterItem.monsterId)
                     }
                 }
@@ -128,8 +127,8 @@ Item {
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
-                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - nodeDistance
-                    if (l < nodeDistance) {
+                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - boardView.cellSize
+                    if (l < boardView.cellSize) {
                         gameEngine.board.evaluateHovered(true, monsterItem.monsterId);
                     } else {
                         gameEngine.board.evaluateHovered(false, monsterItem.monsterId);
@@ -168,10 +167,9 @@ Item {
 
         SelectorItem {
             id: selectorItem
-            nodeDistance: root.nodeDistance
             pressed: boardArea.pressed
-            size: nodeDistance * 6
-            lineWidth: nodeDistance / 2
+            size: boardView.cellSize * 6
+            lineWidth: boardView.cellSize / 2
             x: boardArea.mouseX - size / 2
             y: boardArea.mouseY - size / 2
             visible: boardArea.pressed && gameEngine.running
@@ -191,8 +189,8 @@ Item {
                 for (var i = 0; i < gameEngine.board.monsterCount; i ++) {
                     var monsterItem = monsterRepeater.itemAt(i)
                     if (monsterItem.selected) {
-                        var xMonster = monsterItem.positionX * root.nodeDistance
-                        var yMonster = monsterItem.positionY * root.nodeDistance
+                        var xMonster = monsterItem.positionX * boardView.cellSize
+                        var yMonster = monsterItem.positionY * boardView.cellSize
                         var xSelector = selectorItem.x + selectorItem.size / 2
                         var ySelector = selectorItem.y + selectorItem.size / 2
 
@@ -218,7 +216,6 @@ Item {
             id: attackPillows
             model: gameEngine.pillows
             delegate: AttackPillowItem {
-                nodeDistance: root.nodeDistance
                 speed: model.speed
                 value: model.value
                 pillowId: model.id

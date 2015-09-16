@@ -42,6 +42,8 @@ MainView {
         id: gameEngine
         dataDir: "../../../levels"
         Component.onCompleted: {
+            console.log("width = " + app.width + " , cell size = " + boardView.cellSize)
+            console.log("height = " + app.height + " , cell size = " + boardView.cellSize)
             i18n.domain = "monsterwars.simonstuerz"
             pageStack.push(mainPage)
         }

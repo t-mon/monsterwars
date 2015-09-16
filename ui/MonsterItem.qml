@@ -23,7 +23,6 @@ import MonsterWars 1.0
 
 Item {
     id: root
-    property real nodeDistance
     property int monsterValue
     property int monsterId
     property string monsterType
@@ -35,10 +34,10 @@ Item {
     property bool pressed
     property real lineWidth
 
-    width: monsterSize * nodeDistance * 2
+    width: monsterSize * boardView.cellSize * 2
     height: width
-    x: positionX * nodeDistance - width / 2
-    y: positionY * nodeDistance - width / 2
+    x: positionX * boardView.cellSize - width / 2
+    y: positionY * boardView.cellSize - width / 2
 
     Rectangle {
         id: monsterArea
@@ -112,11 +111,11 @@ Item {
             Rectangle {
                 id: valueRectangle
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: - nodeDistance / 2
+                anchors.bottomMargin: - boardView.cellSize / 2
                 anchors.right: parent.right
-                anchors.rightMargin: - nodeDistance / 2
-                width: nodeDistance * 4
-                height: nodeDistance * 3
+                anchors.rightMargin: - boardView.cellSize / 2
+                width: boardView.cellSize * 4
+                height: boardView.cellSize * 3
                 color: "black"
                 opacity: 0.8
                 border.color: "gray"
@@ -131,7 +130,7 @@ Item {
                     font.weight: Font.DemiBold
                     style: Text.Outline
                     styleColor: "white"
-                    font.pixelSize: nodeDistance * 2
+                    font.pixelSize: boardView.cellSize * 2
                     color: monsterColor == "green" ? app.green : monsterColor == "red" ? app.red : monsterColor == "blue" ? app.blue : "white"
                 }
             }
@@ -139,12 +138,12 @@ Item {
             Rectangle {
                 id: descriptionRectangle
                 visible: false
-                width: 8.5 * nodeDistance
-                height: 3.5 * nodeDistance
-                radius: nodeDistance
+                width: 8.5 * boardView.cellSize
+                height: 3.5 * boardView.cellSize
+                radius: boardView.cellSize
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.top
-                anchors.bottomMargin: nodeDistance / 2
+                anchors.bottomMargin: boardView.cellSize / 2
                 color: "#804682b4"
                 border.color: "Black"
 
@@ -155,7 +154,7 @@ Item {
                     text: "id = " + monsterId + "\n" + monsterType
                     style: Text.Outline
                     styleColor: "white"
-                    font.pixelSize: nodeDistance * 1.3
+                    font.pixelSize: boardView.cellSize * 1.3
                     color: "white"
                 }
             }

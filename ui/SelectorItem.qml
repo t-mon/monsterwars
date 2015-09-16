@@ -22,7 +22,6 @@ import QtQuick 2.2
 
 Item{
     id: root
-    property real nodeDistance
     property real lineWidth
     property real size
     property bool pressed

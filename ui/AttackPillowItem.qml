@@ -23,7 +23,6 @@ import MonsterWars 1.0
 
 Item {
     id: root
-    property real nodeDistance
     property real speed
     property real value
     property string pillowId
@@ -38,7 +37,7 @@ Item {
 
     Rectangle {
         id: pillowRectangle
-        width: nodeDistance * 5
+        width: boardView.cellSize * 5
         height: width
         color: "transparent"
 
@@ -62,7 +61,7 @@ Item {
             anchors.centerIn: parent
             text: value
             font.bold: true
-            font.pixelSize: nodeDistance * 2
+            font.pixelSize: boardView.cellSize * 2
             style: Text.Outline
             styleColor: "steelblue"
             color: colorString
@@ -97,8 +96,8 @@ Item {
                 id: xAnimation
                 target: root
                 property: "x"
-                from: root.nodeDistance * sourceX - pillowRectangle.width / 2
-                to: root.nodeDistance * destinationX - pillowRectangle.width / 2
+                from: boardView.cellSize * sourceX - pillowRectangle.width / 2
+                to: boardView.cellSize * destinationX - pillowRectangle.width / 2
                 duration: animationDuration
             }
 
@@ -106,8 +105,8 @@ Item {
                 id: yAnimation
                 target: root
                 property: "y"
-                from: root.nodeDistance * sourceY - pillowRectangle.height / 2
-                to: root.nodeDistance * destinationY - pillowRectangle.width / 2
+                from: boardView.cellSize * sourceY - pillowRectangle.height / 2
+                to: boardView.cellSize * destinationY - pillowRectangle.width / 2
                 duration: animationDuration
             }
         }
