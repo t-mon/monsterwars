@@ -1,0 +1,123 @@
+# Polish translation for monsterwars
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the monsterwars package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: monsterwars\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-09-16 20:26+0200\n"
+"PO-Revision-Date: 2015-09-16 21:04+0000\n"
+"Last-Translator: Michal Predotka <mpredotka@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-09-16 22:04+0000\n"
+"X-Generator: Launchpad (build 17737)\n"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:56
+msgid "New highscore!"
+msgstr "Nowy rekord!"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:99
+msgid "You won!"
+msgstr "Zwycięstwo!"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:99
+msgid "You lost."
+msgstr "Porażka."
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:96
+msgid "Normal"
+msgstr "Zwykły"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:149
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:167
+msgid "Defense"
+msgstr "Obrona"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:202
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:284
+msgid "Speed"
+msgstr "Prędkość"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:255
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:109
+msgid "Strength"
+msgstr "Siła"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:308
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:224
+msgid "Reproduction"
+msgstr "Reprodukcja"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:364
+msgid "Pillow"
+msgstr "Poduszka"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:382
+msgid "Help"
+msgstr "Pomoc"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:69
+msgid "Version:"
+msgstr "Wersja:"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:78
+msgid "Author"
+msgstr "Autor"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:97
+msgid "Design"
+msgstr "Projekt"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:116
+msgid "Source code"
+msgstr "Kod źródłowy"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:141
+msgid "License"
+msgstr "Licencja"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:166
+msgid "Backgrounds"
+msgstr "Tła"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:189
+msgid "Terms of use"
+msgstr "Warunki korzystania"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Info.qml:210
+msgid "About"
+msgstr "O programie"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/LevelSelector.qml:66
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:123
+msgid "Level selection"
+msgstr "Wybór plansz"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:53
+msgid "Play"
+msgstr "Graj"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:98
+msgid "i"
+msgstr "i"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:67
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:94
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:54
+msgid "Available points"
+msgstr "Dostępne punkty"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:303
+msgid "Settings:"
+msgstr "Ustawienia:"
