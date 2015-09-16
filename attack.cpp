@@ -34,7 +34,7 @@ void Attack::beginnAttack(int id)
 void Attack::endAttack(int id)
 {
     for (int i = 0; i < m_sourceIds.count(); i++) {
-        if( m_sourceIds.at(i) == id) {
+        if (m_sourceIds.at(i) == id) {
             m_sourceIds.removeAt(i);
         }
     }
@@ -51,6 +51,11 @@ int Attack::destinationId()
 {
     return m_destinationId;
     emit attackFinished();
+}
+
+void Attack::removeSourceId(int id)
+{
+    m_sourceIds.removeAll(id);
 }
 
 void Attack::addMonsterId(int id)

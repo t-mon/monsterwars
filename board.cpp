@@ -180,6 +180,14 @@ void Board::evaluateReleased(const int &monsterId)
     if (m_attack->sourceIds().isEmpty()) {
         m_attack->beginnAttack(m->id());
     } else {
+        // check if the source monsters are still my monster
+        foreach (int sourceId, m_attack->sourceIds()) {
+            Monster* sourceMonster = monster(sourceId);
+            if (sourceMonster->player()->id() != 1) {
+                qDebug() << "remove" << sourceId << "from attack, no longer my monster";
+                m_attack->removeSourceId(sourceId);
+            }
+        }
         m_attack->endAttack(m->id());
     }
 }
@@ -292,7 +300,7 @@ void Board::attackFinished()
     if (m_attack->sourceIds().isEmpty())
         return;
 
-    emit startAttack(m_attack);
+    m_engine->startAttack(m_attack);
     m_attack->reset();
     resetSelections();
 }

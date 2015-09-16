@@ -33,9 +33,13 @@ public:
 
     void beginnAttack(int id);
     void endAttack(int id);
+
     QList<int> sourceIds();
     int destinationId();
+
+    void removeSourceId(int id);
     void addMonsterId(int id);
+
     void reset();
 
 private:

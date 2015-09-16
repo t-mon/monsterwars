@@ -155,8 +155,6 @@ int GameEngine::winnerId() const
 
 void GameEngine::startAttack(Attack *attack)
 {
-    // TODO: recheck the sourceIds, they might have changed
-
     qDebug() << "Start attack -> " << attack->sourceIds() << "->" << attack->destinationId();
 
     foreach (int monsterId, attack->sourceIds()) {

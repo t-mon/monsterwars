@@ -17,9 +17,9 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="MonsterWars.svg"
-   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/MonsterWars.png"
-   inkscape:export-xdpi="46.080002"
-   inkscape:export-ydpi="46.080002">
+   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/MonsterWars-64x64.png"
+   inkscape:export-xdpi="11.52"
+   inkscape:export-ydpi="11.52">
   <defs
      id="defs4268">
     <linearGradient
@@ -52,7 +52,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="305.69363"
+     inkscape:cx="144.06922"
      inkscape:cy="174.34599"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
