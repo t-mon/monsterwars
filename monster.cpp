@@ -169,7 +169,7 @@ int Monster::split()
 
 void Monster::impact(AttackPillow *attackPillow)
 {
-    // if its a free monster
+    // if it's a free monster
     if (player()->id() == 0) {
         setPlayer(attackPillow->player());
         m_value += attackPillow->count();
@@ -178,25 +178,20 @@ void Monster::impact(AttackPillow *attackPillow)
     } else {
         // Seems to be a confrontation!
         double strengthMultiplicator = 1 + (attackPillow->strength() * m_engine->strengthStepWidth());
-        double defenseMultiplicator = 1;
+        double defenseMultiplicator = 1 - (player()->defense() * m_engine->defenseStepWidth());
 
         // check if this is a defense monster
         if (monsterType() == MonsterTypeDefense) {
             defenseMultiplicator -= 4 * m_engine->defenseStepWidth();
         }
-        defenseMultiplicator -= (player()->defense() * m_engine->defenseStepWidth());
 
-        // take care of attack bonus
-        int attackValue = attackPillow->count() * strengthMultiplicator;
-        int attackDifference = attackValue - attackPillow->count();
+        double finalMiltiplicator = (strengthMultiplicator + defenseMultiplicator) / 2;
+        int finalPillowValue = qRound(attackPillow->count() * finalMiltiplicator);
+        qDebug() << "confrontation:";
+        qDebug() << "   multiplicator" << finalMiltiplicator;
+        qDebug() << "   pillow value " << attackPillow->count() << "->" << finalPillowValue;
 
-        // take care of defense bonus
-        int defenseValue = attackPillow->count() * defenseMultiplicator;
-        int defenseDifference = defenseValue - attackPillow->count();
-
-        int finalAttackValue = attackPillow->count() - (abs(attackDifference + defenseDifference));
-
-        m_value -= finalAttackValue;
+        m_value -=  finalPillowValue;
         if(m_value < 0) {
             setPlayer(attackPillow->player());
             m_value = abs(m_value);

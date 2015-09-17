@@ -32,7 +32,7 @@ Item {
     GridView {
         id: levelGrid
         cellWidth: parent.width / 2
-        cellHeight: units.gu(23)
+        cellHeight: cellWidth * 0.65
         model: gameEngine.levels
         anchors {
             top: menuBar.bottom

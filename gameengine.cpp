@@ -45,9 +45,9 @@ GameEngine::GameEngine(QObject *parent):
     m_columns = 70;
 
     // Initialize propertys
-    m_strengthStepWidth = 0.15;
+    m_strengthStepWidth = 0.1;
+    m_defenseStepWidth = 0.1;
     m_reproductionStepWidth = 50;
-    m_defenseStepWidth = 0.15;
     m_speedStepWidth = 0.15;
 
     m_pillowsModel = new AttackPillowModel(this);

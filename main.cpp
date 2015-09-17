@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     QQuickView view;
     view.setSource(QUrl(QStringLiteral("qrc:///ui/MonsterWars.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.show();
+    view.showFullScreen();
     return app.exec();
 }
 
