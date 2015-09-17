@@ -25,7 +25,7 @@ import Ubuntu.Components 1.1
 MainView {
     id: app
     objectName: "mainView"
-    applicationName: "monsterwars.simonstuerz"
+    applicationName: "monsterwars.t-mon"
     automaticOrientation: false
     useDeprecatedToolbar: false
 
@@ -44,7 +44,7 @@ MainView {
         Component.onCompleted: {
             console.log("width = " + app.width + " , cell size = " + boardView.cellSize)
             console.log("height = " + app.height + " , cell size = " + boardView.cellSize)
-            i18n.domain = "monsterwars.simonstuerz"
+            i18n.domain = "monsterwars.t-mon"
             pageStack.push(mainPage)
         }
     }

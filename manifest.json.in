@@ -1,5 +1,5 @@
 {
-    "name": "monsterwars.simonstuerz",
+    "name": "monsterwars.t-mon",
     "description": "\nStrategy game consisting of a pillow fight between monsters.",
     "architecture": "@CLICK_ARCH@",
     "title": "Monster Wars",
