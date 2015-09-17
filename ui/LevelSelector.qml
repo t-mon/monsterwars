@@ -63,6 +63,7 @@ Item {
             right: parent.right
             top: parent.top
         }
+        // TRANSLATORS: The title of the "Level selection" view
         menuTitle: i18n.tr("Level selection")
     }
 }

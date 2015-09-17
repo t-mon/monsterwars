@@ -50,6 +50,7 @@ Item {
             }
             Text {
                 anchors.centerIn: parent
+                // TRANSLATORS: The "Play" button in the main menu
                 text: i18n.tr("Play")
                 font.bold: true
                 font.pixelSize: units.gu(4)
@@ -95,6 +96,7 @@ Item {
 
         Text {
             anchors.centerIn: parent
+            // TRANSLATORS: The "i" in the information button in the main menu
             text: i18n.tr("i")
             color: "white"
             font.bold: true

@@ -66,6 +66,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(2)
+                        // TRANSLATORS: The "version" of the application
                         text: i18n.tr("Version:") + " " + app.version
                         font.weight: Font.DemiBold
                         font.pixelSize: units.gu(3)
@@ -75,6 +76,7 @@ Item {
                 Column {
                     spacing: units.gu(1)
                     Text {
+                        // TRANSLATORS: "Author" section in the "About" view
                         text: i18n.tr("Author")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -94,6 +96,7 @@ Item {
                 Column {
                     spacing: units.gu(1)
                     Text {
+                        // TRANSLATORS: Design section in the "About" view
                         text: i18n.tr("Design")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -113,6 +116,7 @@ Item {
                 Column {
                     spacing: units.gu(1)
                     Text {
+                        // TRANSLATORS: Source code section in the "About" view
                         text: i18n.tr("Source code")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -138,6 +142,7 @@ Item {
                 Column {
                     spacing: units.gu(1)
                     Text {
+                        // TRANSLATORS: License section in the "About" view
                         text: i18n.tr("License")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -163,6 +168,7 @@ Item {
                 Column {
                     spacing: units.gu(1)
                     Text {
+                        // TRANSLATORS: Reference to the background image in the "About" view
                         text: i18n.tr("Backgrounds")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -186,6 +192,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(2)
+                        // TRANSLATORS: Terms of use for the background image in the "About" view
                         text: i18n.tr("Terms of use")
                         font.weight: Font.DemiBold
                         font.underline: true

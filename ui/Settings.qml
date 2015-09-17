@@ -24,7 +24,6 @@ Item {
     id: root
 
     property string backgroundColor: "transparent"
-    //color: "#646464"
 
     Rectangle {
         anchors.fill: parent
@@ -51,6 +50,7 @@ Item {
 
                 Text {
                     id: pointText
+                    // TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
                     text: i18n.tr("Available points") + ": " + gameEngine.playerSettings.tunePoints
                     font.weight: Font.DemiBold
                     style: Text.Outline
@@ -300,6 +300,7 @@ Item {
                 right: parent.right
                 top: parent.top
             }
+            // TRANSLATORS: Title of the "Settings" view
             menuTitle: i18n.tr("Settings:")
         }
     }

@@ -64,6 +64,7 @@ Item {
                         leftMargin: units.gu(2)
                         verticalCenter: parent.verticalCenter
                     }
+                    // TRANSLATORS: The "Continue" button in the pause menu
                     text: i18n.tr("Continue")
                     font.bold: true
                     font.pixelSize: units.gu(4)
@@ -91,6 +92,7 @@ Item {
                         leftMargin: units.gu(2)
                         verticalCenter: parent.verticalCenter
                     }
+                    // TRANSLATORS: The "Restart" button in the pause menu
                     text: i18n.tr("Restart")
                     font.bold: true
                     font.pixelSize: units.gu(4)
@@ -120,6 +122,7 @@ Item {
                         leftMargin: units.gu(2)
                         verticalCenter: parent.verticalCenter
                     }
+                    // TRANSLATORS: The "Level selection" button in the pause menu
                     text: i18n.tr("Level selection")
                     font.bold: true
                     font.pixelSize: units.gu(4)

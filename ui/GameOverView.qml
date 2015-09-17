@@ -53,6 +53,7 @@ Item {
                 topMargin: units.gu(1)
             }
             visible: gameEngine.newHighScore
+            // TRANSLATORS: In the game over view, if you reached a new high score
             text: i18n.tr("New highscore!")
             style: Text.Outline
             styleColor: "steelblue"
@@ -96,6 +97,7 @@ Item {
                 id: winnerText
                 color: "white"
                 anchors.horizontalCenter: parent.horizontalCenter
+                // TRANSLATORS: Inform the player if he won or lost the game in the game over view
                 text: gameEngine.winnerId == 1 ? i18n.tr("You won!") : i18n.tr("You lost.")
                 font.bold: true
                 font.pixelSize: units.gu(4)

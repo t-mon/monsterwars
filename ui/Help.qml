@@ -93,6 +93,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: normalRectangle.verticalCenter
+                        // TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
                         text: i18n.tr("Normal")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -146,6 +147,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: defenseRectangle.verticalCenter
+                        // TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
                         text: i18n.tr("Defense") + " + 4"
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -199,6 +201,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: speedRectangle.verticalCenter
+                        // TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
                         text: i18n.tr("Speed") + " + 4"
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -252,6 +255,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: strengthRectangle.verticalCenter
+                        // TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
                         text: i18n.tr("Strength") + " + 4"
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -305,6 +309,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: reproductionRectangle.verticalCenter
+                        // TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
                         text: i18n.tr("Reproduction") + " + 4"
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -361,6 +366,7 @@ Item {
 
                     Text {
                         anchors.verticalCenter: pillowRectangle.verticalCenter
+                        // TRANSLATORS: Description of the pillow image in the Help view
                         text: i18n.tr("Pillow")
                         font.weight: Font.DemiBold
                         style: Text.Outline
@@ -379,6 +385,7 @@ Item {
                 right: parent.right
                 top: parent.top
             }
+            // TRANSLATORS: Title of the "Help" view
             menuTitle: i18n.tr("Help")
         }
     }
