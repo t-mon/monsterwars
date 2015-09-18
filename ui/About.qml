@@ -164,7 +164,6 @@ Item {
                     }
                 }
 
-
                 Column {
                     spacing: units.gu(1)
                     Text {
@@ -200,6 +199,122 @@ Item {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: Qt.openUrlExternally("http://shadowhousecreations.blogspot.de/p/terms-of-use.html")
+                        }
+                    }
+                }
+
+                Column {
+                    spacing: units.gu(3)
+                    Text {
+                        // TRANSLATORS: Reference to the music in the "About" view
+                        text: i18n.tr("Music")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+                    Column {
+                        spacing: units.gu(1)
+                        Row {
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            spacing: units.gu(3)
+                            Image {
+                                id: ccBySaImage
+                                source: "qrc:///images/cc-by-sa.png"
+                                height: units.gu(7)
+                                fillMode: Image.PreserveAspectFit
+                                MouseArea {
+                                    id: ccBySaMouseArea
+                                    anchors.fill: parent
+                                    onClicked: Qt.openUrlExternally("http://creativecommons.org/licenses/by-sa/3.0/")
+                                }
+                            }
+
+                            Text {
+                                anchors.verticalCenter: ccBySaImage.verticalCenter
+                                text: "Kaetemi"
+                                font.weight: Font.DemiBold
+                                font.pixelSize: units.gu(3)
+                            }
+                        }
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.leftMargin: units.gu(2)
+                            text: "opengameart.org/content/polyverse-title-\nalternative"
+                            font.weight: Font.DemiBold
+                            font.underline: true
+                            font.pixelSize: units.gu(3)
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: Qt.openUrlExternally("http://opengameart.org/content/polyverse-title-alternative")
+                            }
+                        }
+                    }
+                    Column {
+                        spacing: units.gu(1)
+                        Row {
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            spacing: units.gu(3)
+                            Image {
+                                id: ccImage
+                                source: "qrc:///images/cc0.png"
+                                height: units.gu(7)
+                                fillMode: Image.PreserveAspectFit
+                                MouseArea {
+                                    id: ccMouseArea
+                                    anchors.fill: parent
+                                    onClicked: Qt.openUrlExternally("http://creativecommons.org/publicdomain/zero/1.0/")
+                                }
+                            }
+
+                            Text {
+                                anchors.verticalCenter: ccImage.verticalCenter
+                                text: "Homingstar"
+                                font.weight: Font.DemiBold
+                                font.pixelSize: units.gu(3)
+                            }
+                        }
+
+                        Text {
+                            anchors.left: parent.left
+                            anchors.leftMargin: units.gu(2)
+                            text: i18n.tr("opengameart.org/content/fairy-spring")
+                            font.weight: Font.DemiBold
+                            font.underline: true
+                            font.pixelSize: units.gu(3)
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: Qt.openUrlExternally("http://opengameart.org/content/fairy-spring")
+                            }
+                        }
+                    }
+                }
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        // TRANSLATORS: Reference to the translations in the "About" view
+                        text: i18n.tr("Translations")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+                    Text {
+                        anchors.left: parent.left
+                        anchors.leftMargin: units.gu(2)
+                        // TRANSLATORS: Thank you very much for helping with the translations!! ;)  (in the "About" view)
+                        text: i18n.tr("Thanks to all translators!")
+                        font.weight: Font.DemiBold
+                        font.underline: true
+                        font.pixelSize: units.gu(3)
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("https://translations.launchpad.net/monsterwars")
                         }
                     }
                 }

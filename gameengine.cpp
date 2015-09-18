@@ -36,19 +36,17 @@ GameEngine::GameEngine(QObject *parent):
     m_displayTimer(new QTimer(this)),
     m_board(new Board(this)),
     m_ticksPerSecond(25),
+    m_rows(40),
+    m_columns(70),
     m_running(false),
     m_newHighScore(false),
     m_tunePointEarned(false)
-{    
-    // Initialize boardsize
-    m_rows = 40;
-    m_columns = 70;
-
+{
     // Initialize propertys
     m_strengthStepWidth = 0.1;
     m_defenseStepWidth = 0.1;
     m_reproductionStepWidth = 50;
-    m_speedStepWidth = 0.15;
+    m_speedStepWidth = 0.25;
 
     m_pillowsModel = new AttackPillowModel(this);
     m_levels = new LevelModel(this);
@@ -178,6 +176,11 @@ void GameEngine::startAttack(Attack *attack)
         // create pillow
         AttackPillow *pillow = new AttackPillow(sourceMonster->player(), sourceMonster, destinationMonster, sourceMonster->split(), attackStrength, attackSpeed, this);
 
+        if (pillow->count() == 0) {
+            pillow->deleteLater();
+            continue;
+        }
+
         m_pillowList.insert(pillow->id(), pillow);
         m_pillowsModel->addPillow(pillow);
     }
@@ -230,6 +233,13 @@ void GameEngine::attackFinished(QString pillowId)
     pillow->deleteLater();
 }
 
+void GameEngine::resetGameSettings()
+{
+    qDebug() << "Reset game settings...";
+    m_levels->resetLevelSettings();
+    m_playerSettings->resetSettings();
+}
+
 void GameEngine::startGame(const int &levelId)
 {
     Level *level = m_levelHash.value(levelId);
@@ -267,6 +277,7 @@ void GameEngine::startGame(const int &levelId)
     emit displayGameTimeChanged();
 
     calculateScores();
+    emit gameStarted();
 }
 
 void GameEngine::restartGame()
@@ -275,13 +286,13 @@ void GameEngine::restartGame()
     int levelId = m_board->level()->levelId();
     stopGame();
     startGame(levelId);
+    emit gameRestarted();
 }
 
 void GameEngine::stopGame()
 {
     qDebug() << "Game: stop";
     stop();
-    m_gameOver = true;
 
     // clean up brains
     foreach (AiBrain *brain, m_brains.values()) {
@@ -302,6 +313,11 @@ void GameEngine::stopGame()
 
     // reset the board
     m_board->resetBoard();
+
+    if (!m_gameOver) {
+        emit gameStoped();
+    }
+    m_gameOver = true;
 }
 
 void GameEngine::pauseGame()
@@ -322,6 +338,7 @@ void GameEngine::pauseGame()
     emit gameTimeChanged();
 
     qDebug() << "Game: pause" << m_totalGameTimeMs;
+    emit gamePaused();
 }
 
 void GameEngine::continueGame()
@@ -343,11 +360,12 @@ void GameEngine::continueGame()
     emit gameTimeChanged();
 
     qDebug() << "Game: continue";
+    emit gameContinue();
 }
 
 void GameEngine::loadLevels()
 {
-    QDir dir(QDir::currentPath() + m_dataDir.path());
+    QDir dir(QDir::currentPath() + m_dataDir.path() + "levels");
     QStringList levelDirs = dir.entryList(QDir::NoDotAndDotDot | QDir::AllDirs, QDir::Name);
 
     qDebug() << "searching level data in" << dir.path();
@@ -397,6 +415,7 @@ void GameEngine::loadLevels()
         m_levels->addLevel(level);
         m_levelHash.insert(level->levelId(), level);
     }
+    m_levels->sortLevels();
     emit levelsChanged();
 }
 
@@ -512,7 +531,9 @@ void GameEngine::onGameOver(const int &winnerId)
                 settings.beginGroup(nextLevel->name());
                 settings.setValue("unlocked", true);
                 settings.endGroup();
-                qDebug() << "Unlock next level" << nextLevel->levelId();
+                if (!nextLevel->unlocked()) {
+                    qDebug() << "Unlock next level" << nextLevel->levelId();
+                }
                 nextLevel->setUnlocked(true);
             }
         } else {

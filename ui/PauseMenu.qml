@@ -196,5 +196,34 @@ Item {
                 onClicked: pageStack.push(helpPage)
             }
         }
+
+        Rectangle {
+            id: muteButton
+            width: buttonSize
+            height: width
+            anchors.right: parent.right
+            anchors.rightMargin: units.gu(1)
+            anchors.verticalCenter: parent.verticalCenter
+            color: "black"
+            radius: width / 2
+            border.color: "white"
+            border.width: units.gu(0.25)
+
+            Image {
+                id: muteImage
+                anchors.fill: parent
+                anchors.margins: units.gu(1)
+                source: gameEngine.playerSettings.muted ? "qrc:///images/unmute.png" : "qrc:///images/mute.png"
+            }
+
+            MouseArea {
+                id: muteButtonMouseArea
+                anchors.fill: parent
+                onClicked: {
+                    gameEngine.playerSettings.muted = !gameEngine.playerSettings.muted
+                    app.updateMusic()
+                }
+            }
+        }
     }
 }

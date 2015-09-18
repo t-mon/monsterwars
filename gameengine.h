@@ -46,6 +46,8 @@ class AttackPillow;
 class GameEngine : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(int rows READ rows CONSTANT)
+    Q_PROPERTY(int columns READ columns CONSTANT)
     Q_PROPERTY(QUrl dataDir READ dataDir WRITE setDataDir NOTIFY dataDirChanged)
     Q_PROPERTY(Board *board READ board NOTIFY boardChanged)
     Q_PROPERTY(QString displayGameTime READ displayGameTime NOTIFY displayGameTimeChanged)
@@ -106,6 +108,8 @@ public:
 
     Q_INVOKABLE void attackFinished(QString pillowId);
 
+    Q_INVOKABLE void resetGameSettings();
+
 private:
     QTimer *m_timer;
     QTimer *m_displayTimer;
@@ -155,6 +159,11 @@ signals:
     void gameTimeChanged();
     void displayGameTimeChanged();
     void gameOver();
+    void gameStarted();
+    void gameRestarted();
+    void gameStoped();
+    void gamePaused();
+    void gameContinue();
     void gameFinished(const int &winnerId);
     void winnerIdChanged();
     void newHighScoreChanged();

@@ -21,6 +21,7 @@
 import QtQuick 2.2
 import MonsterWars 1.0
 import Ubuntu.Components 1.1
+import QtMultimedia 5.4
 
 MainView {
     id: app
@@ -29,7 +30,7 @@ MainView {
     automaticOrientation: false
     useDeprecatedToolbar: false
 
-    property string version: "0.1"
+    property string version: "0.2"
     property string green: "#00c500"
     property string blue: "#0083c7"
     property string red: "#c12600"
@@ -37,15 +38,58 @@ MainView {
     width: units.gu(70)
     height: units.gu(40)
 
+    Audio {
+        id: musicPlayer
+        source: dataDir + "sounds/menu-music.ogg"
+        volume: 1
+        loops: Audio.Infinite
+    }
+
+    Connections {
+        target: gameEngine
+        onGameStoped: {
+            musicPlayer.stop()
+            musicPlayer.source = dataDir + "sounds/menu-music.ogg"
+            updateMusic()
+        }
+        onGamePaused: {
+            musicPlayer.volume = musicPlayer.volume / 2
+        }
+        onGameOver: {
+            musicPlayer.stop()
+            musicPlayer.source = dataDir + "sounds/menu-music.ogg"
+            updateMusic()
+        }
+        onGameContinue: {
+            musicPlayer.volume = musicPlayer.volume * 2
+        }
+        onGameRestarted: {
+            musicPlayer.stop()
+            musicPlayer.source = dataDir + "sounds/gameplay-music.ogg"
+            updateMusic()
+        }
+        onGameStarted: {
+            musicPlayer.stop()
+            musicPlayer.source = dataDir + "sounds/gameplay-music.ogg"
+            updateMusic()
+        }
+    }
 
     GameEngine {
         id: gameEngine
-        dataDir: "../../../levels"
+        dataDir: "../../../data/"
         Component.onCompleted: {
-            console.log("width = " + app.width + " , cell size = " + boardView.cellSize)
-            console.log("height = " + app.height + " , cell size = " + boardView.cellSize)
             i18n.domain = "monsterwars.t-mon"
             pageStack.push(mainPage)
+            updateMusic()
+        }
+    }
+
+    function updateMusic() {
+        if (gameEngine.playerSettings.muted) {
+            musicPlayer.pause()
+        } else {
+            musicPlayer.play()
         }
     }
 
@@ -92,10 +136,10 @@ MainView {
         }
 
         Page {
-            id: infoPage
+            id: aboutPage
             visible: false
-            Info {
-                id: info
+            About {
+                id: about
                 anchors.fill: parent
             }
         }
@@ -105,6 +149,15 @@ MainView {
             visible: false
             Help {
                 id: help
+                anchors.fill: parent
+            }
+        }
+
+        Page {
+            id: resetPage
+            visible: false
+            ResetView {
+                id: reset
                 anchors.fill: parent
             }
         }

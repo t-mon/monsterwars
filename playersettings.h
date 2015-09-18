@@ -27,6 +27,7 @@
 class PlayerSettings : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
     Q_PROPERTY(int tunePoints READ tunePoints WRITE setTunePoints NOTIFY tunePointsChanged)
     Q_PROPERTY(int strengthPoints READ strengthPoints WRITE setStrengthPoints NOTIFY strengthPointsChanged)
     Q_PROPERTY(int defensePoints READ defensePoints WRITE setDefensePoints NOTIFY defensePointsChanged)
@@ -35,6 +36,9 @@ class PlayerSettings : public QObject
 
 public:
     explicit PlayerSettings(QObject *parent = 0);
+
+    bool muted() const;
+    void setMuted(const bool &muted);
 
     int tunePoints() const;
     void setTunePoints(const int &tunePoints);
@@ -56,7 +60,11 @@ public:
     void setSpeedPoints(const int &speedPoints);
     Q_INVOKABLE void increaseSpeedPoints();
 
+    void resetSettings();
+
 private:
+    bool m_muted;
+
     int m_tunePoints;
 
     int m_strengthPoints;
@@ -65,6 +73,7 @@ private:
     int m_speedPoints;
 
 signals:
+    void mutedChanged();
     void tunePointsChanged();
     void strengthPointsChanged();
     void defensePointsChanged();

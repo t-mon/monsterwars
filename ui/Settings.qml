@@ -19,6 +19,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.2
+import Ubuntu.Components 1.1
 
 Item {
     id: root
@@ -288,6 +289,23 @@ Item {
                             styleColor: "black"
                             font.pixelSize: units.gu(3)
                         }
+                    }
+                }
+
+                Rectangle {
+                    id: spacingRectangle
+                    color: "transparent"
+                    height: units.gu(4)
+                    width: parent.width
+                }
+                Button {
+                    id: resetButton
+                    anchors.right: parent.right
+                    // TRANSLATORS: Reset button to reset all game settings and achievements
+                    text: i18n.tr("Reset")
+                    gradient: UbuntuColors.orangeGradient
+                    onClicked: {
+                        pageStack.push(resetPage)
                     }
                 }
             }

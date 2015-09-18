@@ -21,6 +21,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickView>
+#include <QCommandLineParser>
 #include <QtQml>
 #include <QtQml/QQmlContext>
 
@@ -33,8 +34,10 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    app.setApplicationVersion("0.2");
 
     qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "GameEngine");
+    qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "SoundEngine");
     qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from the GameEngine.");
     qmlRegisterUncreatableType<Monster>("MonsterWars", 1, 0, "Monster", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<MonsterModel>("MonsterWars", 1, 0, "MonsterModel", "Can't create this in QML. Get it from Board.");
@@ -44,10 +47,29 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<PlayerSettings>("MonsterWars", 1, 0, "PlayerSettings", "Can't create this in QML. Get it from GameEngine.");
 
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.setApplicationDescription("Strategy game consisting of a pillow fight between monsters.");
+    QCommandLineOption developerOption(QStringList() << "d" << "developer", QCoreApplication::translate("main", "Run Monster Wars in developer mode"));
+    QCommandLineOption windowOption(QStringList() << "w" << "window-mode", QCoreApplication::translate("main", "Run Monster Wars in a window"));
+    parser.addOption(developerOption);
+    parser.addOption(windowOption);
+    parser.process(app);
+
     QQuickView view;
+    if (parser.isSet(developerOption)) {
+        view.engine()->rootContext()->setContextProperty("dataDir", "file://" + QCoreApplication::applicationDirPath() + "/data/");
+    } else {
+        view.engine()->rootContext()->setContextProperty("dataDir", "file://" + QCoreApplication::applicationDirPath() + "/../../../data/");
+    }
     view.setSource(QUrl(QStringLiteral("qrc:///ui/MonsterWars.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.show();
+    if (parser.isSet(windowOption)) {
+        view.show();
+    } else {
+        view.showFullScreen();
+    }
+
     return app.exec();
 }
 

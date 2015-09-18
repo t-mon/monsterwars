@@ -27,13 +27,17 @@ Item {
     property real value
     property string pillowId
     property string colorString
+    property real absolutSourceX
+    property real absolutSourceY
+    property real absolutDestinationX
+    property real absolutDestinationY
     property real sourceX
     property real sourceY
     property real destinationX
     property real destinationY
 
-    property real distance: Math.sqrt(Math.pow(sourceX - destinationX, 2) + Math.pow(sourceY - destinationY, 2))
-    property real animationDuration: distance * 160 / (1 + speed * 0.25)
+    property real distance: Math.sqrt(Math.pow(absolutSourceX - absolutDestinationX, 2) + Math.pow(absolutSourceY - absolutDestinationY, 2))
+    property real animationDuration: distance * 160 / (1 + speed * gameEngine.speedStepWidth())
 
     Rectangle {
         id: pillowRectangle
@@ -71,6 +75,7 @@ Item {
             id: attackAnimation
             running: true
             onStopped: gameEngine.attackFinished(pillowId)
+            //onStarted: console.log("distance: " + distance + " duration: " + animationDuration + " v = " + distance * 1000 /animationDuration)
             SequentialAnimation {
                 id: flightAnimation
                 loops: 1
@@ -96,8 +101,8 @@ Item {
                 id: xAnimation
                 target: root
                 property: "x"
-                from: boardView.cellSize * sourceX - pillowRectangle.width / 2
-                to: boardView.cellSize * destinationX - pillowRectangle.width / 2
+                from: sourceX - pillowRectangle.width / 2
+                to: destinationX - pillowRectangle.width / 2
                 duration: animationDuration
             }
 
@@ -105,8 +110,8 @@ Item {
                 id: yAnimation
                 target: root
                 property: "y"
-                from: boardView.cellSize * sourceY - pillowRectangle.height / 2
-                to: boardView.cellSize * destinationY - pillowRectangle.width / 2
+                from: sourceY - pillowRectangle.height / 2
+                to: destinationY - pillowRectangle.width / 2
                 duration: animationDuration
             }
         }

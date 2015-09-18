@@ -125,7 +125,7 @@ int Monster::size() const
 void Monster::setSize(const int &size)
 {
     m_size = size;
-    m_maxValue = 120 + size * 10;
+    m_maxValue = 40 + size * 10;
 }
 
 void Monster::setPosition(const QPoint &position)
@@ -244,7 +244,7 @@ void Monster::slotTick()
     int intervall = 1000 - ((player()->reproduction()) * m_engine->tickInterval());
 
     if (monsterType() == MonsterTypeReproduction) {
-        intervall -= 6 * m_engine->tickInterval();
+        intervall -= 8 * m_engine->tickInterval();
     }
 
     if (m_tickCounter * m_engine->tickInterval() == intervall) {

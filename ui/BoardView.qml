@@ -23,7 +23,8 @@ import MonsterWars 1.0
 
 Item {
     id: boardView
-    property real cellSize: Math.min(boardView.width / 70, boardView.height / 43)
+    property real cellSize: Math.min(background.width / gameEngine.columns, background.height / gameEngine.rows)
+    property bool debug: false
 
     Rectangle {
         anchors.fill: parent
@@ -79,6 +80,18 @@ Item {
             source: "qrc:///backgrounds/background-" + gameEngine.board.levelId + ".jpg"
         }
 
+        Rectangle {
+            id: grid
+            visible: debug
+            color: "transparent"
+            border.color: "red"
+            border.width: units.gu(0.25)
+            width: cellSize * gameEngine.columns
+            height: cellSize * gameEngine.rows
+            x: (parent.width - width) / 2
+            y: (parent.height - height) / 2
+        }
+
         Repeater {
             id: monsterRepeater
             model: gameEngine.board.monsters
@@ -88,8 +101,8 @@ Item {
                 monsterColor: model.monsterColor
                 monsterSize: model.monsterSize
                 monsterType: model.monsterType
-                positionX: model.positionX
-                positionY: model.positionY
+                positionX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.positionX * boardView.cellSize
+                positionY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.positionY * boardView.cellSize
                 selected: model.selected
                 pressed: boardArea.pressed
                 lineWidth: selectorItem.lineWidth
@@ -189,8 +202,8 @@ Item {
                 for (var i = 0; i < gameEngine.board.monsterCount; i ++) {
                     var monsterItem = monsterRepeater.itemAt(i)
                     if (monsterItem.selected) {
-                        var xMonster = monsterItem.positionX * boardView.cellSize
-                        var yMonster = monsterItem.positionY * boardView.cellSize
+                        var xMonster = monsterItem.positionX
+                        var yMonster = monsterItem.positionY
                         var xSelector = selectorItem.x + selectorItem.size / 2
                         var ySelector = selectorItem.y + selectorItem.size / 2
 
@@ -220,10 +233,14 @@ Item {
                 value: model.value
                 pillowId: model.id
                 colorString: model.colorString
-                sourceX: model.sourceX
-                sourceY: model.sourceY
-                destinationX: model.destinationX
-                destinationY: model.destinationY
+                absolutSourceX: model.sourceX
+                absolutSourceY: model.sourceY
+                absolutDestinationX: model.destinationX
+                absolutDestinationY: model.destinationY
+                sourceX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.sourceX * boardView.cellSize
+                sourceY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.sourceY * boardView.cellSize
+                destinationX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.destinationX * boardView.cellSize
+                destinationY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.destinationY * boardView.cellSize
             }
         }
     }

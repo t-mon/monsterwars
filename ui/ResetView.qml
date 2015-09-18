@@ -19,31 +19,49 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.2
+import Ubuntu.Components 1.1
 
 Item {
     id: root
-    property string name
-    signal clicked()
 
     Rectangle {
-        id: menuButton
         anchors.fill: parent
         color: "black"
-        radius: height / 3
 
         Text {
-            anchors.centerIn: menuButton
-            text: name
-            font.bold: true
+            id: resetText
+            anchors.centerIn: parent
+            // TRANSLATORS: Reset warning message. Please insert also the "\n" in the middle of the text!
+            text: i18n.tr("Are you sure you want to reset all\ngame settings and achievements?")
+            color: "white"
             font.pixelSize: units.gu(4)
-            color: buttonMouseArea.pressed ? "steelblue" : "white"
         }
 
-        MouseArea {
-            id: buttonMouseArea
-            anchors.fill: parent
-            onClicked: root.clicked()
-
+        Button {
+            id: noButton
+            anchors {
+                left: resetText.left
+                top: resetText.bottom
+                topMargin: units.gu(3)
+            }
+            text: i18n.tr("No")
+            gradient: UbuntuColors.greyGradient
+            onClicked: pageStack.pop()
+        }
+        Button {
+            id: yesButton
+            anchors {
+                right: resetText.right
+                top: resetText.bottom
+                topMargin: units.gu(3)
+            }
+            text: i18n.tr("Yes")
+            gradient: UbuntuColors.orangeGradient
+            onClicked: {
+                gameEngine.resetGameSettings()
+                pageStack.pop()
+            }
         }
     }
+
 }

@@ -1,0 +1,154 @@
+{
+    "name": "Level 10",
+    "id": 10,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 2,
+            "speed": 3,
+            "defence": 3,
+            "reproduction": 2,
+            "reaction": 3
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 1,
+            "speed": 2,
+            "defence": 2,
+            "reproduction": 4,
+            "reaction": 5
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeNormal",
+            "x": 5,
+            "y": 5,
+            "size": 3,
+            "startValue": 1,
+            "player": 1
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeNormal",
+            "x": 12,
+            "y": 12,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 15,
+            "y": 5,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeNormal",
+            "x": 5,
+            "y": 15,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 5,
+            "size": 3,
+            "startValue": 3,
+            "player": 2
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 15,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 7,
+            "monsterType": "MonsterTypeNormal",
+            "x": 58,
+            "y": 12,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 8,
+            "monsterType": "MonsterTypeNormal",
+            "x": 55,
+            "y": 5,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 9,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 35,
+            "size": 3,
+            "startValue": 2,
+            "player": 3
+        },
+        {
+            "id": 10,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 25,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 11,
+            "monsterType": "MonsterTypeNormal",
+            "x": 58,
+            "y": 28,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 12,
+            "monsterType": "MonsterTypeNormal",
+            "x": 55,
+            "y": 35,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 13,
+            "monsterType": "MonsterTypeDefense",
+            "x": 35,
+            "y": 20,
+            "size": 9,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 14,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 20,
+            "y": 35,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        }
+    ]
+}

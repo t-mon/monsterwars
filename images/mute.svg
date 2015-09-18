@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="500"
+   height="500"
+   viewBox="0 0 500.00001 500.00001"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="mute.svg"
+   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/images/restart.png"
+   inkscape:export-xdpi="46.080002"
+   inkscape:export-ydpi="46.080002">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="52.132155"
+     inkscape:cy="248.51382"
+     inkscape:document-units="px"
+     inkscape:current-layer="g4142"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2880"
+     inkscape:window-height="1749"
+     inkscape:window-x="0"
+     inkscape:window-y="51"
+     inkscape:window-maximized="1"
+     showguides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-552.36216)">
+    <g
+       id="g4142"
+       transform="matrix(16.681803,0,0,16.681803,-1775.6474,-12981.114)"
+       style="fill:#000000;fill-opacity:1">
+      <g
+         id="g4146"
+         transform="translate(-4.654805e-6,-0.72391188)"
+         style="fill:#ffffff;fill-opacity:1;stroke:none">
+        <path
+           inkscape:connector-curvature="0"
+           d="m 120.44218,815.64788 -6,6.00003 -8,0 0,9.99997 8,0 6,5.99998 z"
+           id="rect2987"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.24997298;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;enable-background:accumulate" />
+        <path
+           inkscape:connector-curvature="0"
+           d="m 123.77089,820.24203 c -0.42672,0.44362 -0.42672,1.15791 0,1.60145 l 4.62151,4.80442 -4.62151,4.80434 c -0.42672,0.44354 -0.42672,1.15783 0,1.60152 0.42672,0.44354 1.11378,0.44354 1.5405,0 l 4.62152,-4.80442 4.62151,4.80442 c 0.42672,0.44354 1.11378,0.44354 1.5405,0 0.42672,-0.44369 0.42672,-1.15798 0,-1.60152 l -4.62151,-4.80434 4.62151,-4.80442 c 0.42672,-0.44354 0.42672,-1.15783 0,-1.60145 -0.42672,-0.44354 -1.11378,-0.44354 -1.5405,0 l -4.62151,4.80442 -4.62152,-4.80442 c -0.42672,-0.44354 -1.11378,-0.44354 -1.5405,0 z"
+           id="rect13257"
+           style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.25;marker:none;enable-background:accumulate" />
+      </g>
+    </g>
+  </g>
+</svg>

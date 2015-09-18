@@ -26,12 +26,32 @@ PlayerSettings::PlayerSettings(QObject *parent) :
     QObject(parent)
 {
     QSettings settings;
+    settings.beginGroup("game");
+    m_muted = settings.value("muted", false).toBool();
+    settings.endGroup();
+
     settings.beginGroup("player");
     m_tunePoints = settings.value("tunePoints", 0).toInt();
     m_strengthPoints = settings.value("strength", 0).toInt();
     m_defensePoints = settings.value("defense", 0).toInt();
     m_reproductionPoints = settings.value("reproduction", 0).toInt();
     m_speedPoints = settings.value("speed", 0).toInt();
+    settings.endGroup();
+}
+
+bool PlayerSettings::muted() const
+{
+    return m_muted;
+}
+
+void PlayerSettings::setMuted(const bool &muted)
+{
+    m_muted = muted;
+    emit mutedChanged();
+
+    QSettings settings;
+    settings.beginGroup("game");
+    settings.setValue("muted", muted);
     settings.endGroup();
 }
 
@@ -158,4 +178,14 @@ void PlayerSettings::increaseSpeedPoints()
         setTunePoints(m_tunePoints - 1);
         setSpeedPoints(m_speedPoints + 1);
     }
+}
+
+void PlayerSettings::resetSettings()
+{
+    qDebug() << "Reset player settings...";
+    setTunePoints(0);
+    setSpeedPoints(0);
+    setStrengthPoints(0);
+    setDefensePoints(0);
+    setReproductionPoints(0);
 }

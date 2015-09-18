@@ -36,8 +36,8 @@ Item {
 
     width: monsterSize * boardView.cellSize * 2
     height: width
-    x: positionX * boardView.cellSize - width / 2
-    y: positionY * boardView.cellSize - width / 2
+    x: positionX - width / 2
+    y: positionY - width / 2
 
     Rectangle {
         id: monsterArea

@@ -8,6 +8,10 @@
         <file>images/plus.png</file>
         <file>images/restart.png</file>
         <file>images/ok.png</file>
+        <file>images/mute.png</file>
+        <file>images/unmute.png</file>
+	<file>images/cc0.png</file>
+	<file>images/cc-by-sa.png</file>
     </qresource>
 </RCC>
 

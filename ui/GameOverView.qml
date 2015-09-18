@@ -171,7 +171,7 @@ Item {
 
         SequentialAnimation {
             loops: Animation.Infinite
-            running: gameEngine.tunePointEarned
+            running: gameEngine.tunePointEarned && gameEngine.playerSettings.tunePoints != 0
             PropertyAnimation {
                 target: settingsButton
                 properties: "scale"
@@ -202,12 +202,12 @@ Item {
             styleColor: "steelblue"
             font.bold: true
             font.pixelSize: units.gu(4)
-            visible: gameEngine.tunePointEarned
+            visible: gameEngine.tunePointEarned && gameEngine.playerSettings.tunePoints != 0
         }
 
         SequentialAnimation {
             loops: Animation.Infinite
-            running: gameEngine.tunePointEarned
+            running: gameEngine.tunePointEarned && gameEngine.playerSettings.tunePoints != 0
             PropertyAnimation {
                 target: plusOneText
                 properties: "scale"

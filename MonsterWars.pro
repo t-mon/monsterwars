@@ -22,7 +22,7 @@ TARGET = MonsterWars
 
 load(ubuntu-click)
 
-QT += qml quick
+QT += qml quick multimedia
 
 CONFIG += c++11
 
@@ -37,7 +37,7 @@ HEADERS +=  attack.h \
             aibrain.h \
             monstermodel.h \
             levelmodel.h \
-            playersettings.h
+            playersettings.h \
 
 SOURCES +=  main.cpp \
             attack.cpp \
@@ -51,13 +51,14 @@ SOURCES +=  main.cpp \
             aibrain.cpp \
             monstermodel.cpp \
             levelmodel.cpp \
-            playersettings.cpp
+            playersettings.cpp \
 
 RESOURCES += ui.qrc \
              monsters.qrc \
              backgrounds.qrc \
              images.qrc \
-             previews.qrc
+             previews.qrc \
+             sounds.qrc
 
 # config files for click package
 OTHER_FILES += MonsterWars.apparmor \
@@ -69,10 +70,14 @@ config_files.path = /MonsterWars
 config_files.files += $${OTHER_FILES}
 
 # install level files
-levels.path = /
+levels.path = /data
 levels.files = levels/
+
+# install sound files
+sounds.path = /data
+sounds.files = sounds/
 
 target.path = $${UBUNTU_CLICK_BINARY_PATH}
 
-INSTALLS += target config_files levels
+INSTALLS += target config_files levels sounds
 

@@ -5,18 +5,18 @@
 	<file>ui/LevelSelector.qml</file>
         <file>ui/PointView.qml</file>
         <file>ui/SelectorItem.qml</file>
-        <file>ui/MonsterItem.qml</file>
         <file>ui/MainMenu.qml</file>
-        <file>ui/MainMenuItem.qml</file>
+ 	<file>ui/MonsterItem.qml</file>
         <file>ui/Settings.qml</file>
         <file>ui/LevelSelectorItem.qml</file>
         <file>ui/PauseMenu.qml</file>
         <file>ui/AttackPillowItem.qml</file>
         <file>ui/GameOverView.qml</file>
-        <file>ui/Info.qml</file>
+        <file>ui/About.qml</file>
         <file>ui/Help.qml</file>
         <file>ui/MenuBar.qml</file>
         <file>ui/BackgroundMonsters.qml</file>
+        <file>ui/ResetView.qml</file>
     </qresource>
 </RCC>
 

@@ -75,6 +75,33 @@ void LevelModel::addLevel(Level *level)
     emit dataChanged(i, i);
 }
 
+void LevelModel::resetLevelSettings()
+{
+    beginResetModel();
+    QSettings settings;
+    foreach (Level *level, m_levels) {
+        settings.beginGroup(level->name());
+        settings.setValue("timeStamp", 0);
+        level->setTimeStamp(0);
+        if (level->levelId() == 1) {
+            settings.setValue("unlocked", true);
+            level->setUnlocked(true);
+        } else {
+            settings.setValue("unlocked", false);
+            level->setUnlocked(false);
+        }
+        settings.endGroup();
+    }
+    endResetModel();
+}
+
+void LevelModel::sortLevels()
+{
+    beginResetModel();
+    qSort(m_levels.begin(), m_levels.end(), compareLevel);
+    endResetModel();
+}
+
 QHash<int, QByteArray> LevelModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
@@ -102,4 +129,10 @@ void LevelModel::bestTimeChanged()
     Level *level = qobject_cast<Level *>(sender());
     QModelIndex i = index(m_levels.indexOf(level));
     emit dataChanged(i, i, {TimeRole});
+}
+
+
+bool compareLevel(Level *level1, Level *level2)
+{
+    return level1->levelId() < level2->levelId();
 }

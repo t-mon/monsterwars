@@ -63,7 +63,9 @@ Item {
                 onClicked: pageStack.push(levelSelectorPage)
             }
         }
+
         SequentialAnimation {
+            id: playButtonAnimation
             ScaleAnimator {
                 target: playButton
                 from: 0.99
@@ -106,12 +108,13 @@ Item {
         MouseArea {
             id: infoMouseArea
             anchors.fill: parent
-            onClicked: pageStack.push(infoPage)
+            onClicked: pageStack.push(aboutPage)
         }
     }
 
+
     Rectangle {
-        id: helpButton
+        id: muteButton
         width: units.gu(6)
         height: width
         anchors.right: parent.right
@@ -121,20 +124,48 @@ Item {
         color: "black"
         radius: width / 2
 
-        Text {
-            anchors.centerIn: parent
-            text: "?"
-            color: "white"
-            font.bold: true
-            font.pixelSize: units.gu(4)
+        Image {
+            id: muteImage
+            anchors.fill: parent
+            anchors.margins: units.gu(1)
+            source: gameEngine.playerSettings.muted ? "qrc:///images/unmute.png" : "qrc:///images/mute.png"
         }
 
         MouseArea {
-            id: helpMouseArea
+            id: muteButtonMouseArea
             anchors.fill: parent
-            onClicked: pageStack.push(helpPage)
+            onClicked: {
+                gameEngine.playerSettings.muted = !gameEngine.playerSettings.muted
+                app.updateMusic()
+            }
         }
     }
+
+//    Rectangle {
+//        id: helpButton
+//        width: units.gu(6)
+//        height: width
+//        anchors.right: parent.right
+//        anchors.rightMargin: units.gu(3)
+//        anchors.bottom: parent.bottom
+//        anchors.bottomMargin: units.gu(3)
+//        color: "black"
+//        radius: width / 2
+
+//        Text {
+//            anchors.centerIn: parent
+//            text: "?"
+//            color: "white"
+//            font.bold: true
+//            font.pixelSize: units.gu(4)
+//        }
+
+//        MouseArea {
+//            id: helpMouseArea
+//            anchors.fill: parent
+//            onClicked: pageStack.push(helpPage)
+//        }
+//    }
 
     Rectangle {
         id: settingsButton

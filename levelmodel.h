@@ -22,6 +22,7 @@
 #define LEVELMODEL_H
 
 #include <QAbstractListModel>
+#include <QSettings>
 
 #include "level.h"
 
@@ -44,6 +45,8 @@ public:
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
     void addLevel(Level* level);
+    void resetLevelSettings();
+    void sortLevels();
 
 protected:
     QHash<int, QByteArray> roleNames() const;
@@ -57,5 +60,8 @@ private slots:
     void unlockedChanged();
     void bestTimeChanged();
 };
+
+bool compareLevel(Level *level1, Level *level2);
+
 
 #endif // LEVELMODEL_H

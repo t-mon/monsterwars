@@ -1,0 +1,118 @@
+{
+    "name": "Level 11",
+    "id": 11,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 2,
+            "speed": 3,
+            "defence": 4,
+            "reproduction": 3,
+            "reaction": 6
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 0,
+            "speed": 0,
+            "defence": 0,
+            "reproduction": 4,
+            "reaction": 2
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeDefense",
+            "x": 7,
+            "y": 20,
+            "size": 3,
+            "startValue": 1,
+            "player": 1
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeNormal",
+            "x": 4,
+            "y": 10,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 4,
+            "y": 30,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeDefense",
+            "x": 63,
+            "y": 20,
+            "size": 3,
+            "startValue": 1,
+            "player": 2
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeNormal",
+            "x": 66,
+            "y": 10,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeNormal",
+            "x": 66,
+            "y": 30,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 7,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 20,
+            "y": 20,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 8,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 50,
+            "y": 20,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 9,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 35,
+            "y": 3,
+            "size": 3,
+            "startValue": 1,
+            "player": 3
+        },
+        {
+            "id": 10,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 35,
+            "y": 37,
+            "size": 3,
+            "startValue": 1,
+            "player": 3
+        }
+    ]
+}
