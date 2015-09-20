@@ -55,7 +55,7 @@ Item {
                 top: resetText.bottom
                 topMargin: units.gu(3)
             }
-            text: i18n.tr("Yes")
+            text: i18n.tr("Reset")
             gradient: UbuntuColors.orangeGradient
             onClicked: {
                 gameEngine.resetGameSettings()

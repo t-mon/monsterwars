@@ -250,7 +250,6 @@ void GameEngine::startGame(const int &levelId)
             AiBrain *brain = new AiBrain(m_board, player, m_strengthStepWidth, m_defenseStepWidth, this);
             qDebug() << "Create AI for player" << player->id();
             m_brains.insert(player, brain);
-
             connect(brain, &AiBrain::startAttack, this, &GameEngine::startAttack);
         }
     }
@@ -417,6 +416,25 @@ void GameEngine::loadLevels()
     }
     m_levels->sortLevels();
     emit levelsChanged();
+
+    // now check if there are new levels and make sure the last level is unlocked
+    foreach (Level *level, m_levels->levels()) {
+        if (level->timeStamp() != 0) {
+            // get next level
+            Level *nextLevel = 0;
+            nextLevel = m_levelHash.value(level->levelId() + 1);
+            if (nextLevel) {
+                QSettings settings;
+                settings.beginGroup(nextLevel->name());
+                settings.setValue("unlocked", true);
+                settings.endGroup();
+                if (!nextLevel->unlocked()) {
+                    qDebug() << "   -> Unlock last level" << nextLevel->levelId();
+                }
+                nextLevel->setUnlocked(true);
+            }
+        }
+    }
 }
 
 void GameEngine::calculateScores()
@@ -525,6 +543,7 @@ void GameEngine::onGameOver(const int &winnerId)
             settings.endGroup();
 
             Level *nextLevel = 0;
+
             nextLevel = m_levelHash.value(m_board->level()->levelId() + 1);
 
             if (nextLevel) {
@@ -547,5 +566,4 @@ void GameEngine::onGameOver(const int &winnerId)
 
     m_gameOver = true;
     emit gameOver();
-
 }

@@ -1,0 +1,55 @@
+{
+    "name": "Level 13",
+    "id": 13,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 3,
+            "speed": 3,
+            "defence": 2,
+            "reproduction": 6,
+            "reaction": 6
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 5,
+            "speed": 2,
+            "defence": 4,
+            "reproduction": 2,
+            "reaction": 3
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeNormal",
+            "x": 5,
+            "y": 5,
+            "size": 3,
+            "startValue": 1,
+            "player": 2
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeNormal",
+            "x": 5,
+            "y": 15,
+            "size": 3,
+            "startValue": 1,
+            "player": 1
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeNormal",
+            "x": 5,
+            "y": 25,
+            "size": 3,
+            "startValue": 1,
+            "player": 3
+        }
+    ]
+}

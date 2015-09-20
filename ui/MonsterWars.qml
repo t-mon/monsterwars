@@ -46,6 +46,11 @@ MainView {
     }
 
     Connections {
+        target: Qt.application
+        onActiveChanged: app.updateMusic()
+    }
+
+    Connections {
         target: gameEngine
         onGameStoped: {
             musicPlayer.stop()
@@ -86,7 +91,7 @@ MainView {
     }
 
     function updateMusic() {
-        if (gameEngine.playerSettings.muted) {
+        if (gameEngine.playerSettings.muted || !Qt.application.active) {
             musicPlayer.pause()
         } else {
             musicPlayer.play()

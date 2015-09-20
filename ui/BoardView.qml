@@ -245,6 +245,16 @@ Item {
         }
     }
 
+    Connections {
+        target: Qt.application
+        onActiveChanged: {
+            if (!Qt.application.active && gameEngine.running)  {
+                pauseMenu.visible = true
+                gameEngine.pauseGame()
+            }
+        }
+    }
+
     PauseMenu {
         id: pauseMenu
         anchors.fill: parent

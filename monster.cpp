@@ -233,13 +233,13 @@ QString Monster::monsterTypeToString(Monster::MonsterType monsterType)
 void Monster::slotTick()
 {
     // stop counting if monster is empty
-    if (m_value == 0){
+    if (m_value == 0)
         return;
-    }
+
     //  stop counting if maxValue is reached
-    if (m_value >= m_maxValue){
+    if (m_value >= m_maxValue)
         return;
-    }
+
     m_tickCounter++;
     int intervall = 1000 - ((player()->reproduction()) * m_engine->tickInterval());
 

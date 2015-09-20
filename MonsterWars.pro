@@ -57,8 +57,7 @@ RESOURCES += ui.qrc \
              monsters.qrc \
              backgrounds.qrc \
              images.qrc \
-             previews.qrc \
-             sounds.qrc
+             previews.qrc
 
 # config files for click package
 OTHER_FILES += MonsterWars.apparmor \

@@ -281,7 +281,7 @@ Item {
                         Text {
                             anchors.left: parent.left
                             anchors.leftMargin: units.gu(2)
-                            text: i18n.tr("opengameart.org/content/fairy-spring")
+                            text: "opengameart.org/content/fairy-spring"
                             font.weight: Font.DemiBold
                             font.underline: true
                             font.pixelSize: units.gu(3)
