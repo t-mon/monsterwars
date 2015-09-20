@@ -16,9 +16,9 @@
             "id": 3,
             "color": "green",
             "playerType": "PlayerTypeAi",
-            "strength": 0,
-            "speed": 0,
-            "defence": 0,
+            "strength": 4,
+            "speed": 3,
+            "defence": 2,
             "reproduction": 4,
             "reaction": 2
         }

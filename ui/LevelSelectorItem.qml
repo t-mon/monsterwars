@@ -43,7 +43,7 @@ Item {
             anchors.fill: parent
             opacity: unlocked ? 0.8 : 0.3
             anchors.margins: units.gu(1.5)
-            source: "qrc:///previews/preview-level-" + levelId + ".png"
+            source: dataDirectory + "/levels/level" + levelId + "/preview.png"
         }
 
         Text {

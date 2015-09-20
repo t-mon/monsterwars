@@ -364,7 +364,7 @@ void GameEngine::continueGame()
 
 void GameEngine::loadLevels()
 {
-    QDir dir(QDir::currentPath() + m_dataDir.path() + "levels");
+    QDir dir(m_dataDir.path() + "levels");
     QStringList levelDirs = dir.entryList(QDir::NoDotAndDotDot | QDir::AllDirs, QDir::Name);
 
     qDebug() << "searching level data in" << dir.path();

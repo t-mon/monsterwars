@@ -26,13 +26,15 @@ Item {
 
     Image {
         anchors.fill: parent
-        source: "qrc:///backgrounds/menu-background.jpg"
+        sourceSize.width: parent.width
+        sourceSize.height: parent.height
+        source: "qrc:///images/menu-background.jpg"
     }
 
     GridView {
         id: levelGrid
         cellWidth: parent.width / 2
-        cellHeight: cellWidth * 0.65
+        cellHeight: cellWidth * 0.62
         model: gameEngine.levels
         anchors {
             top: menuBar.bottom

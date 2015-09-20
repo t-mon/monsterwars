@@ -40,7 +40,7 @@ MainView {
 
     Audio {
         id: musicPlayer
-        source: dataDir + "sounds/menu-music.ogg"
+        source: dataDirectory + "sounds/menu-music.ogg"
         volume: 1
         loops: Audio.Infinite
     }
@@ -54,7 +54,7 @@ MainView {
         target: gameEngine
         onGameStoped: {
             musicPlayer.stop()
-            musicPlayer.source = dataDir + "sounds/menu-music.ogg"
+            musicPlayer.source = dataDirectory + "sounds/menu-music.ogg"
             updateMusic()
         }
         onGamePaused: {
@@ -62,7 +62,7 @@ MainView {
         }
         onGameOver: {
             musicPlayer.stop()
-            musicPlayer.source = dataDir + "sounds/menu-music.ogg"
+            musicPlayer.source = dataDirectory + "sounds/menu-music.ogg"
             updateMusic()
         }
         onGameContinue: {
@@ -70,19 +70,19 @@ MainView {
         }
         onGameRestarted: {
             musicPlayer.stop()
-            musicPlayer.source = dataDir + "sounds/gameplay-music.ogg"
+            musicPlayer.source = dataDirectory + "sounds/gameplay-music.ogg"
             updateMusic()
         }
         onGameStarted: {
             musicPlayer.stop()
-            musicPlayer.source = dataDir + "sounds/gameplay-music.ogg"
+            musicPlayer.source = dataDirectory + "sounds/gameplay-music.ogg"
             updateMusic()
         }
     }
 
     GameEngine {
         id: gameEngine
-        dataDir: "../../../data/"
+        dataDir: dataDirectory
         Component.onCompleted: {
             i18n.domain = "monsterwars.t-mon"
             pageStack.push(mainPage)

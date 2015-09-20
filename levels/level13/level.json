@@ -20,7 +20,7 @@
             "speed": 2,
             "defence": 4,
             "reproduction": 2,
-            "reaction": 3
+            "reaction": 7
         }
     ],
     "monsters": [
@@ -30,26 +30,90 @@
             "x": 5,
             "y": 5,
             "size": 3,
-            "startValue": 1,
-            "player": 2
+            "startValue": 0,
+            "player": 0
         },
         {
             "id": 2,
             "monsterType": "MonsterTypeNormal",
-            "x": 5,
+            "x": 15,
             "y": 15,
             "size": 3,
-            "startValue": 1,
-            "player": 1
+            "startValue": 0,
+            "player": 0
         },
         {
             "id": 3,
             "monsterType": "MonsterTypeNormal",
-            "x": 5,
+            "x": 25,
             "y": 25,
             "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeNormal",
+            "x": 35,
+            "y": 15,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeNormal",
+            "x": 45,
+            "y": 5,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeNormal",
+            "x": 55,
+            "y": 15,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 7,
+            "monsterType": "MonsterTypeNormal",
+            "x": 65,
+            "y": 25,
+            "size": 3,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 8,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 45,
+            "y": 32,
+            "size": 5,
+            "startValue": 1,
+            "player": 2
+        },
+        {
+            "id": 9,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 25,
+            "y": 5,
+            "size": 5,
             "startValue": 1,
             "player": 3
+        },
+        {
+            "id": 10,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 5,
+            "y": 25,
+            "size": 5,
+            "startValue": 1,
+            "player": 1
         }
+
     ]
 }

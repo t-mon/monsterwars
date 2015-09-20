@@ -77,7 +77,7 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            source: "qrc:///backgrounds/background-" + gameEngine.board.levelId + ".jpg"
+            source: dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg"
         }
 
         Rectangle {

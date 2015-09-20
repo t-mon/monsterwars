@@ -58,9 +58,9 @@ int main(int argc, char *argv[])
 
     QQuickView view;
     if (parser.isSet(developerOption)) {
-        view.engine()->rootContext()->setContextProperty("dataDir", "file://" + QCoreApplication::applicationDirPath() + "/data/");
+        view.engine()->rootContext()->setContextProperty("dataDirectory", "file://" + QCoreApplication::applicationDirPath() + "/data/");
     } else {
-        view.engine()->rootContext()->setContextProperty("dataDir", "file://" + QCoreApplication::applicationDirPath() + "/../../../data/");
+        view.engine()->rootContext()->setContextProperty("dataDirectory", "file://" + QCoreApplication::applicationDirPath() + "/../../../data/");
     }
     view.setSource(QUrl(QStringLiteral("qrc:///ui/MonsterWars.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);

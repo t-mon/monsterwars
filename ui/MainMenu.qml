@@ -26,9 +26,13 @@ Item {
     Rectangle {
         anchors.fill: parent
         color: "black"
+
         Image {
+            id: backgroundImage
             anchors.fill: parent
-            source: "qrc:///backgrounds/menu-background.jpg"
+            sourceSize.width: parent.width
+            sourceSize.height: parent.height
+            source: "qrc:///images/menu-background.jpg"
         }
 
         BackgroundMonsters {
@@ -140,32 +144,6 @@ Item {
             }
         }
     }
-
-//    Rectangle {
-//        id: helpButton
-//        width: units.gu(6)
-//        height: width
-//        anchors.right: parent.right
-//        anchors.rightMargin: units.gu(3)
-//        anchors.bottom: parent.bottom
-//        anchors.bottomMargin: units.gu(3)
-//        color: "black"
-//        radius: width / 2
-
-//        Text {
-//            anchors.centerIn: parent
-//            text: "?"
-//            color: "white"
-//            font.bold: true
-//            font.pixelSize: units.gu(4)
-//        }
-
-//        MouseArea {
-//            id: helpMouseArea
-//            anchors.fill: parent
-//            onClicked: pageStack.push(helpPage)
-//        }
-//    }
 
     Rectangle {
         id: settingsButton
