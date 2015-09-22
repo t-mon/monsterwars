@@ -69,6 +69,9 @@ int main(int argc, char *argv[])
         view.showFullScreen();
     }
 
+    // connect quit signal from QML engine (quit button pressed)
+    QObject::connect(view.engine(), SIGNAL(quit()), qApp, SLOT(quit()));
+
     return app.exec();
 }
 

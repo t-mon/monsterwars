@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="">
+        <file>images/close-black.png</file>
         <file>images/close-white.png</file>
         <file>images/pause.png</file>
         <file>images/lock.png</file>

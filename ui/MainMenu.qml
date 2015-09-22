@@ -168,4 +168,27 @@ Item {
             onClicked: pageStack.push(settingsPage)
         }
     }
+
+    Rectangle {
+        id: quitButton
+        width: units.gu(4)
+        height: width
+        anchors.right: parent.right
+        anchors.rightMargin: units.gu(1)
+        anchors.top: parent.top
+        anchors.topMargin: units.gu(1)
+        color: "transparent"
+        radius: width / 2
+
+        Image {
+            id: closeIcon
+            anchors.fill: parent
+            source: "qrc:///images/close-black.png"
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: Qt.quit()
+        }
+    }
 }
