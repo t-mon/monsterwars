@@ -32,11 +32,19 @@ PlayerSettings::PlayerSettings(QObject *parent) :
 
     settings.beginGroup("player");
     m_tunePoints = settings.value("tunePoints", 0).toInt();
+    m_tunePointsStored = m_tunePoints;
     m_strengthPoints = settings.value("strength", 0).toInt();
+    m_strengthPointsStored = m_strengthPoints;
     m_defensePoints = settings.value("defense", 0).toInt();
+    m_defensePointsStored = m_defensePoints;
     m_reproductionPoints = settings.value("reproduction", 0).toInt();
+    m_reproductionPointsStored = m_reproductionPoints;
     m_speedPoints = settings.value("speed", 0).toInt();
+    m_speedPointsStored = m_speedPoints;
     settings.endGroup();
+
+    m_changed = false;
+    emit settingsChanged();
 }
 
 bool PlayerSettings::muted() const
@@ -53,6 +61,11 @@ void PlayerSettings::setMuted(const bool &muted)
     settings.beginGroup("game");
     settings.setValue("muted", muted);
     settings.endGroup();
+}
+
+bool PlayerSettings::changed() const
+{
+    return m_changed;
 }
 
 int PlayerSettings::tunePoints() const
@@ -92,6 +105,9 @@ void PlayerSettings::setStrengthPoints(const int &strengthPoints)
     settings.beginGroup("player");
     settings.setValue("strength", m_strengthPoints);
     settings.endGroup();
+
+    m_changed = true;
+    emit settingsChanged();
 }
 
 void PlayerSettings::increaseStrengthPoints()
@@ -118,6 +134,9 @@ void PlayerSettings::setDefensePoints(const int &defensePoints)
     settings.beginGroup("player");
     settings.setValue("defense", m_defensePoints);
     settings.endGroup();
+
+    m_changed = true;
+    emit settingsChanged();
 }
 
 void PlayerSettings::increaseDefensePoints()
@@ -144,6 +163,9 @@ void PlayerSettings::setReproductionPoints(const int &reproductionPoints)
     settings.beginGroup("player");
     settings.setValue("reproduction", m_reproductionPoints);
     settings.endGroup();
+
+    m_changed = true;
+    emit settingsChanged();
 }
 
 void PlayerSettings::increaseReproductionPoints()
@@ -170,6 +192,9 @@ void PlayerSettings::setSpeedPoints(const int &speedPoints)
     settings.beginGroup("player");
     settings.setValue("speed", m_speedPoints);
     settings.endGroup();
+
+    m_changed = true;
+    emit settingsChanged();
 }
 
 void PlayerSettings::increaseSpeedPoints()
@@ -188,4 +213,33 @@ void PlayerSettings::resetSettings()
     setStrengthPoints(0);
     setDefensePoints(0);
     setReproductionPoints(0);
+    store();
+}
+
+void PlayerSettings::store()
+{
+    qDebug() << "Store settings...";
+    m_tunePointsStored = m_tunePoints;
+    m_strengthPointsStored = m_strengthPoints;
+    m_defensePointsStored = m_defensePoints;
+    m_reproductionPointsStored = m_reproductionPoints;
+    m_speedPointsStored = m_speedPoints;
+
+    emit settingsStored();
+
+    m_changed = false;
+    emit settingsChanged();
+}
+
+void PlayerSettings::restore()
+{
+    qDebug() << "Restore settings...";
+    setTunePoints(m_tunePointsStored);
+    setStrengthPoints(m_strengthPointsStored);
+    setDefensePoints(m_defensePointsStored);
+    setReproductionPoints(m_reproductionPointsStored);
+    setSpeedPoints(m_speedPointsStored);
+
+    m_changed = false;
+    emit settingsChanged();
 }

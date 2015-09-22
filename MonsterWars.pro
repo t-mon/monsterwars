@@ -24,6 +24,7 @@ load(ubuntu-click)
 
 QT += qml quick multimedia
 
+QMAKE_CXXFLAGS += -Werror
 CONFIG += c++11
 
 HEADERS +=  attack.h \

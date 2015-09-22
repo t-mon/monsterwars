@@ -34,10 +34,9 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setApplicationVersion("0.2");
+    app.setApplicationVersion("0.3");
 
     qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "GameEngine");
-    qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "SoundEngine");
     qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from the GameEngine.");
     qmlRegisterUncreatableType<Monster>("MonsterWars", 1, 0, "Monster", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<MonsterModel>("MonsterWars", 1, 0, "MonsterModel", "Can't create this in QML. Get it from Board.");

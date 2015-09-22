@@ -24,6 +24,7 @@ import MonsterWars 1.0
 Item{
     id: root
     property string menuTitle
+    signal closeClicked()
 
     Rectangle {
         id: toolBar
@@ -65,7 +66,10 @@ Item{
 
             MouseArea {
                 anchors.fill: exitRectangle
-                onClicked: pageStack.pop()
+                onClicked: {
+                    pageStack.pop()
+                    closeClicked()
+                }
             }
         }
     }

@@ -28,17 +28,21 @@ class PlayerSettings : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool muted READ muted WRITE setMuted NOTIFY mutedChanged)
+    Q_PROPERTY(bool changed READ changed NOTIFY settingsChanged)
     Q_PROPERTY(int tunePoints READ tunePoints WRITE setTunePoints NOTIFY tunePointsChanged)
     Q_PROPERTY(int strengthPoints READ strengthPoints WRITE setStrengthPoints NOTIFY strengthPointsChanged)
     Q_PROPERTY(int defensePoints READ defensePoints WRITE setDefensePoints NOTIFY defensePointsChanged)
     Q_PROPERTY(int reproductionPoints READ reproductionPoints WRITE setReproductionPoints NOTIFY reproductionPointsChanged)
     Q_PROPERTY(int speedPoints READ speedPoints WRITE setSpeedPoints NOTIFY speedPointsChanged)
 
+
 public:
     explicit PlayerSettings(QObject *parent = 0);
 
     bool muted() const;
     void setMuted(const bool &muted);
+
+    bool changed() const;
 
     int tunePoints() const;
     void setTunePoints(const int &tunePoints);
@@ -62,8 +66,12 @@ public:
 
     void resetSettings();
 
+    Q_INVOKABLE void store();
+    Q_INVOKABLE void restore();
+
 private:
     bool m_muted;
+    bool m_changed;
 
     int m_tunePoints;
 
@@ -72,6 +80,13 @@ private:
     int m_reproductionPoints;
     int m_speedPoints;
 
+    // private members for restore option
+    int m_tunePointsStored;
+    int m_strengthPointsStored;
+    int m_defensePointsStored;
+    int m_reproductionPointsStored;
+    int m_speedPointsStored;
+
 signals:
     void mutedChanged();
     void tunePointsChanged();
@@ -79,6 +94,9 @@ signals:
     void defensePointsChanged();
     void reproductionPointsChanged();
     void speedPointsChanged();
+
+    void settingsStored();
+    void settingsChanged();
 
 };
 

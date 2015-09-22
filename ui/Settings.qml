@@ -47,6 +47,34 @@ Item {
             contentHeight: column.height
 
 
+            Rectangle {
+                id: restoreButton
+                visible: gameEngine.playerSettings.changed
+                anchors {
+                    left: column.right
+                    leftMargin: units.gu(2)
+                    top: column.top
+                    topMargin: units.gu(5)
+                }
+                width: units.gu(6)
+                height: width
+                radius: width / 2
+                color: "black"
+
+                Image {
+                    id: restartImage
+                    anchors.fill: parent
+                    anchors.margins: units.gu(1)
+                    source: "qrc:///images/restart.png"
+                }
+
+                MouseArea {
+                    id: restoreMouseArea
+                    anchors.fill: parent
+                    onClicked: gameEngine.playerSettings.restore()
+                }
+            }
+
             Column {
                 id: column
                 spacing: units.gu(1)
@@ -294,15 +322,10 @@ Item {
                     }
                 }
 
-                Rectangle {
-                    id: spacingRectangle
-                    color: "transparent"
-                    height: units.gu(4)
-                    width: parent.width
-                }
+
                 Button {
                     id: resetButton
-                    anchors.right: parent.right
+                    anchors.left: parent.left
                     // TRANSLATORS: Reset button to reset all game settings and achievements
                     text: i18n.tr("Reset")
                     gradient: UbuntuColors.orangeGradient
@@ -312,6 +335,7 @@ Item {
                 }
             }
         }
+
         MenuBar {
             id: menuBar
             height: units.gu(4)
@@ -322,6 +346,7 @@ Item {
             }
             // TRANSLATORS: Title of the "Settings" view
             menuTitle: i18n.tr("Settings:")
+            onCloseClicked: gameEngine.playerSettings.store()
         }
     }
 }

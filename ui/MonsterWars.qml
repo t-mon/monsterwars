@@ -30,7 +30,7 @@ MainView {
     automaticOrientation: false
     useDeprecatedToolbar: false
 
-    property string version: "0.2"
+    property string version: "0.3"
     property string green: "#00c500"
     property string blue: "#0083c7"
     property string red: "#c12600"
