@@ -22,7 +22,6 @@
 
 Attack::Attack(QObject *parent):
     QObject(parent)
-
 {
 }
 

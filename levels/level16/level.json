@@ -1,0 +1,82 @@
+{
+    "name": "Level 16",
+    "id": 16,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 5,
+            "speed": 2,
+            "defence": 6,
+            "reproduction": 4,
+            "reaction": 7
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 6,
+            "speed": 2,
+            "defence": 5,
+            "reproduction": 4,
+            "reaction": 7
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeStrength",
+            "x": 36,
+            "y": 7,
+            "size": 4,
+            "startValue": 15,
+            "player": 3
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeStrength",
+            "x": 23,
+            "y": 27,
+            "size": 4,
+            "startValue": 15,
+            "player": 2
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeStrength",
+            "x": 47,
+            "y": 27,
+            "size": 4,
+            "startValue": 5,
+            "player": 1
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeNormal",
+            "x": 35,
+            "y": 20,
+            "size": 5,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 5,
+            "y": 15,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 65,
+            "y": 15,
+            "size": 4,
+            "startValue": 0,
+            "player": 0
+        }
+    ]
+}

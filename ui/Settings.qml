@@ -54,7 +54,6 @@ Item {
                     left: column.right
                     leftMargin: units.gu(2)
                     top: column.top
-                    topMargin: units.gu(5)
                 }
                 width: units.gu(6)
                 height: width

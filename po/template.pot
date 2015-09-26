@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 23:08+0200\n"
+"POT-Creation-Date: 2015-09-27 00:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,25 +92,25 @@ msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:153
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:198
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:197
 msgid "Defense"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:207
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:315
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:314
 msgid "Speed"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:261
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:140
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:139
 msgid "Strength"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:315
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:255
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:254
 msgid "Reproduction"
 msgstr ""
 
@@ -163,17 +163,17 @@ msgid "No"
 msgstr ""
 
 #. TRANSLATORS: Reset button to reset all game settings and achievements
-#: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:58
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:330
+#: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:59
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:329
 msgid "Reset"
 msgstr ""
 
 #. TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:85
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:84
 msgid "Available points"
 msgstr ""
 
 #. TRANSLATORS: Title of the "Settings" view
-#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:348
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:347
 msgid "Settings:"
 msgstr ""

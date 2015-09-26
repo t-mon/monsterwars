@@ -48,6 +48,7 @@ Item {
             gradient: UbuntuColors.greyGradient
             onClicked: pageStack.pop()
         }
+
         Button {
             id: yesButton
             anchors {

@@ -57,14 +57,17 @@ private slots:
 };
 
 
+
 class VirtualAttack
 {
 public:
     VirtualAttack(Board *board, Monster *sourceMonster, Monster *destinationMonster, double strengthStepWidth, double defenseStepWidth);
+    VirtualAttack(Board *board, QList<Monster *>sourceMonsters, Monster *destinationMonster, double strengthStepWidth, double defenseStepWidth);
 
-    Monster *sourceMonster();
+    QList<Monster *> sourceMonsters();
     Monster *destinationMonster();
 
+    int sourcePoints();
     int valueAfterImpact();
     int percentageAfterImpact();
     double distance();
@@ -72,24 +75,26 @@ public:
 
 private:
     Board *m_board;
-    Monster *m_sourceMonsters;
+    QList<Monster *> m_sourceMonsters;
     Monster *m_destinationMonster;
 
     double m_strengthStepWidth;
     double m_defenseStepWidth;
 
     int m_attackPoints;
+    int m_sourcePoints;
     int m_valueAfterImpact;
     int m_percentageAfterImpact;
     double m_distance;
     int m_canConquer;
 
-    double calculateDistance(Monster *a, Monster *b);
+    double calculateDistance();
     int calculateDestinationPointsAfterAttack();
     int calculatePercentageAfterAttack();
 
-
 };
+
+bool compareMonsterValue(Monster *monster1, Monster *monster2);
 
 bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2);
 bool compareSourceValue(VirtualAttack *attack1, VirtualAttack *attack2);

@@ -64,4 +64,5 @@ private:
     int m_speed;
 
 };
+
 #endif // ATTACKPILLOW_H

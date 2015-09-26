@@ -54,7 +54,7 @@ void AiBrain::calculateAttack()
 
     QList<VirtualAttack *> possibleAttacks;
 
-    // check all possible attacks
+    // check all possible single attacks
     foreach (Monster *myMonster, myMonsters) {
         foreach (Monster *enemyMonster, enemyMonsters) {
             possibleAttacks.append(new VirtualAttack(m_board, myMonster, enemyMonster, m_strengthStepWidth, m_defenseStepWidth));
@@ -63,6 +63,19 @@ void AiBrain::calculateAttack()
             possibleAttacks.append(new VirtualAttack(m_board, myMonster, freeMonster, m_strengthStepWidth, m_defenseStepWidth));
         }
     }
+
+    // check multiple attacks
+    if (myMonsters.count() >= 2) {
+        QList<Monster *> multipleAttackMonsters;
+        // take the two monsters with the highest count
+        qSort(myMonsters.begin(), myMonsters.end(), compareMonsterValue);
+        multipleAttackMonsters.append(myMonsters.at(0));
+        multipleAttackMonsters.append(myMonsters.at(1));
+        foreach (Monster *enemyMonster, enemyMonsters) {
+            possibleAttacks.append(new VirtualAttack(m_board, multipleAttackMonsters, enemyMonster, m_strengthStepWidth, m_defenseStepWidth));
+        }
+    }
+
     qDebug() << QString("Player %1: possible attacks -> %2").arg(m_player->id()).arg(possibleAttacks.count());
 
     if (possibleAttacks.isEmpty())
@@ -101,7 +114,7 @@ void AiBrain::calculateAttack()
     VirtualAttack *biggestTargetAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(biggestTargetAttack);
 
-    // can conquer
+    // monster can be conquerd
     qSort(possibleAttacks.begin(), possibleAttacks.end(), compareConquere);
     VirtualAttack *canConquerAttack = possibleAttacks.first();
     // add it twice to because conquer is verry important
@@ -122,14 +135,18 @@ void AiBrain::calculateAttack()
         }
     }
 
-    if (!bestAttack)
+    if (!bestAttack) {
+        qDeleteAll(possibleAttacks);
         return;
+    }
 
     qDebug() << QString("Player %1: Best turn heuristic ratio: %2%").arg(m_player->id()).arg(qRound(heuristicCount * 100.0 / totalHeuristicCount));
 
     // create attack
     m_attack->reset();
-    m_attack->beginnAttack(bestAttack->sourceMonster()->id());
+    foreach (Monster *sourceMonster, bestAttack->sourceMonsters()) {
+        m_attack->addMonsterId(sourceMonster->id());
+    }
     m_attack->endAttack(bestAttack->destinationMonster()->id());
 
     // perform attack
@@ -143,7 +160,7 @@ int AiBrain::calculateIntervall()
     qsrand(qrand());
     int reactionValue = (8 - m_player->reaction()) * 500;
     int min = 4000 + reactionValue;
-    int max = 10000 + reactionValue;
+    int max = 8000 + reactionValue;
     return qrand() % ((max + 1) - min) + min;
 }
 
@@ -156,17 +173,29 @@ void AiBrain::timeout()
 
 VirtualAttack::VirtualAttack(Board *board, Monster *sourceMonster, Monster *destinationMonster, double strengthStepWidth, double defenseStepWidth) :
     m_board(board),
-    m_sourceMonsters(sourceMonster),
+    m_sourceMonsters(QList<Monster *>() << sourceMonster),
     m_destinationMonster(destinationMonster),
     m_strengthStepWidth(strengthStepWidth),
     m_defenseStepWidth(defenseStepWidth)
 {
-    m_distance = calculateDistance(m_sourceMonsters, m_destinationMonster);
+    m_distance = calculateDistance();
     m_valueAfterImpact = calculateDestinationPointsAfterAttack();
     m_percentageAfterImpact = calculatePercentageAfterAttack();
 }
 
-Monster *VirtualAttack::sourceMonster()
+VirtualAttack::VirtualAttack(Board *board, QList<Monster *> sourceMonsters, Monster *destinationMonster, double strengthStepWidth, double defenseStepWidth) :
+    m_board(board),
+    m_sourceMonsters(sourceMonsters),
+    m_destinationMonster(destinationMonster),
+    m_strengthStepWidth(strengthStepWidth),
+    m_defenseStepWidth(defenseStepWidth)
+{
+    m_distance = calculateDistance();
+    m_valueAfterImpact = calculateDestinationPointsAfterAttack();
+    m_percentageAfterImpact = calculatePercentageAfterAttack();
+}
+
+QList<Monster *> VirtualAttack::sourceMonsters()
 {
     return m_sourceMonsters;
 }
@@ -174,6 +203,15 @@ Monster *VirtualAttack::sourceMonster()
 Monster *VirtualAttack::destinationMonster()
 {
     return m_destinationMonster;
+}
+
+int VirtualAttack::sourcePoints()
+{
+    int points = 0;
+    foreach (Monster *sourceMonster, m_sourceMonsters) {
+        points += sourceMonster->value();
+    }
+    return points;
 }
 
 int VirtualAttack::valueAfterImpact()
@@ -196,38 +234,41 @@ int VirtualAttack::canConquer()
     return m_canConquer;
 }
 
-double VirtualAttack::calculateDistance(Monster *a, Monster *b)
+double VirtualAttack::calculateDistance()
 {
-    double dx = a->position().x() - b->position().x();
-    double dy = a->position().y() - b->position().y();
-    return sqrt(pow(dx,2) + pow(dy,2));
+    double distance = 0;
+    foreach (Monster * sourceMonster, m_sourceMonsters) {
+        double dx = sourceMonster->position().x() - m_destinationMonster->position().x();
+        double dy = sourceMonster->position().y() - m_destinationMonster->position().y();
+        distance += sqrt(pow(dx,2) + pow(dy,2));
+    }
+    return distance / m_sourceMonsters.count();
 }
 
 int VirtualAttack::calculateDestinationPointsAfterAttack()
 {
-    int attackPoints = m_sourceMonsters->value() / 2;
+    int totalAttackPoints = 0;
 
-    double strengthMultiplicator = 1 + (sourceMonster()->player()->strength() * m_strengthStepWidth);
-    double defenseMultiplicator = 1;
+    foreach (Monster *sourceMonster, m_sourceMonsters) {
+        int attackPoints = sourceMonster->value() / 2;
 
-    // check if this is a defense monster
-    if (destinationMonster()->monsterType() == Monster::MonsterTypeDefense) {
-        defenseMultiplicator -= 4 * m_defenseStepWidth;
+        double strengthMultiplicator = 1 + (sourceMonster->player()->strength() * m_strengthStepWidth);
+        // check if source monster is a strength monster
+        if (sourceMonster->monsterType() == Monster::MonsterTypeStrength) {
+            strengthMultiplicator += 4 * m_strengthStepWidth;
+        }
+
+        double defenseMultiplicator = 1 - (destinationMonster()->player()->defense() * m_defenseStepWidth);
+        // check if destination monster is a defense monster
+        if (destinationMonster()->monsterType() == Monster::MonsterTypeDefense) {
+            defenseMultiplicator -= 4 * m_defenseStepWidth;
+        }
+
+        double finalMiltiplicator = (strengthMultiplicator + defenseMultiplicator) / 2;
+        totalAttackPoints += qRound(attackPoints * finalMiltiplicator);
     }
-    defenseMultiplicator -= (destinationMonster()->player()->defense() * m_defenseStepWidth);
 
-    // take care of attack bonus
-    int attackValue = attackPoints * strengthMultiplicator;
-    int attackDifference = attackValue - attackPoints;
-
-    // take care of defense bonus
-    int defenseValue = attackPoints * defenseMultiplicator;
-    int defenseDifference = defenseValue - attackPoints;
-
-    int finalAttackValue = attackPoints - (abs(attackDifference + defenseDifference));
-    m_attackPoints = finalAttackValue;
-
-    int valueAfterImpact = destinationMonster()->value() - finalAttackValue;
+    int valueAfterImpact = destinationMonster()->value() - totalAttackPoints;
     if(valueAfterImpact < 0) {
         //qDebug() << "This attack ("  << sourceMonster()->id() << "->" << destinationMonster()->id() << ") would conquer the monster.";
         m_canConquer = 100;
@@ -252,9 +293,12 @@ int VirtualAttack::calculatePercentageAfterAttack()
         points.insert(player, playerPoints);
     }
 
+    Player *myPlayer = sourceMonsters().first()->player();
+    Player *enemyPlayer = destinationMonster()->player();
+
     // manipulate points for new percentage
-    int myPoints = points.take(sourceMonster()->player());
-    int enemyPoints = points.take(destinationMonster()->player());
+    int myPoints = points.take(myPlayer);
+    int enemyPoints = points.take(enemyPlayer);
 
     myPoints -= m_attackPoints;
 
@@ -266,8 +310,8 @@ int VirtualAttack::calculatePercentageAfterAttack()
         enemyPoints = enemyPoints - destinationMonster()->value() + m_valueAfterImpact;
     }
 
-    points.insert(sourceMonster()->player(), myPoints);
-    points.insert(destinationMonster()->player(), enemyPoints);
+    points.insert(myPlayer, myPoints);
+    points.insert(enemyPlayer, enemyPoints);
 
     int totalPoints = 0;
     foreach (int value, points) {
@@ -275,7 +319,7 @@ int VirtualAttack::calculatePercentageAfterAttack()
     }
 
     // calculate new percentage
-    return qRound((double)points.value(sourceMonster()->player()) * 100 / totalPoints);
+    return qRound((double)points.value(myPlayer) * 100 / totalPoints);
 }
 
 bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2)
@@ -285,7 +329,7 @@ bool compareDistance(VirtualAttack *attack1, VirtualAttack *attack2)
 
 bool compareSourceValue(VirtualAttack *attack1, VirtualAttack *attack2)
 {
-    return attack1->sourceMonster()->value() > attack2->sourceMonster()->value();
+    return attack1->sourcePoints() > attack2->sourcePoints();
 }
 
 bool compareDestinationValue(VirtualAttack *attack1, VirtualAttack *attack2)
@@ -311,4 +355,9 @@ bool compareConquere(VirtualAttack *attack1, VirtualAttack *attack2)
 bool compareDestinationSize(VirtualAttack *attack1, VirtualAttack *attack2)
 {
     return attack1->destinationMonster()->size() > attack2->destinationMonster()->size();
+}
+
+bool compareMonsterValue(Monster *monster1, Monster *monster2)
+{
+    return monster1->value() > monster2->value();
 }

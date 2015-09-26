@@ -177,4 +177,5 @@ private slots:
     void onGameOver(const int &winnerId);
 
 };
+
 #endif // GAMEENGINE_H

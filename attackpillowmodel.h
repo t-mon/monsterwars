@@ -66,9 +66,6 @@ private:
 signals:
     void pillowListChanged();
 
-
-public slots:
-
 };
 
 #endif // ATTACKPILLOWMODEL_H

@@ -172,6 +172,47 @@ Item {
         }
 
         Rectangle {
+            id: impactCloud
+            opacity: 0
+            anchors.centerIn: parent
+            width: root.width
+            height: width
+            color: "transparent"
+
+            Image {
+                id: impactCloudImage
+                anchors.fill: parent
+                source: "qrc:///images/cloud.png"
+            }
+        }
+
+        ParallelAnimation {
+            id: impactAnimation
+            running: false
+            PropertyAnimation {
+                target: impactCloud
+                properties: "scale"
+                from: 0.4
+                to: 0.8
+                easing.type: Easing.OutCubic
+                duration: 1000
+            }
+            PropertyAnimation {
+                target: impactCloud
+                properties: "opacity"
+                from: 1
+                to: 0
+                easing.type: Easing.InQuart
+                duration: 900
+            }
+        }
+
+        Connections {
+            target: gameEngine.board.monster(monsterId)
+            onImpact: impactAnimation.restart()
+        }
+
+        Rectangle {
             id: monsterSelectionCircle
             anchors.fill: parent
             border.color: selected ? "steelblue" : "transparent"

@@ -76,4 +76,5 @@ signals:
     void unlockedChanged();
 
 };
+
 #endif // LEVEL_H

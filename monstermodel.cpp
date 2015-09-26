@@ -33,9 +33,8 @@ QList<Monster *> MonsterModel::monsters()
 Monster *MonsterModel::monsterWithId(int id)
 {
     foreach (Monster *monster, m_monsters) {
-        if (monster->id() == id) {
+        if (monster->id() == id)
             return monster;
-        }
     }
     return NULL;
 }

@@ -33,9 +33,8 @@ QList<Level *> LevelModel::levels()
 Level *LevelModel::level(int levelId)
 {
     foreach (Level *level, m_levels) {
-        if (level->levelId() == levelId) {
+        if (level->levelId() == levelId)
             return level;
-        }
     }
     return NULL;
 }

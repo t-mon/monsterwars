@@ -243,9 +243,8 @@ void Monster::slotTick()
     m_tickCounter++;
     int intervall = 1000 - ((player()->reproduction()) * m_engine->tickInterval());
 
-    if (monsterType() == MonsterTypeReproduction) {
+    if (monsterType() == MonsterTypeReproduction)
         intervall -= 8 * m_engine->tickInterval();
-    }
 
     if (m_tickCounter * m_engine->tickInterval() == intervall) {
         m_value += 1;

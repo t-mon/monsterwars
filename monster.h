@@ -120,4 +120,5 @@ signals:
 private slots:
     void slotTick();
 };
+
 #endif // MONSTER_H
