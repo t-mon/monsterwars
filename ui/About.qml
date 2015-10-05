@@ -69,7 +69,7 @@ Item {
                         anchors.left: parent.left
                         anchors.leftMargin: units.gu(2)
                         // TRANSLATORS: The "version" of the application
-                        text: i18n.tr("Version:") + " " + app.version
+                        text: i18n.tr("Version:") + " " + version
                         font.weight: Font.DemiBold
                         font.pixelSize: units.gu(3)
                     }

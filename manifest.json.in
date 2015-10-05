@@ -9,7 +9,7 @@
             "desktop": "MonsterWars/MonsterWars.desktop"
         }
     },
-    "version": "0.3",
+    "version": "0.5",
     "maintainer": "Simon Stürz <stuerz.simon@gmail.com>",
     "framework": "ubuntu-sdk-15.04"
 }

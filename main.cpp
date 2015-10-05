@@ -34,8 +34,21 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setApplicationVersion("0.3");
+    app.setApplicationVersion("0.5");
 
+    // command line parser
+    QCommandLineOption windowOption(QStringList() << "w" << "window-mode", QCoreApplication::translate("main", "Run Monster Wars in a window (default: \"fullscreen\")"));
+    QCommandLineParser parser;
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.setApplicationDescription(QString("\nStrategy game consisting of a pillow fight between monsters.\n\n"
+                                             "Copyright %1 2015 Simon Stürz <stuerz.simon@gmail.com>\n"
+                                             "Released under the GNU GPLv3.").arg(QChar(0xA9)));
+    parser.addPositionalArgument("dataPath", "The relative file path where the \"levels\" and \"sounds\" folders can be found (optional).", "[dataPath]");
+    parser.addOption(windowOption);
+    parser.process(app);
+
+    // register qml types
     qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "GameEngine");
     qmlRegisterUncreatableType<Board>("MonsterWars", 1, 0, "Board", "Can't create this in QML. Get it from the GameEngine.");
     qmlRegisterUncreatableType<Monster>("MonsterWars", 1, 0, "Monster", "Can't create this in QML. Get it from Board.");
@@ -46,21 +59,20 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<PlayerSettings>("MonsterWars", 1, 0, "PlayerSettings", "Can't create this in QML. Get it from GameEngine.");
 
-    QCommandLineParser parser;
-    parser.addHelpOption();
-    parser.setApplicationDescription("Strategy game consisting of a pillow fight between monsters.");
-    QCommandLineOption developerOption(QStringList() << "d" << "developer", QCoreApplication::translate("main", "Run Monster Wars in developer mode"));
-    QCommandLineOption windowOption(QStringList() << "w" << "window-mode", QCoreApplication::translate("main", "Run Monster Wars in a window"));
-    parser.addOption(developerOption);
-    parser.addOption(windowOption);
-    parser.process(app);
-
     QQuickView view;
-    if (parser.isSet(developerOption)) {
-        view.engine()->rootContext()->setContextProperty("dataDirectory", "file://" + QCoreApplication::applicationDirPath() + "/data/");
+    // check data file path
+    if (!parser.positionalArguments().isEmpty()) {
+        QDir dataDir(QDir::cleanPath(QCoreApplication::applicationDirPath() + "/" + parser.positionalArguments().first()));
+        if (!dataDir.exists()) {
+            qWarning() << dataDir.path() << "does not exist.";
+            exit(-1);
+        }
+        view.engine()->rootContext()->setContextProperty("dataDirectory", "file://" + dataDir.path() + "/");
     } else {
         view.engine()->rootContext()->setContextProperty("dataDirectory", "file://" + QCoreApplication::applicationDirPath() + "/../../../data/");
     }
+
+    view.engine()->rootContext()->setContextProperty("version", app.applicationVersion());
     view.setSource(QUrl(QStringLiteral("qrc:///ui/MonsterWars.qml")));
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     if (parser.isSet(windowOption)) {

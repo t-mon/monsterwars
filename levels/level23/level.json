@@ -1,0 +1,91 @@
+{
+    "name": "Level 23",
+    "id": 23,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 7,
+            "speed": 5,
+            "defence": 7,
+            "reproduction": 4,
+            "reaction": 7
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 6,
+            "speed": 6,
+            "defence": 7,
+            "reproduction": 4,
+            "reaction": 6
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 5,
+            "y": 9,
+            "size": 5,
+            "startValue": 10,
+            "player": 2
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 31,
+            "y": 11,
+            "size": 3,
+            "startValue": 1,
+            "player": 1
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 9,
+            "y": 33,
+            "size": 4,
+            "startValue": 10,
+            "player": 3
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeSpeed",
+            "x": 50,
+            "y": 20,
+            "size": 4,
+            "startValue": 10,
+            "player": 2
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeDefense",
+            "x": 30,
+            "y": 32,
+            "size": 6,
+            "startValue": 0,
+            "player": 0
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeNormal",
+            "x": 63,
+            "y": 9,
+            "size": 4,
+            "startValue": 5,
+            "player": 1
+        },
+        {
+            "id": 7,
+            "monsterType": "MonsterTypeNormal",
+            "x": 59,
+            "y": 35,
+            "size": 4,
+            "startValue": 10,
+            "player": 3
+        }
+    ]
+}

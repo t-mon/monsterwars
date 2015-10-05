@@ -245,6 +245,13 @@ void Board::resetBoard()
     emit monstersChanged();
 }
 
+void Board::tick()
+{
+    foreach (Monster *monster, m_monsters->monsters()) {
+        monster->tick();
+    }
+}
+
 Monster *Board::createMonster(QVariantMap monsterJson)
 {
     int id = monsterJson.value("id").toInt();
@@ -304,3 +311,5 @@ void Board::attackFinished()
     m_attack->reset();
     resetSelections();
 }
+
+

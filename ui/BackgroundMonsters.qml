@@ -35,7 +35,9 @@ Item{
         Image {
             id: randomPillowImage
             opacity: 0.7
-            anchors.fill: parent
+            anchors.centerIn: parent
+            sourceSize.width: parent.width
+            sourceSize.height: parent.height
             source: "qrc:///monsters/pillow.png"
         }
 

@@ -77,6 +77,7 @@ public:
     Q_INVOKABLE void resetSelections();
 
     void resetBoard();
+    void tick();
 
 signals:
     void boardChanged();

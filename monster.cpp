@@ -32,11 +32,10 @@ Monster::Monster(GameEngine *engine, Monster::MonsterType monsterType, int id, i
     m_value(startValue),
     m_position(position),
     m_colorString(colorString),
-    m_player(0)
+    m_player(0),
+    m_selected(false),
+    m_tickCounter(0)
 {
-    m_tickCounter = 0;
-    select(false);
-    connect(m_engine, &GameEngine::tick, this, &Monster::slotTick);
 }
 
 Monster::Monster(GameEngine *engine = 0, int startValue = 0):
@@ -46,11 +45,10 @@ Monster::Monster(GameEngine *engine = 0, int startValue = 0):
     m_id(-1),
     m_value(startValue),
     m_position(QPoint()),
-    m_player(0)
+    m_player(0),
+    m_selected(false),
+    m_tickCounter(0)
 {
-    m_tickCounter = 0;
-    select(false);
-    connect(m_engine, &GameEngine::tick, this, &Monster::slotTick);
 }
 
 void Monster::setMonsterType(const Monster::MonsterType &monsterType)
@@ -230,7 +228,7 @@ QString Monster::monsterTypeToString(Monster::MonsterType monsterType)
     }
 }
 
-void Monster::slotTick()
+void Monster::tick()
 {
     // stop counting if monster is empty
     if (m_value == 0)

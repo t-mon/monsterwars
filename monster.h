@@ -117,8 +117,8 @@ signals:
     void playerChanged();
     void impact();
 
-private slots:
-    void slotTick();
+public slots:
+    void tick();
 };
 
 #endif // MONSTER_H

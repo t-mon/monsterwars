@@ -58,7 +58,7 @@ Item {
 
         }
 
-        PointView {
+        ScoreView {
             id: pointView
             width: parent.width - gameTime.width
             height: parent.height
@@ -77,6 +77,8 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
+            sourceSize.width: parent.width
+            sourceSize.height: parent.height
             source: dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg"
         }
 
@@ -245,15 +247,15 @@ Item {
         }
     }
 
-    Connections {
-        target: Qt.application
-        onActiveChanged: {
-            if (!Qt.application.active && gameEngine.running)  {
-                pauseMenu.visible = true
-                gameEngine.pauseGame()
-            }
-        }
-    }
+//    Connections {
+//        target: Qt.application
+//        onActiveChanged: {
+//            if (!Qt.application.active && gameEngine.running)  {
+//                pauseMenu.visible = true
+//                gameEngine.pauseGame()
+//            }
+//        }
+//    }
 
     PauseMenu {
         id: pauseMenu

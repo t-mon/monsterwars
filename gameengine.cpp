@@ -478,7 +478,6 @@ void GameEngine::initGameEngine()
     m_timer->setTimerType(Qt::PreciseTimer);
 
     connect(m_timer, &QTimer::timeout, this, &GameEngine::slotTick);
-    connect(m_timer, &QTimer::timeout, this, &GameEngine::tick);
 
     m_totalGameTimeMs = 0;
     emit displayGameTimeChanged();
@@ -490,6 +489,7 @@ void GameEngine::initGameEngine()
 
 void GameEngine::slotTick()
 {
+    m_board->tick();
     calculateScores();
 }
 

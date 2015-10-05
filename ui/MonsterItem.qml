@@ -116,11 +116,18 @@ Item {
                 anchors.rightMargin: - boardView.cellSize / 2
                 width: boardView.cellSize * 4
                 height: boardView.cellSize * 3
-                color: "black"
-                opacity: 0.8
-                border.color: "gray"
+                color: "transparent"
+//                color: "black"
+//                opacity: 0.8
+//                border.color: "gray"
                 radius: width / 4
                 visible: monsterValue != 0
+
+                Image {
+                    id: valuePillow
+                    source: "qrc:///monsters/pillow.png"
+                    anchors.fill: parent
+                }
 
                 Text {
                     id: valueLabel
@@ -129,7 +136,7 @@ Item {
                     text: monsterValue
                     font.weight: Font.DemiBold
                     style: Text.Outline
-                    styleColor: "white"
+                    styleColor: "black"
                     font.pixelSize: boardView.cellSize * 2
                     color: monsterColor == "green" ? app.green : monsterColor == "red" ? app.red : monsterColor == "blue" ? app.blue : "white"
                 }

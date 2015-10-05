@@ -3,7 +3,7 @@
         <file>ui/MonsterWars.qml</file>
         <file>ui/BoardView.qml</file>
 	<file>ui/LevelSelector.qml</file>
-        <file>ui/PointView.qml</file>
+        <file>ui/ScoreView.qml</file>
         <file>ui/SelectorItem.qml</file>
         <file>ui/MainMenu.qml</file>
  	<file>ui/MonsterItem.qml</file>

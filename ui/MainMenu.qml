@@ -171,19 +171,20 @@ Item {
 
     Rectangle {
         id: quitButton
-        width: units.gu(4)
+        width: units.gu(6)
         height: width
         anchors.right: parent.right
-        anchors.rightMargin: units.gu(1)
+        anchors.rightMargin: units.gu(3)
         anchors.top: parent.top
         anchors.topMargin: units.gu(1)
-        color: "transparent"
+        color: "black"
         radius: width / 2
 
         Image {
             id: closeIcon
             anchors.fill: parent
-            source: "qrc:///images/close-black.png"
+            anchors.margins: units.gu(1.5)
+            source: "qrc:///images/close-white.png"
         }
 
         MouseArea {

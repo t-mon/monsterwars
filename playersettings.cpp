@@ -27,20 +27,33 @@ PlayerSettings::PlayerSettings(QObject *parent) :
 {
     QSettings settings;
     settings.beginGroup("game");
+
     m_muted = settings.value("muted", false).toBool();
+    emit mutedChanged();
+
     settings.endGroup();
 
     settings.beginGroup("player");
     m_tunePoints = settings.value("tunePoints", 0).toInt();
     m_tunePointsStored = m_tunePoints;
+    emit tunePointsChanged();
+
     m_strengthPoints = settings.value("strength", 0).toInt();
     m_strengthPointsStored = m_strengthPoints;
+    emit strengthPointsChanged();
+
     m_defensePoints = settings.value("defense", 0).toInt();
     m_defensePointsStored = m_defensePoints;
+    emit defensePointsChanged();
+
     m_reproductionPoints = settings.value("reproduction", 0).toInt();
     m_reproductionPointsStored = m_reproductionPoints;
+    emit reproductionPointsChanged();
+
     m_speedPoints = settings.value("speed", 0).toInt();
     m_speedPointsStored = m_speedPoints;
+    emit speedPointsChanged();
+
     settings.endGroup();
 
     m_changed = false;
@@ -78,6 +91,8 @@ void PlayerSettings::setTunePoints(const int &tunePoints)
     m_tunePoints = tunePoints;
     emit tunePointsChanged();
 
+    qDebug() << "Player 1 -> tune points" << m_tunePoints;
+
     QSettings settings;
     settings.beginGroup("player");
     settings.setValue("tunePoints", m_tunePoints);
@@ -87,6 +102,7 @@ void PlayerSettings::setTunePoints(const int &tunePoints)
 void PlayerSettings::increaseTunePoints()
 {
     setTunePoints(m_tunePoints + 1);
+    store();
 }
 
 int PlayerSettings::strengthPoints() const
@@ -235,6 +251,7 @@ void PlayerSettings::restore()
 {
     qDebug() << "Restore settings...";
     setTunePoints(m_tunePointsStored);
+
     setStrengthPoints(m_strengthPointsStored);
     setDefensePoints(m_defensePointsStored);
     setReproductionPoints(m_reproductionPointsStored);
