@@ -75,8 +75,8 @@ Item {
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
 
-                property string monsterSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + ".svg"
-                property string monsterBlinkSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + "-blink.svg"
+                property string monsterSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + ".png"
+                property string monsterBlinkSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + "-blink.png"
 
                 Binding {
                     target: imageSprite.item
@@ -109,8 +109,8 @@ Item {
                         id: spriteStill
                         name: "still"
                         frameCount: 6
-                        frameWidth: 500
-                        frameHeight: 500
+                        frameWidth: 200
+                        frameHeight: 200
                         frameDuration: 110
                         to: {"still": Math.floor(Math.random() * 8 + 5), "blink": 1}
                     }
@@ -119,8 +119,8 @@ Item {
                         id: blinkSprite
                         name: "blink"
                         frameCount: 6
-                        frameWidth: 500
-                        frameHeight: 500
+                        frameWidth: 200
+                        frameHeight: 200
                         frameDuration: 110
                         to: { "still": 1 }
                     }
@@ -141,7 +141,7 @@ Item {
 
                 Image {
                     id: valuePillow
-                    source: "qrc:///monsters/pillow.svg"
+                    source: "qrc:///monsters/pillow.png"
                     anchors.fill: parent
                 }
 
@@ -205,7 +205,7 @@ Item {
             Image {
                 id: impactCloudImage
                 anchors.fill: parent
-                source: "qrc:///images/cloud.svg"
+                source: "qrc:///images/cloud.png"
             }
         }
 

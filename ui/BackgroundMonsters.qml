@@ -38,7 +38,7 @@ Item{
             anchors.centerIn: parent
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: "qrc:///monsters/pillow.svg"
+            source: "qrc:///monsters/pillow.png"
         }
 
         Behavior on x {
@@ -116,18 +116,18 @@ Item{
             goalSprite: "still"
             Sprite{
                 name: "still"
-                source: "qrc:///monsters/monster-defense-white.svg"
+                source: "qrc:///monsters/monster-defense-white.png"
                 frameCount: 6
-                frameWidth: 500
-                frameHeight: 500
+                frameWidth: 200
+                frameHeight: 200
                 frameDuration: 110
             }
             Sprite{
                 name: "blink"
-                source: "qrc:///monsters/monster-defense-white-blink.svg"
+                source: "qrc:///monsters/monster-defense-white-blink.png"
                 frameCount: 6
-                frameWidth: 500
-                frameHeight: 500
+                frameWidth: 200
+                frameHeight: 200
                 frameDuration: 110
                 to: { "still": 1 }
             }

@@ -43,19 +43,19 @@ Item {
 
                 Sprite{
                     name: "still"
-                    source: "qrc:///monsters/monster-" + type + "-white.svg"
+                    source: "qrc:///monsters/monster-" + type + "-white.png"
                     frameCount: 6
-                    frameWidth: 500
-                    frameHeight: 500
+                    frameWidth: 200
+                    frameHeight: 200
                     frameDuration: 110
                 }
 
                 Sprite{
                     name: "blink"
-                    source: "qrc:///monsters/monster-" + type + "-white-blink.svg"
+                    source: "qrc:///monsters/monster-" + type + "-white-blink.png"
                     frameCount: 6
-                    frameWidth: 500
-                    frameHeight: 500
+                    frameWidth: 200
+                    frameHeight: 200
                     frameDuration: 110
                     to: { "still": 1 }
                 }

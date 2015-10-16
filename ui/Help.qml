@@ -107,7 +107,7 @@ Item {
                             id: pillowImage
                             anchors.fill: parent
                             anchors.margins: units.gu(3)
-                            source: "qrc:///monsters/pillow.svg"
+                            source: "qrc:///monsters/pillow.png"
                         }
 
 

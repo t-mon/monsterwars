@@ -50,7 +50,7 @@ Item {
             anchors.fill: parent
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: "qrc:///monsters/pillow.svg"
+            source: "qrc:///monsters/pillow.png"
         }
 
         RotationAnimator {
