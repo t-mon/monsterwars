@@ -50,274 +50,49 @@ Item {
                 id: columnLayout
                 spacing: units.gu(4)
 
-                Row {
-                    spacing: units.gu(5)
-                    Rectangle {
-                        id: normalRectangle
-                        color: "transparent"
-                        width: units.gu(15)
-                        height: width
-
-                        SpriteSequence {
-                            id: normalSprite
-                            anchors.fill: parent
-                            interpolate: false
-                            goalSprite: "still"
-                            Sprite{
-                                name: "still"
-                                source: "qrc:///monsters/monster-normal-white.png"
-                                frameCount: 6
-                                frameWidth: 200
-                                frameHeight: 200
-                                frameDuration: 110
-                            }
-                        }
-
-                        SequentialAnimation {
-                            ScaleAnimator {
-                                target: normalSprite
-                                from: 0.98
-                                to: 1.03
-                                easing.type: Easing.Linear;
-                                duration: 500
-                            }
-                            ScaleAnimator {
-                                target: normalSprite
-                                from: 1.03
-                                to: 0.98
-                                easing.type: Easing.Linear;
-                                duration: 800
-                            }
-                            running: true
-                            loops: Animation.Infinite
-                        }
-                    }
-
-                    Text {
-                        anchors.verticalCenter: normalRectangle.verticalCenter
-                        // TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
-                        text: i18n.tr("Normal")
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: units.gu(4)
-                    }
+                HelpItem {
+                    id: normalItem
+                    width: parent.width
+                    height: units.gu(15)
+                    type: "normal"
+                    // TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
+                    description: i18n.tr("Normal")
                 }
 
-                Row {
-                    spacing: units.gu(5)
-                    Rectangle {
-                        id: defenseRectangle
-                        color: "transparent"
-                        width: units.gu(15)
-                        height: width
-
-                        SpriteSequence {
-                            id: defenseSprite
-                            anchors.fill: parent
-                            interpolate: false
-                            goalSprite: "still"
-                            Sprite{
-                                name: "still"
-                                source: "qrc:///monsters/monster-defense-white.png"
-                                frameCount: 6
-                                frameWidth: 200
-                                frameHeight: 200
-                                frameDuration: 110
-                            }
-                        }
-
-                        SequentialAnimation {
-                            ScaleAnimator {
-                                target: defenseSprite
-                                from: 0.98
-                                to: 1.03
-                                easing.type: Easing.Linear;
-                                duration: 500
-                            }
-                            ScaleAnimator {
-                                target: defenseSprite
-                                from: 1.03
-                                to: 0.98
-                                easing.type: Easing.Linear;
-                                duration: 800
-                            }
-                            running: true
-                            loops: Animation.Infinite
-                        }
-                    }
-
-                    Text {
-                        anchors.verticalCenter: defenseRectangle.verticalCenter
-                        // TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
-                        text: i18n.tr("Defense") + " + 4"
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: units.gu(4)
-                    }
+                HelpItem {
+                    id: defenseItem
+                    width: parent.width
+                    height: units.gu(15)
+                    type: "defense"
+                    // TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
+                    description: i18n.tr("Defense") + " + 4"
                 }
 
-                Row {
-                    spacing: units.gu(5)
-                    Rectangle {
-                        id: speedRectangle
-                        color: "transparent"
-                        width: units.gu(15)
-                        height: width
-
-                        SpriteSequence {
-                            id: speedSprite
-                            anchors.fill: parent
-                            interpolate: false
-                            goalSprite: "still"
-                            Sprite{
-                                name: "still"
-                                source: "qrc:///monsters/monster-speed-white.png"
-                                frameCount: 6
-                                frameWidth: 200
-                                frameHeight: 200
-                                frameDuration: 110
-                            }
-                        }
-
-                        SequentialAnimation {
-                            ScaleAnimator {
-                                target: speedSprite
-                                from: 0.98
-                                to: 1.03
-                                easing.type: Easing.Linear;
-                                duration: 500
-                            }
-                            ScaleAnimator {
-                                target: speedSprite
-                                from: 1.03
-                                to: 0.98
-                                easing.type: Easing.Linear;
-                                duration: 800
-                            }
-                            running: true
-                            loops: Animation.Infinite
-                        }
-                    }
-
-                    Text {
-                        anchors.verticalCenter: speedRectangle.verticalCenter
-                        // TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
-                        text: i18n.tr("Speed") + " + 4"
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: units.gu(4)
-                    }
+                HelpItem {
+                    id: speedItem
+                    width: parent.width
+                    height: units.gu(15)
+                    type: "speed"
+                    // TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
+                    description: i18n.tr("Speed") + " + 4"
                 }
 
-                Row {
-                    spacing: units.gu(5)
-                    Rectangle {
-                        id: strengthRectangle
-                        color: "transparent"
-                        width: units.gu(15)
-                        height: width
-
-                        SpriteSequence {
-                            id: strengthSprite
-                            anchors.fill: parent
-                            interpolate: false
-                            goalSprite: "still"
-                            Sprite{
-                                name: "still"
-                                source: "qrc:///monsters/monster-strength-white.png"
-                                frameCount: 6
-                                frameWidth: 200
-                                frameHeight: 200
-                                frameDuration: 110
-                            }
-                        }
-
-                        SequentialAnimation {
-                            ScaleAnimator {
-                                target: strengthSprite
-                                from: 0.98
-                                to: 1.03
-                                easing.type: Easing.Linear;
-                                duration: 500
-                            }
-                            ScaleAnimator {
-                                target: strengthSprite
-                                from: 1.03
-                                to: 0.98
-                                easing.type: Easing.Linear;
-                                duration: 800
-                            }
-                            running: true
-                            loops: Animation.Infinite
-                        }
-                    }
-
-                    Text {
-                        anchors.verticalCenter: strengthRectangle.verticalCenter
-                        // TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
-                        text: i18n.tr("Strength") + " + 4"
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: units.gu(4)
-                    }
+                HelpItem {
+                    id: strengthItem
+                    width: parent.width
+                    height: units.gu(15)
+                    type: "strength"
+                    // TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
+                    description: i18n.tr("Strength") + " + 4"
                 }
 
-                Row {
-                    spacing: units.gu(5)
-                    Rectangle {
-                        id: reproductionRectangle
-                        color: "transparent"
-                        width: units.gu(15)
-                        height: width
-
-                        SpriteSequence {
-                            id: reproductionSprite
-                            anchors.fill: parent
-                            interpolate: false
-                            goalSprite: "still"
-                            Sprite{
-                                name: "still"
-                                source: "qrc:///monsters/monster-reproduction-white.png"
-                                frameCount: 6
-                                frameWidth: 200
-                                frameHeight: 200
-                                frameDuration: 110
-                            }
-                        }
-
-                        SequentialAnimation {
-                            ScaleAnimator {
-                                target: reproductionSprite
-                                from: 0.98
-                                to: 1.03
-                                easing.type: Easing.Linear;
-                                duration: 500
-                            }
-                            ScaleAnimator {
-                                target: reproductionSprite
-                                from: 1.03
-                                to: 0.98
-                                easing.type: Easing.Linear;
-                                duration: 800
-                            }
-                            running: true
-                            loops: Animation.Infinite
-                        }
-                    }
-
-                    Text {
-                        anchors.verticalCenter: reproductionRectangle.verticalCenter
-                        // TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
-                        text: i18n.tr("Reproduction") + " + 4"
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: units.gu(4)
-                    }
+                HelpItem {
+                    id: reproductionItem
+                    width: parent.width
+                    height: units.gu(15)
+                    type: "reproduction"
+                    // TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
+                    description: i18n.tr("Reproduction") + " + 4"
                 }
 
                 Row {
@@ -332,7 +107,7 @@ Item {
                             id: pillowImage
                             anchors.fill: parent
                             anchors.margins: units.gu(3)
-                            source: "qrc:///monsters/pillow.png"
+                            source: "qrc:///monsters/pillow.svg"
                         }
 
 

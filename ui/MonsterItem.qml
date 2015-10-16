@@ -75,12 +75,18 @@ Item {
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
 
-                property string monsterSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + ".png"
+                property string monsterSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + ".svg"
+                property string monsterBlinkSource: "qrc:///monsters/monster-" + monsterType + "-" + monsterColor + "-blink.svg"
 
                 Binding {
                     target: imageSprite.item
-                    property: "source"
+                    property: "stillSource"
                     value: imageSprite.monsterSource
+                }
+                Binding {
+                    target: imageSprite.item
+                    property: "blinkSource"
+                    value: imageSprite.monsterBlinkSource
                 }
 
                 onMonsterSourceChanged: {
@@ -93,17 +99,30 @@ Item {
                 id: spriteComponent
 
                 SpriteSequence {
-                    property alias source: sprite.source
-                    interpolate: true
+                    id: sprite
+                    property alias stillSource: spriteStill.source
+                    property alias blinkSource: blinkSprite.source
+                    interpolate: false
                     goalSprite: "still"
 
-                    Sprite{
-                        id: sprite
+                    Sprite {
+                        id: spriteStill
                         name: "still"
                         frameCount: 6
-                        frameWidth: 200
-                        frameHeight: 200
+                        frameWidth: 500
+                        frameHeight: 500
                         frameDuration: 110
+                        to: {"still": Math.floor(Math.random() * 8 + 5), "blink": 1}
+                    }
+
+                    Sprite{
+                        id: blinkSprite
+                        name: "blink"
+                        frameCount: 6
+                        frameWidth: 500
+                        frameHeight: 500
+                        frameDuration: 110
+                        to: { "still": 1 }
                     }
                 }
             }
@@ -117,15 +136,12 @@ Item {
                 width: boardView.cellSize * 4
                 height: boardView.cellSize * 3
                 color: "transparent"
-//                color: "black"
-//                opacity: 0.8
-//                border.color: "gray"
                 radius: width / 4
                 visible: monsterValue != 0
 
                 Image {
                     id: valuePillow
-                    source: "qrc:///monsters/pillow.png"
+                    source: "qrc:///monsters/pillow.svg"
                     anchors.fill: parent
                 }
 
@@ -189,7 +205,7 @@ Item {
             Image {
                 id: impactCloudImage
                 anchors.fill: parent
-                source: "qrc:///images/cloud.png"
+                source: "qrc:///images/cloud.svg"
             }
         }
 

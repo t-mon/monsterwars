@@ -20,6 +20,7 @@
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QIcon>
 #include <QQuickView>
 #include <QCommandLineParser>
 #include <QtQml>
@@ -35,6 +36,8 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
     app.setApplicationVersion("0.5");
+    app.setApplicationDisplayName("Monster Wars");
+    app.setWindowIcon(QIcon("qrc:///images/icon.png"));
 
     // command line parser
     QCommandLineOption windowOption(QStringList() << "w" << "window-mode", QCoreApplication::translate("main", "Run Monster Wars in a window (default: \"fullscreen\")"));
@@ -60,6 +63,7 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<PlayerSettings>("MonsterWars", 1, 0, "PlayerSettings", "Can't create this in QML. Get it from GameEngine.");
 
     QQuickView view;
+    view.setIcon(QIcon("qrc:///images/icon.png"));
     // check data file path
     if (!parser.positionalArguments().isEmpty()) {
         QDir dataDir(QDir::cleanPath(QCoreApplication::applicationDirPath() + "/" + parser.positionalArguments().first()));

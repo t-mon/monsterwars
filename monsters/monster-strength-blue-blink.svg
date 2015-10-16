@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3000"
+   height="500"
+   viewBox="0 0 2999.9999 499.99998"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="monster-strength-blue-blink.svg"
+   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/monsters/monster-strength-white.png"
+   inkscape:export-xdpi="36"
+   inkscape:export-ydpi="36">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="1532.6317"
+     inkscape:cy="-209.07595"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2880"
+     inkscape:window-height="1749"
+     inkscape:window-x="0"
+     inkscape:window-y="51"
+     inkscape:window-maximized="1"
+     showguides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-552.3626)">
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262"
+       width="498.92789"
+       height="498.92789"
+       x="0.53605676"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-0.37031262"
+       inkscape:transform-center-y="-5.4173276"
+       transform="matrix(0.98010424,0,0,0.97719454,7.077719,18.991073)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3"
+       width="498.92789"
+       height="498.92789"
+       x="0.53605676"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8"
+       cx="210.40646"
+       cy="780.34607"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5"
+       cx="209.90939"
+       cy="795.479"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 192.40299,877.46823 -8.14428,52.0957 43.22516,7.6317 -2.66165,-53.1263 z"
+       id="path4232-06-1-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 148.01993,856.88583 c 38.76089,30.8021 141.64095,45.1603 205.50038,-2.8104"
+       id="path4228-73-0-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-0"
+       cx="-289.40872"
+       cy="779.6214"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-7"
+       cx="-289.90579"
+       cy="794.75433"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-4"
+       width="498.92789"
+       height="498.92789"
+       x="500.53607"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230-8"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-1.1861097"
+       inkscape:transform-center-y="-6.59301"
+       transform="matrix(0.97876104,-0.05129469,0.05114241,0.97585533,466.12926,32.765012)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3-5"
+       width="498.92789"
+       height="498.92789"
+       x="500.53607"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-06"
+       cx="710.40643"
+       cy="784.34607"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-6"
+       cx="709.90936"
+       cy="799.479"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 692.40297,875.46828 -8.14428,52.0957 43.22516,7.6317 -2.66165,-53.1263 z"
+       id="path4232-06-1-1-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 648.01991,854.88588 c 38.76089,30.8021 141.64095,45.1603 205.50038,-2.8104"
+       id="path4228-73-0-7-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-0-4"
+       cx="-789.40869"
+       cy="783.6214"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-7-4"
+       cx="-789.90576"
+       cy="798.75433"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-4-3"
+       width="498.92789"
+       height="498.92789"
+       x="1000.5361"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230-8-3"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-2.2089044"
+       inkscape:transform-center-y="-7.5258836"
+       transform="matrix(0.97279869,-0.11944466,0.11909006,0.96991068,912.75908,54.4272)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3-5-6"
+       width="498.92789"
+       height="498.92789"
+       x="1000.5361"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-06-8"
+       cx="1210.4065"
+       cy="788.34607"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-6-0"
+       cx="1209.9094"
+       cy="803.479"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1192.403,869.46834 -8.1443,52.0957 43.2252,7.6317 -2.6617,-53.1263 z"
+       id="path4232-06-1-1-1-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1148.0199,848.88594 c 38.7609,30.8021 141.641,45.1603 205.5004,-2.8104"
+       id="path4228-73-0-7-2-5"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-0-4-4"
+       cx="-1289.4087"
+       cy="787.6214"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-7-4-6"
+       cx="-1289.9058"
+       cy="802.75433"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-4-3-6"
+       width="498.92789"
+       height="498.92789"
+       x="1500.536"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230-8-3-2"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-3.2432166"
+       inkscape:transform-center-y="-6.2034318"
+       transform="matrix(0.96209696,-0.18701271,0.18645751,0.95924072,1361.0299,79.759529)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3-5-6-2"
+       width="498.92789"
+       height="498.92789"
+       x="1500.536"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1692.4029,865.46838 -8.1443,52.0957 43.2252,7.6317 -2.6617,-53.1263 z"
+       id="path4232-06-1-1-1-1-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1648.0198,844.88598 c 38.7609,30.8021 141.641,45.1603 205.5004,-2.8104"
+       id="path4228-73-0-7-2-5-5"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-4-3-4"
+       width="498.92789"
+       height="498.92789"
+       x="2000.536"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230-8-3-4"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-2.2089044"
+       inkscape:transform-center-y="-7.5258836"
+       transform="matrix(0.97279869,-0.11944466,0.11909006,0.96991068,1912.759,54.42725)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3-5-6-28"
+       width="498.92789"
+       height="498.92789"
+       x="2000.536"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-06-8-4"
+       cx="2210.4065"
+       cy="788.34607"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-6-0-9"
+       cx="2209.9094"
+       cy="803.479"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2192.403,869.46838 -8.1443,52.0957 43.2252,7.6317 -2.6617,-53.1263 z"
+       id="path4232-06-1-1-1-1-03"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2148.0199,848.88598 c 38.7609,30.8021 141.641,45.1603 205.5004,-2.8104"
+       id="path4228-73-0-7-2-5-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-0-4-4-3"
+       cx="-2289.4087"
+       cy="787.6214"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-7-4-6-5"
+       cx="-2289.9058"
+       cy="802.75433"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-4-2"
+       width="498.92789"
+       height="498.92789"
+       x="2500.5361"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#0083c7;stroke-width:9.69383717;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4230-8-9"
+       sodipodi:sides="11"
+       sodipodi:cx="249.99956"
+       sodipodi:cy="802.35895"
+       sodipodi:r1="196.20235"
+       sodipodi:r2="184.3699"
+       sodipodi:arg1="0.5346889"
+       sodipodi:arg2="0.82028823"
+       inkscape:flatsided="true"
+       inkscape:rounded="2.53"
+       inkscape:randomized="0"
+       d="M 418.81739,902.33844 C 276.28995,1142.9995 587.97809,852.33602 337.96516,977.73686 87.95224,1103.1377 507.30554,1027.1273 229.18447,997.45404 -48.936593,967.78075 344.94017,1130.5563 127.01243,955.2299 -90.915311,779.90353 152.43182,1129.7849 63.887926,864.47031 -24.655967,599.15576 -9.0994619,1025.0581 59.852552,753.99081 128.80457,482.92356 -88.368634,849.62585 116.18751,658.86785 320.74365,468.10984 -60.208296,659.18674 215.00685,609.3023 490.22199,559.41785 66.440843,514.2038 324.93612,621.03087 c 258.49528,106.82707 -73.56754,-160.3228 86.13745,69.29896 159.70499,229.62175 24.78809,-174.64574 34.99758,104.86741 10.2095,279.51316 115.27368,-133.51989 -27.25376,107.1412 z"
+       inkscape:transform-center-x="-1.1861097"
+       inkscape:transform-center-y="-6.59301"
+       transform="matrix(0.97876104,-0.05129469,0.05114241,0.97585533,2466.1293,32.765034)" />
+    <rect
+       style="opacity:0;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.07211351;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.32096073"
+       id="rect4262-3-5-1"
+       width="498.92789"
+       height="498.92789"
+       x="2500.5361"
+       y="552.89862"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-06-86"
+       cx="2710.4065"
+       cy="784.34607"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-6-9"
+       cx="2709.9094"
+       cy="799.479"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.67684472;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2692.403,873.4683 -8.1443,52.0957 43.2251,7.6317 -2.6616,-53.1263 z"
+       id="path4232-06-1-1-1-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.35368943;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2648.0199,852.8859 c 38.7609,30.8021 141.641,45.1603 205.5004,-2.8104"
+       id="path4228-73-0-7-2-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.22945476;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path4180-2-4-1-8-0-4-7"
+       cx="-2789.4087"
+       cy="783.6214"
+       rx="46.456715"
+       ry="64.612823"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <ellipse
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="path4199-6-10-9-5-7-4-4"
+       cx="-2789.9058"
+       cy="798.75433"
+       rx="8.3961315"
+       ry="10.476439"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916"
+       transform="scale(-1,1)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1650.1068,789.38161 c 40.2733,-3.48286 50.2567,-5.85687 89.7861,5.66754"
+       id="path4228-73-0-7-2-5-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 1845.606,787.34921 c -40.2733,-3.48286 -50.2567,-5.85687 -89.7861,5.66754"
+       id="path4228-73-0-7-2-5-9-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/timon/development/animationTesting/monster-template.png"
+       inkscape:export-xdpi="89.999916"
+       inkscape:export-ydpi="89.999916" />
+  </g>
+</svg>

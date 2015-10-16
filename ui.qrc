@@ -14,6 +14,7 @@
         <file>ui/GameOverView.qml</file>
         <file>ui/About.qml</file>
         <file>ui/Help.qml</file>
+        <file>ui/HelpItem.qml</file>
         <file>ui/MenuBar.qml</file>
         <file>ui/BackgroundMonsters.qml</file>
         <file>ui/ResetView.qml</file>

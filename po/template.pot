@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-04 12:25+0200\n"
+"POT-Creation-Date: 2015-10-16 15:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,41 +86,41 @@ msgid "You lost."
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:99
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:59
 msgid "Normal"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:153
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:68
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:197
 msgid "Defense"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:207
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:77
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:314
 msgid "Speed"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:261
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:86
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:139
 msgid "Strength"
 msgstr ""
 
 #. TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:315
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:95
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:254
 msgid "Reproduction"
 msgstr ""
 
 #. TRANSLATORS: Description of the pillow image in the Help view
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:372
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:147
 msgid "Pillow"
 msgstr ""
 
 #. TRANSLATORS: Title of the "Help" view
-#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:391
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:166
 msgid "Help"
 msgstr ""
 

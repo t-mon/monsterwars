@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="">
+    <qresource prefix="/">
+        <file>images/icon.png</file>
         <file>images/close-black.png</file>
         <file>images/close-white.png</file>
         <file>images/pause.png</file>
@@ -11,10 +12,9 @@
         <file>images/ok.png</file>
         <file>images/mute.png</file>
         <file>images/unmute.png</file>
-	<file>images/cloud.png</file>
-	<file>images/cc0.png</file>
-	<file>images/cc-by-sa.png</file>
-	<file>images/menu-background.jpg</file>
+        <file>images/cloud.svg</file>
+        <file>images/cc0.png</file>
+        <file>images/cc-by-sa.png</file>
+        <file>images/menu-background.jpg</file>
     </qresource>
 </RCC>
-
