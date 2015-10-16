@@ -195,9 +195,10 @@ void Monster::impact(AttackPillow *attackPillow)
             m_value = abs(m_value);
         }
         // if value is 0 this board has no longer a player -> neutral
-        if (m_value == 0) {
+        if (m_value == 0)
             setPlayer(m_engine->board()->player(0));
-        }
+
+        m_tickCounter = 0;
     }
     emit impact();
     emit valueChanged();
@@ -239,7 +240,7 @@ void Monster::tick()
         return;
 
     m_tickCounter++;
-    int intervall = 1000 - ((player()->reproduction()) * m_engine->tickInterval());
+    int intervall = 1000 - ((m_player->reproduction()) * m_engine->tickInterval());
 
     if (monsterType() == MonsterTypeReproduction)
         intervall -= 8 * m_engine->tickInterval();

@@ -1,0 +1,82 @@
+{
+    "name": "Level 30",
+    "id": 30,
+    "players": [
+        {
+            "id": 2,
+            "color": "red",
+            "playerType": "PlayerTypeAi",
+            "strength": 8,
+            "speed": 7,
+            "defence": 8,
+            "reproduction": 8,
+            "reaction": 10
+        },
+        {
+            "id": 3,
+            "color": "green",
+            "playerType": "PlayerTypeAi",
+            "strength": 8,
+            "speed": 7,
+            "defence": 8,
+            "reproduction": 8,
+            "reaction": 12
+        }
+    ],
+    "monsters": [
+        {
+            "id": 1,
+            "monsterType": "MonsterTypeStrength",
+            "x": 11,
+            "y": 27,
+            "size": 4,
+            "startValue": 5,
+            "player": 1
+        },
+        {
+            "id": 2,
+            "monsterType": "MonsterTypeStrength",
+            "x": 33,
+            "y": 20,
+            "size": 4,
+            "startValue": 20,
+            "player": 2
+        },
+        {
+            "id": 3,
+            "monsterType": "MonsterTypeStrength",
+            "x": 56,
+            "y": 13,
+            "size": 4,
+            "startValue": 20,
+            "player": 3
+        },
+        {
+            "id": 4,
+            "monsterType": "MonsterTypeDefense",
+            "x": 10,
+            "y": 10,
+            "size": 4,
+            "startValue": 20,
+            "player": 3
+        },
+        {
+            "id": 5,
+            "monsterType": "MonsterTypeDefense",
+            "x": 64,
+            "y": 32,
+            "size": 4,
+            "startValue": 10,
+            "player": 1
+        },
+        {
+            "id": 6,
+            "monsterType": "MonsterTypeReproduction",
+            "x": 45,
+            "y": 31,
+            "size": 4,
+            "startValue": 30,
+            "player": 2
+        }
+    ]
+}
