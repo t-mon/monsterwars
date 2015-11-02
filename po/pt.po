@@ -1,0 +1,181 @@
+# Portuguese translation for monsterwars
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the monsterwars package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: monsterwars\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-10-16 17:54+0200\n"
+"PO-Revision-Date: 2015-11-01 14:22+0000\n"
+"Last-Translator: Rúben Silva <rubensilva945@gmail.com>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-11-02 08:40+0000\n"
+"X-Generator: Launchpad (build 17838)\n"
+
+#. TRANSLATORS: The "version" of the application
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:72
+msgid "Version:"
+msgstr "Versão"
+
+#. TRANSLATORS: "Author" section in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:82
+msgid "Author"
+msgstr "Autor"
+
+#. TRANSLATORS: Design section in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:102
+msgid "Design"
+msgstr "Design"
+
+#. TRANSLATORS: Source code section in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:122
+msgid "Source code"
+msgstr "Código-Fonte"
+
+#. TRANSLATORS: License section in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:148
+msgid "License"
+msgstr "Licença"
+
+#. TRANSLATORS: Reference to the background image in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:173
+msgid "Backgrounds"
+msgstr "Imagens de Fundo"
+
+#. TRANSLATORS: Terms of use for the background image in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:197
+msgid "Terms of use"
+msgstr "Termos de Serviço"
+
+#. TRANSLATORS: Reference to the music in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:212
+msgid "Music"
+msgstr "Música"
+
+#. TRANSLATORS: Reference to the translations in the "About" view
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:302
+msgid "Translations"
+msgstr "Traduções"
+
+#. TRANSLATORS: Thank you very much for helping with the translations!! ;)  (in the "About" view)
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:313
+msgid "Thanks to all translators!"
+msgstr "Obrigado a todos os tradutores!"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/About.qml:334
+msgid "About"
+msgstr "Sobre"
+
+#. TRANSLATORS: In the game over view, if you reached a new high score
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:57
+msgid "New highscore!"
+msgstr "Novo recorde!"
+
+#. TRANSLATORS: Inform the player if he won or lost the game in the game over view
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:101
+msgid "You won!"
+msgstr "Você ganhou!"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:101
+msgid "You lost."
+msgstr "Vocês perdeu."
+
+#. TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:59
+msgid "Normal"
+msgstr "Normal"
+
+#. TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:68
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:197
+msgid "Defense"
+msgstr "Defesa"
+
+#. TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:77
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:314
+msgid "Speed"
+msgstr "Velocidade"
+
+#. TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:86
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:139
+msgid "Strength"
+msgstr "Força"
+
+#. TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:95
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:254
+msgid "Reproduction"
+msgstr "Repordução"
+
+#. TRANSLATORS: Description of the pillow image in the Help view
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:147
+msgid "Pillow"
+msgstr "Descansar"
+
+#. TRANSLATORS: Title of the "Help" view
+#: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:166
+msgid "Help"
+msgstr "Ajuda"
+
+#. TRANSLATORS: The title of the "Level selection" view
+#. TRANSLATORS: The "Level selection" button in the pause menu
+#: /home/timon/development/monsterwars/monsterwars/ui/LevelSelector.qml:69
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:126
+msgid "Level selection"
+msgstr "Escolher o Nivel"
+
+#. TRANSLATORS: The "Play" button in the main menu
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:58
+msgid "Play"
+msgstr "Jogar"
+
+#. TRANSLATORS: The "i" in the information button in the main menu
+#: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:106
+msgid "i"
+msgstr "i"
+
+#. TRANSLATORS: The "Continue" button in the pause menu
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:68
+msgid "Continue"
+msgstr "Continuar"
+
+#. TRANSLATORS: The "Restart" button in the pause menu
+#: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:96
+msgid "Restart"
+msgstr "Recomeçar"
+
+#. TRANSLATORS: Reset warning message. Please insert also the "\n" in the middle of the text!
+#: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:35
+msgid ""
+"Are you sure you want to reset all\n"
+"game settings and achievements?"
+msgstr ""
+"Tem a certeza que quer restabelecer todas\n"
+"as definições do jogo e as conquistas?"
+
+#: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:47
+msgid "No"
+msgstr "Não"
+
+#. TRANSLATORS: Reset button to reset all game settings and achievements
+#: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:59
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:329
+msgid "Reset"
+msgstr "Restabelecer"
+
+#. TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:84
+msgid "Available points"
+msgstr "Pontos disponíveis"
+
+#. TRANSLATORS: Title of the "Settings" view
+#: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:347
+msgid "Settings:"
+msgstr "Definições"
