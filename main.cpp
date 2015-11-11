@@ -35,7 +35,7 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setApplicationVersion("0.6");
+    app.setApplicationVersion("0.7");
     app.setApplicationDisplayName("Monster Wars");
     app.setWindowIcon(QIcon("qrc:///images/icon.png"));
 

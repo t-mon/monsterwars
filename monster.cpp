@@ -232,7 +232,7 @@ QString Monster::monsterTypeToString(Monster::MonsterType monsterType)
 void Monster::tick()
 {
     // stop counting if monster is empty
-    if (m_value == 0)
+    if (m_value == 0 && player()->id() == 0)
         return;
 
     //  stop counting if maxValue is reached
