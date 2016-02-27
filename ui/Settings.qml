@@ -18,11 +18,15 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
-Item {
+Page {
     id: root
+    head {
+        visible: false
+        locked: true
+    }
 
     property string backgroundColor: "transparent"
 
@@ -33,9 +37,9 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: "qrc:///images/menu-background.jpg"
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(parent.width, 0)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
         Flickable {
@@ -329,7 +333,7 @@ Item {
                     text: i18n.tr("Reset")
                     gradient: UbuntuColors.orangeGradient
                     onClicked: {
-                        pageStack.push(resetPage)
+                        pageStack.push(Qt.resolvedUrl("ResetView.qml"))
                     }
                 }
             }

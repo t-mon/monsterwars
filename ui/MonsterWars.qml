@@ -18,17 +18,18 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
-import MonsterWars 1.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 import QtMultimedia 5.4
+import Ubuntu.Thumbnailer 0.1
+
+import MonsterWars 1.0
 
 MainView {
     id: app
     objectName: "mainView"
     applicationName: "monsterwars.t-mon"
     automaticOrientation: false
-    useDeprecatedToolbar: false
 
     property string green: "#00c500"
     property string blue: "#0083c7"
@@ -84,7 +85,6 @@ MainView {
         dataDir: dataDirectory
         Component.onCompleted: {
             i18n.domain = "monsterwars.t-mon"
-            pageStack.push(mainPage)
             updateMusic()
         }
     }
@@ -100,71 +100,7 @@ MainView {
     PageStack {
         id: pageStack
         anchors.fill: parent
-        Component.onCompleted: push(mainPage)
-
-        Page {
-            id: mainPage
-            anchors.fill: parent
-            visible: false
-            MainMenu {
-                id: mainMenu
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: levelSelectorPage
-            visible: false
-            LevelSelector {
-                id: levelSelector
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: boardPage
-            visible: false
-            BoardView {
-                id: boardView
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: settingsPage
-            visible: false
-            Settings {
-                id: settings
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: aboutPage
-            visible: false
-            About {
-                id: about
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: helpPage
-            visible: false
-            Help {
-                id: help
-                anchors.fill: parent
-            }
-        }
-
-        Page {
-            id: resetPage
-            visible: false
-            ResetView {
-                id: reset
-                anchors.fill: parent
-            }
-        }
+        Component.onCompleted: push(Qt.resolvedUrl("MainMenu.qml"))
     }
 }
 

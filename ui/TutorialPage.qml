@@ -19,19 +19,38 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.4
+import MonsterWars 1.0
+import QtQuick.Layouts 1.1
+import Ubuntu.Components 1.3
+import Ubuntu.Thumbnailer 0.1
 
-Item{
+Page {
     id: root
-    property real lineWidth
-    property real size
-    property bool pressed
-    Rectangle {
-        id: selector
-        width: size
-        height: width
-        color: "steelblue"
-        border.color: "steelblue"
-        border.width: lineWidth
-        radius: width / 2
+    head {
+        visible: false
+        locked: true
+    }
+
+    Image {
+        id: backgroundImage
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectCrop
+        sourceSize: Qt.size(parent.width, 0)
+        source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
+    }
+
+
+
+
+
+    MenuBar {
+        id: menuBar
+        height: units.gu(4)
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+        }
+        menuTitle: i18n.tr("Tutorial")
     }
 }

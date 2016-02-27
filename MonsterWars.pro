@@ -56,7 +56,7 @@ SOURCES +=  main.cpp \
 
 RESOURCES += ui.qrc \
              monsters.qrc \
-             images.qrc \
+             images.qrc
 
 # config files for click package
 OTHER_FILES += MonsterWars.apparmor \
@@ -75,7 +75,15 @@ levels.files = levels/
 sounds.path = /data
 sounds.files = sounds/
 
+# install images
+images.path = /data
+images.files = images/
+
+# install images
+backgrounds.path = /data
+backgrounds.files = backgrounds/
+
 target.path = $${UBUNTU_CLICK_BINARY_PATH}
 
-INSTALLS += target config_files levels sounds
+INSTALLS += target config_files levels sounds backgrounds
 

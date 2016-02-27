@@ -18,17 +18,24 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
+import Ubuntu.Components 1.3
+import Ubuntu.Thumbnailer 0.1
 import MonsterWars 1.0
 
-Item {
-    id: root
+Page {
+    id: levelSelectorPage
+    head {
+        visible: false
+        locked: true
+    }
 
     Image {
+        id: backgroundImage
         anchors.fill: parent
-        sourceSize.width: parent.width
-        sourceSize.height: parent.height
-        source: "qrc:///images/menu-background.jpg"
+        fillMode: Image.PreserveAspectCrop
+        sourceSize: Qt.size(parent.width, 0)
+        source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
     }
 
     GridView {
@@ -51,7 +58,7 @@ Item {
             bestTime: model.bestTime
             unlocked: model.unlocked
             onSelected: {
-                pageStack.push(boardPage)
+                pageStack.push(Qt.resolvedUrl("BoardView.qml"))
                 gameEngine.startGame(model.levelId)
             }
         }

@@ -6,6 +6,7 @@
         <file>images/pause.png</file>
         <file>images/lock.png</file>
         <file>images/play-button.png</file>
+        <file>images/donate-button.png</file>
         <file>images/settings.png</file>
         <file>images/plus.png</file>
         <file>images/restart.png</file>
@@ -15,6 +16,5 @@
         <file>images/cloud.png</file>
         <file>images/cc0.png</file>
         <file>images/cc-by-sa.png</file>
-        <file>images/menu-background.jpg</file>
     </qresource>
 </RCC>

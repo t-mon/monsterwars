@@ -18,10 +18,16 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
+import Ubuntu.Components 1.3
+import Ubuntu.Thumbnailer 0.1
 
-Item {
-    id: root
+Page {
+    id: mainPage
+    head {
+        visible: false
+        locked: true
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -30,10 +36,11 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: "qrc:///images/menu-background.jpg"
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(parent.width, 0)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
+
 
         BackgroundMonsters {
             anchors.fill: parent
@@ -47,11 +54,13 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             color: "transparent"
+
             Image {
                 id: playButtonMonster
                 anchors.fill: parent
                 source: "qrc:///images/play-button.png"
             }
+
             Text {
                 anchors.centerIn: parent
                 // TRANSLATORS: The "Play" button in the main menu
@@ -64,7 +73,7 @@ Item {
             MouseArea {
                 id: playButtonMouseArea
                 anchors.fill: parent
-                onClicked: pageStack.push(levelSelectorPage)
+                onClicked: pageStack.push(Qt.resolvedUrl("LevelSelector.qml"))
             }
         }
 
@@ -112,7 +121,7 @@ Item {
         MouseArea {
             id: infoMouseArea
             anchors.fill: parent
-            onClicked: pageStack.push(aboutPage)
+            onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
         }
     }
 
@@ -165,7 +174,7 @@ Item {
         MouseArea {
             id: settingsMouseArea
             anchors.fill: parent
-            onClicked: pageStack.push(settingsPage)
+            onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
         }
     }
 

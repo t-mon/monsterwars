@@ -18,12 +18,17 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import MonsterWars 1.0
+import Ubuntu.Components 1.3
 import QtQuick.Layouts 1.1
 
-Item {
-    id: root
+Page {
+    id: helpPage
+    head {
+        visible: false
+        locked: true
+    }
 
     Rectangle {
         id: screenRectangle
@@ -33,9 +38,9 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: "qrc:///images/menu-background.jpg"
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(parent.width, 0)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
         Flickable {

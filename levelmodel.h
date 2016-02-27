@@ -29,6 +29,7 @@
 class LevelModel : public QAbstractListModel
 {
     Q_OBJECT
+
 public:
     enum PillowRole {
         IdRole = Qt::DisplayRole,

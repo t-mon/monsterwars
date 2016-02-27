@@ -35,7 +35,7 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-    app.setApplicationVersion("0.7");
+    app.setApplicationVersion("0.8.0");
     app.setApplicationDisplayName("Monster Wars");
     app.setWindowIcon(QIcon("qrc:///images/icon.png"));
 
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.addVersionOption();
     parser.setApplicationDescription(QString("\nStrategy game consisting of a pillow fight between monsters.\n\n"
-                                             "Copyright %1 2015 Simon Stürz <stuerz.simon@gmail.com>\n"
+                                             "Copyright %1 2015 -2016 Simon Stürz <stuerz.simon@gmail.com>\n"
                                              "Released under the GNU GPLv3.").arg(QChar(0xA9)));
     parser.addPositionalArgument("dataPath", "The relative file path where the \"levels\" and \"sounds\" folders can be found (optional).", "[dataPath]");
     parser.addOption(windowOption);

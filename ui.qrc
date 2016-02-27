@@ -1,12 +1,12 @@
 <RCC>
-    <qresource prefix="">
+    <qresource prefix="/">
         <file>ui/MonsterWars.qml</file>
         <file>ui/BoardView.qml</file>
-	<file>ui/LevelSelector.qml</file>
+        <file>ui/LevelSelector.qml</file>
         <file>ui/ScoreView.qml</file>
         <file>ui/SelectorItem.qml</file>
         <file>ui/MainMenu.qml</file>
- 	<file>ui/MonsterItem.qml</file>
+        <file>ui/MonsterItem.qml</file>
         <file>ui/Settings.qml</file>
         <file>ui/LevelSelectorItem.qml</file>
         <file>ui/PauseMenu.qml</file>
@@ -18,6 +18,6 @@
         <file>ui/MenuBar.qml</file>
         <file>ui/BackgroundMonsters.qml</file>
         <file>ui/ResetView.qml</file>
+        <file>ui/TutorialPage.qml</file>
     </qresource>
 </RCC>
-

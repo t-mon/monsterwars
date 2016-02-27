@@ -18,12 +18,18 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import MonsterWars 1.0
 import QtQuick.Layouts 1.1
+import Ubuntu.Components 1.3
+import Ubuntu.Thumbnailer 0.1
 
-Item {
+Page {
     id: root
+    head {
+        visible: false
+        locked: true
+    }
 
     Rectangle {
         id: screenRectangle
@@ -33,9 +39,9 @@ Item {
         Image {
             id: backgroundImage
             anchors.fill: parent
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: "qrc:///images/menu-background.jpg"
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(parent.width, 0)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
         BackgroundMonsters {
@@ -114,6 +120,67 @@ Item {
                         font.pixelSize: units.gu(3)
                     }
                 }
+
+                Column {
+                    spacing: units.gu(1)
+                    Text {
+                        // TRANSLATORS: Source code section in the "About" view
+                        text: i18n.tr("Enjoying the game?")
+                        font.weight: Font.DemiBold
+                        style: Text.Outline
+                        styleColor: "white"
+                        font.pixelSize: units.gu(4)
+                    }
+
+
+                    Rectangle {
+                        id: donateButton
+                        height: units.gu(15)
+                        width: units.gu(40)
+
+                        color: "transparent"
+                        Image {
+                            id: donateButtonMonster
+                            anchors.fill: parent
+                            source: "qrc:///images/donate-button.png"
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            // TRANSLATORS: The "Donate" button in the main menu
+                            text: i18n.tr("Donate")
+                            font.bold: true
+                            font.pixelSize: units.gu(4)
+                            color: donateButtonMouseArea.pressed ? "steelblue" : "white"
+                        }
+
+                        MouseArea {
+                            id: donateButtonMouseArea
+                            anchors.fill: parent
+                            onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZLY4J8HCNEDE2")
+                        }
+                    }
+                    SequentialAnimation {
+                        id: donateButtonAnimation
+                        ScaleAnimator {
+                            target: donateButton
+                            from: 0.99
+                            to: 1.03
+                            easing.type: Easing.Linear;
+                            duration: 1000
+                        }
+                        ScaleAnimator {
+                            target: donateButton
+                            from: 1.03
+                            to: 0.99
+                            easing.type: Easing.Linear;
+                            duration: 800
+                        }
+                        running: true
+                        loops: Animation.Infinite
+                    }
+                }
+
 
                 Column {
                     spacing: units.gu(1)

@@ -18,11 +18,17 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 import MonsterWars 1.0
 
-Item {
-    id: boardView
+Page {
+    id: root
+    head {
+        visible: false
+        locked: true
+    }
+
     property real cellSize: Math.min(background.width / gameEngine.columns, background.height / gameEngine.rows)
     property bool debug: false
 
@@ -33,10 +39,10 @@ Item {
 
     Row {
         id: topBar
-        width: boardView.width
+        width: root.width
         height: units.gu(3)
-        anchors.top: boardView.top
-        anchors.horizontalCenter: boardView.horizontalCenter
+        anchors.top: root.top
+        anchors.horizontalCenter: root.horizontalCenter
 
         Rectangle {
             height: parent.height
@@ -68,18 +74,18 @@ Item {
 
     Rectangle {
         id: background
-        width: boardView.width
-        height: boardView.height - topBar.height
+        width: root.width
+        height: root.height - topBar.height
         anchors.top: topBar.bottom
-        anchors.horizontalCenter: boardView.horizontalCenter
+        anchors.horizontalCenter: root.horizontalCenter
         color: "black"
 
         Image {
             id: backgroundImage
             anchors.fill: parent
-            sourceSize.width: parent.width
-            sourceSize.height: parent.height
-            source: dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg"
+            fillMode: Image.PreserveAspectCrop
+            sourceSize: Qt.size(parent.width, 0)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg")
         }
 
         Rectangle {
@@ -103,11 +109,12 @@ Item {
                 monsterColor: model.monsterColor
                 monsterSize: model.monsterSize
                 monsterType: model.monsterType
-                positionX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.positionX * boardView.cellSize
-                positionY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.positionY * boardView.cellSize
+                positionX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.positionX * root.cellSize
+                positionY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.positionY * root.cellSize
                 selected: model.selected
                 pressed: boardArea.pressed
                 lineWidth: selectorItem.lineWidth
+                cellSize: root.cellSize
             }
         }
 
@@ -120,8 +127,8 @@ Item {
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
-                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - boardView.cellSize
-                    if (l < boardView.cellSize) {
+                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - root.cellSize
+                    if (l < root.cellSize) {
                         gameEngine.board.evaluateReleased(monsterItem.monsterId)
                     }
                 }
@@ -142,8 +149,8 @@ Item {
                     var monsterItem = monsterRepeater.itemAt(i)
                     var dx = (monsterItem.x + monsterItem.width / 2) - boardArea.mouseX
                     var dy = (monsterItem.y + monsterItem.width / 2) - boardArea.mouseY
-                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - boardView.cellSize
-                    if (l < boardView.cellSize) {
+                    var l = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)) - monsterItem.width / 2 - root.cellSize
+                    if (l < root.cellSize) {
                         gameEngine.board.evaluateHovered(true, monsterItem.monsterId);
                     } else {
                         gameEngine.board.evaluateHovered(false, monsterItem.monsterId);
@@ -183,8 +190,8 @@ Item {
         SelectorItem {
             id: selectorItem
             pressed: boardArea.pressed
-            size: boardView.cellSize * 6
-            lineWidth: boardView.cellSize / 2
+            size: root.cellSize * 6
+            lineWidth: root.cellSize / 2
             x: boardArea.mouseX - size / 2
             y: boardArea.mouseY - size / 2
             visible: boardArea.pressed && gameEngine.running
@@ -239,10 +246,11 @@ Item {
                 absolutSourceY: model.sourceY
                 absolutDestinationX: model.destinationX
                 absolutDestinationY: model.destinationY
-                sourceX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.sourceX * boardView.cellSize
-                sourceY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.sourceY * boardView.cellSize
-                destinationX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.destinationX * boardView.cellSize
-                destinationY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.destinationY * boardView.cellSize
+                sourceX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.sourceX * root.cellSize
+                sourceY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.sourceY * root.cellSize
+                destinationX: (background.width - (cellSize * gameEngine.columns)) / 2 + model.destinationX * root.cellSize
+                destinationY: (background.height - (cellSize * gameEngine.rows)) / 2 + model.destinationY * root.cellSize
+                cellSize: root.cellSize
             }
         }
     }

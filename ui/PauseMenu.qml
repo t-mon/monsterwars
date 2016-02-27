@@ -18,7 +18,7 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import MonsterWars 1.0
 
 Item {
@@ -193,7 +193,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: pageStack.push(helpPage)
+                onClicked: pageStack.push(Qt.resolvedUrl("Help.qml"))
             }
         }
 

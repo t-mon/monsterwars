@@ -18,7 +18,7 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import MonsterWars 1.0
 
 Item {
@@ -35,13 +35,14 @@ Item {
     property real sourceY
     property real destinationX
     property real destinationY
+    property real cellSize
 
     property real distance: Math.sqrt(Math.pow(absolutSourceX - absolutDestinationX, 2) + Math.pow(absolutSourceY - absolutDestinationY, 2))
     property real animationDuration: distance * 160 / (1 + speed * gameEngine.speedStepWidth())
 
     Rectangle {
         id: pillowRectangle
-        width: boardView.cellSize * 5
+        width: cellSize * 5
         height: width
         color: "transparent"
 
@@ -67,7 +68,7 @@ Item {
             anchors.centerIn: parent
             text: value
             font.bold: true
-            font.pixelSize: boardView.cellSize * 2
+            font.pixelSize: cellSize * 2
             style: Text.Outline
             styleColor: "steelblue"
             color: colorString

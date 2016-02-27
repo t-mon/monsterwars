@@ -18,7 +18,7 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
 import MonsterWars 1.0
 
 Item {
@@ -33,8 +33,9 @@ Item {
     property bool selected
     property bool pressed
     property real lineWidth
+    property real cellSize
 
-    width: monsterSize * boardView.cellSize * 2
+    width: monsterSize * cellSize * 2
     height: width
     x: positionX - width / 2
     y: positionY - width / 2
@@ -130,11 +131,11 @@ Item {
             Rectangle {
                 id: valueRectangle
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: - boardView.cellSize / 2
+                anchors.bottomMargin: - cellSize / 2
                 anchors.right: parent.right
-                anchors.rightMargin: - boardView.cellSize / 2
-                width: boardView.cellSize * 4
-                height: boardView.cellSize * 3
+                anchors.rightMargin: - cellSize / 2
+                width: cellSize * 4
+                height: cellSize * 3
                 color: "transparent"
                 radius: width / 4
                 visible: monsterValue != 0
@@ -153,7 +154,7 @@ Item {
                     font.weight: Font.DemiBold
                     style: Text.Outline
                     styleColor: "black"
-                    font.pixelSize: boardView.cellSize * 2
+                    font.pixelSize: cellSize * 2
                     color: monsterColor == "green" ? app.green : monsterColor == "red" ? app.red : monsterColor == "blue" ? app.blue : "white"
                 }
             }
@@ -161,12 +162,12 @@ Item {
             Rectangle {
                 id: descriptionRectangle
                 visible: false
-                width: 8.5 * boardView.cellSize
-                height: 3.5 * boardView.cellSize
-                radius: boardView.cellSize
+                width: 8.5 * cellSize
+                height: 3.5 * cellSize
+                radius: cellSize
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: parent.top
-                anchors.bottomMargin: boardView.cellSize / 2
+                anchors.bottomMargin: cellSize / 2
                 color: "#804682b4"
                 border.color: "Black"
 
@@ -177,7 +178,7 @@ Item {
                     text: "id = " + monsterId + "\n" + monsterType
                     style: Text.Outline
                     styleColor: "white"
-                    font.pixelSize: boardView.cellSize * 1.3
+                    font.pixelSize: cellSize * 1.3
                     color: "white"
                 }
             }

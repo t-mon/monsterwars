@@ -18,7 +18,8 @@
  *                                                                         *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import QtQuick 2.2
+import QtQuick 2.4
+import Ubuntu.Thumbnailer 0.1
 
 Item {
     id: root
@@ -43,7 +44,8 @@ Item {
             anchors.fill: parent
             opacity: unlocked ? 0.8 : 0.3
             anchors.margins: units.gu(1.5)
-            source: dataDirectory + "/levels/level" + levelId + "/preview.png"
+            sourceSize: Qt.size(parent.width, parent.height)
+            source: "image://thumbnailer/" + Qt.resolvedUrl(dataDirectory + "/levels/level" + levelId + "/preview.png")
         }
 
         Text {
