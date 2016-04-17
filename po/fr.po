@@ -158,7 +158,7 @@ msgid ""
 "Are you sure you want to reset all\n"
 "game settings and achievements?"
 msgstr ""
-"Êtes-vous sûr de vouloir remettre à zéro\n"
+"Êtes-vous sûr de vouloir réinitialiser\n"
 "tous vos paramètres et vos records ?"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:47
@@ -169,14 +169,14 @@ msgstr "Non"
 #: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:59
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:329
 msgid "Reset"
-msgstr "Remettre à zéro"
+msgstr "Réinitialiser"
 
 #. TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:84
 msgid "Available points"
-msgstr "Points restant"
+msgstr "Points restants"
 
 #. TRANSLATORS: Title of the "Settings" view
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:347
 msgid "Settings:"
-msgstr "Paramètres:"
+msgstr "Paramètres :"
