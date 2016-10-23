@@ -84,7 +84,7 @@ msgstr "Você ganhou!"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/GameOverView.qml:101
 msgid "You lost."
-msgstr "Vocês perdeu."
+msgstr "Você perdeu."
 
 #. TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:59
@@ -113,7 +113,7 @@ msgstr "Força"
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:95
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:254
 msgid "Reproduction"
-msgstr "Repordução"
+msgstr "Reprodução"
 
 #. TRANSLATORS: Description of the pillow image in the Help view
 #: /home/timon/development/monsterwars/monsterwars/ui/Help.qml:147
