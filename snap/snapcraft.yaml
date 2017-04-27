@@ -28,9 +28,9 @@ parts:
      - gstreamer1.0-plugins-good
      - gstreamer1.0-pulseaudio
      - qml-module-qtmultimedia
-     - qml-module-qtquick-layouts
      - qml-module-qtquick2
-     - qml-module-ubuntu-thumbnailer0.1
+     - qml-module-qtquick-layouts
      - qml-module-ubuntu-components
+     - qml-module-ubuntu-thumbnailer0.1
     qt-version: qt5
     after: [desktop-qt5]
