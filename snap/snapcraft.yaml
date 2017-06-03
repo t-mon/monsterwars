@@ -1,0 +1,36 @@
+name: monsterwars
+version: '0.1'
+summary: Strategy game consisting of a pillow fight between monsters.
+description: |
+  Strategy game consisting of a pillow fight between monsters.
+grade: stable
+confinement: strict
+
+apps:
+  monsterwars:
+    command: desktop-launch $SNAP/lib/*/bin/MonsterWars
+    plugs:
+     - opengl
+     - pulseaudio
+     - x11
+
+parts:
+  monsterwars:
+    build-packages:
+     - intltool
+     - qt5-default
+     - qt5-qmake
+     - qtdeclarative5-dev
+     - ubuntu-sdk-qmake-extras
+    plugin: qmake
+    source: .  # https://github.com/t-mon/monsterwars
+    stage-packages:
+     - gstreamer1.0-plugins-good
+     - gstreamer1.0-pulseaudio
+     - qml-module-qtmultimedia
+     - qml-module-qtquick2
+     - qml-module-qtquick-layouts
+     - qml-module-ubuntu-components
+     - qml-module-ubuntu-thumbnailer0.1
+    qt-version: qt5
+    after: [desktop-qt5]
