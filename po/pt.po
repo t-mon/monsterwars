@@ -130,7 +130,7 @@ msgstr "Ajuda"
 #: /home/timon/development/monsterwars/monsterwars/ui/LevelSelector.qml:69
 #: /home/timon/development/monsterwars/monsterwars/ui/PauseMenu.qml:126
 msgid "Level selection"
-msgstr "Escolher o Nivel"
+msgstr "Escolher o Nível"
 
 #. TRANSLATORS: The "Play" button in the main menu
 #: /home/timon/development/monsterwars/monsterwars/ui/MainMenu.qml:58
@@ -158,7 +158,7 @@ msgid ""
 "Are you sure you want to reset all\n"
 "game settings and achievements?"
 msgstr ""
-"Tem a certeza que quer restabelecer todas\n"
+"Tem a certeza que quer eliminar todas\n"
 "as definições do jogo e as conquistas?"
 
 #: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:47
@@ -169,7 +169,7 @@ msgstr "Não"
 #: /home/timon/development/monsterwars/monsterwars/ui/ResetView.qml:59
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:329
 msgid "Reset"
-msgstr "Restabelecer"
+msgstr "Eliminar"
 
 #. TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
 #: /home/timon/development/monsterwars/monsterwars/ui/Settings.qml:84
