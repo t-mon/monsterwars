@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Monster Wars
-Exec=MonsterWars
-Icon=MonsterWars/MonsterWars.png
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true
-X-Ubuntu-Supported-Orientations=landscape
-

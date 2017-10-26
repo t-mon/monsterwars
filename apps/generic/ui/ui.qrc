@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MonsterWars.qml</file>
+        <file>BoardView.qml</file>
+        <file>LevelSelector.qml</file>
+        <file>ScoreView.qml</file>
+        <file>SelectorItem.qml</file>
+        <file>MainMenu.qml</file>
+        <file>MonsterItem.qml</file>
+        <file>Settings.qml</file>
+        <file>LevelSelectorItem.qml</file>
+        <file>PauseMenu.qml</file>
+        <file>AttackPillowItem.qml</file>
+        <file>GameOverView.qml</file>
+        <file>About.qml</file>
+        <file>Help.qml</file>
+        <file>HelpItem.qml</file>
+        <file>MenuBar.qml</file>
+        <file>BackgroundMonsters.qml</file>
+        <file>ResetView.qml</file>
+        <file>TutorialPage.qml</file>
+    </qresource>
+</RCC>
