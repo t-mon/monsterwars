@@ -40,7 +40,7 @@ Page {
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
             sourceSize: Qt.size(parent.width, 0)
-            source: Qt.resolvedUrl("file:" + dataDirectory + "/backgrounds/menu-background.jpg")
+            source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
         BackgroundMonsters {
@@ -144,7 +144,7 @@ Page {
                         Image {
                             id: donateButtonMonster
                             anchors.fill: parent
-                            source: "file:" + dataDirectory + "/images/donate-button.png"
+                            source: dataDirectory + "/images/donate-button.png"
                         }
 
                         Text {
@@ -292,7 +292,7 @@ Page {
                             spacing: textSize
                             Image {
                                 id: ccBySaImage
-                                source: "file:" + dataDirectory + "/images/cc-by-sa.png"
+                                source: dataDirectory + "/images/cc-by-sa.png"
                                 height: 2 * textSize
                                 fillMode: Image.PreserveAspectFit
                                 MouseArea {
@@ -331,7 +331,7 @@ Page {
                             spacing: textSize
                             Image {
                                 id: ccImage
-                                source: "file:" + dataDirectory + "/images/cc0.png"
+                                source: dataDirectory + "/images/cc0.png"
                                 height: textSize * 2
                                 fillMode: Image.PreserveAspectFit
                                 MouseArea {

@@ -157,7 +157,7 @@ Item {
                 id: closeIcon
                 anchors.fill: parent
                 anchors.margins: height / 4
-                source: "file:" + dataDirectory + "/images/close-white.png"
+                source: dataDirectory + "/images/close-white.png"
             }
 
 
@@ -213,7 +213,7 @@ Item {
                 id: muteImage
                 anchors.fill: parent
                 anchors.margins: height / 4
-                source: gameEngine.playerSettings.muted ? "file:" + dataDirectory + "/images/unmute.png" : "file:" + dataDirectory + "/images/mute.png"
+                source: gameEngine.playerSettings.muted ? dataDirectory + "/images/unmute.png" : dataDirectory + "/images/mute.png"
             }
 
             MouseArea {

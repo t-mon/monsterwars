@@ -97,7 +97,7 @@ void LevelModel::resetLevelSettings()
 void LevelModel::sortLevels()
 {
     beginResetModel();
-    qSort(m_levels.begin(), m_levels.end(), compareLevel);
+    std::sort(m_levels.begin(), m_levels.end(), compareLevel);
     endResetModel();
 }
 

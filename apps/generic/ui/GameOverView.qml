@@ -131,7 +131,7 @@ Item {
                 id: restartImage
                 anchors.fill: parent
                 anchors.margins: 1
-                source: "file:" + dataDirectory + "/images/restart.png"
+                source: dataDirectory + "/images/restart.png"
             }
 
             MouseArea {
@@ -159,7 +159,7 @@ Item {
                 id: settingsImage
                 anchors.fill: parent
                 anchors.margins: 5
-                source: "file:" + dataDirectory + "/images/settings.png"
+                source: dataDirectory + "/images/settings.png"
             }
 
             MouseArea {
@@ -244,7 +244,7 @@ Item {
                 id: okImage
                 anchors.fill: parent
                 anchors.margins: 1
-                source: "file:" + dataDirectory + "/images/ok.png"
+                source: dataDirectory + "/images/ok.png"
             }
 
             MouseArea {

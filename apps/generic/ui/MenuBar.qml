@@ -61,7 +61,7 @@ Item{
                 id: closeIcon
                 anchors.fill: parent
                 anchors.margins: root.height / 6
-                source: "file:" + dataDirectory + "/images/close-white.png"
+                source: dataDirectory + "/images/close-white.png"
             }
 
             MouseArea {

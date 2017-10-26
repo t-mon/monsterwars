@@ -21,7 +21,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QIcon>
-#include <QQuickView>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 #include <QtQml>
@@ -40,28 +39,6 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
     app.setApplicationVersion("1.0.0");
     app.setApplicationDisplayName("Monster Wars");
-    app.setWindowIcon(QIcon("qrc:///images/icon.png"));
-
-    // Command line parser
-    QCommandLineParser parser;
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.setApplicationDescription(QString("\nStrategy game consisting of a pillow fight between monsters.\n\n"
-                                             "Copyright %1 2015 -2017 Simon Stürz <stuerz.simon@gmail.com>\n"
-                                             "Released under the GNU GPLv3.").arg(QChar(0xA9)));
-
-    // Options
-    QCommandLineOption windowOption(QStringList() << "w" << "window-mode");
-    windowOption.setDescription(QCoreApplication::translate("main", "Run Monster Wars in a window (default: \"fullscreen\")"));
-    parser.addOption(windowOption);
-
-    QCommandLineOption dataPathOption(QStringList() << "d" << "data");
-    dataPathOption.setValueName("path");
-    dataPathOption.setDescription("The relative file path where the \"levels\" and \"sounds\" folders can be found (optional).");
-    dataPathOption.setDefaultValue("/usr/share/monsterwars");
-    parser.addOption(dataPathOption);
-
-    parser.process(app);
 
     // register qml types
     qmlRegisterType<GameEngine>("MonsterWars", 1, 0, "GameEngine");
@@ -74,18 +51,9 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<PlayerSettings>("MonsterWars", 1, 0, "PlayerSettings", "Can't create this in QML. Get it from GameEngine.");
 
-    // check data file path
-    QString dataPath = parser.value(dataPathOption);
-    QDir dataDir(QDir::cleanPath(dataPath));
-    if (!dataDir.exists()) {
-        qWarning() << dataDir.path() << "does not exist.";
-        exit(-1);
-    }
-    qDebug() << "Using data directory" << dataDir.canonicalPath();
-
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("dataDirectory", "file:" + dataDir.canonicalPath());
-    engine.rootContext()->setContextProperty("fullscreen", !parser.isSet(windowOption));
+    engine.rootContext()->setContextProperty("dataDirectory", "assert:");
+    engine.rootContext()->setContextProperty("fullscreen", true);
     engine.rootContext()->setContextProperty("version", app.applicationVersion());
 
     engine.load(QUrl(QLatin1String("qrc:/MonsterWars.qml")));

@@ -23,13 +23,20 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import QtMultimedia 5.9
 
+
 import MonsterWars 1.0
 
 ApplicationWindow {
     id: app
-    visible: true
     width: 480
     height: 320
+    visible: true
+
+//    Component.onCompleted: {
+//        if (fullscreen == true) {
+//            showFullScreen()
+//        }
+//    }
 
     property string green: "#00c500"
     property string blue: "#0083c7"
@@ -37,7 +44,7 @@ ApplicationWindow {
 
     Audio {
         id: musicPlayer
-        source: "file:" + dataDirectory + "/sounds/menu-music.ogg"
+        source: dataDirectory + "/sounds/menu-music.ogg"
         volume: 1
         loops: Audio.Infinite
     }
@@ -51,7 +58,7 @@ ApplicationWindow {
         target: gameEngine
         onGameStoped: {
             musicPlayer.stop()
-            musicPlayer.source = Qt.resolvedUrl("file:" + dataDirectory + "/sounds/menu-music.ogg")
+            musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/menu-music.ogg")
             updateMusic()
         }
         onGamePaused: {
@@ -59,7 +66,7 @@ ApplicationWindow {
         }
         onGameOver: {
             musicPlayer.stop()
-            musicPlayer.source = Qt.resolvedUrl("file:" + dataDirectory + "/sounds/menu-music.ogg")
+            musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/menu-music.ogg")
             updateMusic()
         }
         onGameContinue: {
@@ -67,19 +74,19 @@ ApplicationWindow {
         }
         onGameRestarted: {
             musicPlayer.stop()
-            musicPlayer.source = Qt.resolvedUrl("file:" + dataDirectory + "/sounds/gameplay-music.ogg")
+            musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/gameplay-music.ogg")
             updateMusic()
         }
         onGameStarted: {
             musicPlayer.stop()
-            musicPlayer.source = Qt.resolvedUrl("file:" + dataDirectory + "/sounds/gameplay-music.ogg")
+            musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/gameplay-music.ogg")
             updateMusic()
         }
     }
 
     GameEngine {
         id: gameEngine
-        dataDir: "file:" + dataDirectory
+        dataDir: dataDirectory
         Component.onCompleted: {
             updateMusic()
         }

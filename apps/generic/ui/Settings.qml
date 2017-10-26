@@ -35,7 +35,7 @@ Page {
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
             sourceSize: Qt.size(parent.width, 0)
-            source: Qt.resolvedUrl("file:" + dataDirectory + "/backgrounds/menu-background.jpg")
+            source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
         Flickable {
@@ -64,7 +64,7 @@ Page {
                     id: restartImage
                     anchors.fill: parent
                     anchors.margins: 1
-                    source: "file:" + dataDirectory + "/images/restart.png"
+                    source: dataDirectory + "/images/restart.png"
                 }
 
                 MouseArea {
@@ -100,7 +100,7 @@ Page {
                         Image {
                             anchors.fill: parent
                             anchors.margins: 1
-                            source: "file:" + dataDirectory + "/images/plus.png"
+                            source: dataDirectory + "/images/plus.png"
                         }
 
                         MouseArea {
@@ -158,7 +158,7 @@ Page {
                         Image {
                             anchors.fill: parent
                             anchors.margins: 1
-                            source: "file:" + dataDirectory + "/images/plus.png"
+                            source: dataDirectory + "/images/plus.png"
                         }
 
                         MouseArea {
@@ -215,7 +215,7 @@ Page {
                         Image {
                             anchors.fill: parent
                             anchors.margins: 1
-                            source: "file:" + dataDirectory + "/images/plus.png"
+                            source: dataDirectory + "/images/plus.png"
                         }
 
                         MouseArea {
@@ -275,7 +275,7 @@ Page {
                         Image {
                             anchors.fill: parent
                             anchors.margins: 1
-                            source: "file:" + dataDirectory + "/images/plus.png"
+                            source: dataDirectory + "/images/plus.png"
                         }
 
                         MouseArea {

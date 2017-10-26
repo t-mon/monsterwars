@@ -34,7 +34,7 @@ Page {
             anchors.fill: parent
             fillMode: Image.PreserveAspectCrop
             sourceSize: Qt.size(parent.width, 0)
-            source: Qt.resolvedUrl("file:" + dataDirectory + "/backgrounds/menu-background.jpg")
+            source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
         }
 
 
@@ -54,7 +54,7 @@ Page {
             Image {
                 id: playButtonMonster
                 anchors.fill: parent
-                source: "file:" + dataDirectory + "/images/play-button.png"
+                source: dataDirectory + "/images/play-button.png"
             }
 
             Text {
@@ -137,7 +137,7 @@ Page {
             id: muteImage
             anchors.fill: parent
             anchors.margins: width / 5
-            source: gameEngine.playerSettings.muted ? "file:" + dataDirectory + "/images/unmute.png" : "file:" + dataDirectory + "/images/mute.png"
+            source: gameEngine.playerSettings.muted ? dataDirectory + "/images/unmute.png" : dataDirectory + "/images/mute.png"
         }
 
         MouseArea {
@@ -164,7 +164,7 @@ Page {
             id: settingsImage
             anchors.fill: parent
             anchors.margins: width / 7
-            source: "file:" + dataDirectory + "/images/settings.png"
+            source: dataDirectory + "/images/settings.png"
         }
 
         MouseArea {
@@ -189,7 +189,7 @@ Page {
             id: closeIcon
             anchors.fill: parent
             anchors.margins: width / 5
-            source: "file:" + dataDirectory + "/images/close-white.png"
+            source: dataDirectory + "/images/close-white.png"
         }
 
         MouseArea {

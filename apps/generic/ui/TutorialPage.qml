@@ -36,7 +36,7 @@ Page {
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
         sourceSize: Qt.size(parent.width, 0)
-        source: Qt.resolvedUrl("file:" + dataDirectory + "/backgrounds/menu-background.jpg")
+        source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
     }
 
 

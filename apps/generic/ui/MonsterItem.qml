@@ -76,8 +76,8 @@ Item {
                 anchors.fill: monsterItem
                 anchors.centerIn: monsterItem
 
-                property string monsterSource: "file:" + dataDirectory + "/monsters/monster-" + monsterType + "-" + monsterColor + ".png"
-                property string monsterBlinkSource: "file:" + dataDirectory + "/monsters/monster-" + monsterType + "-" + monsterColor + "-blink.png"
+                property string monsterSource: dataDirectory + "/monsters/monster-" + monsterType + "-" + monsterColor + ".png"
+                property string monsterBlinkSource: dataDirectory + "/monsters/monster-" + monsterType + "-" + monsterColor + "-blink.png"
 
                 Binding {
                     target: imageSprite.item
@@ -142,7 +142,7 @@ Item {
 
                 Image {
                     id: valuePillow
-                    source: "file:" + dataDirectory + "/monsters/pillow.png"
+                    source: dataDirectory + "/monsters/pillow.png"
                     anchors.fill: parent
                 }
 
@@ -206,7 +206,7 @@ Item {
             Image {
                 id: impactCloudImage
                 anchors.fill: parent
-                source: "file:" + dataDirectory + "/images/cloud.png"
+                source: dataDirectory + "/images/cloud.png"
             }
         }
 

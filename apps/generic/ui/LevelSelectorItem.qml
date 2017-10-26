@@ -44,7 +44,7 @@ Item {
             opacity: unlocked ? 0.8 : 0.3
             anchors.margins: 10
             sourceSize: Qt.size(parent.width, parent.height)
-            source: Qt.resolvedUrl("file:" + dataDirectory + "/levels/level" + levelId + "/preview.png")
+            source: Qt.resolvedUrl(dataDirectory + "/levels/level" + levelId + "/preview.png")
         }
 
         Text {
@@ -66,7 +66,7 @@ Item {
             anchors.centerIn: parent
             height: parent.height * 2 / 3
             width: height
-            source: "file:" + dataDirectory + "/images/lock.png"
+            source: dataDirectory + "/images/lock.png"
         }
 
         Text {

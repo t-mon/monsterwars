@@ -38,7 +38,7 @@ Item{
             anchors.centerIn: parent
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: "file:" + dataDirectory + "/monsters/pillow.png"
+            source: dataDirectory + "/monsters/pillow.png"
         }
 
         Behavior on x {
@@ -116,7 +116,7 @@ Item{
             goalSprite: "still"
             Sprite{
                 name: "still"
-                source: "file:" + dataDirectory + "/monsters/monster-defense-white.png"
+                source: dataDirectory + "/monsters/monster-defense-white.png"
                 frameCount: 6
                 frameWidth: 200
                 frameHeight: 200
@@ -124,7 +124,7 @@ Item{
             }
             Sprite{
                 name: "blink"
-                source: "file:" + dataDirectory + "/monsters/monster-defense-white-blink.png"
+                source: dataDirectory + "/monsters/monster-defense-white-blink.png"
                 frameCount: 6
                 frameWidth: 200
                 frameHeight: 200

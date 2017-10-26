@@ -43,7 +43,7 @@ Item {
 
                 Sprite{
                     name: "still"
-                    source: "file:" + dataDirectory + "/monsters/monster-" + type + "-white.png"
+                    source: dataDirectory + "/monsters/monster-" + type + "-white.png"
                     frameCount: 6
                     frameWidth: 200
                     frameHeight: 200
@@ -52,7 +52,7 @@ Item {
 
                 Sprite{
                     name: "blink"
-                    source: "file:" + dataDirectory + "/monsters/monster-" + type + "-white-blink.png"
+                    source: dataDirectory + "/monsters/monster-" + type + "-white-blink.png"
                     frameCount: 6
                     frameWidth: 200
                     frameHeight: 200

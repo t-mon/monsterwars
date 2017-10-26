@@ -51,7 +51,7 @@ Item {
             anchors.fill: parent
             sourceSize.width: parent.width
             sourceSize.height: parent.height
-            source: "file:" + dataDirectory + "/monsters/pillow.png"
+            source: dataDirectory + "/monsters/pillow.png"
         }
 
         RotationAnimator {

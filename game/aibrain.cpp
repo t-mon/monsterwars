@@ -68,7 +68,7 @@ void AiBrain::calculateAttack()
     if (myMonsters.count() >= 2) {
         QList<Monster *> multipleAttackMonsters;
         // take the two monsters with the highest count
-        qSort(myMonsters.begin(), myMonsters.end(), compareMonsterValue);
+        std::sort(myMonsters.begin(), myMonsters.end(), compareMonsterValue);
         multipleAttackMonsters.append(myMonsters.at(0));
         multipleAttackMonsters.append(myMonsters.at(1));
         foreach (Monster *enemyMonster, enemyMonsters) {
@@ -85,37 +85,37 @@ void AiBrain::calculateAttack()
     QList<VirtualAttack *> bestOfEachHeuristic;
 
     // get shortest distance attack
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDistance);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareDistance);
     VirtualAttack *shortestDistanceAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(shortestDistanceAttack);
 
     // get attack with highest pillow value
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareSourceValue);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareSourceValue);
     VirtualAttack *highestSourceAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(highestSourceAttack);
 
     // weakest enemy attack
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValue);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValue);
     VirtualAttack *weakestTargetAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(weakestTargetAttack);
 
     // smallest destination value after attack
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValueAfterImpact);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationValueAfterImpact);
     VirtualAttack *smallestTargetValueAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(smallestTargetValueAttack);
 
     // highest percentage after attack
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), comparePercentageAfterImpact);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), comparePercentageAfterImpact);
     VirtualAttack *highestPercentageValueAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(highestPercentageValueAttack);
 
     // size of target monster
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationSize);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareDestinationSize);
     VirtualAttack *biggestTargetAttack = possibleAttacks.first();
     bestOfEachHeuristic.append(biggestTargetAttack);
 
     // monster can be conquerd
-    qSort(possibleAttacks.begin(), possibleAttacks.end(), compareConquere);
+    std::sort(possibleAttacks.begin(), possibleAttacks.end(), compareConquere);
     VirtualAttack *canConquerAttack = possibleAttacks.first();
     // add it twice to because conquer is verry important
     bestOfEachHeuristic.append(canConquerAttack);

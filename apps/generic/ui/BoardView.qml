@@ -77,7 +77,7 @@ Page {
                 anchors.fill: parent
                 fillMode: Image.PreserveAspectCrop
                 sourceSize: Qt.size(parent.width, 0)
-                source: Qt.resolvedUrl("file:" + dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg")
+                source: Qt.resolvedUrl(dataDirectory + "/levels/level" + gameEngine.board.levelId + "/background.jpg")
             }
 
             Rectangle {
@@ -166,7 +166,7 @@ Page {
                 Image {
                     id: pauseIcon
                     anchors.fill: parent
-                    source: "file:" + dataDirectory + "/images/pause.png"
+                    source: dataDirectory + "/images/pause.png"
                 }
 
                 MouseArea {
