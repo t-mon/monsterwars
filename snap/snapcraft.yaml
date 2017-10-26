@@ -8,13 +8,19 @@ confinement: strict
 
 apps:
   monsterwars:
-    command: desktop-launch $SNAP/lib/*/bin/monsterwars
+    command: qt5-launch $SNAP/usr/bin/monsterwars -d $SNAP/usr/share/monsterwars
     plugs:
      - opengl
      - pulseaudio
      - x11
 
 parts:
+  qt5-launch:
+    plugin: dump
+    source: .
+    organize:
+      qt5-launch: bin/
+
   monsterwars:
     build-packages:
      - intltool
@@ -23,11 +29,10 @@ parts:
      - qtdeclarative5-dev
     plugin: qmake
     source: ../  # https://github.com/t-mon/monsterwars
+    qt-version: qt5
     stage-packages:
      - gstreamer1.0-plugins-good
      - gstreamer1.0-pulseaudio
      - qml-module-qtmultimedia
      - qml-module-qtquick2
      - qml-module-qtquick-layouts
-    qt-version: qt5
-    after: [desktop-qt5]
