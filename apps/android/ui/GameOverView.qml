@@ -24,7 +24,7 @@ import MonsterWars 1.0
 Item {
     id: root
     visible: false
-    property real buttonSize: 20
+    property real buttonSize: app.unitSize * 6
 
     Rectangle {
         id: backgroundRectangle
@@ -50,7 +50,7 @@ Item {
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: parent.top
-                topMargin: 5
+                topMargin: app.unitSize * 3
             }
             visible: gameEngine.newHighScore
             // TRANSLATORS: In the game over view, if you reached a new high score
@@ -59,7 +59,7 @@ Item {
             styleColor: "steelblue"
             font.weight: Font.DemiBold
             font.bold: true
-            font.pixelSize: 20
+            font.pixelSize: app.unitSize * 7
         }
 
         SequentialAnimation {
@@ -89,9 +89,9 @@ Item {
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: newHighscoreText.bottom
-                topMargin: 5
+                topMargin: app.unitSize * 5
             }
-            spacing: 5
+            spacing: app.unitSize * 5
 
             Text {
                 id: winnerText
@@ -100,7 +100,7 @@ Item {
                 // TRANSLATORS: Inform the player if he won or lost the game in the game over view
                 text: gameEngine.winnerId == 1 ? qsTr("You won!") : qsTr("You lost.")
                 font.bold: true
-                font.pixelSize: 20
+                font.pixelSize: app.unitSize * 6
             }
 
             Text {
@@ -110,7 +110,7 @@ Item {
                 visible: gameEngine.winnerId == 1
                 text: gameEngine.gameTime
                 font.bold: true
-                font.pixelSize: 20
+                font.pixelSize: app.unitSize * 3
             }
         }
 
@@ -119,9 +119,9 @@ Item {
             width: buttonSize
             height: buttonSize
             anchors.left: parent.left
-            anchors.leftMargin: 5
+            anchors.leftMargin: app.unitSize * 5
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
+            anchors.bottomMargin: app.unitSize * 5
             color: "black"
             radius: width / 2
             border.color: "white"
@@ -130,7 +130,7 @@ Item {
             Image {
                 id: restartImage
                 anchors.fill: parent
-                anchors.margins: 1
+                anchors.margins: app.unitSize
                 source: dataDirectory + "/images/restart.png"
             }
 
@@ -149,7 +149,7 @@ Item {
             height: buttonSize
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
+            anchors.bottomMargin: app.unitSize * 5
             color: "black"
             radius: width / 2
             border.color: "white"
@@ -158,7 +158,7 @@ Item {
             Image {
                 id: settingsImage
                 anchors.fill: parent
-                anchors.margins: 5
+                anchors.margins: app.unitSize * 5
                 source: dataDirectory + "/images/settings.png"
             }
 
@@ -195,7 +195,7 @@ Item {
             id: plusOneText
             anchors.verticalCenter: settingsButton.verticalCenter
             anchors.left: settingsButton.right
-            anchors.leftMargin: 5
+            anchors.leftMargin: app.unitSize * 5
             color: "white"
             text: "+1"
             style: Text.Outline
@@ -232,9 +232,9 @@ Item {
             width: buttonSize
             height: buttonSize
             anchors.right: parent.right
-            anchors.rightMargin: 5
+            anchors.rightMargin: app.unitSize * 5
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 5
+            anchors.bottomMargin: app.unitSize * 5
             color: "black"
             radius: width / 2
             border.color: "white"
@@ -243,7 +243,7 @@ Item {
             Image {
                 id: okImage
                 anchors.fill: parent
-                anchors.margins: 1
+                anchors.margins: app.unitSize
                 source: dataDirectory + "/images/ok.png"
             }
 

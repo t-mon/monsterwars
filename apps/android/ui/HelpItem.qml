@@ -28,11 +28,12 @@ Item {
 
     Row {
         anchors.fill: parent
-        spacing: 5
+        spacing: app.unitSize * 5
+
         Rectangle {
             id: imageRectangle
             color: "transparent"
-            width: 15
+            width: app.unitSize * 15
             height: width
 
             SpriteSequence {
@@ -94,7 +95,7 @@ Item {
             font.weight: Font.DemiBold
             style: Text.Outline
             styleColor: "white"
-            font.pixelSize: 4
+            font.pixelSize: app.unitSize * 4
         }
     }
 

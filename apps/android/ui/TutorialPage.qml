@@ -26,10 +26,6 @@ import QtQuick.Layouts 1.1
 
 Page {
     id: root
-    head {
-        visible: false
-        locked: true
-    }
 
     Image {
         id: backgroundImage

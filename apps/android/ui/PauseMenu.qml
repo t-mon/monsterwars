@@ -24,7 +24,7 @@ import MonsterWars 1.0
 Item {
     id: root
     visible: false
-    property real buttonSize: 30
+    property real buttonSize: app.unitSize * 6
 
     Rectangle {
         id: backgroundRectangle
@@ -45,8 +45,8 @@ Item {
         id: menuRectangle
         color: "black"
         anchors.fill: parent
-        anchors.margins: 20
-        radius: 10
+        anchors.margins: app.unitSize * 4
+        radius: app.unitSize * 3
 
         Column {
             id: pauseMenuColumn
@@ -54,20 +54,20 @@ Item {
 
             Rectangle {
                 height: menuRectangle.height / 3
-                width: menuRectangle.width - 20
+                width: menuRectangle.width - app.unitSize * 3
                 anchors.left: parent.left
-                anchors.leftMargin: 10
+                anchors.leftMargin: app.unitSize * 3
                 color: "transparent"
                 Text {
                     anchors {
                         left: parent.left
-                        leftMargin: 10
+                        leftMargin: app.unitSize * 3
                         verticalCenter: parent.verticalCenter
                     }
                     // TRANSLATORS: The "Continue" button in the pause menu
                     text: qsTr("Continue")
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: app.unitSize * 4
                     color: continueMouseArea.pressed ? "steelblue" : "white"
                 }
                 MouseArea {
@@ -82,20 +82,20 @@ Item {
 
             Rectangle {
                 height: menuRectangle.height / 3
-                width: menuRectangle.width - 20
+                width: menuRectangle.width - app.unitSize * 3
                 anchors.left: parent.left
-                anchors.leftMargin: 10
+                anchors.leftMargin: app.unitSize * 3
                 color: "transparent"
                 Text {
                     anchors {
                         left: parent.left
-                        leftMargin: 10
+                        leftMargin: app.unitSize * 3
                         verticalCenter: parent.verticalCenter
                     }
                     // TRANSLATORS: The "Restart" button in the pause menu
                     text: qsTr("Restart")
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: app.unitSize * 4
                     color: settingsLevelMouseArea.pressed ? "steelblue" : "white"
                 }
                 MouseArea {
@@ -110,22 +110,22 @@ Item {
 
             Rectangle {
                 height: menuRectangle.height / 3
-                width: menuRectangle.width - 20
+                width: menuRectangle.width - app.unitSize * 3
                 anchors {
                     left: parent.left
-                    leftMargin: 10
+                    leftMargin: app.unitSize * 3
                 }
                 color: "transparent"
                 Text {
                     anchors {
                         left: parent.left
-                        leftMargin: 10
+                        leftMargin: app.unitSize * 3
                         verticalCenter: parent.verticalCenter
                     }
                     // TRANSLATORS: The "Level selection" button in the pause menu
                     text: qsTr("Level selection")
                     font.bold: true
-                    font.pixelSize: 20
+                    font.pixelSize: app.unitSize * 4
                     color: selectLevelMouseArea.pressed ? "steelblue" : "white"
                 }
                 MouseArea {
@@ -145,9 +145,9 @@ Item {
             width: buttonSize
             height: width
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: app.unitSize * 3
             anchors.top: parent.top
-            anchors.topMargin: 10
+            anchors.topMargin: app.unitSize * 5
             color: "black"
             radius: width / 2
             border.color: "white"
@@ -175,9 +175,9 @@ Item {
             width: buttonSize
             height: width
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: app.unitSize * 3
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: app.unitSize * 5
             color: "black"
             radius: width / 2
             border.color: "white"
@@ -202,7 +202,7 @@ Item {
             width: buttonSize
             height: width
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: app.unitSize * 3
             anchors.verticalCenter: parent.verticalCenter
             color: "black"
             radius: width / 2

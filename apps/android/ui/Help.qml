@@ -44,17 +44,17 @@ Page {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.margins: 2
+            anchors.margins: app.unitSize * 3
             contentHeight: columnLayout.height
 
             ColumnLayout {
                 id: columnLayout
-                spacing: 4
+                spacing: app.unitSize * 4
 
                 HelpItem {
                     id: normalItem
                     width: parent.width
-                    height: 15
+                    height: app.unitSize * 15
                     type: "normal"
                     // TRANSLATORS: Description of the monster type "Normal" in the help view, which has no special power or properties
                     description: qsTr("Normal")
@@ -63,7 +63,7 @@ Page {
                 HelpItem {
                     id: defenseItem
                     width: parent.width
-                    height: 15
+                    height: app.unitSize * 15
                     type: "defense"
                     // TRANSLATORS: Description of the monster type "Defense" in the help view, which has + 4 defense points
                     description: qsTr("Defense") + " + 4"
@@ -72,7 +72,7 @@ Page {
                 HelpItem {
                     id: speedItem
                     width: parent.width
-                    height: 15
+                    height: app.unitSize * 15
                     type: "speed"
                     // TRANSLATORS: Description of the monster type "Speed" in the help view, which has + 4 speed points
                     description: qsTr("Speed") + " + 4"
@@ -81,7 +81,7 @@ Page {
                 HelpItem {
                     id: strengthItem
                     width: parent.width
-                    height: 15
+                    height: app.unitSize * 15
                     type: "strength"
                     // TRANSLATORS: Description of the monster type "Strength" in the help view, which has + 4 strength points
                     description: qsTr("Strength") + " + 4"
@@ -90,24 +90,24 @@ Page {
                 HelpItem {
                     id: reproductionItem
                     width: parent.width
-                    height: 15
+                    height: app.unitSize * 15
                     type: "reproduction"
                     // TRANSLATORS: Description of the monster type "Reproduction" in the help view, which has + 4 reproduction points
                     description: qsTr("Reproduction") + " + 4"
                 }
 
                 Row {
-                    spacing: 5
+                    spacing: app.unitSize * 5
                     Rectangle {
                         id: pillowRectangle
                         color: "transparent"
-                        width: 15
+                        width: app.unitSize * 15
                         height: width
 
                         Image {
                             id: pillowImage
                             anchors.fill: parent
-                            anchors.margins: 3
+                            anchors.margins: app.unitSize * 3
                             source: dataDirectory + "/monsters/pillow.png"
                         }
 
@@ -149,7 +149,7 @@ Page {
                         font.weight: Font.DemiBold
                         style: Text.Outline
                         styleColor: "white"
-                        font.pixelSize: 4
+                        font.pixelSize: app.unitSize * 4
                     }
                 }
             }
@@ -157,7 +157,7 @@ Page {
 
         MenuBar {
             id: menuBar
-            height: 20
+            height: app.unitSize * 5
             anchors {
                 left: parent.left
                 right: parent.right

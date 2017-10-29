@@ -36,8 +36,6 @@ Item {
         anchors.margins: app.unitSize * 2
         color: "black"
         radius: height / 8
-        //border.color: levelMouseArea.pressed && unlocked ? "steelblue" : "gray"
-        //border.width: 5
 
         Image {
             id: img
@@ -68,13 +66,13 @@ Item {
             id: levelTimeText
             visible: unlocked
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 1
+            anchors.bottomMargin: app.unitSize
             anchors.horizontalCenter: parent.horizontalCenter
             text: bestTime
             font.bold: true
             style: Text.Outline
             styleColor: "black"
-            font.pixelSize: app.unitSize * 1
+            font.pixelSize: app.unitSize * 2
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
         }
 

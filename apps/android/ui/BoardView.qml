@@ -143,8 +143,8 @@ Page {
                 anchors.leftMargin: width / 2
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: width / 2
-                width: 20
-                height: 20
+                width: app.unitSize * 4
+                height: width
                 color: "transparent"
                 opacity: 0.6
                 radius: 1
