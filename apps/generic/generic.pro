@@ -4,6 +4,8 @@ INCLUDEPATH += ../../game/
 
 TARGET = monsterwars
 
+QT += qml quick
+
 # Install data
 data.files = ../../data
 data.path = /usr/share/monsterwars

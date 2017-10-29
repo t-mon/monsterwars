@@ -21,8 +21,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
-import QtMultimedia 5.9
-
+import QtMultimedia 5.0
 
 import MonsterWars 1.0
 
@@ -31,16 +30,13 @@ ApplicationWindow {
     width: 480
     height: 320
     visible: true
-
-//    Component.onCompleted: {
-//        if (fullscreen == true) {
-//            showFullScreen()
-//        }
-//    }
+    title: "Monster Wars"
 
     property string green: "#00c500"
     property string blue: "#0083c7"
     property string red: "#c12600"
+
+    property real unitSize: Math.min(app.width / gameEngine.columns, app.height / gameEngine.rows)
 
     Audio {
         id: musicPlayer
@@ -61,17 +57,21 @@ ApplicationWindow {
             musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/menu-music.ogg")
             updateMusic()
         }
+
         onGamePaused: {
             musicPlayer.volume = musicPlayer.volume / 2
         }
+
         onGameOver: {
             musicPlayer.stop()
             musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/menu-music.ogg")
             updateMusic()
         }
+
         onGameContinue: {
             musicPlayer.volume = musicPlayer.volume * 2
         }
+
         onGameRestarted: {
             musicPlayer.stop()
             musicPlayer.source = Qt.resolvedUrl(dataDirectory + "/sounds/gameplay-music.ogg")
@@ -105,5 +105,6 @@ ApplicationWindow {
         anchors.fill: parent
         Component.onCompleted: push(Qt.resolvedUrl("MainMenu.qml"))
     }
+
 }
 

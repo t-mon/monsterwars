@@ -23,6 +23,7 @@
 #include <QIcon>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QQuickView>
 #include <QtQml>
 #include <QtQml/QQmlContext>
 
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     app.setApplicationVersion("1.0.0");
+    app.setApplicationName("Monster Wars");
     app.setApplicationDisplayName("Monster Wars");
 
     // register qml types
@@ -51,15 +53,21 @@ int main(int argc, char *argv[])
     qmlRegisterUncreatableType<Player>("MonsterWars", 1, 0, "Player", "Can't create this in QML. Get it from Board.");
     qmlRegisterUncreatableType<PlayerSettings>("MonsterWars", 1, 0, "PlayerSettings", "Can't create this in QML. Get it from GameEngine.");
 
+
+    //    QQuickView view;
+    //    view.engine()->rootContext()->setContextProperty("dataDirectory", "assets:");
+    //    view.engine()->rootContext()->setContextProperty("fullscreen", true);
+    //    view.engine()->rootContext()->setContextProperty("version", app.applicationVersion());
+    //    view.engine()->addImportPath("qrc:/");
+    //    view.setSource(QUrl(QStringLiteral("qrc:/main.qml")));
+    //    view.showFullScreen();
+
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("dataDirectory", "assert:");
+    engine.rootContext()->setContextProperty("dataDirectory", "assets:");
     engine.rootContext()->setContextProperty("fullscreen", true);
     engine.rootContext()->setContextProperty("version", app.applicationVersion());
 
-    engine.load(QUrl(QLatin1String("qrc:/MonsterWars.qml")));
-
-    // connect quit signal from QML engine (quit button pressed)
-    //QObject::connect(engine, SIGNAL(quit()), qApp, SLOT(quit()));
+    engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
     return app.exec();
 }

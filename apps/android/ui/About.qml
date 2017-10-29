@@ -58,71 +58,68 @@ Page {
 
             ColumnLayout {
                 id: columnLayout
-                width: parent.width
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+
                 spacing: app.unitSize * 2
 
-                Column {
-                    spacing: app.unitSize * 2
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Text {
-                        text: "Monster Wars"
-                        font.weight: Font.DemiBold
-                        font.bold: true
-                        style: Text.Outline
-                        styleColor: "steelblue"
-                        font.pixelSize: app.unitSize * 6
-                    }
-
-                    Text {
-                        anchors.left: parent.left
-                        anchors.leftMargin: 2
-                        // TRANSLATORS: The "version" of the application
-                        text: qsTr("Version:") + " " + version
-                        font.weight: Font.DemiBold
-                        font.pixelSize: titleSize
-                    }
+                Text {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: "Monster Wars"
+                    font.weight: Font.DemiBold
+                    font.bold: true
+                    style: Text.Outline
+                    styleColor: "steelblue"
+                    font.pixelSize: app.unitSize * 6
                 }
 
-                Column {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    spacing: app.unitSize *2
+                Text {
+                    Layout.alignment: Qt.AlignHCenter
+                    // TRANSLATORS: The "version" of the application
+                    text: qsTr("Version:") + " " + version
+                    font.weight: Font.DemiBold
+                    font.pixelSize: titleSize
+                }
+
+                Text {
+                    // TRANSLATORS: Source code section in the "About" view
+                    Layout.alignment: Qt.AlignHCenter
+                    text: qsTr("Enjoying the game?")
+                    font.weight: Font.DemiBold
+                    style: Text.Outline
+                    styleColor: "white"
+                    font.pixelSize: titleSize
+                }
+
+                Rectangle {
+                    id: donateButton
+                    height: app.unitSize * 12
+                    width: app.unitSize * 30
+                    Layout.alignment: Qt.AlignHCenter
+
+                    color: "transparent"
+                    Image {
+                        id: donateButtonMonster
+                        anchors.fill: parent
+                        source: dataDirectory + "/images/donate-button.png"
+                    }
+
                     Text {
-                        // TRANSLATORS: Source code section in the "About" view
-                        text: qsTr("Enjoying the game?")
-                        font.weight: Font.DemiBold
-                        style: Text.Outline
-                        styleColor: "white"
-                        font.pixelSize: titleSize
+                        anchors.centerIn: parent
+                        // TRANSLATORS: The "Donate" button in the main menu
+                        text: qsTr("Donate")
+                        font.bold: true
+                        font.pixelSize: textSize
+                        color: donateButtonMouseArea.pressed ? "steelblue" : "white"
                     }
 
-
-                    Rectangle {
-                        id: donateButton
-                        height: app.unitSize * 12
-                        width: app.unitSize * 30
-
-                        color: "transparent"
-                        Image {
-                            id: donateButtonMonster
-                            anchors.fill: parent
-                            source: dataDirectory + "/images/donate-button.png"
-                        }
-
-                        Text {
-                            anchors.centerIn: parent
-                            // TRANSLATORS: The "Donate" button in the main menu
-                            text: qsTr("Donate")
-                            font.bold: true
-                            font.pixelSize: textSize
-                            color: donateButtonMouseArea.pressed ? "steelblue" : "white"
-                        }
-
-                        MouseArea {
-                            id: donateButtonMouseArea
-                            anchors.fill: parent
-                            onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZLY4J8HCNEDE2")
-                        }
+                    MouseArea {
+                        id: donateButtonMouseArea
+                        anchors.fill: parent
+                        onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZLY4J8HCNEDE2")
                     }
+
                     SequentialAnimation {
                         id: donateButtonAnimation
                         ScaleAnimator {
@@ -147,6 +144,7 @@ Page {
 
                 Row {
                     spacing: app.unitSize * 2
+                    Layout.alignment: Qt.AlignHCenter
                     Text {
                         // TRANSLATORS: "Author" section in the "About" view
                         text: qsTr("Author")
@@ -164,6 +162,7 @@ Page {
                 }
 
                 Row {
+                    Layout.alignment: Qt.AlignHCenter
                     spacing: app.unitSize * 2
                     Text {
                         // TRANSLATORS: Design section in the "About" view

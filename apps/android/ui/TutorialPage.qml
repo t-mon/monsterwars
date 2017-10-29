@@ -19,12 +19,17 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.0
-
 import MonsterWars 1.0
+import QtQuick.Controls 2.0
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.1
 
 Page {
-    id: levelSelectorPage
+    id: root
+    head {
+        visible: false
+        locked: true
+    }
 
     Image {
         id: backgroundImage
@@ -34,45 +39,15 @@ Page {
         source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
     }
 
-    GridView {
-        id: levelGrid
-
-        cellWidth: app.unitSize * 35
-        cellHeight: app.unitSize * 21
-
-        model: gameEngine.levels
-        anchors {
-            top: menuBar.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-
-        delegate: LevelSelectorItem {
-            width: levelGrid.cellWidth
-            height: levelGrid.cellHeight
-            name: model.levelName
-            levelId: model.levelId
-            bestTime: model.bestTime
-            unlocked: model.unlocked
-            onSelected: {
-                pageStack.push(Qt.resolvedUrl("BoardView.qml"))
-                gameEngine.startGame(model.levelId)
-            }
-        }
-    }
 
     MenuBar {
         id: menuBar
-        height: app.unitSize * 5
+        height: 4
         anchors {
             left: parent.left
             right: parent.right
             top: parent.top
         }
-        // TRANSLATORS: The title of the "Level selection" view
-        menuTitle: qsTr("Level selection")
+        menuTitle: qsTr("Tutorial")
     }
 }
-
-

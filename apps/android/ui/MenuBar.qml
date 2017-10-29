@@ -19,60 +19,58 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.0
-
 import MonsterWars 1.0
 
-Page {
-    id: levelSelectorPage
+Item{
+    id: root
+    property string menuTitle
+    signal closeClicked()
 
-    Image {
-        id: backgroundImage
+    Rectangle {
+        id: toolBar
         anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
-        sourceSize: Qt.size(parent.width, 0)
-        source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
-    }
+        color: "black"
 
-    GridView {
-        id: levelGrid
-
-        cellWidth: app.unitSize * 35
-        cellHeight: app.unitSize * 21
-
-        model: gameEngine.levels
-        anchors {
-            top: menuBar.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
+        Text {
+            text: menuTitle
+            color: "white"
+            font.bold: true
+            font.pixelSize: root.height * 3 / 4
+            anchors {
+                left: parent.left
+                leftMargin: root.height / 2
+                horizontalCenter: parent.horizontalCenter
+            }
         }
 
-        delegate: LevelSelectorItem {
-            width: levelGrid.cellWidth
-            height: levelGrid.cellHeight
-            name: model.levelName
-            levelId: model.levelId
-            bestTime: model.bestTime
-            unlocked: model.unlocked
-            onSelected: {
-                pageStack.push(Qt.resolvedUrl("BoardView.qml"))
-                gameEngine.startGame(model.levelId)
+        Rectangle {
+            id: exitRectangle
+            anchors {
+                right: toolBar.right
+                rightMargin: root.height  / 2
+                verticalCenter: toolBar.verticalCenter
+            }
+
+            height: toolBar.height
+            width: height
+
+            color: "transparent"
+            radius: 1
+
+            Image {
+                id: closeIcon
+                anchors.fill: parent
+                anchors.margins: root.height / 6
+                source: dataDirectory + "/images/close-white.png"
+            }
+
+            MouseArea {
+                anchors.fill: exitRectangle
+                onClicked: {
+                    pageStack.pop()
+                    closeClicked()
+                }
             }
         }
     }
-
-    MenuBar {
-        id: menuBar
-        height: app.unitSize * 5
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-        }
-        // TRANSLATORS: The title of the "Level selection" view
-        menuTitle: qsTr("Level selection")
-    }
 }
-
-

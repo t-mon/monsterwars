@@ -6,7 +6,7 @@ android {
     SUBDIRS += android
 }
 
-generic {
+!android {
     message("Building generic version")
     SUBDIRS += generic    
 }

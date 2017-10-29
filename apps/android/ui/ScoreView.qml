@@ -19,60 +19,45 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.7
-import QtQuick.Controls 2.0
-
 import MonsterWars 1.0
 
-Page {
-    id: levelSelectorPage
+Item {
+    id: root
+    property var players
 
-    Image {
-        id: backgroundImage
+    Rectangle {
+        id: background
         anchors.fill: parent
-        fillMode: Image.PreserveAspectCrop
-        sourceSize: Qt.size(parent.width, 0)
-        source: Qt.resolvedUrl(dataDirectory + "/backgrounds/menu-background.jpg")
+        color: "black"
     }
 
-    GridView {
-        id: levelGrid
+    Row {
+        id: pointRow
+        Repeater {
+            model: players
+            delegate: Rectangle {
+                height: root.height
+                anchors.topMargin: root.height / 10
+                anchors.bottomMargin: root.height / 10
+                width: root.width * model.percentage
+                visible: model.pointCount == 0 ? false : true
+                color: model.colorString == "green" ? app.green : model.colorString == "red" ? app.red : model.colorString == "blue" ? app.blue : "white"
+                Text {
+                    anchors.centerIn: parent
+                    text: model.pointCount + " | " + Math.round(model.percentage * 100) + "%"
+                    font.bold: true
+                    font.pixelSize: root.height / 2
+                }
 
-        cellWidth: app.unitSize * 35
-        cellHeight: app.unitSize * 21
-
-        model: gameEngine.levels
-        anchors {
-            top: menuBar.bottom
-            left: parent.left
-            right: parent.right
-            bottom: parent.bottom
-        }
-
-        delegate: LevelSelectorItem {
-            width: levelGrid.cellWidth
-            height: levelGrid.cellHeight
-            name: model.levelName
-            levelId: model.levelId
-            bestTime: model.bestTime
-            unlocked: model.unlocked
-            onSelected: {
-                pageStack.push(Qt.resolvedUrl("BoardView.qml"))
-                gameEngine.startGame(model.levelId)
+                Behavior on width {
+                    NumberAnimation {
+                        duration: 500
+                        easing.type: Easing.OutQuad
+                    }
+                }
             }
         }
     }
 
-    MenuBar {
-        id: menuBar
-        height: app.unitSize * 5
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-        }
-        // TRANSLATORS: The title of the "Level selection" view
-        menuTitle: qsTr("Level selection")
-    }
 }
-
 

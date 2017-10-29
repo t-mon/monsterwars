@@ -1,4 +1,4 @@
-QT += qml quick multimedia
+QT += multimedia
 
 QMAKE_CXXFLAGS += -Werror
 CONFIG += c++11

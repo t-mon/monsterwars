@@ -90,6 +90,7 @@ QUrl GameEngine::dataDir() const
 
 void GameEngine::setDataDir(const QUrl &dataDir)
 {
+    qDebug() << "Game: set data directory" << dataDir.toString();
     m_dataDir = dataDir;
     emit dataDirChanged();
     initGameEngine();
@@ -364,7 +365,14 @@ void GameEngine::continueGame()
 
 void GameEngine::loadLevels()
 {
-    QDir dir(m_dataDir.path() + "/levels");
+    QString dirString = m_dataDir.toString();
+    QDir dir;
+    if (dirString.startsWith("file:/")) {
+        dir.setPath(m_dataDir.path() + "/levels");
+    } else {
+        dir.setPath(m_dataDir.toString() + "/levels");
+    }
+
     QStringList levelDirs = dir.entryList(QDir::NoDotAndDotDot | QDir::AllDirs, QDir::Name);
 
     qDebug() << "searching level data in" << dir.path();

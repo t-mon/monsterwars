@@ -28,6 +28,16 @@ Page {
     Rectangle {
         anchors.fill: parent
         color: "black"
+        focus: true
+
+        Keys.onPressed: {
+            console.log("back -> " + event.key);
+
+            if (event.key == Qt.Key_Back) {
+                event.accepted = true
+                console.log("Back button captured")
+            }
+        }
 
         Image {
             id: backgroundImage
@@ -40,13 +50,6 @@ Page {
 
         BackgroundMonsters {
             anchors.fill: parent
-            monsterSize: app.unitSize * 5
-        }
-
-
-        BackgroundMonsters {
-            anchors.fill: parent
-            monsterSize: app.unitSize * 5
         }
 
         Rectangle {
@@ -204,15 +207,4 @@ Page {
             onClicked: Qt.quit()
         }
     }
-
-
-    Rectangle {
-        anchors.left: parent.left
-        anchors.top: parent.top
-
-        width: app.cellSize
-        height: app.cellSize
-        color: "red"
-    }
-
 }

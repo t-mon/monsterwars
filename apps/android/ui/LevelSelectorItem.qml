@@ -74,7 +74,7 @@ Item {
             font.bold: true
             style: Text.Outline
             styleColor: "black"
-            font.pixelSize: 10
+            font.pixelSize: app.unitSize * 1
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
         }
 
@@ -91,7 +91,7 @@ Item {
             anchors.centerIn: parent
             text: levelId
             font.bold: true
-            font.pixelSize: 20
+            font.pixelSize: app.unitSize * 4
             style: Text.Outline
             styleColor: "steelblue"
             color: levelMouseArea.pressed && unlocked ? "steelblue" : "white"
