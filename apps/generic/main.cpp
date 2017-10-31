@@ -22,6 +22,7 @@
 #include <QQmlApplicationEngine>
 #include <QIcon>
 #include <QQuickView>
+#include <QtGlobal>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 #include <QtQml>
@@ -35,8 +36,10 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
+#if QT_VERSION >= 0x050900
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
     QGuiApplication app(argc, argv);
     app.setOrganizationName("monsterwars");
     app.setApplicationVersion("1.0.0");
