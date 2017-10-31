@@ -16,4 +16,4 @@ RESOURCES += ../../ui/ui.qrc
 SOURCES += main.cpp
 
 target.path = /usr/bin/
-INSTALLS += target
+INSTALLS += target data
