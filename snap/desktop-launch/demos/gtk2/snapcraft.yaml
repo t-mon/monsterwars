@@ -1,0 +1,20 @@
+name: gtk2-demo
+version: "0"
+summary: Gtk2 launcher demo
+description: This is using the gtk2 demo
+grade: stable
+confinement: strict
+
+apps:
+  gtk2-demo:
+    command: desktop-launch gtk-demo
+    plugs: [unity7, x11, gsettings, home]
+  gsettings:
+    command: desktop-launch gsettings
+    plugs: [x11, gsettings, home]
+
+parts:
+  gtk2-demo:
+    plugin: nil
+    stage-packages: [gtk2.0-examples, libglib2.0-bin]
+    after: [desktop-gtk2]

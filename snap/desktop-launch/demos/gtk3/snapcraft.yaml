@@ -1,0 +1,21 @@
+name: gtk3-demo
+version: "3.18"
+summary: Gtk3 launcher demo
+description: Use the gtk3 demo to show desktop launcher properties with all
+  librairies included.
+grade: stable
+confinement: strict
+
+apps:
+  gtk3-demo:
+    command: desktop-launch gtk3-demo
+    plugs: [desktop, desktop-legacy, wayland, unity7, gsettings, home]
+  gsettings:
+    command: desktop-launch gsettings
+    plugs: [gsettings]
+
+parts:
+  gtk3-demo:
+    plugin: nil
+    stage-packages: [gtk-3-examples, libglib2.0-bin]
+    after: [desktop-gtk3]

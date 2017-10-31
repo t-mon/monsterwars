@@ -8,26 +8,54 @@ confinement: strict
 
 apps:
   monsterwars:
-    command: desktop-launch $SNAP/lib/*/bin/monsterwars
+    command: desktop-launch $SNAP/usr/bin/monsterwars -d $SNAP/usr/share/monsterwars
     plugs:
      - opengl
      - pulseaudio
      - x11
+     - unity7
 
 parts:
+  desktop-qt5:
+    source: desktop-launch
+    source-subdir: qt
+    plugin: make
+    make-parameters: ["FLAVOR=qt5"]
+    build-packages:
+      - qtbase5-dev
+      - dpkg-dev
+    stage-packages:
+      - libxkbcommon0
+      - ttf-ubuntu-font-family
+      - dmz-cursor-theme
+      - light-themes
+      - adwaita-icon-theme
+      - gnome-themes-standard
+      - shared-mime-info
+      - libqt5gui5
+      - libgdk-pixbuf2.0-0
+      - libqt5svg5 # for loading icon themes which are svg
+      # - appmenu-qt5
+      - locales-all
+      - xdg-user-dirs
+
+
   monsterwars:
+    plugin: qmake
+    source: ../
+    qt-version: qt5
     build-packages:
      - intltool
      - qt5-default
      - qt5-qmake
      - qtdeclarative5-dev
-    plugin: qmake
-    source: ../  # https://github.com/t-mon/monsterwars
+     - qtmultimedia5-dev
     stage-packages:
      - gstreamer1.0-plugins-good
      - gstreamer1.0-pulseaudio
      - qml-module-qtmultimedia
      - qml-module-qtquick2
      - qml-module-qtquick-layouts
-    qt-version: qt5
-    after: [desktop-qt5]
+     - libqt5multimedia5
+     - libqt5multimediaquick-p5
+
