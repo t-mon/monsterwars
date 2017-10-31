@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *                                                                         *
- *  Copyright (C) 2015 Simon Stuerz <stuerz.simon@gmail.com>               *
+ *  Copyright (C) 2015-2017 Simon Stuerz <stuerz.simon@gmail.com>          *
  *                                                                         *
  *  This file is part of Monster Wars.                                     *
  *                                                                         *
@@ -21,7 +21,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
-import QtQuick.Window 2.3
+import QtQuick.Window 2.2
 import QtMultimedia 5.0
 
 
