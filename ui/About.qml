@@ -22,13 +22,13 @@ import QtQuick 2.7
 import MonsterWars 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtGraphicalEffects 1.0
 
 Page {
     id: root
 
     property int titleSize: app.unitSize * 4
     property int textSize: app.unitSize * 3
-
 
     Rectangle {
         id: screenRectangle
@@ -74,12 +74,25 @@ Page {
                     font.pixelSize: app.unitSize * 6
                 }
 
+                Item {
+                    id: iconImage
+                    width: app.unitSize * 10
+                    height: app.unitSize * 10
+                    Layout.alignment: Qt.AlignHCenter
+                    Image {
+                        anchors.fill: parent
+                        fillMode: Image.PreserveAspectCrop
+                        source: Qt.resolvedUrl(dataDirectory + "/icons/monsterwars-512x512.png")
+                    }
+                }
+
+
                 Text {
                     Layout.alignment: Qt.AlignHCenter
                     // TRANSLATORS: The "version" of the application
                     text: qsTr("Version:") + " " + version
                     font.weight: Font.DemiBold
-                    font.pixelSize: titleSize
+                    font.pixelSize: textSize
                 }
 
                 Text {
@@ -89,7 +102,7 @@ Page {
                     font.weight: Font.DemiBold
                     style: Text.Outline
                     styleColor: "white"
-                    font.pixelSize: titleSize
+                    font.pixelSize: textSize
                 }
 
                 Rectangle {

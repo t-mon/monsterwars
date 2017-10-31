@@ -16,10 +16,10 @@
    id="svg4266"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="monsterwars.svg"
-   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/icons/monsterwars-512x512.png"
-   inkscape:export-xdpi="92.160004"
-   inkscape:export-ydpi="92.160004">
+   sodipodi:docname="MonsterWars.svg"
+   inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/MonsterWars-64x64.png"
+   inkscape:export-xdpi="11.52"
+   inkscape:export-ydpi="11.52">
   <defs
      id="defs4268">
     <linearGradient
@@ -52,16 +52,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="251.903"
+     inkscape:cx="144.06922"
      inkscape:cy="174.34599"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="2880"
-     inkscape:window-height="1752"
+     inkscape:window-height="1749"
      inkscape:window-x="0"
-     inkscape:window-y="48"
+     inkscape:window-y="51"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata4271">
@@ -86,11 +86,7 @@
        width="500"
        height="500"
        x="0"
-       y="552.36206"
-       inkscape:export-filename="/home/timon/development/monsterwars/monsterwars/icons/monsterwars-144x144png"
-       inkscape:export-xdpi="25.919996"
-       inkscape:export-ydpi="25.919996"
-       ry="135.86555" />
+       y="552.36206" />
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:9.05289745;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 159.27209,658.83564 -57.34938,4.59833 39.97081,11.14543 -54.414145,13.65191 35.483915,7.0118 -40.479813,22.73699 26.825233,3.17465 -41.49021,33.91507 28.456298,-2.09951 -31.748961,39.78988 27.404326,-3.71038 -26.6756,49.46852 31.020235,-7.15711 -23.117014,50.72117 34.599266,-17.59364 -17.176961,47.74546 29.590231,-23.14582 -7.2303,63.36448 28.02251,-38.43678 c 0,0 3.41022,44.14565 3.49997,55.39281 0.027,3.38984 28.88762,-33.02604 28.88762,-33.02604 l 14.78278,50.44822 20.48189,-34.76756 23.35598,35.77242 21.91456,-31.30395 29.13681,30.7772 17.73935,-39.11082 c 0,0 37.9808,32.81581 37.9808,31.50367 0,-1.31183 -4.1329,-56.17414 -4.1329,-56.17414 l 44.99806,36.4076 -14.27524,-63.30318 38.4811,24.59968 -20.48188,-60.35119 36.66411,25.67552 -23.63019,-59.78704 37.09053,26.87122 -34.57719,-61.47676 36.59556,12.34494 -39.72955,-54.16234 33.65047,0.40846 -43.89143,-36.15995 25.17709,-4.78993 -47.2106,-26.04164 29.97266,-8.15916 -54.77312,-17.25511 30.97371,-9.05786 -52.10232,-7.18331 27.77636,-12.49356 -56.01653,3.9657 15.41763,-14.97082 c 0,0 -39.52793,11.17382 -40.09845,10.34172 -1.81173,-2.64228 -2.17082,-12.06266 -2.17082,-12.06266 l -26.2519,12.63965 -20.30065,-12.05876 0.39259,16.4434 c 0.0129,0.54379 -33.77568,-13.20955 -33.77568,-13.20955 l 16.17046,17.46894 -45.92757,-10.74584 24.51473,19.27372 -52.92456,-2.61846"

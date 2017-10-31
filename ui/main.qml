@@ -21,7 +21,9 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
+import QtQuick.Window 2.3
 import QtMultimedia 5.0
+
 
 import MonsterWars 1.0
 
@@ -32,11 +34,23 @@ ApplicationWindow {
     visible: true
     title: "Monster Wars"
 
+    visibility: fullscreen ? Window.FullScreen : Window.Windowed
+
     property string green: "#00c500"
     property string blue: "#0083c7"
     property string red: "#c12600"
 
     property real unitSize: Math.min(app.width / gameEngine.columns, app.height / gameEngine.rows)
+
+    onClosing: {
+        if(pageStack.depth > 1){
+            close.accepted = false
+            pageStack.pop();
+            console.log("About to close. Pop pagestack.")
+        }else{
+            return;
+        }
+    }
 
     Audio {
         id: musicPlayer

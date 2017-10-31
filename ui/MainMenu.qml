@@ -198,7 +198,7 @@ Page {
         Image {
             id: closeIcon
             anchors.fill: parent
-            anchors.margins: width / 5
+            anchors.margins: quitButton.width / 4
             source: dataDirectory + "/images/close-white.png"
         }
 

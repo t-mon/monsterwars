@@ -29,6 +29,11 @@ Page {
 
     property string backgroundColor: "transparent"
 
+    Component.onDestruction: {
+        console.log("Settings about to be destroyed. Save.")
+        gameEngine.playerSettings.store()
+    }
+
     Rectangle {
         anchors.fill: parent
         color: "black"
@@ -64,7 +69,7 @@ Page {
                     Text {
                         id: pointText
                         anchors.left: parent.left
-                        anchors.verticalCenter: resetButton.verticalCenter
+                        anchors.verticalCenter: parent.verticalCenter
                         // TRANSLATORS: Describes the available points in the settings view for tuning your monster properties
                         text: qsTr("Available points") + ": " + gameEngine.playerSettings.tunePoints
                         font.weight: Font.DemiBold
@@ -78,7 +83,7 @@ Page {
                         visible: gameEngine.playerSettings.changed
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
-                        width: app.unitSize * 4
+                        width: app.unitSize * 6
                         height: width
                         radius: width / 2
                         color: "black"
@@ -86,7 +91,7 @@ Page {
                         Image {
                             id: restartImage
                             anchors.fill: parent
-                            anchors.margins: app.unitSize
+                            anchors.margins: width / 7
                             source: dataDirectory + "/images/restart.png"
                         }
 
@@ -339,13 +344,53 @@ Page {
                     }
                 }
 
-                Button {
+
+                Rectangle {
                     id: resetButton
+                    height: app.unitSize * 12
+                    width: app.unitSize * 30
                     anchors.horizontalCenter: parent.horizontalCenter
-                    // TRANSLATORS: Reset button to reset all game settings and achievements
-                    text: qsTr("Reset")
-                    onClicked: {
-                        pageStack.push(Qt.resolvedUrl("ResetView.qml"))
+                    color: "transparent"
+
+                    Image {
+                        id: resetButtonMonster
+                        anchors.fill: parent
+                        source: dataDirectory + "/images/reset-button.png"
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+                        // TRANSLATORS: The "Donate" button in the main menu
+                        text: qsTr("Reset")
+                        font.bold: true
+                        font.pixelSize: app.unitSize * 3
+                        color: resetButtonMouseArea.pressed ? "steelblue" : "white"
+                    }
+
+                    MouseArea {
+                        id: resetButtonMouseArea
+                        anchors.fill: parent
+                        onClicked: pageStack.push(Qt.resolvedUrl("ResetView.qml"))
+                    }
+
+                    SequentialAnimation {
+                        id: resetButtonAnimation
+                        ScaleAnimator {
+                            target: resetButton
+                            from: 0.99
+                            to: 1.03
+                            easing.type: Easing.Linear;
+                            duration: 1000
+                        }
+                        ScaleAnimator {
+                            target: resetButton
+                            from: 1.03
+                            to: 0.99
+                            easing.type: Easing.Linear;
+                            duration: 800
+                        }
+                        running: true
+                        loops: Animation.Infinite
                     }
                 }
             }

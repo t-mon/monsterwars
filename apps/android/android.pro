@@ -9,6 +9,7 @@ INCLUDEPATH += ../../game/
 
 # Additional import path used to resolve QML modules in Creator's code model
 QML_IMPORT_PATH =
+QML_FILES = ../../ui/*.qml
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
@@ -16,7 +17,7 @@ COMMON_DATA.path = /assets
 COMMON_DATA.files = $$files(../../data/*)
 INSTALLS += COMMON_DATA
 
-RESOURCES += ui/ui.qrc qml.qrc
+RESOURCES += ../../ui/ui.qrc qml.qrc
 SOURCES += main.cpp
 
 DISTFILES += \

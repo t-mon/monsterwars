@@ -41,8 +41,8 @@ Item {
         id: menuRectangle
         color: "black"
         anchors.fill: parent
-        anchors.margins: height / 8
-        radius: 2
+        anchors.margins: app.unitSize * 3
+        radius: height / 8
 
         Text {
             id: newHighscoreText
@@ -50,7 +50,7 @@ Item {
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: parent.top
-                topMargin: app.unitSize * 3
+                topMargin: app.unitSize
             }
             visible: gameEngine.newHighScore
             // TRANSLATORS: In the game over view, if you reached a new high score
@@ -59,7 +59,7 @@ Item {
             styleColor: "steelblue"
             font.weight: Font.DemiBold
             font.bold: true
-            font.pixelSize: app.unitSize * 7
+            font.pixelSize: app.unitSize * 5
         }
 
         SequentialAnimation {
@@ -89,9 +89,9 @@ Item {
             anchors {
                 horizontalCenter: parent.horizontalCenter
                 top: newHighscoreText.bottom
-                topMargin: app.unitSize * 5
+                topMargin: app.unitSize * 2
             }
-            spacing: app.unitSize * 5
+            spacing: app.unitSize * 2
 
             Text {
                 id: winnerText
@@ -100,7 +100,7 @@ Item {
                 // TRANSLATORS: Inform the player if he won or lost the game in the game over view
                 text: gameEngine.winnerId == 1 ? qsTr("You won!") : qsTr("You lost.")
                 font.bold: true
-                font.pixelSize: app.unitSize * 6
+                font.pixelSize: app.unitSize * 4
             }
 
             Text {
@@ -119,13 +119,13 @@ Item {
             width: buttonSize
             height: buttonSize
             anchors.left: parent.left
-            anchors.leftMargin: app.unitSize * 5
+            anchors.leftMargin: app.unitSize * 3
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: app.unitSize * 5
+            anchors.bottomMargin: app.unitSize * 3
             color: "black"
             radius: width / 2
             border.color: "white"
-            border.width: 0.25
+            border.width: app.unitSize  / 2
 
             Image {
                 id: restartImage
@@ -149,16 +149,16 @@ Item {
             height: buttonSize
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: app.unitSize * 5
+            anchors.bottomMargin: app.unitSize * 3
             color: "black"
             radius: width / 2
             border.color: "white"
-            border.width: 1
+            border.width: app.unitSize  / 2
 
             Image {
                 id: settingsImage
                 anchors.fill: parent
-                anchors.margins: app.unitSize * 5
+                anchors.margins: width / 7
                 source: dataDirectory + "/images/settings.png"
             }
 
@@ -195,13 +195,13 @@ Item {
             id: plusOneText
             anchors.verticalCenter: settingsButton.verticalCenter
             anchors.left: settingsButton.right
-            anchors.leftMargin: app.unitSize * 5
+            anchors.leftMargin: app.unitSize * 3
             color: "white"
             text: "+1"
             style: Text.Outline
             styleColor: "steelblue"
             font.bold: true
-            font.pixelSize: 20
+            font.pixelSize: app.unitSize * 5
             visible: gameEngine.tunePointEarned && gameEngine.playerSettings.tunePoints != 0
         }
 
@@ -232,13 +232,13 @@ Item {
             width: buttonSize
             height: buttonSize
             anchors.right: parent.right
-            anchors.rightMargin: app.unitSize * 5
+            anchors.rightMargin: app.unitSize * 3
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: app.unitSize * 5
+            anchors.bottomMargin: app.unitSize * 3
             color: "black"
             radius: width / 2
             border.color: "white"
-            border.width: 1
+            border.width: app.unitSize / 2
 
             Image {
                 id: okImage
