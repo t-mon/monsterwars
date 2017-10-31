@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
+    app.setOrganizationName("monsterwars");
     app.setApplicationVersion("1.0.0");
     app.setApplicationDisplayName("Monster Wars");
     app.setWindowIcon(QIcon("qrc:///images/icon.png"));
@@ -84,9 +85,11 @@ int main(int argc, char *argv[])
     qDebug() << "Using data directory" << dataDir.canonicalPath();
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("dataDirectory", dataDir.canonicalPath());
+    engine.rootContext()->setContextProperty("dataDirectory", "file:" + dataDir.canonicalPath());
+    engine.rootContext()->setContextProperty("fullscreen", !parser.isSet(windowOption));
     engine.rootContext()->setContextProperty("version", app.applicationVersion());
-    engine.load(QUrl(QLatin1String("qrc:/MonsterWars.qml")));
+
+    engine.load(QUrl(QLatin1String("qrc:/main.qml")));
 
     // connect quit signal from QML engine (quit button pressed)
     //QObject::connect(engine, SIGNAL(quit()), qApp, SLOT(quit()));

@@ -26,6 +26,7 @@ PlayerSettings::PlayerSettings(QObject *parent) :
     QObject(parent)
 {
     QSettings settings;
+    qDebug() << "Loading settings from" << settings.fileName();
     settings.beginGroup("game");
 
     m_muted = settings.value("muted", false).toBool();
