@@ -4,6 +4,6 @@ Exec=monsterwars
 Icon=${SNAP}/meta/gui/monsterwars.svg
 Terminal=false
 Type=Application
-X-Ubuntu-Touch=true
-X-Ubuntu-Supported-Orientations=landscape
+X-Lomiri-Touch=true
+X-Lomiri-Supported-Orientations=landscape
 
