@@ -19,7 +19,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.4
-import Ubuntu.Thumbnailer 0.1
+import Lomiri.Thumbnailer 0.1
 
 Item {
     id: root

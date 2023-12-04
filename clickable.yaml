@@ -1,0 +1,4 @@
+clickable_minimum_required: 7.12.1
+
+framework: ubuntu-sdk-20.04
+builder: qmake

@@ -19,7 +19,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 
 Page {
     id: root
@@ -331,7 +331,7 @@ Page {
                     anchors.left: parent.left
                     // TRANSLATORS: Reset button to reset all game settings and achievements
                     text: i18n.tr("Reset")
-                    gradient: UbuntuColors.orangeGradient
+                    gradient: LomiriColors.orangeGradient
                     onClicked: {
                         pageStack.push(Qt.resolvedUrl("ResetView.qml"))
                     }

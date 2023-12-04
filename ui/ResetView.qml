@@ -19,7 +19,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 
 Page {
     id: root
@@ -50,7 +50,7 @@ Page {
                 topMargin: units.gu(3)
             }
             text: i18n.tr("No")
-            gradient: UbuntuColors.greyGradient
+            gradient: LomiriColors.greyGradient
             onClicked: pageStack.pop()
         }
 
@@ -62,7 +62,7 @@ Page {
                 topMargin: units.gu(3)
             }
             text: i18n.tr("Reset")
-            gradient: UbuntuColors.orangeGradient
+            gradient: LomiriColors.orangeGradient
             onClicked: {
                 gameEngine.resetGameSettings()
                 pageStack.pop()
